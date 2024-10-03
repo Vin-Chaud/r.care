@@ -7,7 +7,13 @@ import {
   FullFeedback as FullFeedbackModel,
   QuestionCommon,
 } from "@/models/OnboardingFlow/model";
-import { ComponentType, useCallback, useContext, useState } from "react";
+import {
+  ComponentType,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { FullFeedback } from "./FullFeedback";
 import { onboardingFlowContext } from "./onboardingFlowContext";
 import { QuestionHeader } from "./QuestionHeader";
@@ -35,11 +41,17 @@ export function createQuestionContainer<
 >(
   QuestionBody: ComponentType<P & QuestionContainerProps<S, A>>
 ): ComponentType<
-  P & { stepId: string; stepDefinition: S; onDidAnswer?: () => void }
+  P & {
+    stepId: string;
+    stepDefinition: S;
+    onDidAnswer?: () => void;
+  }
 > {
   return (props) => {
     const waitTime = useContext(globalContext).questionTransitionTime;
-    const { setResponse, next } = useContext(onboardingFlowContext);
+    const { setResponse, next, overrideBackAction } = useContext(
+      onboardingFlowContext
+    );
     const [embeddedFeedback, setEmbeddedFeedback] =
       useState<EmbeddedFeedbackModel | null>(null);
     const [fullFeedback, setFullFeedback] = useState<FullFeedbackModel | null>(
@@ -98,6 +110,23 @@ export function createQuestionContainer<
         {embeddedFeedback && <EmbeddedFeedback feedback={embeddedFeedback} />}
       </div>
     );
+
+    useEffect(() => {
+      // When we're showing the full feedback, we override the back button
+      // to hiding the feedback and showing the question again. Note that,
+      // because the question body is unmounted when the feedback is rendered,
+      // the newly rendered question body's state will be a blank slate and so
+      // the question can be re-attempted.
+      //
+      // If we don't do this, the back button would take the user to the question
+      // _before_ the one they just answered, which is not what we want.
+      if (fullFeedback != null) {
+        return overrideBackAction(() => {
+          setFullFeedback(null);
+          setHasAnswered(false);
+        });
+      }
+    }, [fullFeedback != null]);
 
     if (fullFeedback) {
       return <FullFeedback feedback={fullFeedback} />;

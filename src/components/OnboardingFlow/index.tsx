@@ -7,7 +7,7 @@ import {
   resolveStep,
 } from "@/models/OnboardingFlow/methods";
 import { OnboardingFlow as OnboardingFlowModel } from "@/models/OnboardingFlow/model";
-import { useEffect, useMemo, useReducer } from "react";
+import { useEffect, useMemo, useReducer, useRef } from "react";
 import { ErrorScreen } from "../ErrorScreen";
 import {
   OnboardingFlowContext,
@@ -66,6 +66,8 @@ export function OnboardingFlow({
     );
   }
 
+  const backButtonOverride = useRef<(() => void) | null>(null);
+
   const context: OnboardingFlowContext = {
     state: state,
     setResponse: (stepId, value) => {
@@ -78,6 +80,11 @@ export function OnboardingFlow({
       }));
     },
     back: () => {
+      if (backButtonOverride.current) {
+        backButtonOverride.current();
+        return;
+      }
+
       const newCursor = gotoPreviousStep(state.cursor, spec);
       if (newCursor) {
         updateState((state) => ({
@@ -103,6 +110,14 @@ export function OnboardingFlow({
       } else {
         onFlowComplete?.(state);
       }
+    },
+    overrideBackAction: (action) => {
+      backButtonOverride.current = action;
+      return () => {
+        if (backButtonOverride.current === action) {
+          backButtonOverride.current = null;
+        }
+      };
     },
   };
 
