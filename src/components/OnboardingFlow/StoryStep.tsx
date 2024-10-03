@@ -3,28 +3,31 @@ import {
   Story,
   StoryPane as StoryPaneModel,
 } from "@/models/OnboardingFlow/model";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { onboardingFlowContext } from "./onboardingFlowContext";
 import { RichText } from "./RichText";
+import { useAutoCanceledTimeout } from "./useAutoCanceledTimeout";
+import { TransitionState, useWatchedTransition } from "./useWatchedTransition";
 
 export function StoryStep({ stepDefinition }: { stepDefinition: Story }) {
   const { next } = useContext(onboardingFlowContext);
   const [paneIndex, setPaneIndex] = useState(0);
-  const waitTime = useContext(globalContext).storyTransitionTime;
+  const { storyTransitionDelayTime } = useContext(globalContext);
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (paneIndex === stepDefinition.panes.length - 1) {
-        next();
-      } else {
-        setPaneIndex(paneIndex + 1);
-      }
-    }, waitTime);
-  }, [paneIndex]);
-
+  const setTimeout = useAutoCanceledTimeout();
   return (
     <div style={{ marginTop: "20px" }}>
-      <StoryTicker length={stepDefinition.panes.length} paneIndex={paneIndex} />
+      <StoryTicker
+        length={stepDefinition.panes.length}
+        paneIndex={paneIndex}
+        onNext={() => {
+          if (paneIndex === stepDefinition.panes.length - 1) {
+            setTimeout(next, storyTransitionDelayTime);
+          } else {
+            setPaneIndex(paneIndex + 1);
+          }
+        }}
+      />
       <StoryPane {...stepDefinition.panes[paneIndex]} />
     </div>
   );
@@ -43,9 +46,11 @@ export function StoryPane({ title, body, graphic_id }: StoryPaneModel) {
 export function StoryTicker({
   length,
   paneIndex,
+  onNext,
 }: {
   length: number;
   paneIndex: number;
+  onNext?: () => void;
 }) {
   return (
     <div style={{ position: "relative", height: "10px" }}>
@@ -53,15 +58,16 @@ export function StoryTicker({
       {new Array(length).fill(0).map((_, barIndex) => (
         <StoryTickerBar
           key={barIndex}
-          state={
+          fillTransitionState={
             barIndex < paneIndex
-              ? "filled"
+              ? "after"
               : barIndex === paneIndex
-              ? "filling"
-              : "empty"
+              ? "progress"
+              : "before"
           }
           index={barIndex}
           count={length}
+          onDidFill={barIndex === paneIndex ? onNext : void 0}
         />
       ))}
     </div>
@@ -69,22 +75,35 @@ export function StoryTicker({
 }
 
 function StoryTickerBar({
-  state,
   index,
   count,
+  fillTransitionState,
+  onDidFill,
 }: {
-  state: "empty" | "filling" | "filled";
   index: number;
   count: number;
+  fillTransitionState: TransitionState;
+  onDidFill?: () => void;
 }) {
-  // See the comment in QuestionnaireTicker for why we fudge the wait time.
-  const waitTime = useContext(globalContext).storyTransitionTime * 0.9;
-  const [isFilled, setIsFilled] = useState(state === "filled");
-  useEffect(() => {
-    if (state === "filling") {
-      setIsFilled(true);
-    }
-  }, [state]);
+  const { storyTransitionTime, storyTransitionDelayTime } =
+    useContext(globalContext);
+
+  const fillBarRef = useRef<HTMLDivElement>(null);
+  const isFilled = useWatchedTransition(
+    fillTransitionState,
+    () => {
+      if (!fillBarRef.current) {
+        return false;
+      }
+
+      const fullBar = fillBarRef.current.parentElement!;
+      const fullWidth = getComputedStyle(fullBar).width;
+      const fillWidth = getComputedStyle(fillBarRef.current).width;
+
+      return fillWidth === fullWidth;
+    },
+    () => onDidFill?.()
+  );
 
   return (
     <div
@@ -98,12 +117,14 @@ function StoryTickerBar({
       }}
     >
       <div
+        ref={fillBarRef}
         style={{
           position: "absolute",
           height: "100%",
           width: isFilled ? "100%" : "0%",
           backgroundColor: "blue",
-          transition: `width ${waitTime}ms`,
+          transition: `width ${storyTransitionTime}ms`,
+          transitionDelay: `${storyTransitionDelayTime}ms`,
           border: "1px solid black",
         }}
       />

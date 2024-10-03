@@ -3,13 +3,12 @@ import {
   Cursor,
   ResolvedStep,
   areCursorsEqual,
-  getCursorHookDeps,
   isTickerStep,
 } from "@/models/OnboardingFlow/methods";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { onboardingFlowContext } from "./onboardingFlowContext";
-import { textInterpolationContext } from "./RichText";
 import { QuestionnaireTicker } from "./QuestionnaireTicker";
+import { textInterpolationContext } from "./RichText";
 import { StepRouter } from "./StepRouter";
 
 export function StepScreen({
@@ -19,14 +18,15 @@ export function StepScreen({
   tickerStepIndex,
   stepId,
 }: ResolvedStep) {
-  const { back, state } = useContext(onboardingFlowContext);
-  const [advancingCursor, setAdvancingCursor] = useState<Cursor | null>(null);
-  const isAdvancing =
-    advancingCursor != null && areCursorsEqual(advancingCursor, state.cursor);
+  const { back, state, next } = useContext(onboardingFlowContext);
+  const [fillingTickerCursor, setFillingTickerCursor] = useState<{
+    cursor: Cursor;
+    autoNext: boolean;
+  } | null>(null);
 
-  useEffect(() => {
-    setAdvancingCursor(null);
-  }, getCursorHookDeps(state.cursor));
+  const isFilling =
+    fillingTickerCursor != null &&
+    areCursorsEqual(fillingTickerCursor.cursor, state.cursor);
 
   return (
     <textInterpolationContext.Provider
@@ -56,18 +56,26 @@ export function StepScreen({
                 state.cursor.currentSectionIndex
               }
               subsectionLengths={tickerSubsectionLengths}
-              stepIndex={tickerStepIndex + (isAdvancing ? 1 : 0)}
+              stepIndex={tickerStepIndex}
               subsectionIndex={state.cursor.currentSubsectionIndex}
+              isFilling={isFilling}
+              onDidFill={() => {
+                if (fillingTickerCursor?.autoNext) {
+                  next();
+                  setFillingTickerCursor(null);
+                }
+              }}
             />
           )}
         </div>
         <StepRouter
           stepDefinition={stepDefinition}
           stepId={stepId}
-          onDidRespond={() => {
-            if (isTickerStep(stepDefinition)) {
-              setAdvancingCursor(state.cursor);
-            }
+          onDidRespond={(autoTickerNext) => {
+            setFillingTickerCursor({
+              cursor: state.cursor,
+              autoNext: autoTickerNext,
+            });
           }}
         />
       </div>

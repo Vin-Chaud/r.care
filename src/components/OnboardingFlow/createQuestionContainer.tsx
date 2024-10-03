@@ -44,12 +44,12 @@ export function createQuestionContainer<
   P & {
     stepId: string;
     stepDefinition: S;
-    onDidAnswer?: () => void;
+    onDidAnswer?: (autoNext: boolean) => void;
   }
 > {
   return (props) => {
     const waitTime = useContext(globalContext).questionTransitionTime;
-    const { setResponse, next, overrideBackAction } = useContext(
+    const { setResponse, overrideBackAction } = useContext(
       onboardingFlowContext
     );
     const [embeddedFeedback, setEmbeddedFeedback] =
@@ -58,22 +58,14 @@ export function createQuestionContainer<
       null
     );
     const [hasAnswered, setHasAnswered] = useState(false);
+    const { stepId, stepDefinition, onDidAnswer } = props;
 
     const submitAnswer = useCallback(
       (value: A, feedbackOrRef?: FeedbackModel | FeedbackReference | null) => {
-        const { stepId, stepDefinition, onDidAnswer } = props;
         setResponse(stepId, value);
         setHasAnswered(true);
-        onDidAnswer?.();
 
-        feedbackOrRef = feedbackOrRef ?? stepDefinition.base_feedback;
-        const feedback =
-          feedbackOrRef == null
-            ? null
-            : (feedbackOrRef.type == null
-                ? stepDefinition.feedback_definitions?.[feedbackOrRef.id]
-                : feedbackOrRef) ?? null;
-
+        const feedback = resolveFeedback(feedbackOrRef, stepDefinition);
         switch (feedback?.type) {
           case "embedded": {
             setEmbeddedFeedback(feedback);
@@ -86,16 +78,13 @@ export function createQuestionContainer<
             }, waitTime);
             break;
           }
-
-          default: {
-            setTimeout(() => {
-              next();
-            }, waitTime);
-            break;
-          }
         }
+
+        // If there's no feedback, we can auto-tick to the next question
+        const autoNext = feedback == null;
+        onDidAnswer?.(autoNext);
       },
-      [props.stepId, props.stepDefinition, props.onDidAnswer]
+      [stepId, stepDefinition, onDidAnswer]
     );
 
     const renderedChild = (
@@ -134,6 +123,20 @@ export function createQuestionContainer<
 
     return renderedChild;
   };
+}
+
+function resolveFeedback(
+  feedbackOrRef: FeedbackModel | FeedbackReference | null | undefined,
+  stepDefinition: QuestionCommon
+) {
+  feedbackOrRef = feedbackOrRef ?? stepDefinition.base_feedback;
+  const feedback =
+    feedbackOrRef == null
+      ? null
+      : (feedbackOrRef.type == null
+          ? stepDefinition.feedback_definitions?.[feedbackOrRef.id]
+          : feedbackOrRef) ?? null;
+  return feedback;
 }
 
 function EmbeddedFeedback({ feedback }: { feedback: EmbeddedFeedbackModel }) {

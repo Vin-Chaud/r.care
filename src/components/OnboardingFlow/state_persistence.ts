@@ -6,6 +6,10 @@ import { OnboardingFlowState, onboardingFlowStateSchema } from "./types";
 export function loadStateFromSessionStorage(
   spec: OnboardingFlow
 ): OnboardingFlowState | null {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
   const stateString = sessionStorage.getItem("onboardingFlowState");
   if (stateString == null) {
     return null;
@@ -30,6 +34,9 @@ export function loadStateFromSessionStorage(
 }
 
 export function saveStateToSessionStorage(state: OnboardingFlowState) {
+  if (typeof window === "undefined") {
+    return;
+  }
   sessionStorage.setItem("onboardingFlowState", JSON.stringify(state));
 }
 

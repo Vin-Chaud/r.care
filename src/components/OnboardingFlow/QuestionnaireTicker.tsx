@@ -1,18 +1,22 @@
 "use client";
 
 import { globalContext } from "@/context/GlobalContext";
-import { Fragment, useContext } from "react";
+import { useContext, useRef } from "react";
+import { useWatchedTransition } from "./useWatchedTransition";
 
 export function QuestionnaireTicker({
   subsectionLengths,
   stepIndex,
   subsectionIndex: cursorSubsectionIndex,
+  isFilling,
+  onDidFill,
 }: {
   subsectionLengths: readonly number[];
   subsectionIndex: number;
   stepIndex: number;
+  isFilling: boolean;
+  onDidFill?: () => void;
 }) {
-  const waitTime = useContext(globalContext).questionTransitionTime;
   const sumLengths = subsectionLengths.reduce((a, b) => a + b, 0);
   return (
     <div style={{ position: "relative", height: "10px" }}>
@@ -37,38 +41,85 @@ export function QuestionnaireTicker({
             />
           );
         } else {
-          // We let the ticker advance a little faster than the question
-          // transition time because, in the case where the next screen is a
-          // story screen, the ticker won't be there, and so it would be nice
-          // if the ticker fills properly before the next screen appears.
-          // It's also a technical hack -- screens advance using setTimeout()
-          // which may not be perfectly in sync with the CSS transition.
-          const transitionTime = waitTime * 0.9;
           return (
-            <Fragment key={subsectionIndex}>
-              <div
-                style={{
-                  position: "absolute",
-                  left: `${(sumLengthsBefore / sumLengths) * 100}%`,
-                  width: `${(subsectionLength / sumLengths) * 100}%`,
-                  backgroundColor: "lightblue",
-                  height: "100%",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  left: `${(sumLengthsBefore / sumLengths) * 100}%`,
-                  width: `${(stepIndex / sumLengths) * 100}%`,
-                  transition: `width ${transitionTime}ms`,
-                  backgroundColor: "blue",
-                  height: "100%",
-                }}
-              />
-            </Fragment>
+            <FillingQuestionnaireTickerBar
+              key={subsectionIndex}
+              isFilling={isFilling}
+              left={`${(sumLengthsBefore / sumLengths) * 100}%`}
+              fullWidth={`${(subsectionLength / sumLengths) * 100}%`}
+              unfilledWidth={`${(stepIndex / sumLengths) * 100}%`}
+              filledWidth={`${((stepIndex + 1) / sumLengths) * 100}%`}
+              onDidFill={onDidFill}
+            />
           );
         }
       })}
+    </div>
+  );
+}
+
+function FillingQuestionnaireTickerBar({
+  isFilling,
+  left,
+  unfilledWidth,
+  filledWidth,
+  fullWidth,
+  onDidFill,
+}: {
+  isFilling: boolean;
+  left: string;
+  unfilledWidth: string;
+  filledWidth: string;
+  fullWidth: string;
+  onDidFill?: () => void;
+}) {
+  const { questionTransitionTime } = useContext(globalContext);
+  const fillBarRef = useRef<HTMLDivElement>(null);
+  const rulerRef = useRef<HTMLDivElement>(null);
+
+  const isFilled = useWatchedTransition(
+    isFilling ? "progress" : "before",
+    () => {
+      if (!fillBarRef.current || !rulerRef.current) {
+        return false;
+      }
+
+      const fullWidth = getComputedStyle(rulerRef.current).width;
+      const fillWidth = getComputedStyle(fillBarRef.current).width;
+      return fillWidth === fullWidth;
+    },
+    () => onDidFill?.()
+  );
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left,
+        width: fullWidth,
+        backgroundColor: "lightblue",
+        height: "100%",
+      }}
+    >
+      <div
+        ref={fillBarRef}
+        style={{
+          position: "absolute",
+          width: isFilled ? filledWidth : unfilledWidth,
+          transition: `width ${questionTransitionTime}ms`,
+          backgroundColor: "blue",
+          height: "100%",
+        }}
+      />
+      <div
+        ref={rulerRef}
+        style={{
+          position: "absolute",
+          width: filledWidth,
+          backgroundColor: "transparent",
+          height: "100%",
+        }}
+      />
     </div>
   );
 }

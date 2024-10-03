@@ -17,7 +17,7 @@ export function StepRouter({
 }: {
   stepDefinition: Step;
   stepId: string;
-  onDidRespond?: () => void;
+  onDidRespond?: (autoTickerNext: boolean) => void;
 }) {
   switch (stepDefinition.type) {
     case "single_select": {
@@ -99,7 +99,7 @@ export function StepRouter({
         <UnimplementedStep
           key={stepId}
           stepDefinition={stepDefinition}
-          onDidClickContinue={onDidRespond}
+          onDidClickContinue={() => onDidRespond?.(true)}
         />
       );
   }
