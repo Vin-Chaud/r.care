@@ -1,13 +1,13 @@
-import { OnboardingFlow } from "../context/GlobalContext";
+"use client";
+
+import { defaultOnboardingFlow } from "@/assets/default_flow";
+import { OnboardingFlow } from "@/components/OnboardingFlow";
 import styles from "./page.module.css";
-import { Root } from "./root";
 
-export default async function Home() {
-  const flow: OnboardingFlow = await { foo: "here" };
-
+export default function Home() {
   return (
     <div className={styles.page}>
-      <Root flow={flow} />
+      <OnboardingFlow spec={defaultOnboardingFlow} />
     </div>
   );
 }

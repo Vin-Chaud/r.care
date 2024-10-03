@@ -1,4 +1,4 @@
-import { Metric } from "./Metric";
+import { Metric } from "../Metric";
 
 export interface OnboardingFlow {
   step_definitions?: Readonly<Record<string, Step>>;
@@ -6,7 +6,7 @@ export interface OnboardingFlow {
 }
 
 export interface FlowRootSection {
-  title: string;
+  title: string | { branding: true };
   step_definitions?: Readonly<Record<string, Step>>;
   subsections: readonly FlowSubsection[];
 }
@@ -23,7 +23,7 @@ export type Step =
   | ScaleQuestion
   | FreeTextQuestion
   | IntegerQuestion
-  | TransitionSequence
+  | Story
   | InfoScreen;
 
 export interface SingleSelectQuestion
@@ -35,7 +35,7 @@ export interface SingleSelectQuestion
 
 export interface SingleSelectOption {
   text: string;
-  value: string | number | boolean | null;
+  value: string | number;
   score?: number;
   feedback?: Feedback | FeedbackReference;
 }
@@ -48,7 +48,7 @@ export interface MultiSelectQuestion extends QuestionCommon, QuestionWithScore {
 
 export interface MultiSelectOption {
   text: string;
-  value: string | number | boolean | null;
+  value: string | number;
   score?: number;
   feedback?: MultiSelectOptionFeedback;
 }
@@ -84,6 +84,7 @@ export interface ScaleQuestion
 export interface FreeTextQuestion extends QuestionCommon {
   type: "free_text";
   format: "email";
+  placeholder?: string;
 }
 
 export interface IntegerQuestion
@@ -92,14 +93,15 @@ export interface IntegerQuestion
   type: "integer";
   min: number;
   max: number;
+  placeholder?: string;
 }
 
-export interface TransitionSequence {
-  type: "transition_sequence";
-  panes: TransitionItem[];
+export interface Story {
+  type: "story";
+  panes: StoryPane[];
 }
 
-export interface TransitionItem {
+export interface StoryPane {
   title?: string;
   body: string;
   graphic_id: string;

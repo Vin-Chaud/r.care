@@ -1,6 +1,6 @@
-import { OnboardingFlow } from "@/models";
+import { OnboardingFlow } from "@/models/OnboardingFlow/model";
 
-export const defaultOnboardingFlow: OnboardingFlow.OnboardingFlow = {
+export const defaultOnboardingFlow: OnboardingFlow = {
   step_definitions: {},
   sections: [
     {
@@ -60,7 +60,7 @@ export const defaultOnboardingFlow: OnboardingFlow.OnboardingFlow = {
               ],
             },
             r1: {
-              type: "transition_sequence",
+              type: "story",
               panes: [
                 {
                   title: "Glad you are here!",
@@ -114,7 +114,7 @@ export const defaultOnboardingFlow: OnboardingFlow.OnboardingFlow = {
                 "Do you often eat, even though you are not hungry, because of habit?",
             },
             r2: {
-              type: "transition_sequence",
+              type: "story",
               panes: [
                 {
                   body: "Binge eating symptoms can be exhausting.",
@@ -192,7 +192,7 @@ export const defaultOnboardingFlow: OnboardingFlow.OnboardingFlow = {
               max_label: "Totally",
             },
             r3: {
-              type: "transition_sequence",
+              type: "story",
               panes: [
                 {
                   body: "Now we’re going to explore how **binge eating** might be impacting your _feelings_ and _emotions_.",
@@ -209,7 +209,7 @@ export const defaultOnboardingFlow: OnboardingFlow.OnboardingFlow = {
               ],
             },
           },
-          step_order: ["q8", "q9", "q10", "q11", "q12", "q13", "q14", "r4"],
+          step_order: ["q8", "q9", "q10", "q11", "q12", "q13", "q14", "r3"],
         },
         {
           step_definitions: {
@@ -275,7 +275,7 @@ export const defaultOnboardingFlow: OnboardingFlow.OnboardingFlow = {
                 "Do you notice that you reach for certain types of food (e.g., sweets, comfort foods) when you’re feeling emotionally upset?",
             },
             r4: {
-              type: "transition_sequence",
+              type: "story",
               panes: [
                 {
                   body: "Binge eating often stems from a deep sensitivity to emotions and a strong desire to find comfort and relief, which can be channeled into nurturing relationships and self-care.",
@@ -570,7 +570,7 @@ export const defaultOnboardingFlow: OnboardingFlow.OnboardingFlow = {
               title: "“I often feel misunderstood by the people around me.”",
             },
             r5: {
-              type: "transition_sequence",
+              type: "story",
               panes: [
                 {
                   body: "Being _misunderstood_ by the people around you can feel **lonely** and **isolating**.",
@@ -699,16 +699,20 @@ export const defaultOnboardingFlow: OnboardingFlow.OnboardingFlow = {
                 "It's okay if you can't recall the exact number. There's no need to stress out. Count the instances of binge eating as much as you can remember.",
               min: 0,
               max: 30,
+              placeholder: "X (times per week)",
             },
             q37: {
               type: "integer",
               title:
-                "Three months from now, what is your target frequency of binge eating? You reported you currently binge eat {{current_frequency}} times/ week.",
+                "Three months from now, what is your target frequency of binge eating?",
+              help_text:
+                "You reported you currently binge eat {{current_frequency}} times/week.",
               min: 0,
               max: 30,
               expressions: {
                 current_frequency: "response_value('q36')",
               },
+              placeholder: "X (times per week)",
             },
             c7: {
               type: "info",
@@ -896,6 +900,42 @@ export const defaultOnboardingFlow: OnboardingFlow.OnboardingFlow = {
             "c9",
             "q41",
           ],
+        },
+      ],
+    },
+    {
+      title: { branding: true },
+      subsections: [
+        {
+          step_definitions: {
+            channel: {
+              type: "multi_select",
+              title: "One more thing, where did you hear about R.care?",
+              options: [
+                {
+                  text: "Friends or Family",
+                  value: "FRIENDS_FAMILY",
+                },
+                {
+                  text: "Clinician",
+                  value: "CLINICIAN",
+                },
+                {
+                  text: "Other",
+                  value: "OTHER",
+                },
+              ],
+              none_option: { text: "None" },
+            },
+            email: {
+              type: "free_text",
+              title: "What’s the best email address for you?",
+              help_text: "You’ll use this to log back in later.",
+              format: "email",
+              placeholder: "Please enter your email.",
+            },
+          },
+          step_order: ["channel", "email"],
         },
       ],
     },
