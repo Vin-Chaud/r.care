@@ -14,21 +14,26 @@ import { QuestionHeader } from "./QuestionHeader";
 import { RichText } from "./RichText";
 import { AnswerValue } from "./types";
 
+export interface QuestionContainerProps<
+  S extends QuestionCommon,
+  A extends AnswerValue
+> {
+  stepDefinition: S;
+  submitAnswer: SubmitAnswerAction<A>;
+  hasAnswered: boolean;
+}
+
+export type SubmitAnswerAction<A extends AnswerValue> = (
+  a: A,
+  feedbackOrRef?: FeedbackModel | FeedbackReference | null
+) => void;
+
 export function createQuestionContainer<
   A extends AnswerValue,
   S extends QuestionCommon,
   P
 >(
-  QuestionBody: ComponentType<
-    P & {
-      stepDefinition: S;
-      submitAnswer: (
-        a: A,
-        feedbackOrRef?: FeedbackModel | FeedbackReference | null
-      ) => void;
-      hasAnswered: boolean;
-    }
-  >
+  QuestionBody: ComponentType<P & QuestionContainerProps<S, A>>
 ): ComponentType<
   P & { stepId: string; stepDefinition: S; onDidAnswer?: () => void }
 > {

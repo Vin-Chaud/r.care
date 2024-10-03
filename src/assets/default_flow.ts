@@ -698,7 +698,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               help_text:
                 "It's okay if you can't recall the exact number. There's no need to stress out. Count the instances of binge eating as much as you can remember.",
               min: 0,
-              max: 30,
+              max: 100,
               placeholder: "X (times per week)",
             },
             q37: {
@@ -708,7 +708,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               help_text:
                 "You reported you currently binge eat {{current_frequency}} times/week.",
               min: 0,
-              max: 30,
+              max: 100,
               expressions: {
                 current_frequency: "response_value('q36')",
               },
