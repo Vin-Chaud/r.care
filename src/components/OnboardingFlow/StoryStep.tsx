@@ -5,6 +5,7 @@ import {
 } from "@/models/OnboardingFlow/model";
 import { useContext, useEffect, useState } from "react";
 import { onboardingFlowContext } from "./onboardingFlowContext";
+import { RichText } from "./RichText";
 
 export function StoryStep({ stepDefinition }: { stepDefinition: Story }) {
   const { next } = useContext(onboardingFlowContext);
@@ -32,8 +33,8 @@ export function StoryStep({ stepDefinition }: { stepDefinition: Story }) {
 export function StoryPane({ title, body, graphic_id }: StoryPaneModel) {
   return (
     <div>
-      <h1>{title}</h1>
-      <p>{body}</p>
+      <RichText tag="h1">{title}</RichText>
+      <RichText>{body}</RichText>
       <pre>Placeholder for image {graphic_id}</pre>
     </div>
   );

@@ -1,15 +1,17 @@
 "use client";
 import { globalContext } from "@/context/GlobalContext";
 import {
-  EmbeddedFeedback,
-  Feedback,
+  EmbeddedFeedback as EmbeddedFeedbackModel,
+  Feedback as FeedbackModel,
   FeedbackReference,
-  FullFeedback,
+  FullFeedback as FullFeedbackModel,
   QuestionCommon,
 } from "@/models/OnboardingFlow/model";
 import { ComponentType, useCallback, useContext, useState } from "react";
+import { FullFeedback } from "./FullFeedback";
 import { onboardingFlowContext } from "./onboardingFlowContext";
 import { QuestionHeader } from "./QuestionHeader";
+import { RichText } from "./RichText";
 import { AnswerValue } from "./types";
 
 export function createQuestionContainer<
@@ -22,7 +24,7 @@ export function createQuestionContainer<
       stepDefinition: S;
       submitAnswer: (
         a: A,
-        feedbackOrRef?: Feedback | FeedbackReference | null
+        feedbackOrRef?: FeedbackModel | FeedbackReference | null
       ) => void;
       hasAnswered: boolean;
     }
@@ -34,12 +36,14 @@ export function createQuestionContainer<
     const waitTime = useContext(globalContext).questionTransitionTime;
     const { setResponse, next } = useContext(onboardingFlowContext);
     const [embeddedFeedback, setEmbeddedFeedback] =
-      useState<EmbeddedFeedback | null>(null);
-    const [fullFeedback, setFullFeedback] = useState<FullFeedback | null>(null);
+      useState<EmbeddedFeedbackModel | null>(null);
+    const [fullFeedback, setFullFeedback] = useState<FullFeedbackModel | null>(
+      null
+    );
     const [hasAnswered, setHasAnswered] = useState(false);
 
     const submitAnswer = useCallback(
-      (value: A, feedbackOrRef?: Feedback | FeedbackReference | null) => {
+      (value: A, feedbackOrRef?: FeedbackModel | FeedbackReference | null) => {
         const { stepId, stepDefinition, onDidAnswer } = props;
         setResponse(stepId, value);
         setHasAnswered(true);
@@ -86,44 +90,28 @@ export function createQuestionContainer<
           stepDefinition={props.stepDefinition as S}
           hasAnswered={hasAnswered}
         />
-        {embeddedFeedback && (
-          <div>
-            <div>{embeddedFeedback.text}</div>
-            <button onClick={next}>{"Continue"}</button>
-          </div>
-        )}
+        {embeddedFeedback && <EmbeddedFeedback feedback={embeddedFeedback} />}
       </div>
     );
 
     if (fullFeedback) {
-      return (
-        <div>
-          {fullFeedback.contents.map((content, index) => {
-            switch (content.type) {
-              case "emoji": {
-                return <span key={index}>{content.emoji}</span>;
-              }
-              case "image": {
-                return <pre>(placeholder for image ${content.graphic_id})</pre>;
-              }
-              case "text": {
-                return <p key={index}>{content.text}</p>;
-              }
-              case "title": {
-                return <h2 key={index}>{content.text}</h2>;
-              }
-              default: {
-                return null;
-              }
-            }
-          })}
-          <button type="button" onClick={next}>
-            {"Continue"}
-          </button>
-        </div>
-      );
+      return <FullFeedback feedback={fullFeedback} />;
     }
 
     return renderedChild;
   };
+}
+
+function EmbeddedFeedback({ feedback }: { feedback: EmbeddedFeedbackModel }) {
+  const { next } = useContext(onboardingFlowContext);
+  const paragraphs =
+    typeof feedback.text === "string" ? [feedback.text] : feedback.text;
+  return (
+    <div>
+      {paragraphs.map((text, index) => (
+        <RichText key={index}>{text}</RichText>
+      ))}
+      <button onClick={next}>{"Continue"}</button>
+    </div>
+  );
 }
