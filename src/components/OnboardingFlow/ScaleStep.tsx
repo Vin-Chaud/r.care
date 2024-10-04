@@ -42,33 +42,38 @@ interface Option {
 }
 
 function getOptions(stepDefinition: ScaleQuestion): readonly Option[] {
-  switch (stepDefinition.template) {
-    case "intensity": {
-      return [
-        { value: 1, label: "1" },
-        { value: 2, label: "2" },
-        { value: 3, label: "3" },
-        { value: 4, label: "4" },
-        { value: 5, label: "5" },
-      ];
+  switch (stepDefinition.preset) {
+    case "intensity":
+    case "intensity_reversed": {
+      return ["1", "2", "3", "4", "5"].map(
+        stepDefinition.preset === "intensity_reversed"
+          ? makeReversedOption
+          : makeFowardOption
+      );
     }
-    case "agreement": {
-      return [
-        { value: 1, label: "👎👎" },
-        { value: 2, label: "👎" },
-        { value: 3, label: "🤷‍♀️" },
-        { value: 4, label: "👍" },
-        { value: 5, label: "👍👍" },
-      ];
+
+    case "agreement":
+    case "agreement_reversed": {
+      return ["👎👎", "👎", "🤷‍♀️", "👍", "👍👍"].map(
+        stepDefinition.preset === "agreement_reversed"
+          ? makeReversedOption
+          : makeFowardOption
+      );
     }
-    case "frequency": {
+
+    case "frequency":
+    case "frequency_reversed": {
       return [
-        { value: 5, label: "All the time" },
-        { value: 4, label: "A lot of the time" },
-        { value: 3, label: "Sometimes" },
-        { value: 2, label: "Rarely" },
-        { value: 1, label: "Never" },
-      ];
+        "All the time",
+        "A lot of the time",
+        "Sometimes",
+        "Rarely",
+        "Never",
+      ].map(
+        stepDefinition.preset === "frequency_reversed"
+          ? makeReversedOption
+          : makeFowardOption
+      );
     }
     case "custom": {
       return (stepDefinition.custom_labels || [1, 2, 3, 4, 5])!.map(
@@ -79,4 +84,18 @@ function getOptions(stepDefinition: ScaleQuestion): readonly Option[] {
       );
     }
   }
+}
+
+function makeReversedOption(label: string, index: number): Option {
+  return {
+    label,
+    value: 5 - index,
+  };
+}
+
+function makeFowardOption(label: string, index: number): Option {
+  return {
+    label,
+    value: index + 1,
+  };
 }

@@ -1,4 +1,5 @@
 import { OnboardingFlow } from "@/models/OnboardingFlow/model";
+import { Symptom } from "@/models/Metric";
 
 export const defaultOnboardingFlow: OnboardingFlow = {
   step_definitions: {},
@@ -86,32 +87,38 @@ export const defaultOnboardingFlow: OnboardingFlow = {
           step_definitions: {
             q3: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title: "Do you feel in control of how much you eat?",
+              target_metric: Symptom.SelfControlChallenge,
+              score_scaling_factor: -1,
+              score_offset: 6,
             },
             q4: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title:
                 "Do you eat meals much more quickly than other and seem to eat a lot more than others as well?",
             },
             q5: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title:
                 "Do you have a strong habit of eating when you’re bored such that nothing else can distract you?",
+              target_metric: Symptom.SelfControlChallenge,
             },
             q6: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title:
                 "Do you often feel desperate that you can’t be more in control of what you eat?",
+              target_metric: Symptom.SelfControlChallenge,
             },
             q7: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title:
                 "Do you often eat, even though you are not hungry, because of habit?",
+              target_metric: Symptom.SelfControlChallenge,
             },
             r2: {
               type: "story",
@@ -138,7 +145,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             q8: {
               type: "yes_no",
               title:
-                " Is it easy for you to get back on track with a diet or healthy eating regime?",
+                "Is it easy for you to get back on track with a diet or healthy eating regime?",
               feedbacks: {
                 no: {
                   type: "embedded",
@@ -149,33 +156,35 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   text: "🌟 Your resilience is your strength—keep using it to stay on track with your recovery goal.",
                 },
               },
+              target_metric: Symptom.SelfControlChallenge,
+              scores: { no: 1, yes: 5 },
             },
             q9: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title:
                 "Do you sometimes make yourself sick because you are so uncomfortably full?",
             },
             q10: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title:
                 "Does your life seem to be ‘feast’ or ‘famine’ with very little moderation?",
             },
             q11: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title: "Do you tend to eat all day with no defined meal times?",
             },
             q12: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title:
                 "Do you eat about the same amount of food every day and rarely binge?",
             },
             q13: {
               type: "scale",
-              template: "intensity",
+              preset: "intensity",
               preamble_text: "Do you relate to following statement?",
               title:
                 "“I feel in control of my urge to eat and can distract myself.”",
@@ -184,7 +193,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             q14: {
               type: "scale",
-              template: "intensity",
+              preset: "intensity",
               preamble_text: "Do you relate to following statement?",
               title:
                 "“I will keep eating, even when I am full, and it has become uncomfortable.”",
@@ -215,9 +224,10 @@ export const defaultOnboardingFlow: OnboardingFlow = {
           step_definitions: {
             q15: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title:
                 "Do you have strong feelings of self-hate or guilt if you overeat?",
+              target_metric: Symptom.EmotionalEating,
             },
             q16: {
               type: "yes_no",
@@ -241,9 +251,10 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             q18: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title:
                 "How frequently do you eat as a way to cope with difficult emotions?",
+              target_metric: Symptom.EmotionalEating,
             },
             c1: {
               type: "info",
@@ -264,15 +275,16 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             q19: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title:
                 "Do you feel very self-conscious about your weight and body size such that it stops you from socializing?",
             },
             q20: {
               type: "scale",
-              template: "frequency",
+              preset: "frequency",
               title:
                 "Do you notice that you reach for certain types of food (e.g., sweets, comfort foods) when you’re feeling emotionally upset?",
+              target_metric: Symptom.EmotionalEating,
             },
             r4: {
               type: "story",
@@ -303,13 +315,13 @@ export const defaultOnboardingFlow: OnboardingFlow = {
           step_definitions: {
             q21: {
               type: "scale",
-              template: "agreement",
+              preset: "agreement",
               title:
                 "How often do you find yourself thinking about your body image?",
             },
             q22: {
               type: "scale",
-              template: "agreement",
+              preset: "agreement",
               title:
                 "Do you usually not know how physically hungry you really are and eat more than you need?",
               base_feedback: {
@@ -322,7 +334,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             q23: {
               type: "scale",
-              template: "agreement",
+              preset: "agreement",
               title:
                 "How often do you get distracted by thoughts about food when trying to focus? ",
             },
@@ -345,13 +357,13 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             q24: {
               type: "scale",
-              template: "agreement",
+              preset: "agreement",
               title:
                 "How often do you experience difficulty falling asleep or staying asleep after a binge eating episode?",
             },
             q25: {
               type: "scale",
-              template: "agreement",
+              preset: "agreement",
               title: "How often do you skip meals?",
             },
             c3: {
@@ -383,7 +395,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             q27: {
               type: "scale",
-              template: "custom",
+              preset: "custom",
               title: "How strong is your knowledge of binge eating?",
               custom_labels: [
                 "I know very little about binge eating.",
@@ -435,7 +447,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             q28: {
               type: "scale",
-              template: "custom",
+              preset: "custom",
               title:
                 "When did you first suspect you might be dealing with a binge eating issue?",
               custom_labels: [
@@ -551,21 +563,21 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             q30: {
               type: "scale",
-              template: "agreement",
+              preset: "agreement",
               preamble_text: "Do you relate to following statement?",
               title:
                 "“I feel like others are not taking my  eating struggles seriously.”",
             },
             q31: {
               type: "scale",
-              template: "agreement",
+              preset: "agreement",
               preamble_text: "Do you relate to following statement?",
               title:
                 "“I have been told to simply be more disciplined or to simply stop binge eating.”",
             },
             q32: {
               type: "scale",
-              template: "agreement",
+              preset: "agreement",
               preamble_text: "Do you relate to following statement?",
               title: "“I often feel misunderstood by the people around me.”",
             },
@@ -844,7 +856,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             q41: {
               type: "scale",
-              template: "intensity",
+              preset: "intensity",
               title: "How motivated are you to learn more about yourself?",
               min_label: "Not at all",
               max_label: "Very Motivated",

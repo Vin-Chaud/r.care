@@ -55,9 +55,10 @@ export interface MultiSelectOption {
 
 export type MultiSelectOptionFeedback = Feedback & { priority: number };
 
-export interface YesNoQuestion extends QuestionCommon {
+export interface YesNoQuestion extends QuestionCommon, QuestionWithScore {
   type: "yes_no";
   feedbacks?: YesNoFeedback;
+  scores?: YesNoScore;
 }
 
 export interface YesNoFeedback {
@@ -65,11 +66,18 @@ export interface YesNoFeedback {
   no?: Feedback | FeedbackReference;
 }
 
+export interface YesNoScore {
+  yes?: number;
+  no?: number;
+}
+
 export interface ScaleQuestion
   extends QuestionCommon,
     NumericQuestionWithScore {
   type: "scale";
-  template: "frequency" | "agreement" | "intensity" | "custom";
+  preset:
+    | `${"frequency" | "agreement" | "intensity"}${"_reversed" | ""}`
+    | "custom";
   custom_labels?: readonly string[];
   min_label?: string;
   max_label?: string;
