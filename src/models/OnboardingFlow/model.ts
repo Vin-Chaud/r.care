@@ -1,4 +1,4 @@
-import { Metric } from "../Metric";
+import { Metric } from "../Metric.js";
 
 export interface OnboardingFlow {
   step_definitions?: Readonly<Record<string, Step>>;
@@ -26,9 +26,7 @@ export type Step =
   | Story
   | InfoScreen;
 
-export interface SingleSelectQuestion
-  extends QuestionCommon,
-    QuestionWithScore {
+export interface SingleSelectQuestion extends QuestionCommon {
   type: "single_select";
   options: readonly SingleSelectOption[];
 }
@@ -40,7 +38,7 @@ export interface SingleSelectOption {
   feedback?: Feedback | FeedbackReference;
 }
 
-export interface MultiSelectQuestion extends QuestionCommon, QuestionWithScore {
+export interface MultiSelectQuestion extends QuestionCommon {
   type: "multi_select";
   options: readonly MultiSelectOption[];
   none_option?: Omit<MultiSelectOption, "value" | "score">;
@@ -55,10 +53,16 @@ export interface MultiSelectOption {
 
 export type MultiSelectOptionFeedback = Feedback & { priority: number };
 
-export interface YesNoQuestion extends QuestionCommon, QuestionWithScore {
+export interface YesNoQuestion extends QuestionCommon {
   type: "yes_no";
   feedbacks?: YesNoFeedback;
-  scores?: YesNoScore;
+  scoring?: YesNoScoring;
+}
+
+export interface YesNoScoring extends ScoringCommon {
+  target_metric: Metric;
+  mode: "1_5" | "pos_neg";
+  yes_high: boolean;
 }
 
 export interface YesNoFeedback {
@@ -66,18 +70,9 @@ export interface YesNoFeedback {
   no?: Feedback | FeedbackReference;
 }
 
-export interface YesNoScore {
-  yes?: number;
-  no?: number;
-}
-
-export interface ScaleQuestion
-  extends QuestionCommon,
-    NumericQuestionWithScore {
+export interface ScaleQuestion extends QuestionCommon {
   type: "scale";
-  preset:
-    | `${"frequency" | "agreement" | "intensity"}${"_reversed" | ""}`
-    | "custom";
+  preset: "frequency" | "agreement" | "intensity" | "custom";
   custom_labels?: readonly string[];
   min_label?: string;
   max_label?: string;
@@ -87,6 +82,12 @@ export interface ScaleQuestion
    * Custom templates may have more or less depending on the set of labels.
    */
   feedbacks?: Readonly<Record<number, Feedback | FeedbackReference>>;
+  scoring?: ScaleScoring;
+}
+
+export interface ScaleScoring extends ScoringCommon {
+  target_metric: Metric;
+  reverse?: boolean;
 }
 
 export interface FreeTextQuestion extends QuestionCommon {
@@ -95,9 +96,7 @@ export interface FreeTextQuestion extends QuestionCommon {
   placeholder?: string;
 }
 
-export interface IntegerQuestion
-  extends QuestionCommon,
-    NumericQuestionWithScore {
+export interface IntegerQuestion extends QuestionCommon {
   type: "integer";
   min: number;
   max: number;
@@ -211,11 +210,7 @@ export interface QuestionCommon {
   expressions?: Readonly<Record<string, string>>;
 }
 
-export interface NumericQuestionWithScore extends QuestionWithScore {
-  score_scaling_factor?: number;
-  score_offset?: number;
-}
-
-export interface QuestionWithScore {
-  target_metric?: Metric;
+export interface ScoringCommon {
+  scaling_factor?: number;
+  max_unscaled_score?: number;
 }

@@ -43,59 +43,34 @@ interface Option {
 
 function getOptions(stepDefinition: ScaleQuestion): readonly Option[] {
   switch (stepDefinition.preset) {
-    case "intensity":
-    case "intensity_reversed": {
-      return ["1", "2", "3", "4", "5"].map(
-        stepDefinition.preset === "intensity_reversed"
-          ? makeReversedOption
-          : makeFowardOption
-      );
+    case "intensity": {
+      return ["1", "2", "3", "4", "5"].map(makeFowardOption);
     }
 
-    case "agreement":
-    case "agreement_reversed": {
-      return ["👎👎", "👎", "🤷‍♀️", "👍", "👍👍"].map(
-        stepDefinition.preset === "agreement_reversed"
-          ? makeReversedOption
-          : makeFowardOption
-      );
+    case "agreement": {
+      return ["👎👎", "👎", "🤷‍♀️", "👍", "👍👍"].map(makeFowardOption);
     }
 
-    case "frequency":
-    case "frequency_reversed": {
+    case "frequency": {
       return [
         "All the time",
         "A lot of the time",
         "Sometimes",
         "Rarely",
         "Never",
-      ].map(
-        stepDefinition.preset === "frequency_reversed"
-          ? makeReversedOption
-          : makeFowardOption
-      );
+      ].map(makeFowardOption);
     }
     case "custom": {
       return (stepDefinition.custom_labels || [1, 2, 3, 4, 5])!.map(
-        (label, index) => ({
-          value: index + 1,
-          label,
-        })
+        makeFowardOption
       );
     }
   }
 }
 
-function makeReversedOption(label: string, index: number): Option {
+function makeFowardOption(label: string | number, index: number): Option {
   return {
-    label,
-    value: 5 - index,
-  };
-}
-
-function makeFowardOption(label: string, index: number): Option {
-  return {
-    label,
+    label: String(label),
     value: index + 1,
   };
 }

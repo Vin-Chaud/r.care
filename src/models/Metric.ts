@@ -1,4 +1,4 @@
-export type Metric = Symptom | Impact;
+export type Metric = Symptom | Impact | Experience;
 
 export enum Symptom {
   EmotionalEating = "EMOTIONAL_EATING",
@@ -10,4 +10,8 @@ export enum Impact {
   MentalHealth = "MENTAL_HEALTH",
   Relationship = "RELATIONSHIP",
   Productivity = "PRODUCTIVITY",
+}
+
+export enum Experience {
+  Knowledge = "KNOWLEDGE",
 }

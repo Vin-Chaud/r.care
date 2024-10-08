@@ -1,5 +1,5 @@
+import { Experience, Impact, Symptom } from "@/models/Metric";
 import { OnboardingFlow } from "@/models/OnboardingFlow/model";
-import { Symptom } from "@/models/Metric";
 
 export const defaultOnboardingFlow: OnboardingFlow = {
   step_definitions: {},
@@ -89,36 +89,40 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title: "Do you feel in control of how much you eat?",
-              target_metric: Symptom.SelfControlChallenge,
-              score_scaling_factor: -1,
-              score_offset: 6,
+              scoring: {
+                target_metric: Symptom.SelfControlChallenge,
+                reverse: true,
+              },
             },
             q4: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you eat meals much more quickly than other and seem to eat a lot more than others as well?",
+              scoring: {
+                target_metric: Symptom.InternalSignalDysfunction,
+              },
             },
             q5: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you have a strong habit of eating when you’re bored such that nothing else can distract you?",
-              target_metric: Symptom.SelfControlChallenge,
+              scoring: { target_metric: Symptom.SelfControlChallenge },
             },
             q6: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you often feel desperate that you can’t be more in control of what you eat?",
-              target_metric: Symptom.SelfControlChallenge,
+              scoring: { target_metric: Symptom.SelfControlChallenge },
             },
             q7: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you often eat, even though you are not hungry, because of habit?",
-              target_metric: Symptom.SelfControlChallenge,
+              scoring: { target_metric: Symptom.SelfControlChallenge },
             },
             r2: {
               type: "story",
@@ -156,31 +160,47 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   text: "🌟 Your resilience is your strength—keep using it to stay on track with your recovery goal.",
                 },
               },
-              target_metric: Symptom.SelfControlChallenge,
-              scores: { no: 1, yes: 5 },
+              scoring: {
+                target_metric: Symptom.SelfControlChallenge,
+                mode: "1_5",
+                yes_high: true,
+              },
             },
             q9: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you sometimes make yourself sick because you are so uncomfortably full?",
+              scoring: {
+                target_metric: Symptom.InternalSignalDysfunction,
+              },
             },
             q10: {
               type: "scale",
               preset: "frequency",
               title:
                 "Does your life seem to be ‘feast’ or ‘famine’ with very little moderation?",
+              scoring: {
+                target_metric: Symptom.InternalSignalDysfunction,
+              },
             },
             q11: {
               type: "scale",
               preset: "frequency",
               title: "Do you tend to eat all day with no defined meal times?",
+              scoring: {
+                target_metric: Symptom.InternalSignalDysfunction,
+              },
             },
             q12: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you eat about the same amount of food every day and rarely binge?",
+              scoring: {
+                target_metric: Symptom.InternalSignalDysfunction,
+                reverse: true,
+              },
             },
             q13: {
               type: "scale",
@@ -190,6 +210,10 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "“I feel in control of my urge to eat and can distract myself.”",
               min_label: "Not at all",
               max_label: "Totally",
+              scoring: {
+                target_metric: Symptom.SelfControlChallenge,
+                reverse: true,
+              },
             },
             q14: {
               type: "scale",
@@ -199,6 +223,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "“I will keep eating, even when I am full, and it has become uncomfortable.”",
               min_label: "Not at all",
               max_label: "Totally",
+              scoring: {
+                target_metric: Symptom.InternalSignalDysfunction,
+              },
             },
             r3: {
               type: "story",
@@ -227,7 +254,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "frequency",
               title:
                 "Do you have strong feelings of self-hate or guilt if you overeat?",
-              target_metric: Symptom.EmotionalEating,
+              scoring: { target_metric: Symptom.EmotionalEating },
             },
             q16: {
               type: "yes_no",
@@ -244,17 +271,27 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   text: "Being tough on yourself is common, but remember, you deserve the same kindness you give others—we're here to help with that!",
                 },
               },
+              scoring: {
+                target_metric: Impact.MentalHealth,
+                mode: "1_5",
+                yes_high: true,
+              },
             },
             q17: {
               type: "yes_no",
               title: "Do you feel self-conscious eating around other people?",
+              scoring: {
+                target_metric: Impact.Relationship,
+                mode: "1_5",
+                yes_high: true,
+              },
             },
             q18: {
               type: "scale",
               preset: "frequency",
               title:
                 "How frequently do you eat as a way to cope with difficult emotions?",
-              target_metric: Symptom.EmotionalEating,
+              scoring: { target_metric: Symptom.EmotionalEating },
             },
             c1: {
               type: "info",
@@ -278,13 +315,16 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "frequency",
               title:
                 "Do you feel very self-conscious about your weight and body size such that it stops you from socializing?",
+              scoring: {
+                target_metric: Impact.Relationship,
+              },
             },
             q20: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you notice that you reach for certain types of food (e.g., sweets, comfort foods) when you’re feeling emotionally upset?",
-              target_metric: Symptom.EmotionalEating,
+              scoring: { target_metric: Symptom.EmotionalEating },
             },
             r4: {
               type: "story",
@@ -309,7 +349,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       ],
     },
     {
-      title: "Your Experience",
+      title: "Your Relationship With Food",
       subsections: [
         {
           step_definitions: {
@@ -318,6 +358,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "agreement",
               title:
                 "How often do you find yourself thinking about your body image?",
+              scoring: {
+                target_metric: Impact.MentalHealth,
+              },
             },
             q22: {
               type: "scale",
@@ -331,12 +374,18 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   "By becoming more aware of your hunger and fullness cues, you can make choices that truly nourish both your body and mind.",
                 ],
               },
+              scoring: {
+                target_metric: Symptom.InternalSignalDysfunction,
+              },
             },
             q23: {
               type: "scale",
               preset: "agreement",
               title:
                 "How often do you get distracted by thoughts about food when trying to focus? ",
+              scoring: {
+                target_metric: Impact.Productivity,
+              },
             },
             c2: {
               type: "info",
@@ -360,11 +409,17 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "agreement",
               title:
                 "How often do you experience difficulty falling asleep or staying asleep after a binge eating episode?",
+              scoring: {
+                target_metric: Impact.Productivity,
+              },
             },
             q25: {
               type: "scale",
               preset: "agreement",
               title: "How often do you skip meals?",
+              scoring: {
+                target_metric: Symptom.InternalSignalDysfunction,
+              },
             },
             c3: {
               type: "info",
@@ -391,6 +446,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   type: "embedded",
                   text: "**It’s great that you’re already familiar with Alexithymia.** To reaffirm, it’s the inability to identify and describe emotions in oneself. This condition makes it harder for individuals to understand their feelings and can result in using food as a way to cope with unresolved or unidentified emotional distress.",
                 },
+              },
+              scoring: {
+                target_metric: Experience.Knowledge,
+                mode: "pos_neg",
+                yes_high: true,
+                scaling_factor: 5,
               },
             },
             q27: {
@@ -444,17 +505,33 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   ],
                 },
               },
+              scoring: {
+                target_metric: Experience.Knowledge,
+                scaling_factor: 20,
+                max_unscaled_score: 5,
+              },
             },
             q28: {
-              type: "scale",
-              preset: "custom",
+              type: "single_select",
               title:
                 "When did you first suspect you might be dealing with a binge eating issue?",
-              custom_labels: [
-                "< 6 months ago",
-                "6 months - 1 year ago",
-                "1-2 years ago",
-                "More than 2 years ago",
+              options: [
+                {
+                  text: "< 6 months ago",
+                  value: "LESS_THAN_SIX_MONTHS",
+                },
+                {
+                  text: "6 months - 1 year ago",
+                  value: "SIX_TO_TWELVE_MONTHS",
+                },
+                {
+                  text: "1-2 years ago",
+                  value: "ONE_TO_TWO_YEARS",
+                },
+                {
+                  text: "More than 2 years ago",
+                  value: "MORE_THAN_TWO_YEARS",
+                },
               ],
             },
             c5: {
@@ -566,7 +643,10 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "agreement",
               preamble_text: "Do you relate to following statement?",
               title:
-                "“I feel like others are not taking my  eating struggles seriously.”",
+                "“I feel like others are not taking my eating struggles seriously.”",
+              scoring: {
+                target_metric: Impact.MentalHealth,
+              },
             },
             q31: {
               type: "scale",
@@ -574,12 +654,18 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preamble_text: "Do you relate to following statement?",
               title:
                 "“I have been told to simply be more disciplined or to simply stop binge eating.”",
+              scoring: {
+                target_metric: Impact.MentalHealth,
+              },
             },
             q32: {
               type: "scale",
               preset: "agreement",
               preamble_text: "Do you relate to following statement?",
               title: "“I often feel misunderstood by the people around me.”",
+              scoring: {
+                target_metric: Impact.Relationship,
+              },
             },
             r5: {
               type: "story",
@@ -931,6 +1017,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 {
                   text: "Clinician",
                   value: "CLINICIAN",
+                },
+                {
+                  text: "Google search",
+                  value: "GOOGLE",
+                },
+                {
+                  text: "Instagram or Facebook",
+                  value: "FACEBOOK_INSTRAGRAM",
+                },
+                {
+                  text: "TikTok",
+                  value: "TIKTOK",
+                },
+                {
+                  text: "Reddit",
+                  value: "REDDIT",
                 },
                 {
                   text: "Other",
