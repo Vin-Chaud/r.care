@@ -15,3 +15,9 @@ export enum Impact {
 export enum Experience {
   Knowledge = "KNOWLEDGE",
 }
+
+export const AllMetrics = [
+  ...Object.values(Symptom),
+  ...Object.values(Impact),
+  ...Object.values(Experience),
+];

@@ -1,3 +1,4 @@
+import assert from "assert";
 import {
   array,
   boolean,
@@ -8,12 +9,14 @@ import {
   union,
   ZodType,
 } from "zod";
+import { AllMetrics, Metric } from "../Metric";
 import {
   FlowRootSection as FlowSection,
   FlowSubsection,
   OnboardingFlow,
   Step,
-} from "./model.js";
+  YesNoScoring,
+} from "./model";
 
 export interface Cursor {
   currentSectionIndex: number;
@@ -285,6 +288,136 @@ export function getCursorHookDeps(cursor: Cursor) {
     cursor.currentSubsectionIndex,
     cursor.currentStepIndex,
   ];
+}
+
+/**
+ * Computes percentage scores for every metric based on all responses.
+ */
+export function computePercentageScores(
+  model: OnboardingFlow,
+  responses: Readonly<Record<string, unknown>>
+) {
+  let cursor: Cursor | null = {
+    currentSectionIndex: 0,
+    currentSubsectionIndex: 0,
+    currentStepIndex: 0,
+  };
+
+  const scores = Object.fromEntries(
+    AllMetrics.map((metric) => [metric, 0 as number] as const)
+  ) as Record<Metric, number>;
+  const maxScores = Object.fromEntries(
+    AllMetrics.map((metric) => [metric, 0 as number] as const)
+  ) as Record<Metric, number>;
+
+  while (cursor) {
+    const { stepDefinition, stepId } = resolveStep(model, cursor);
+    const response = Object.hasOwn(responses, stepId)
+      ? responses[stepId]
+      : null;
+
+    const scoreContribution = computeScoreFromStep(stepDefinition, response);
+    if (scoreContribution) {
+      scores[scoreContribution.metric] += scoreContribution.responseScore;
+      maxScores[scoreContribution.metric] += scoreContribution.maxScore;
+    }
+
+    cursor = gotoNextStep(cursor, model);
+  }
+
+  const percentageScores = Object.fromEntries(
+    AllMetrics.map((metric) => [
+      metric,
+      (100 * scores[metric]) / maxScores[metric],
+    ])
+  ) as Record<Metric, number>;
+
+  return percentageScores;
+}
+
+function computeScoreFromStep(
+  stepDefinition: Step,
+  response: unknown
+): ScoreContribution | null {
+  switch (stepDefinition.type) {
+    case "yes_no": {
+      assert(typeof response === "boolean", "Expected a boolean response");
+      if (stepDefinition.scoring == null) {
+        return null;
+      }
+
+      return computeYesNoScoring(response, stepDefinition.scoring);
+    }
+
+    case "scale": {
+      assert(typeof response === "number", "Expected a numeric response");
+      if (stepDefinition.scoring == null) {
+        return null;
+      }
+      const scoring = stepDefinition.scoring;
+
+      let value = response;
+      const stepCount =
+        stepDefinition.preset === "custom"
+          ? stepDefinition.custom_labels?.length ??
+            STANDARD_SCALE_RESPONSE_COUNT
+          : STANDARD_SCALE_RESPONSE_COUNT;
+      value = Math.max(value, 1);
+      value = Math.min(value, stepCount);
+
+      const scalingFactor = scoring.scaling_factor ?? 1;
+
+      let score = value * scalingFactor;
+      const maxScore =
+        (scoring.max_unscaled_score ?? stepCount) * scalingFactor;
+      score = Math.min(score, maxScore);
+
+      return { responseScore: score, maxScore, metric: scoring.target_metric };
+    }
+
+    default: {
+      return null;
+    }
+  }
+}
+
+function computeYesNoScoring(
+  response: boolean,
+  scoring: YesNoScoring
+): ScoreContribution {
+  let score = scoring.yes_high ? (response ? 1 : 0) : response ? 0 : 1;
+  let maxUnscaledScore = scoring.max_unscaled_score;
+  switch (scoring.mode) {
+    case "pos_neg": {
+      score = (score - 0.5) * 2;
+      maxUnscaledScore = maxUnscaledScore ?? 1;
+      break;
+    }
+    case "1_5": {
+      score = score * 4 + 1;
+      maxUnscaledScore = maxUnscaledScore ?? 5;
+      break;
+    }
+    default: {
+      scoring.mode satisfies never;
+      throw Error(`Unsupported yes/no scoring mode: ${scoring.mode}`);
+    }
+  }
+
+  const scoringFactor = scoring.scaling_factor ?? 1;
+  score = score * scoringFactor;
+  const maxScore = maxUnscaledScore * scoringFactor;
+  return {
+    responseScore: score,
+    maxScore,
+    metric: scoring.target_metric,
+  };
+}
+
+interface ScoreContribution {
+  responseScore: number;
+  maxScore: number;
+  metric: Metric;
 }
 
 const STANDARD_SCALE_RESPONSE_COUNT = 5;

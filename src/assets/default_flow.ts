@@ -444,7 +444,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
                 yes: {
                   type: "embedded",
-                  text: "**It’s great that you’re already familiar with Alexithymia.** To reaffirm, it’s the inability to identify and describe emotions in oneself. This condition makes it harder for individuals to understand their feelings and can result in using food as a way to cope with unresolved or unidentified emotional distress.",
+                  text: "**It’s great that you’re already familiar with Alexithymia.** To reiterate, it’s the inability to identify and describe emotions in oneself. This condition makes it harder for individuals to understand their feelings and can result in using food as a way to cope with unresolved or unidentified emotional distress.",
                 },
               },
               scoring: {
