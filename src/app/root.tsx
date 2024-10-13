@@ -4,7 +4,7 @@ import { saveDocument } from "@/actions/saveDocument";
 export function Onboarding() {
   return (
     <div>
-      <button onClick={() => saveDocument({ hello: "world" })}>Save</button>
+      {/* <button onClick={() => saveDocument({ hello: "world" })}>Save</button> */}
       <button onClick={() => handleSubscribe("quarterly")}>
         Subscribe quarterly
       </button>

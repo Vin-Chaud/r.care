@@ -9,11 +9,12 @@ import {
   union,
   ZodType,
 } from "zod";
-import { AllMetrics, Metric } from "../Metric";
+import { AllMetrics, Metric, Symptom } from "../Metric";
 import {
   FlowRootSection as FlowSection,
   FlowSubsection,
   OnboardingFlow,
+  ResponseEcho,
   Step,
   YesNoScoring,
 } from "./model";
@@ -414,10 +415,82 @@ function computeYesNoScoring(
   };
 }
 
+export function computeTotalScore(
+  metricScores: Readonly<Record<Symptom, number>>
+) {
+  return Number(
+    (
+      (Object.values(Symptom)
+        .map((symptom) => metricScores[symptom] ?? 0)
+        .reduce((a, b) => a + b, 0) /
+        Object.values(Symptom).length) *
+      (100 / 85)
+    ).toFixed(0)
+  );
+}
+
 interface ScoreContribution {
   responseScore: number;
   maxScore: number;
   metric: Metric;
 }
 
+export enum ScoreZone {
+  Low = "Low",
+  Medium = "Medium",
+  High = "High",
+  VeryHigh = "VeryHigh",
+}
+
+const ScoreZoneCutoffs: Readonly<
+  Record<Exclude<ScoreZone, ScoreZone.VeryHigh>, number>
+> = {
+  [ScoreZone.Low]: 40,
+  [ScoreZone.Medium]: 65,
+  [ScoreZone.High]: 85,
+};
+
+export function getScoreZone(percentage: number): ScoreZone {
+  percentage = Number(percentage.toFixed(0));
+  if (percentage <= ScoreZoneCutoffs.Low) {
+    return ScoreZone.Low;
+  }
+  if (percentage <= ScoreZoneCutoffs.Medium) {
+    return ScoreZone.Medium;
+  }
+  if (percentage <= ScoreZoneCutoffs.High) {
+    return ScoreZone.High;
+  }
+  return ScoreZone.VeryHigh;
+}
+
 const STANDARD_SCALE_RESPONSE_COUNT = 5;
+
+export function getEchoText(
+  responses: Readonly<Record<string, unknown>>,
+  spec: ResponseEcho
+) {
+  let response = Object.hasOwn(responses, spec.step_id)
+    ? responses[spec.step_id]
+    : null;
+
+  // For multi-answer, prioiritize the first response
+  if (Array.isArray(response)) {
+    if (spec.multi_select_priority != null) {
+      for (const option of spec.multi_select_priority) {
+        if (response.includes(option)) {
+          response = option;
+          break;
+        }
+      }
+    } else {
+      response = response[0];
+    }
+  }
+
+  if (response != null && Object.hasOwn(spec.echo_mapping, String(response))) {
+    return spec.echo_mapping[String(response)];
+  }
+
+  return spec.echo_default;
+}

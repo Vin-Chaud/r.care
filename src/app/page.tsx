@@ -5,8 +5,11 @@ import { AnalysisTransition } from "@/components/AnalysisTransition";
 import { OnboardingFlow } from "@/components/OnboardingFlow";
 import { ResultFlow } from "@/components/ResultFlow";
 import { WithPopupHost } from "@/components/WithPopupHost/index";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./page.module.css";
+
+import { saveDocument } from "@/actions/saveDocument";
+import { customAlphabet } from "nanoid/non-secure";
 
 export default function Home() {
   const [onboardingResponses, setOnboardingResponses] = useState<Readonly<
@@ -14,6 +17,17 @@ export default function Home() {
   > | null>(null);
 
   const [isAnalysisTransitionDone, setAnalysisTransitionDone] = useState(false);
+  const [isResultDone, setResultDone] = useState(false);
+
+  useEffect(() => {
+    if (onboardingResponses) {
+      const documentId =
+        localStorage.getItem("onboarding_document_id") ||
+        customAlphabet("1234567890abcdef", 20)();
+      localStorage.setItem("onboarding_document_id", documentId);
+      saveDocument(onboardingResponses, documentId);
+    }
+  }, [onboardingResponses]);
 
   return (
     <WithPopupHost>
@@ -27,12 +41,27 @@ export default function Home() {
           <AnalysisTransition
             spec={defaultOnboardingFlow}
             onDone={() => setAnalysisTransitionDone(true)}
+            onPopupQuizDidAnswer={(response) => {
+              setOnboardingResponses({
+                ...onboardingResponses,
+                [defaultOnboardingFlow.popup_quiz_step.id]: response,
+              });
+            }}
           />
-        ) : (
+        ) : !isResultDone ? (
           <ResultFlow
             flow={defaultOnboardingFlow}
             responses={onboardingResponses}
+            onReactionDidAnswer={(reaction) => {
+              setOnboardingResponses({
+                ...onboardingResponses,
+                [defaultOnboardingFlow.reaction_step_id]: reaction,
+              });
+            }}
+            onNext={() => setResultDone(true)}
           />
+        ) : (
+          <div>Paywall</div>
         )}
       </div>
     </WithPopupHost>

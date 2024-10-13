@@ -3,7 +3,14 @@ import { Metric } from "../Metric.js";
 export interface OnboardingFlow {
   step_definitions?: Readonly<Record<string, Step>>;
   sections: readonly FlowRootSection[];
-  popup_quiz_step: YesNoQuestion;
+  popup_quiz_step: YesNoQuestion & { id: string };
+  reaction_step_id: string;
+  email_step_id: string;
+  current_episode_count_id: string;
+  target_episode_count_id: string;
+  program_plan: readonly ResponseEcho[];
+  knowledge_plan: readonly ResponseEcho[];
+  target_knowledge_score: number;
 }
 
 export interface FlowRootSection {
@@ -120,8 +127,13 @@ export interface InfoScreen {
   contents: readonly Content[];
 }
 
-export interface SystemScreen {
-  type: "system";
+export interface ResponseEcho {
+  step_id: string;
+  prompt: string;
+  echo_mapping: Readonly<Record<string, string>>;
+  echo_default: string;
+  multi_select_priority?: readonly string[];
+  color: string;
 }
 
 export type Feedback = FullFeedback | EmbeddedFeedback;

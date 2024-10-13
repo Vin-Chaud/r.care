@@ -1,4 +1,3 @@
-// firebase.js
 import { FirebaseOptions, initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 

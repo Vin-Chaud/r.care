@@ -17,9 +17,11 @@ const analysisTransitionTexts: readonly string[] = [
 
 export function AnalysisTransition({
   onDone,
+  onPopupQuizDidAnswer,
   spec,
 }: {
   onDone?: () => void;
+  onPopupQuizDidAnswer: (response: boolean) => void;
   spec: OnboardingFlow;
 }) {
   const setTimeout = useAutoCanceledTimeout();
@@ -88,9 +90,9 @@ export function AnalysisTransition({
                 quiz={spec.popup_quiz_step}
                 onDidAnswer={(response) => {
                   isQuizAnsweredRef.current = true;
-                  if (isAnimationCompleteRef.current) {
-                    onDone?.();
-                  }
+                  setShowingQuiz(false);
+                  onPopupQuizDidAnswer(response);
+                  tryAdvance();
                 }}
               />
             </div>

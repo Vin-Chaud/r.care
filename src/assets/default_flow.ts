@@ -1055,8 +1055,98 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     },
   ],
   popup_quiz_step: {
+    id: "popup_quiz",
     type: "yes_no",
     title:
       "Have you ever noticed any disordered eating symptoms in your extended family?",
   },
+  reaction_step_id: "reaction",
+  email_step_id: "email",
+  current_episode_count_id: "q36",
+  target_episode_count_id: "q37",
+  target_knowledge_score: 94,
+  program_plan: [
+    {
+      step_id: "q33",
+      prompt: "We’re going to focus on helping you",
+      echo_mapping: {
+        CONTROL_EATING_HABITS: "Regain control over my eating habits",
+        REDUCE_EMOTIONAL_EATING: "Reduce emotional eating",
+        BALANCED_EATING_ROUTINE: "Create a more balanced eating routine",
+        CONNECT_HUNGER_FULLNESS:
+          "Connect with my body’s hunger & fullness cues",
+        BREAK_GUILT_SHAME: "Break the cycle of guilt & shame around food",
+      },
+      echo_default: "Managing your binge eating symptoms",
+      color: "#D7E2C9",
+    },
+    {
+      step_id: "q27",
+      prompt: "You said that",
+      echo_mapping: {
+        1: "You are relatively new to Binge Eating",
+        3: "You have a good understanding of Binge Eating",
+        4: "You have a good understanding of Binge Eating",
+      },
+      echo_default: "You’ve done some research into Binge Eating",
+      color: "#EEE2CE",
+    },
+    {
+      step_id: "q38",
+      prompt: "You also shared that",
+      echo_mapping: {
+        FAST: "You want to learn as fast as possible",
+      },
+      echo_default: "You want to take your time to learn",
+      color: "#C8DBE3",
+    },
+  ],
+  knowledge_plan: [
+    {
+      step_id: "q27",
+      prompt: "How much you know about binge eating:",
+      echo_mapping: {
+        1: "Very little",
+        2: "The basics",
+        3: "A good amount",
+        4: "Expert in all things binge eating",
+      },
+      echo_default: "",
+      color: "#F9F4FF",
+    },
+    {
+      step_id: "q34",
+      prompt: "What you want to achieve:",
+      echo_mapping: {
+        CONFIDENCE: "Feeling confident",
+        EMOTIONAL_RESILIENCE: "Building emotional resilience",
+        HEALTHY_RELATIONSHIP_FOOD:
+          "Developing a healthier relationship with food",
+        MINDFULNESS: "Living more mindfully and with intention",
+        BETTER_RELATIONSHIPS: "Having better relationships",
+      },
+      multi_select_priority: [
+        "CONFIDENCE",
+        "EMOTIONAL_RESILIENCE",
+        "HEALTHY_RELATIONSHIP_FOOD",
+        "MINDFULNESS",
+        "BETTER_RELATIONSHIPS",
+      ],
+      echo_default: "",
+      color: "#F9F4FF",
+    },
+    {
+      step_id: "q41",
+      prompt: "Current state of mind:",
+      echo_mapping: {
+        1: "Unmotivated",
+        2: "Unmotivated",
+        3: "Not very motivated",
+        4: "Motivated",
+        5: "Very motivated",
+      },
+      echo_default: "",
+      color: "#F9F4FF",
+    },
+  ],
 };
