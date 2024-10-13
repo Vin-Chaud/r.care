@@ -1,9 +1,9 @@
 "use client";
 import { globalContext } from "@/context/GlobalContext";
+import { useAutoCanceledTimeout } from "@/hooks/useAutoCanceledTimeout";
 import { Step } from "@/models/OnboardingFlow/model";
 import { useContext, useState } from "react";
 import { onboardingFlowContext } from "./onboardingFlowContext";
-import { useAutoCanceledTimeout } from "./useAutoCanceledTimeout";
 
 export function UnimplementedStep({
   stepDefinition,

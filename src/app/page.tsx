@@ -1,11 +1,12 @@
 "use client";
 
 import { defaultOnboardingFlow } from "@/assets/default_flow";
+import { AnalysisTransition } from "@/components/AnalysisTransition";
 import { OnboardingFlow } from "@/components/OnboardingFlow";
-import styles from "./page.module.css";
+import { ResultFlow } from "@/components/ResultFlow";
+import { WithPopupHost } from "@/components/WithPopupHost/index";
 import { useState } from "react";
-import { AnalysisTransition } from "../components/AnalysisTransition";
-import { ResultFlow } from "../components/ResultFlow";
+import styles from "./page.module.css";
 
 export default function Home() {
   const [onboardingResponses, setOnboardingResponses] = useState<Readonly<
@@ -15,20 +16,25 @@ export default function Home() {
   const [isAnalysisTransitionDone, setAnalysisTransitionDone] = useState(false);
 
   return (
-    <div className={styles.page}>
-      {!onboardingResponses ? (
-        <OnboardingFlow
-          spec={defaultOnboardingFlow}
-          onFlowComplete={(state) => setOnboardingResponses(state.responses)}
-        />
-      ) : !isAnalysisTransitionDone ? (
-        <AnalysisTransition onDone={() => setAnalysisTransitionDone(true)} />
-      ) : (
-        <ResultFlow
-          flow={defaultOnboardingFlow}
-          responses={onboardingResponses}
-        />
-      )}
-    </div>
+    <WithPopupHost>
+      <div className={styles.page} style={{ position: "relative" }}>
+        {!onboardingResponses ? (
+          <OnboardingFlow
+            spec={defaultOnboardingFlow}
+            onFlowComplete={(state) => setOnboardingResponses(state.responses)}
+          />
+        ) : !isAnalysisTransitionDone ? (
+          <AnalysisTransition
+            spec={defaultOnboardingFlow}
+            onDone={() => setAnalysisTransitionDone(true)}
+          />
+        ) : (
+          <ResultFlow
+            flow={defaultOnboardingFlow}
+            responses={onboardingResponses}
+          />
+        )}
+      </div>
+    </WithPopupHost>
   );
 }

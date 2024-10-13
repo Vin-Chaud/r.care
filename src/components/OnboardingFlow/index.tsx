@@ -7,7 +7,14 @@ import {
   resolveStep,
 } from "@/models/OnboardingFlow/methods";
 import { OnboardingFlow as OnboardingFlowModel } from "@/models/OnboardingFlow/model";
-import { useEffect, useMemo, useReducer, useRef } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 import { ErrorScreen } from "../ErrorScreen";
 import {
   OnboardingFlowContext,
@@ -29,19 +36,19 @@ export function OnboardingFlow({
   onBackNavigated?: () => void;
   onFlowComplete?: (state: OnboardingFlowState) => void;
 }) {
-  const initialState = useMemo(
-    () =>
-      loadStateFromSessionStorage(spec) || {
-        cursor: {
-          currentSectionIndex: 0,
-          currentSubsectionIndex: 0,
-          currentStepIndex: 0,
-        },
-        responses: {},
+  const initialState = useMemo<OnboardingFlowState>(
+    () => ({
+      cursor: {
+        currentSectionIndex: 0,
+        currentStepIndex: 0,
+        currentSubsectionIndex: 0,
       },
+      responses: {},
+    }),
     []
   );
 
+  const [isRestored, setIsRestored] = useState(false);
   const [state, updateState] = useReducer(
     (
       state: OnboardingFlowState,
@@ -51,8 +58,33 @@ export function OnboardingFlow({
   );
 
   useEffect(() => {
-    saveStateToSessionStorage(state);
-  }, [state]);
+    if (isRestored) {
+      saveStateToSessionStorage(state);
+    }
+  }, [isRestored, state]);
+
+  useLayoutEffect(() => {
+    if (!isRestored) {
+      updateState(
+        () =>
+          loadStateFromSessionStorage(spec) || {
+            cursor: {
+              currentSectionIndex: 0,
+              currentSubsectionIndex: 0,
+              currentStepIndex: 0,
+            },
+            responses: {},
+          }
+      );
+      setIsRestored(true);
+    }
+  }, [isRestored]);
+
+  const backButtonOverride = useRef<(() => void) | null>(null);
+
+  if (isRestored == false) {
+    return null;
+  }
 
   let currentStep: ResolvedStep;
   try {
@@ -65,8 +97,6 @@ export function OnboardingFlow({
       />
     );
   }
-
-  const backButtonOverride = useRef<(() => void) | null>(null);
 
   const context: OnboardingFlowContext = {
     state: state,

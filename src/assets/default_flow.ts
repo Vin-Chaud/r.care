@@ -1054,4 +1054,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       ],
     },
   ],
+  popup_quiz_step: {
+    type: "yes_no",
+    title:
+      "Have you ever noticed any disordered eating symptoms in your extended family?",
+  },
 };

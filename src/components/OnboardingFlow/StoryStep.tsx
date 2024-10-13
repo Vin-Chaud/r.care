@@ -6,8 +6,11 @@ import {
 import { useContext, useRef, useState } from "react";
 import { onboardingFlowContext } from "./onboardingFlowContext";
 import { RichText } from "./RichText";
-import { useAutoCanceledTimeout } from "./useAutoCanceledTimeout";
-import { TransitionState, useWatchedTransition } from "./useWatchedTransition";
+import { useAutoCanceledTimeout } from "@/hooks/useAutoCanceledTimeout";
+import {
+  TransitionState,
+  useWatchedTransition,
+} from "@/hooks/useWatchedTransition";
 
 export function StoryStep({ stepDefinition }: { stepDefinition: Story }) {
   const { next } = useContext(onboardingFlowContext);

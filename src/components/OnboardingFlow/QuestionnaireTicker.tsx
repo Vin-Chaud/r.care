@@ -2,7 +2,7 @@
 
 import { globalContext } from "@/context/GlobalContext";
 import { useContext, useRef } from "react";
-import { useWatchedTransition } from "./useWatchedTransition";
+import { useWatchedTransition } from "@/hooks/useWatchedTransition";
 
 export function QuestionnaireTicker({
   subsectionLengths,

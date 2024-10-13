@@ -20,7 +20,7 @@ export function TextInputForm<A extends AnswerValue>({
   validationSpec: TextValidationSpec<A>;
   submitAnswer: SubmitAnswerAction<A>;
   hasAnswered: boolean;
-} & Omit<ComponentProps<"input">, "type" | "value" | "onChange" | "disabled">) {
+} & Omit<ComponentProps<"input">, "value" | "onChange" | "disabled">) {
   const [inputValue, setInputValue] = useState("");
   const [isShowingError, setIsShowingError] = useState(false);
   const preprocessedValue = validationSpec.preprocess(inputValue);
@@ -53,8 +53,8 @@ export function TextInputForm<A extends AnswerValue>({
       >
         <div>
           <input
-            {...inputProps}
             type="text"
+            {...inputProps}
             value={inputValue}
             onChange={(ev) => {
               setInputValue(ev.target.value);
