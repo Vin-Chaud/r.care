@@ -232,15 +232,18 @@ export function isTickerStep(step: Step) {
   );
 }
 
-export function getStepResponseValidator(
-  step: Step
-): ZodType<any, any, any> | null {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyZodType = ZodType<any, any, any>;
+
+export function getStepResponseValidator(step: Step): AnyZodType | null {
   switch (step.type) {
     case "single_select": {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return union(step.options.map((option) => literal(option.value)) as any);
     }
     case "multi_select": {
       return array(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         union(step.options.map((option) => literal(option.value)) as any)
       );
     }

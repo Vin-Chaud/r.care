@@ -5,8 +5,7 @@ import { createQuestionContainer } from "./createQuestionContainer";
 
 export const ScaleStep = createQuestionContainer<
   string | number,
-  ScaleQuestion,
-  {}
+  ScaleQuestion
 >(({ stepDefinition, submitAnswer, hasAnswered }) => {
   const [selectedValue, setSelectedValue] = useState<number | null>(null);
   const options = getOptions(stepDefinition);

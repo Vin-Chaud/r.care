@@ -55,9 +55,9 @@ export function isOnboardingFlowStateValid(
   // Check if the cursor is within the bounds of the flow specification
   try {
     resolveStep(spec, state.cursor);
-  } catch (exception: any) {
+  } catch (exception: unknown) {
     onDidFindIssue?.(
-      `The cursor is invalid for the flow. ` + exception.message
+      `The cursor is invalid for the flow. ` + (exception as Error)?.message
     );
     return false;
   }

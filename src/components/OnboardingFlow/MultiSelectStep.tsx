@@ -7,8 +7,7 @@ import { createQuestionContainer } from "./createQuestionContainer";
 
 export const MultiSelectStep = createQuestionContainer<
   readonly (string | number)[],
-  MultiSelectQuestion,
-  {}
+  MultiSelectQuestion
 >(({ stepDefinition, submitAnswer, hasAnswered }) => {
   const [selectedIndices, toggleSelectedIndices] = useReducer(
     (

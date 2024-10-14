@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useRef } from "react";
 
-export function useAutoCanceledTimeout(deps: readonly any[] = []) {
+export function useAutoCanceledTimeout(deps: readonly unknown[] = []) {
   const timeoutRef = useRef(new Set<number>());
 
   useEffect(

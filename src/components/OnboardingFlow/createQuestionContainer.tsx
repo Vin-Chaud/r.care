@@ -38,17 +38,15 @@ export type SubmitAnswerAction<A extends AnswerValue> = (
 export function createQuestionContainer<
   A extends AnswerValue,
   S extends QuestionCommon,
-  P
->(
-  QuestionBody: ComponentType<P & QuestionContainerProps<S, A>>
-): ComponentType<
-  P & {
-    stepId: string;
-    stepDefinition: S;
-    onDidAnswer?: (autoNext: boolean) => void;
-  }
-> {
-  return (props) => {
+  P = object
+>(QuestionBody: ComponentType<P & QuestionContainerProps<S, A>>) {
+  function QuestionContainer(
+    props: P & {
+      stepId: string;
+      stepDefinition: S;
+      onDidAnswer?: (autoNext: boolean) => void;
+    }
+  ) {
     const waitTime = useContext(globalContext).questionTransitionTime;
     const { setResponse, overrideBackAction } = useContext(
       onboardingFlowContext
@@ -123,7 +121,12 @@ export function createQuestionContainer<
     }
 
     return renderedChild;
-  };
+  }
+
+  QuestionContainer.displayName =
+    (QuestionBody.displayName || "Question") + "_Container";
+
+  return QuestionContainer;
 }
 
 function resolveFeedback(

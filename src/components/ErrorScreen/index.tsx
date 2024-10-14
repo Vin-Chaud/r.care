@@ -5,7 +5,7 @@ export function ErrorScreen({
   diagnostics,
 }: {
   clientMessage: string;
-  diagnostics?: any;
+  diagnostics?: unknown;
 }) {
   useLayoutEffect(() => {
     if (diagnostics != null) {

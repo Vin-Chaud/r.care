@@ -9,7 +9,7 @@ export function MarkdownText<A>({
   tag?: keyof JSX.IntrinsicElements | ComponentType<A>;
 }) {
   return createElement(
-    tag as string | ComponentClass<{}, any>,
+    tag as string | ComponentClass,
     {},
     applyMarkdownFormatting(children ?? null)
   );

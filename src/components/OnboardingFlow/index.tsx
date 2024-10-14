@@ -89,7 +89,7 @@ export function OnboardingFlow({
   let currentStep: ResolvedStep;
   try {
     currentStep = resolveStep(spec, state.cursor);
-  } catch (exception) {
+  } catch {
     return (
       <ErrorScreen
         clientMessage="Unexpected"

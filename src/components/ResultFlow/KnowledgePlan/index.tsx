@@ -45,7 +45,6 @@ function KnowledgeChart({
   const yDomainMin = 0;
 
   const yAxisTicks = [0, 20, 40, 60, 80, 100];
-  const emojiPosition = 0.05;
 
   function encodeYValue(percentage: number) {
     return (

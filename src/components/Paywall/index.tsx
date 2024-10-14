@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { PaywallMain } from "./PaywallMain";
 import { TrialExplanation1 } from "./TrialExplanation1";
 import { TrialExplanation2 } from "./TrialExplanation2";
 import { TrialExplanation3 } from "./TrialExplanation3";
-import { PaywallMain } from "./PaywallMain";
 
 enum Page {
   TrialExplanation1,
@@ -13,7 +13,7 @@ enum Page {
   PaywallMain,
 }
 
-export function Paywall({}: {}) {
+export function Paywall() {
   const [page, setPage] = useState(Page.TrialExplanation1);
   switch (page) {
     case Page.TrialExplanation1: {

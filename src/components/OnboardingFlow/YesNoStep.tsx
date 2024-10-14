@@ -1,7 +1,7 @@
 import { YesNoQuestion } from "@/models/OnboardingFlow/model";
 import { createQuestionContainer } from "./createQuestionContainer";
 
-export const YesNoStep = createQuestionContainer<boolean, YesNoQuestion, {}>(
+export const YesNoStep = createQuestionContainer<boolean, YesNoQuestion>(
   ({ stepDefinition, submitAnswer, hasAnswered }) => {
     return (
       <div>

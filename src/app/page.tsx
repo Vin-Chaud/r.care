@@ -9,8 +9,8 @@ import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 
 import { saveDocument } from "@/actions/saveDocument";
-import { customAlphabet } from "nanoid/non-secure";
 import { Paywall } from "@/components/Paywall";
+import { customAlphabet } from "nanoid/non-secure";
 
 export default function Home() {
   const [onboardingResponses, setOnboardingResponses] = useState<Readonly<
@@ -62,7 +62,7 @@ export default function Home() {
             onNext={() => setResultDone(true)}
           />
         ) : (
-          <div>Paywall</div>
+          <Paywall />
         )}
       </div>
     </WithPopupHost>

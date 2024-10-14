@@ -4,8 +4,7 @@ import { integerValidation, TextInputForm } from "./TextInputForm";
 
 export const IntegerInputStep = createQuestionContainer<
   number,
-  IntegerQuestion,
-  {}
+  IntegerQuestion
 >(({ stepDefinition, submitAnswer, hasAnswered }) => {
   return (
     <TextInputForm

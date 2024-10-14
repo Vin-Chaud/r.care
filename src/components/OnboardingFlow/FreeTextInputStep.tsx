@@ -4,8 +4,7 @@ import { emailValidation, TextInputForm } from "./TextInputForm";
 
 export const FreeTextInputStep = createQuestionContainer<
   string,
-  FreeTextQuestion,
-  {}
+  FreeTextQuestion
 >(({ stepDefinition, submitAnswer, hasAnswered }) => {
   return (
     <TextInputForm

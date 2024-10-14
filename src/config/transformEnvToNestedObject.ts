@@ -1,6 +1,7 @@
 export function transformEnvToNestedObject(
   env: Readonly<Record<string, string | undefined>>
 ): object {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const result: any = {};
 
   for (const [envKey, envValue] of Object.entries(env)) {
@@ -19,6 +20,7 @@ function envKeyPartToCamelCase(str: string): string {
     .replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function setNestedValue(obj: any, keys: string[], value: string): void {
   let current = obj;
   for (let i = 0; i < keys.length - 1; i++) {

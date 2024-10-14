@@ -5,8 +5,7 @@ import { createQuestionContainer } from "./createQuestionContainer";
 
 export const SingleSelectStep = createQuestionContainer<
   string | number,
-  SingleSelectQuestion,
-  {}
+  SingleSelectQuestion
 >(({ stepDefinition, submitAnswer, hasAnswered }) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
