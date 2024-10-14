@@ -29,6 +29,7 @@ export const configSchema = object({
       apiKey: string(),
       projectId: string(),
       appId: string(),
+      collectionPath: string(),
     }),
   }),
 });
