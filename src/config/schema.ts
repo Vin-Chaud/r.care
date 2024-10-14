@@ -13,6 +13,10 @@ export const configSchema = object({
         }
         return url;
       }),
+      basicAuth: object({
+        username: string(),
+        password: string(),
+      }).optional(),
     }),
     stripe: object({
       apiSecret: string(),

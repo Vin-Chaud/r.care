@@ -1,8 +1,8 @@
 import { createCheckoutSession } from "@/services/stripe";
 import assert from "assert";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest } from "next/server.js";
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest) {
   const params = new URL(req.url!).searchParams;
   console.log(params);
 
