@@ -30,10 +30,6 @@ export default function Home() {
     }
   }, [onboardingResponses]);
 
-  if (4 > 2) {
-    return <Paywall />;
-  }
-
   return (
     <WithPopupHost>
       <div className={styles.page} style={{ position: "relative" }}>
