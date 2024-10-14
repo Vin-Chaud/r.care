@@ -3,6 +3,7 @@ import { FullFeedback as FullFeedbackModel } from "@/models/OnboardingFlow/model
 import { useContext } from "react";
 import { Content } from "./Content";
 import { onboardingFlowContext } from "./onboardingFlowContext";
+import { ForwardNavButton } from "@/components/ForwardNavButton";
 
 export function FullFeedback({ feedback }: { feedback: FullFeedbackModel }) {
   const { next } = useContext(onboardingFlowContext);
@@ -11,9 +12,7 @@ export function FullFeedback({ feedback }: { feedback: FullFeedbackModel }) {
       {feedback.contents.map((content, index) => (
         <Content key={index} content={content} />
       ))}
-      <button type="button" onClick={next}>
-        {"Continue"}
-      </button>
+      <ForwardNavButton onClick={next} />
     </div>
   );
 }

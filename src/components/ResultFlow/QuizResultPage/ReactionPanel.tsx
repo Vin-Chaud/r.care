@@ -1,3 +1,5 @@
+import { ForwardNavButton } from "@/components/ForwardNavButton";
+
 export function ReactionPanel({
   onDidRespond,
 }: {
@@ -42,7 +44,7 @@ export function ReactionPanel({
             </div>
           );
         })}
-        <button type="submit">{"Continue"}</button>
+        <ForwardNavButton type="submit" />
       </form>
     </section>
   );

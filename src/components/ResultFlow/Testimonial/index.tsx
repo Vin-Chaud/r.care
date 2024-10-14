@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { MarkdownText } from "@/components/MarkdownText";
 import persona from "./persona.png";
 
@@ -37,9 +38,7 @@ export function Testimonial({ onNext }: { onNext: () => void }) {
       {interview.map(({ question, answer }, itemIndex) => (
         <Interview key={itemIndex} question={question} answer={answer} />
       ))}
-      <button type="button" onClick={onNext}>
-        {"Continue"}
-      </button>
+      <ForwardNavButton onClick={onNext} />
     </article>
   );
 }

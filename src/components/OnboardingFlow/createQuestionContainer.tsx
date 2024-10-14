@@ -1,4 +1,5 @@
 "use client";
+import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { globalContext } from "@/context/GlobalContext";
 import {
   EmbeddedFeedback as EmbeddedFeedbackModel,
@@ -148,7 +149,7 @@ function EmbeddedFeedback({ feedback }: { feedback: EmbeddedFeedbackModel }) {
       {paragraphs.map((text, index) => (
         <RichText key={index}>{text}</RichText>
       ))}
-      <button onClick={next}>{"Continue"}</button>
+      <ForwardNavButton onClick={next} />
     </div>
   );
 }

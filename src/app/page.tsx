@@ -10,6 +10,7 @@ import styles from "./page.module.css";
 
 import { saveDocument } from "@/actions/saveDocument";
 import { customAlphabet } from "nanoid/non-secure";
+import { Paywall } from "@/components/Paywall";
 
 export default function Home() {
   const [onboardingResponses, setOnboardingResponses] = useState<Readonly<
@@ -28,6 +29,10 @@ export default function Home() {
       saveDocument(onboardingResponses, documentId);
     }
   }, [onboardingResponses]);
+
+  if (4 > 2) {
+    return <Paywall />;
+  }
 
   return (
     <WithPopupHost>

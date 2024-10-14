@@ -4,6 +4,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export async function POST(req: NextApiRequest, res: NextApiResponse) {
   const params = new URL(req.url!).searchParams;
+  console.log(params);
+
   const type = params.get("type");
   assert(type === "quarterly" || type === "annual");
 

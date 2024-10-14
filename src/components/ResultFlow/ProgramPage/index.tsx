@@ -1,6 +1,7 @@
-import { OnboardingFlow, ResponseEcho } from "@/models/OnboardingFlow/model";
+import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { MarkdownText } from "@/components/MarkdownText";
 import { getEchoText } from "@/models/OnboardingFlow/methods";
+import { OnboardingFlow } from "@/models/OnboardingFlow/model";
 
 export function ProgramPage({
   responses,
@@ -86,9 +87,8 @@ export function ProgramPage({
             {"Reinforce your new, **healthier behaviors**"}
           </MarkdownText>
         </ol>
-        <button type="button" onClick={onNext}>
-          {"Continue"}
-        </button>
+
+        <ForwardNavButton onClick={onNext} />
       </section>
     </section>
   );

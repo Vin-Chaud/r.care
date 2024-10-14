@@ -1,5 +1,5 @@
 "use client";
-import { ComponentType, createElement, ComponentClass, ReactNode } from "react";
+import { ComponentClass, ComponentType, createElement, ReactNode } from "react";
 
 export function MarkdownText<A>({
   children,
@@ -41,13 +41,15 @@ function applyMarkdownFormatting(text: string | null): ReactNode {
 
     if (!firstMatch) {
       // No more matches, push remaining text
-      elements.push(remainingText);
+      elements.push(...applyLinebreaks(remainingText));
       break;
     }
 
     // Push the text before the match
     if (firstMatch.index > 0) {
-      elements.push(remainingText.slice(0, firstMatch.index));
+      elements.push(
+        ...applyLinebreaks(remainingText.slice(0, firstMatch.index))
+      );
     }
 
     const matchType = firstMatch[0].startsWith("**") ? "strong" : "em";
@@ -70,4 +72,19 @@ function applyMarkdownFormatting(text: string | null): ReactNode {
   }
 
   return elements;
+}
+
+function applyLinebreaks(text: string | null): readonly ReactNode[] {
+  const fragments = text?.split(/<br\s*\/?>/gi);
+  if (!fragments || fragments.length === 0) return [];
+
+  if (fragments.length === 1) return fragments;
+
+  const children: ReactNode[] = [fragments[0]];
+  for (const child of fragments.slice(1)) {
+    children.push(<br key={"br__" + children.length} />);
+    children.push(child);
+  }
+
+  return children;
 }

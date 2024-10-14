@@ -1,4 +1,5 @@
 "use client";
+import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { MultiSelectQuestion } from "@/models/OnboardingFlow/model";
 import { maxBy } from "@/utils/aggregation";
 import { useReducer } from "react";
@@ -66,7 +67,7 @@ export const MultiSelectStep = createQuestionContainer<
           </li>
         )}
       </ul>
-      <button
+      <ForwardNavButton
         type="button"
         onClick={() => {
           const value = selectedIndices.map(
@@ -81,10 +82,9 @@ export const MultiSelectStep = createQuestionContainer<
           );
           submitAnswer(value, mostPrioritizedFeedback);
         }}
-        disabled={hasAnswered || !selectedIndices.length}
-      >
-        {"Continue"}
-      </button>
+        locked={hasAnswered}
+        disabled={!selectedIndices.length}
+      />
     </div>
   );
 });

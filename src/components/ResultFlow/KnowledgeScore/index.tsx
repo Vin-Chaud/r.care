@@ -1,3 +1,4 @@
+import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { Experience } from "@/models/Metric";
 import {
   computePercentageScores,
@@ -31,8 +32,8 @@ export function KnowledgeScorePage({
       </output>
 
       <ul>
-        {flow.knowledge_plan.map((spec) => (
-          <li>
+        {flow.knowledge_plan.map((spec, itemIndex) => (
+          <li key={itemIndex}>
             <EchoPane
               key={spec.step_id}
               prompt={spec.prompt}
@@ -44,9 +45,7 @@ export function KnowledgeScorePage({
       </ul>
 
       <p>{"This is a good start but what happens if you stick with R.care?"}</p>
-      <button type="button" onClick={onNext}>
-        {"Continue"}
-      </button>
+      <ForwardNavButton onClick={onNext} />
     </section>
   );
 }

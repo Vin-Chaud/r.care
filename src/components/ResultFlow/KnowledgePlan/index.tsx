@@ -1,3 +1,4 @@
+import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { MarkdownText } from "@/components/MarkdownText";
 import { Experience } from "@/models/Metric";
 import { computePercentageScores } from "@/models/OnboardingFlow/methods";
@@ -193,7 +194,7 @@ function RCareApproach({ onNext }: { onNext: () => void }) {
           {"**find coping strategy that works**"}
         </MarkdownText>
       </ul>
-      <button onClick={onNext}>{"Continue"}</button>
+      <ForwardNavButton onClick={onNext} />
     </section>
   );
 }

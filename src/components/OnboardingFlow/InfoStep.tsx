@@ -1,3 +1,4 @@
+import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { InfoScreen } from "@/models/OnboardingFlow/model";
 import { useContext } from "react";
 import { Content } from "./Content";
@@ -10,9 +11,7 @@ export function InfoStep({ stepDefinition }: { stepDefinition: InfoScreen }) {
       {stepDefinition.contents.map((content, index) => (
         <Content key={index} content={content} />
       ))}
-      <button type="button" onClick={next}>
-        {"Continue"}
-      </button>
+      <ForwardNavButton onClick={next} />
     </div>
   );
 }

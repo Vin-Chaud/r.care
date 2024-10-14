@@ -1,3 +1,5 @@
+import { ForwardNavButton } from "@/components/ForwardNavButton";
+
 export function KnowledgeIntroPane({ onNext }: { onNext: () => void }) {
   return (
     <section>
@@ -15,7 +17,8 @@ export function KnowledgeIntroPane({ onNext }: { onNext: () => void }) {
           "Learning about binge eating also helps break down the stigma, making it easier for us to ask for help. In the end, this knowledge gives us the tools to build a healthier relationship with food and take better care of ourselves."
         }
       </p>
-      <button onClick={onNext}>{"Continue"}</button>
+
+      <ForwardNavButton onClick={onNext} />
     </section>
   );
 }

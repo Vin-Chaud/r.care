@@ -1,3 +1,4 @@
+import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { Failure, Result, Success } from "@/utils/Result";
 import { ComponentProps, useEffect, useState } from "react";
 import { SubmitAnswerAction } from "./createQuestionContainer";
@@ -66,9 +67,11 @@ export function TextInputForm<A extends AnswerValue>({
           )}
         </div>
         <div>
-          <button type="submit" disabled={hasAnswered || !hasInput}>
-            {"Continue"}
-          </button>
+          <ForwardNavButton
+            type="submit"
+            locked={hasAnswered}
+            disabled={!hasInput}
+          />
         </div>
       </form>
     </div>
