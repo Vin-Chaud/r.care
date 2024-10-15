@@ -1,7 +1,6 @@
 import { db } from "@/services/firebase";
 import { ReadonlySession } from "@/services/session";
 import assert from "assert";
-import { doc, getDoc } from "firebase/firestore";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { config } from "../config";
@@ -13,12 +12,12 @@ export default async function HomeServer() {
   ).getExistingSessionIfExists();
   assert(onboardingSessionId);
 
-  const onboardingDoc = await getDoc(
-    doc(db, config.firebase.collectionPath, onboardingSessionId)
-  );
+  const onboardingDoc = await db
+    .doc([config.firebase.collectionPath, onboardingSessionId].join("/"))
+    .get();
 
-  if (onboardingDoc.exists()) {
-    if (onboardingDoc.data().checkout != null) {
+  if (onboardingDoc.exists) {
+    if (onboardingDoc.data()?.checkout != null) {
       redirect("/onboarding_complete");
     }
   }

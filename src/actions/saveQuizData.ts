@@ -3,7 +3,6 @@
 import { config } from "@/config";
 import { db } from "@/services/firebase";
 import { ReadonlySession } from "@/services/session";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { cookies } from "next/headers";
 
 export async function saveQuizData(data: Readonly<Record<string, unknown>>) {
@@ -11,14 +10,17 @@ export async function saveQuizData(data: Readonly<Record<string, unknown>>) {
     cookies
   ).getExistingSessionIfExists();
   if (onboardingSessionId != null) {
-    const docRef = doc(db, config.firebase.collectionPath, onboardingSessionId);
-    if ((await getDoc(docRef)).exists()) {
-      await updateDoc(docRef, {
+    const doc = db.doc(
+      [config.firebase.collectionPath, onboardingSessionId].join("/")
+    );
+
+    if ((await doc.get()).exists) {
+      await doc.update({
         quiz_data: data,
         last_updated: new Date().toISOString(),
       });
     } else {
-      await setDoc(docRef, {
+      await doc.set({
         quiz_data: data,
         last_updated: new Date().toISOString(),
         created: new Date().toISOString(),

@@ -26,9 +26,9 @@ export const configSchema = object({
       }),
     }),
     firebase: object({
-      apiKey: string(),
-      projectId: string(),
-      appId: string(),
+      credential: string().transform((credential) => {
+        return JSON.parse(credential);
+      }),
       collectionPath: string(),
     }),
   }),

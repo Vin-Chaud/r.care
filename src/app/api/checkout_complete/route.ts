@@ -4,7 +4,6 @@ import Stripe from "stripe";
 import { config } from "@/config";
 import { db } from "@/services/firebase";
 import { ReadonlySession } from "@/services/session";
-import { doc, updateDoc } from "firebase/firestore";
 
 const stripeConfig = config.stripe;
 
@@ -27,14 +26,13 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(new URL("/", req.url));
   }
 
-  await updateDoc(
-    doc(db, config.firebase.collectionPath, onboardingSessionId),
-    {
+  await db
+    .doc([config.firebase.collectionPath, onboardingSessionId].join("/"))
+    .update({
       checkout: {
         timestamp: new Date().toISOString(),
       },
-    }
-  );
+    });
 
   return NextResponse.redirect(new URL("/onboarding_complete", req.url));
 }

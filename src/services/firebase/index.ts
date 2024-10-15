@@ -1,12 +1,11 @@
 import { config } from "@/config";
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import admin from "firebase-admin";
 
-const app = initializeApp({
-  apiKey: config.firebase.apiKey,
-  appId: config.firebase.appId,
-  projectId: config.firebase.projectId,
-});
-const db = getFirestore(app);
+const app =
+  admin.apps[0] ||
+  admin.initializeApp(
+    { credential: admin.credential.cert(config.firebase.credential) },
+    "firestore"
+  );
 
-export { db };
+export const db = app.firestore();
