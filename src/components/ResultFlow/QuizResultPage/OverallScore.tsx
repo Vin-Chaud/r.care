@@ -13,8 +13,8 @@ export function OverallScore({
     <section>
       <header>
         <h2>
-          {"Your binge eating score is"}
-          <strong>{scoreZoneCopy[scoreZone] + "%"}</strong>
+          {"Your binge eating score is "}
+          <strong>{scoreZoneCopy[scoreZone]}</strong>
         </h2>
       </header>
       <OverallScoreWheel totalPercentageScore={totalPercentageScore} />
@@ -82,7 +82,7 @@ function OverallScoreWheel({
           }}
         >
           <output style={{ position: "relative", top: "25%" }}>
-            {totalPercentageScore}
+            {totalPercentageScore + "%"}
           </output>
         </div>
       </div>
