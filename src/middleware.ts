@@ -1,4 +1,5 @@
 import { config } from "@/config";
+import { Session } from "@/services/session";
 import { NextRequest, NextResponse } from "next/server.js";
 
 export const basicAuthConfig = config.server.basicAuth;
@@ -9,6 +10,10 @@ export function middleware(req: NextRequest) {
     if (response) {
       return response;
     }
+  }
+
+  if (req.nextUrl.pathname === "/") {
+    return ensureSessionId(req);
   }
 
   return NextResponse.next();
@@ -34,4 +39,9 @@ function handleBasicAuth(
   }
 
   return null;
+}
+
+function ensureSessionId(req: NextRequest) {
+  const res = NextResponse.next();
+  return new Session(req).ensureSessionId(res);
 }

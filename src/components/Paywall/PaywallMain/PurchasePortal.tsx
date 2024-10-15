@@ -11,14 +11,12 @@ const prices = {
 
 export function PurchasePortal() {
   const yearlyDiscountedDaily = Number(
-    Math.round(prices.yearlyDiscounted / 365).toFixed(2)
+    (prices.yearlyDiscounted / 365).toFixed(2)
   );
   const yearlyDiscountedDailyWhole = Math.floor(yearlyDiscountedDaily);
   const yearlyDiscountedDailyFraction = (yearlyDiscountedDaily * 100) % 100;
 
-  const quarterlyDaily = Number(
-    Math.round(prices.quarterlyFull / 90).toFixed(2)
-  );
+  const quarterlyDaily = Number((prices.quarterlyFull / 90).toFixed(2));
   const quarterlyDailyWhole = Math.floor(quarterlyDaily);
   const quarterlyDailyFraction = (quarterlyDaily * 100) % 100;
 
@@ -117,12 +115,5 @@ export function PurchasePortal() {
 }
 
 const handleSubscribe = async (kind: "annual" | "quarterly") => {
-  const res = await fetch("/api/checkout?type=" + kind, {
-    method: "POST",
-  });
-
-  if (!res.ok) throw new Error("Failed to create checkout session");
-  const json = await res.json();
-  const sessionUrl = json.session_url;
-  window.location.href = sessionUrl;
+  window.location.href = "/api/checkout?type=" + kind;
 };

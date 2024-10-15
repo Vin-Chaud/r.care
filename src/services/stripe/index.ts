@@ -6,7 +6,8 @@ const serverConfig = config.server;
 import Stripe from "stripe";
 
 export async function createCheckoutSession(
-  productKind: "quarterly" | "annual"
+  productKind: "quarterly" | "annual",
+  onboardingSessionId: string
 ) {
   const stripe = new Stripe(stripeConfig.apiSecret);
   const session = await stripe.checkout.sessions.create({
@@ -21,9 +22,12 @@ export async function createCheckoutSession(
         quantity: 1,
       },
     ],
+    metadata: {
+      onboarding_session_id: onboardingSessionId,
+    },
     success_url:
       serverConfig.baseUrl +
-      "/onboarding_complete?checkout_session_id={CHECKOUT_SESSION_ID}",
+      "/api/checkout_complete?checkout_session_id={CHECKOUT_SESSION_ID}",
     cancel_url: serverConfig.baseUrl,
   });
 
