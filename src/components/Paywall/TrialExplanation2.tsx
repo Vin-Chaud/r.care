@@ -1,5 +1,5 @@
 import { ForwardNavButton } from "@/components/ForwardNavButton";
-import { MarkdownText } from "@/components/MarkdownText";
+import { MarkdownText } from "@/design_components/typography/MarkdownText";
 
 export function TrialExplanation2({ onNext }: { onNext: () => void }) {
   return (

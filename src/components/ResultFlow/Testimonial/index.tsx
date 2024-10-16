@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { ForwardNavButton } from "@/components/ForwardNavButton";
-import { MarkdownText } from "@/components/MarkdownText";
+import { MarkdownText } from "@/design_components/typography/MarkdownText";
 import persona from "./persona.png";
 
 const interview = [

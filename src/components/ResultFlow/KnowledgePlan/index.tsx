@@ -1,5 +1,5 @@
 import { ForwardNavButton } from "@/components/ForwardNavButton";
-import { MarkdownText } from "@/components/MarkdownText";
+import { MarkdownText } from "@/design_components/typography/MarkdownText";
 import { Experience } from "@/models/Metric";
 import { computePercentageScores } from "@/models/OnboardingFlow/methods";
 import { OnboardingFlow } from "@/models/OnboardingFlow/model";

@@ -31,10 +31,12 @@ export function OnboardingFlow({
   spec,
   onBackNavigated,
   onFlowComplete,
+  onResponseUpdate,
 }: {
   spec: OnboardingFlowModel;
-  onBackNavigated?: () => void;
-  onFlowComplete?: (state: OnboardingFlowState) => void;
+  onBackNavigated: () => void;
+  onFlowComplete: () => void;
+  onResponseUpdate: (state: Readonly<Record<string, unknown>>) => void;
 }) {
   const initialState = useMemo<OnboardingFlowState>(
     () => ({
@@ -62,6 +64,12 @@ export function OnboardingFlow({
       saveStateToSessionStorage(state);
     }
   }, [isRestored, state]);
+
+  useEffect(() => {
+    if (isRestored) {
+      onResponseUpdate(state.responses);
+    }
+  }, [isRestored, state.responses]);
 
   useLayoutEffect(() => {
     if (!isRestored) {
@@ -122,7 +130,7 @@ export function OnboardingFlow({
           cursor: newCursor,
         }));
       } else {
-        onBackNavigated?.();
+        onBackNavigated();
       }
     },
     next: () => {
@@ -138,7 +146,7 @@ export function OnboardingFlow({
           cursor: newCursor,
         }));
       } else {
-        onFlowComplete?.(state);
+        onFlowComplete();
       }
     },
     overrideBackAction: (action) => {

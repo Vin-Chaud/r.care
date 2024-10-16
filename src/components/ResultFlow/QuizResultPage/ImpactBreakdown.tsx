@@ -1,4 +1,4 @@
-import { MarkdownText } from "@/components/MarkdownText";
+import { MarkdownText } from "@/design_components/typography/MarkdownText";
 import { Impact } from "@/models/Metric";
 import { getScoreZone, ScoreZone } from "@/models/OnboardingFlow/methods";
 import { Fragment } from "react";

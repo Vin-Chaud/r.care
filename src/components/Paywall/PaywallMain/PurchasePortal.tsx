@@ -1,6 +1,6 @@
 import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { GreenCheck } from "@/components/icons/GreenCheck";
-import { MarkdownText } from "@/components/MarkdownText";
+import { MarkdownText } from "@/design_components/typography/MarkdownText";
 import { Seal } from "./Seal";
 
 const prices = {

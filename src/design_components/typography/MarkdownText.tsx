@@ -1,12 +1,21 @@
 "use client";
+
 import { ComponentClass, ComponentType, createElement, ReactNode } from "react";
 
-export function MarkdownText<A>({
+export const createMarkdownText = (
+  wrapper: ComponentType<{ children: ReactNode }>
+) => {
+  return function WrappedMarkdownText({ children }: { children?: string }) {
+    return <MarkdownText tag={wrapper}>{children}</MarkdownText>;
+  };
+};
+
+export function MarkdownText({
   children,
   tag = "p",
 }: {
   children?: string;
-  tag?: keyof JSX.IntrinsicElements | ComponentType<A>;
+  tag?: keyof JSX.IntrinsicElements | ComponentType<{ children: ReactNode }>;
 }) {
   return createElement(
     tag as string | ComponentClass,

@@ -1,6 +1,6 @@
 "use client";
-import { MarkdownText } from "@/components/MarkdownText";
-import { ComponentType, createContext, useContext } from "react";
+import { MarkdownText } from "@/design_components/typography/MarkdownText";
+import { ComponentType, createContext, ReactNode, useContext } from "react";
 import { AnswerValue } from "./types";
 
 export const textInterpolationContext = createContext<
@@ -13,12 +13,12 @@ interface InnerInterpolationContext {
   responses: Readonly<Record<string, AnswerValue>>;
 }
 
-export function RichText<A>({
+export function RichText({
   children,
   tag,
 }: {
   children?: string;
-  tag?: keyof JSX.IntrinsicElements | ComponentType<A>;
+  tag?: keyof JSX.IntrinsicElements | ComponentType<{ children: ReactNode }>;
 }) {
   const { expressions, responses } = useContext(textInterpolationContext);
   const interpolatedText =

@@ -8,7 +8,7 @@ import {
 } from "./copy";
 import { QuestionAnswerBox } from "./QuestionAnswerBox";
 import { computeScoreColor } from "./scoreColorEncoding";
-import { MarkdownText } from "@/components/MarkdownText";
+import { MarkdownText } from "@/design_components/typography/MarkdownText";
 
 export function SymptomExplanations({
   percentageScores,

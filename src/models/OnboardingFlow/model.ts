@@ -3,6 +3,7 @@ import { Metric } from "../Metric.js";
 export interface OnboardingFlow {
   step_definitions?: Readonly<Record<string, Step>>;
   sections: readonly FlowRootSection[];
+  landing_quiz_step: SingleSelectQuestion & { id: string };
   popup_quiz_step: YesNoQuestion & { id: string };
   reaction_step_id: string;
   email_step_id: string;

@@ -1,7 +1,7 @@
 "use client";
 
 import { ForwardNavButton } from "@/components/ForwardNavButton";
-import { MarkdownText } from "@/components/MarkdownText";
+import { MarkdownText } from "@/design_components/typography/MarkdownText";
 import { useCallback, useLayoutEffect, useRef } from "react";
 
 export function TrialExplanation3({ onNext }: { onNext: () => void }) {

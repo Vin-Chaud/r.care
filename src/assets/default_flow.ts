@@ -5,6 +5,37 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   step_definitions: {},
   sections: [
     {
+      title: "intro",
+      subsections: [
+        {
+          step_definitions: {
+            intro: {
+              type: "info",
+              contents: [
+                {
+                  type: "title",
+                  text: "Built by psychologicsts & binge eating experts",
+                },
+                {
+                  type: "text",
+                  text: "Our quiz will help you learn more about yourself and provide you with a personal binge eating score.",
+                },
+                {
+                  type: "text",
+                  text: "Created with experts from",
+                },
+                {
+                  type: "image",
+                  graphic_id: "harvard",
+                },
+              ],
+            },
+          },
+          step_order: ["intro"],
+        },
+      ],
+    },
+    {
       title: "Profile",
       subsections: [
         {
@@ -1054,6 +1085,18 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       ],
     },
   ],
+  landing_quiz_step: {
+    id: "landing_quiz",
+    type: "single_select",
+    title: "Select your age to start the quiz",
+    help_text: "⌛ 3 min quiz",
+    options: [
+      { value: "13_17", text: "13-17" },
+      { value: "18_29", text: "18-29" },
+      { value: "30_49", text: "30-49" },
+      { value: "50_OR_OLDER", text: "50+" },
+    ],
+  },
   popup_quiz_step: {
     id: "popup_quiz",
     type: "yes_no",

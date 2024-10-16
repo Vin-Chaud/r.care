@@ -1,4 +1,4 @@
-import { MarkdownText } from "@/components/MarkdownText";
+import { MarkdownText } from "@/design_components/typography/MarkdownText";
 
 export function FeedbackBox({
   title,
