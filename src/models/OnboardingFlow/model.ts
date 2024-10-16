@@ -168,12 +168,14 @@ export interface Content_Emoji {
 
 export interface Content_Text {
   type: "text";
-  text: string;
+  text: string | readonly string[];
+  variant?: "normal" | "subtle";
 }
 
 export interface Content_Image {
   type: "image";
   graphic_id: string;
+  max_height?: number;
 }
 
 export interface Content_Title {
@@ -183,7 +185,7 @@ export interface Content_Title {
    * The title is bold-type by default, unless there is markdown formatting
    * syntax detected
    */
-  text: string;
+  text: string | readonly string[];
 }
 
 export interface QuestionCommon {

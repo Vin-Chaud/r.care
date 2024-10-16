@@ -13,6 +13,14 @@ interface InnerInterpolationContext {
   responses: Readonly<Record<string, AnswerValue>>;
 }
 
+export const createRichText = (
+  wrapper: ComponentType<{ children: ReactNode }>
+) => {
+  return function WrappedRichText({ children }: { children?: string }) {
+    return <RichText tag={wrapper}>{children}</RichText>;
+  };
+};
+
 export function RichText({
   children,
   tag,

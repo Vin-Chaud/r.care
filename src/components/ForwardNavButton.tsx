@@ -1,4 +1,6 @@
+import { Fonts, Greys, Purples } from "@/design_components/design_system";
 import { ComponentProps } from "react";
+import styled from "styled-components";
 
 export function ForwardNavButton({
   children,
@@ -10,19 +12,42 @@ export function ForwardNavButton({
   locked?: boolean;
 }) {
   return (
-    <button
+    <Button
       type="button"
       disabled={locked || disabled}
+      locked={locked ?? false}
       {...buttonProps}
-      style={{
-        width: "100%",
-        backgroundColor: locked ? "#B88AF2" : disabled ? "#E4DFEA" : "#945DD9",
-        color: "white",
-        borderRadius: 20,
-        border: 0,
-      }}
     >
       {children || "Continue"}
-    </button>
+    </Button>
   );
 }
+
+const Button = styled.button.withConfig({
+  shouldForwardProp: (prop) => prop !== "locked",
+})<{ locked: boolean }>`
+  width: calc(100% - 56px);
+  background-color: ${(props) =>
+    props.locked
+      ? Purples.PurpleB8_Undocumented
+      : props.disabled
+      ? Purples.PurpleE4_Undocumented
+      : Purples.Purple94};
+
+  ${Fonts.SFPro}
+  color: ${Greys.White};
+  border: 0;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  height: 60px;
+  display: block;
+  margin-inline: 28;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+`;

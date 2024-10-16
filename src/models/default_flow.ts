@@ -14,19 +14,31 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Built by psychologicsts & binge eating experts",
+                  text: ["Built by psychologicsts &", "binge eating experts"],
                 },
                 {
                   type: "text",
-                  text: "Our quiz will help you learn more about yourself and provide you with a personal binge eating score.",
+                  text: [
+                    "Our quiz will help you learn more",
+                    "about yourself and provide you with a",
+                    "personal binge eating score.",
+                  ],
+                  variant: "subtle",
+                },
+                {
+                  type: "image",
+                  graphic_id: "intro",
+                  max_height: 285,
                 },
                 {
                   type: "text",
                   text: "Created with experts from",
+                  variant: "subtle",
                 },
                 {
                   type: "image",
                   graphic_id: "harvard",
+                  max_height: 50,
                 },
               ],
             },

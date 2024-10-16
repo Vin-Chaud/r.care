@@ -1,18 +1,23 @@
 "use client";
 
 import { saveQuizData } from "@/actions/saveQuizData";
-import { defaultOnboardingFlow } from "@/assets/default_flow";
 import { AnalysisTransition } from "@/components/AnalysisTransition";
 import { Landing } from "@/components/Landing";
 import { OnboardingFlow } from "@/components/OnboardingFlow";
 import { Paywall } from "@/components/Paywall";
 import { ResultFlow } from "@/components/ResultFlow";
 import { WithPopupHost } from "@/components/WithPopupHost/index";
-import { useEffect, useState } from "react";
+import { OnboardingFlowContext } from "@/context/OnboardingFlowContext";
+import { OnboardingFlow as OnboardingFlowModel } from "@/models/OnboardingFlow/model";
+import { useEffect, useMemo, useState } from "react";
 
-export function HomeClient() {
-  const flow = defaultOnboardingFlow;
-
+export function HomeClient({
+  flow,
+  imageUrls,
+}: {
+  flow: OnboardingFlowModel;
+  imageUrls: Readonly<Record<string, string>>;
+}) {
   const [quizResponses, setQuizResponses] = useState<
     Readonly<Record<string, unknown>>
   >({});
@@ -27,49 +32,55 @@ export function HomeClient() {
     }
   }, [quizResponses]);
 
+  const onboardingFlowContextValue = useMemo(
+    () => ({ flow, imageUrls }),
+    [flow, imageUrls]
+  );
+
   return (
-    <WithPopupHost>
-      {!isLandingDone ? (
-        <Landing
-          flow={flow}
-          onNext={(quizAnswer) => {
-            setQuizResponses({ [flow.landing_quiz_step.id]: quizAnswer });
-            setLandingDone(true);
-          }}
-        />
-      ) : !isOnboardingDone ? (
-        <OnboardingFlow
-          spec={flow}
-          onBackNavigated={() => setLandingDone(false)}
-          onResponseUpdate={setQuizResponses}
-          onFlowComplete={() => setOnboardingDone(true)}
-        />
-      ) : !isAnalysisTransitionDone ? (
-        <AnalysisTransition
-          spec={flow}
-          onDone={() => setAnalysisTransitionDone(true)}
-          onPopupQuizDidAnswer={(response) => {
-            setQuizResponses({
-              ...quizResponses,
-              [flow.popup_quiz_step.id]: response,
-            });
-          }}
-        />
-      ) : !isResultDone ? (
-        <ResultFlow
-          flow={flow}
-          responses={quizResponses}
-          onReactionDidAnswer={(reaction) => {
-            setQuizResponses({
-              ...quizResponses,
-              [flow.reaction_step_id]: reaction,
-            });
-          }}
-          onNext={() => setResultDone(true)}
-        />
-      ) : (
-        <Paywall />
-      )}
-    </WithPopupHost>
+    <OnboardingFlowContext.Provider value={onboardingFlowContextValue}>
+      <WithPopupHost>
+        {!isLandingDone ? (
+          <Landing
+            flow={flow}
+            onNext={(quizAnswer) => {
+              setQuizResponses({ [flow.landing_quiz_step.id]: quizAnswer });
+              setLandingDone(true);
+            }}
+          />
+        ) : !isOnboardingDone ? (
+          <OnboardingFlow
+            onBackNavigated={() => setLandingDone(false)}
+            onResponseUpdate={setQuizResponses}
+            onFlowComplete={() => setOnboardingDone(true)}
+          />
+        ) : !isAnalysisTransitionDone ? (
+          <AnalysisTransition
+            spec={flow}
+            onDone={() => setAnalysisTransitionDone(true)}
+            onPopupQuizDidAnswer={(response) => {
+              setQuizResponses({
+                ...quizResponses,
+                [flow.popup_quiz_step.id]: response,
+              });
+            }}
+          />
+        ) : !isResultDone ? (
+          <ResultFlow
+            flow={flow}
+            responses={quizResponses}
+            onReactionDidAnswer={(reaction) => {
+              setQuizResponses({
+                ...quizResponses,
+                [flow.reaction_step_id]: reaction,
+              });
+            }}
+            onNext={() => setResultDone(true)}
+          />
+        ) : (
+          <Paywall />
+        )}
+      </WithPopupHost>
+    </OnboardingFlowContext.Provider>
   );
 }

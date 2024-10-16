@@ -11,6 +11,9 @@ import {
 } from "zod";
 import { AllMetrics, Metric, Symptom } from "../Metric";
 import {
+  Content,
+  Feedback,
+  FeedbackReference,
   FlowRootSection as FlowSection,
   FlowSubsection,
   OnboardingFlow,
@@ -496,4 +499,63 @@ export function getEchoText(
   }
 
   return spec.echo_default;
+}
+
+export function* getGraphics(flow: OnboardingFlow) {
+  for (const section of flow.sections) {
+    for (const subsection of section.subsections) {
+      for (const stepId of subsection.step_order) {
+        const step = getStepDefinitionWithFallback(
+          stepId,
+          subsection,
+          section,
+          flow
+        );
+
+        switch (step?.type) {
+          case "info": {
+            yield* getAllGraphicsFromContents(step.contents);
+            break;
+          }
+          case "story": {
+            for (const pane of step.panes) {
+              yield pane.graphic_id;
+            }
+            break;
+          }
+          default: {
+            yield* getAllGraphicsFromFeedback(step?.base_feedback ?? null);
+            for (const feedbackDef of Object.values(
+              step?.feedback_definitions || {}
+            )) {
+              yield* getAllGraphicsFromFeedback(feedbackDef);
+            }
+            break;
+          }
+        }
+      }
+    }
+  }
+}
+
+function* getAllGraphicsFromFeedback(
+  feedback: Feedback | FeedbackReference | null
+) {
+  if (feedback?.type === "full") {
+    yield* getAllGraphicsFromContents(feedback.contents);
+  }
+}
+
+function* getAllGraphicsFromContents(contents: readonly Content[]) {
+  for (const content of contents) {
+    yield* getAllGraphicsFromContent(content);
+  }
+}
+
+function* getAllGraphicsFromContent(content: Content) {
+  switch (content.type) {
+    case "image": {
+      yield content.graphic_id;
+    }
+  }
 }

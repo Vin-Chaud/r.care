@@ -1,12 +1,12 @@
 "use client";
 
+import { useOnboardingFlow } from "@/context/OnboardingFlowContext";
 import {
   gotoNextStep,
   gotoPreviousStep,
   ResolvedStep,
   resolveStep,
 } from "@/models/OnboardingFlow/methods";
-import { OnboardingFlow as OnboardingFlowModel } from "@/models/OnboardingFlow/model";
 import {
   useEffect,
   useLayoutEffect,
@@ -28,16 +28,15 @@ import { StepScreen } from "./StepScreen";
 import { OnboardingFlowState } from "./types";
 
 export function OnboardingFlow({
-  spec,
   onBackNavigated,
   onFlowComplete,
   onResponseUpdate,
 }: {
-  spec: OnboardingFlowModel;
   onBackNavigated: () => void;
   onFlowComplete: () => void;
   onResponseUpdate: (state: Readonly<Record<string, unknown>>) => void;
 }) {
+  const spec = useOnboardingFlow();
   const initialState = useMemo<OnboardingFlowState>(
     () => ({
       cursor: {

@@ -10,8 +10,8 @@
     "ts": "tsc -w"
   },
   "dependencies": {
-    "@next/font": "^14.2.15",
     "firebase-admin": "^12.6.0",
+    "glob": "^11.0.0",
     "nanoid": "^5.0.7",
     "next": "14.2.13",
     "path-to-regexp": "^8.2.0",

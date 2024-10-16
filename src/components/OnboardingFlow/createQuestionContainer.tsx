@@ -20,6 +20,8 @@ import { onboardingFlowContext } from "./onboardingFlowContext";
 import { QuestionHeader } from "./QuestionHeader";
 import { RichText } from "./RichText";
 import { AnswerValue } from "./types";
+import styled from "styled-components";
+import { Purples } from "@/design_components/design_system";
 
 export interface QuestionContainerProps<
   S extends QuestionCommon,
@@ -156,3 +158,13 @@ function EmbeddedFeedback({ feedback }: { feedback: EmbeddedFeedbackModel }) {
     </div>
   );
 }
+
+const QuestionLayout = styled.section`
+  background-color: ${Purples.PurpleF5_Undocumented};
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
