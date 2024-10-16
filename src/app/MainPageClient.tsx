@@ -9,7 +9,6 @@ import { Paywall } from "@/components/Paywall";
 import { ResultFlow } from "@/components/ResultFlow";
 import { WithPopupHost } from "@/components/WithPopupHost/index";
 import { useEffect, useState } from "react";
-import styles from "./page.module.css";
 
 export function HomeClient() {
   const flow = defaultOnboardingFlow;

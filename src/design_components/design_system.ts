@@ -1,5 +1,5 @@
 import { NextFont } from "@next/font";
-import { Hedvig_Letters_Sans, Inter, Montserrat } from "@next/font/google";
+import { Inter, Montserrat } from "@next/font/google";
 import { css } from "styled-components";
 
 const inter = Inter({ subsets: ["latin"], weight: "400" });
