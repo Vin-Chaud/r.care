@@ -1,36 +1,81 @@
+## About this project
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Installation
 
-First, run the development server:
+```
+pnpm i
+```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+## Starting the server locally
+
+Make sure to [configure the server](#configuration) before starting.
+
+```
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Configuration
 
-## Learn More
+Before starting the application, the following environment variables must be
+provided. This can be done by supplying the `.env` file at the root
+of the project in development, or by configuring environment variables in
+Vercel in a deployment environment.
 
-To learn more about Next.js, take a look at the following resources:
+### Server Configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+These variables allow the app to know about itself
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable                            | Example               | Notes        |
+| ----------------------------------- | --------------------- | ------------ |
+| RCARE__SERVER__BASE_URL             | http://localhost:3000 | (1)          |
+| RCARE__SERVER__BASIC_AUTH__USERNAME |                       | Optional (2) |
+| RCARE__SERVER__BASIC_AUTH__PASSWORD |                       | Optional (2) |
 
-## Deploy on Vercel
+#### Notes
+- (1) In Vercel, use the string `VERCEL` -- this will be correctly resolved
+      to Vercel deployment's base URL.
+- (2) These are optional. When both are specified, HTTP Basic Auth will be
+      enabled. This can be used to hide a non-production deployment behind
+      a password wall.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Stripe Configuration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+These variables allow the app to integrate with Stripe correctly.
+
+| Variable                                   | Example        |
+| ------------------------------------------ | -------------- |
+| RCARE__STRIPE__API_SECRET                  | sk_test_xxxxxx |
+| RCARE__STRIPE__CATALOG__ANNUAL_PRICE_ID    | price_xxxxxx   |
+| RCARE__STRIPE__CATALOG__QUARTERLY_PRICE_ID | price_xxxxxx   |
+
+### Firebase Configuration
+
+| Variable                         | Example               | Comment                                                             |
+| -------------------------------- | --------------------- | ------------------------------------------------------------------- |
+| RCARE__FIREBASE__CREDENTIAL      | (see below)           | Firebase service account credential                                 |
+| RCARE__FIREBASE__COLLECTION_PATH | rcare-onboarding-quiz | The name of the collection where the quiz results will be deposited |
+
+A Firebase service account credential is a JSON (which typically needs to be flattened into one line when provided in an `.env` file.) It looks something like this:
+
+```json
+{
+  "type":"service_account",
+  "project_id":"xxxxx",
+  "private_key_id":"xxxx",
+  "private_key":"-----BEGIN PRIVATE KEY-----\nxxxxx\n+xxxxx\n+xxxxx\n-----END PRIVATE KEY-----\n",
+  "client_email":"xxxp@yyyy.iam.gserviceaccount.com",
+  "client_id":"11111",
+  "auth_uri":"https://accounts.google.com/o/oauth2/auth",
+  "token_uri":"https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url":"https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-6b7yp%40xxxxx.iam.gserviceaccount.com",
+  "universe_domain":"googleapis.com"
+}
+```
+
+
