@@ -14,6 +14,7 @@ export const Fonts = {
 
 export const Purples = {
   PurpleB8_Undocumented: "#B88AF2",
+  PurpleBC: "#BCA7C9",
   Purple94: "#945dd9",
   PurpleE4_Undocumented: "#E4DFFA",
   PurpleF3_Undocumented: "#f3e3ff",
@@ -24,8 +25,10 @@ export const Purples = {
 export const Greys = {
   Grey26: "#262626",
   Grey4D: "#4D4D4D",
+  Grey96: "#969696",
   GreyA7: "#A7A7A7",
   GreyF0: "#F0F0F1",
+  GreyF1: "#F1F1F1",
   Black: "#000000",
   White: "#FFFFFF",
 };

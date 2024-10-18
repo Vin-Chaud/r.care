@@ -1,6 +1,7 @@
 "use client";
 import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { globalContext } from "@/context/GlobalContext";
+import { Purples } from "@/design_components/design_system";
 import {
   EmbeddedFeedback as EmbeddedFeedbackModel,
   Feedback as FeedbackModel,
@@ -15,13 +16,12 @@ import {
   useEffect,
   useState,
 } from "react";
+import styled from "styled-components";
 import { FullFeedback } from "./FullFeedback";
 import { onboardingFlowContext } from "./onboardingFlowContext";
 import { QuestionHeader } from "./QuestionHeader";
 import { RichText } from "./RichText";
 import { AnswerValue } from "./types";
-import styled from "styled-components";
-import { Purples } from "@/design_components/design_system";
 
 export interface QuestionContainerProps<
   S extends QuestionCommon,

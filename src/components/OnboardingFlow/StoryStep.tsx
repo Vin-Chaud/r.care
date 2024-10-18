@@ -11,6 +11,9 @@ import {
   TransitionState,
   useWatchedTransition,
 } from "@/hooks/useWatchedTransition";
+import { useOnboardingFlowImageUrls } from "@/context/OnboardingFlowContext";
+import styled from "styled-components";
+import { Purples } from "@/design_components/design_system";
 
 export function StoryStep({ stepDefinition }: { stepDefinition: Story }) {
   const { next } = useContext(onboardingFlowContext);
@@ -31,20 +34,44 @@ export function StoryStep({ stepDefinition }: { stepDefinition: Story }) {
           }
         }}
       />
-      <StoryPane {...stepDefinition.panes[paneIndex]} />
+
+      <StoryLayout>
+        {stepDefinition.panes.map((pane, itemIndex) => (
+          <StoryPane
+            key={itemIndex}
+            {...pane}
+            isShown={itemIndex >= paneIndex}
+          />
+        ))}
+      </StoryLayout>
     </div>
   );
 }
 
-export function StoryPane({ title, body, graphic_id }: StoryPaneModel) {
+export function StoryPane({
+  title,
+  body,
+  graphic_id,
+  isShown,
+}: StoryPaneModel & { isShown: boolean }) {
+  const imageUrls = useOnboardingFlowImageUrls();
   return (
     <div>
       <RichText tag="h1">{title}</RichText>
       <RichText>{body}</RichText>
-      <pre>Placeholder for image {graphic_id}</pre>
+      <img src={imageUrls[graphic_id]} />
     </div>
   );
 }
+
+const StoryLayout = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: ${Purples.PurpleF5_Undocumented};
+`;
 
 export function StoryTicker({
   length,

@@ -1,5 +1,6 @@
 import { RCareBrand } from "@/components/icons/RCareBrand";
 import { Fonts, Greys, Purples } from "@/design_components/design_system";
+import { PageLayout } from "@/design_components/PageLayout";
 import {
   LandingHeader,
   LandingQuizHelpText,
@@ -18,7 +19,7 @@ export function Landing({
   onNext(quizAnswer: string): void;
 }) {
   return (
-    <LandingSection>
+    <PageLayout background={landingStyle}>
       <LandingContentFrame>
         <RCareBrand />
         <LandingHeaderLayout>
@@ -28,7 +29,7 @@ export function Landing({
         </LandingHeaderLayout>
         <LandingQuiz flow={flow} onDidAnswer={onNext} />
       </LandingContentFrame>
-    </LandingSection>
+    </PageLayout>
   );
 }
 
@@ -74,6 +75,15 @@ function LandingQuiz({
     </form>
   );
 }
+
+const landingStyle = `
+  linear-gradient(
+    169.29deg,
+    ${Purples.PurpleF3_Undocumented} 6.17%,
+    ${Purples.PurpleFB_Undocumented} 61.87%,
+    ${Greys.GreyF0} 99%
+  )
+`;
 
 const LandingSection = styled.section`
   height: 100%;
