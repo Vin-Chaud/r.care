@@ -588,6 +588,10 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   type: "text",
                   text: "Our bite-sized lessons will help you kickstart your journey of healing your relationship with food, with or without a diagnosis. ",
                 },
+                {
+                  type: "image",
+                  graphic_id: "c5",
+                },
               ],
             },
             q29: {
@@ -612,6 +616,10 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                         type: "text",
                         text: "The stress of managing eating behaviors, body image concerns, and the fear of being judged can contribute to heightened anxiety levels. Often, managing your eating habit effectively can significantly reduce or eliminate this anxiety. ",
                       },
+                      {
+                        type: "image",
+                        graphic_id: "c6",
+                      },
                     ],
                   },
                 },
@@ -634,6 +642,10 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                         type: "text",
                         text: "Additionally, the physical discomfort and health issues related to binge eating can further contribute to a depressed mood.",
                       },
+                      {
+                        type: "image",
+                        graphic_id: "c6",
+                      },
                     ],
                   },
                 },
@@ -651,6 +663,10 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                       {
                         type: "text",
                         text: "Addressing only one might leave the other unaddressed, potentially leading to relapse. Integrated treatment that tackles both binge eating and substance use can provide a more comprehensive approach to recovery.",
+                      },
+                      {
+                        type: "image",
+                        graphic_id: "c6",
                       },
                     ],
                   },
@@ -673,6 +689,10 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                       {
                         type: "text",
                         text: "This heightened focus on body appearance and dissatisfaction can lead to or worsen body dysmorphic disorder.",
+                      },
+                      {
+                        type: "image",
+                        graphic_id: "c6",
                       },
                     ],
                   },

@@ -17,7 +17,7 @@ export const createRichText = (
   wrapper: ComponentType<{ children: ReactNode }>
 ) => {
   return function WrappedRichText({ children }: { children?: string }) {
-    return <RichText tag={wrapper}>{children}</RichText>;
+    return children != null && <RichText tag={wrapper}>{children}</RichText>;
   };
 };
 

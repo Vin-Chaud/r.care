@@ -8,12 +8,20 @@ import {
   ResolvedStep,
   areCursorsEqual,
 } from "@/models/OnboardingFlow/methods";
-import { InfoScreen, Step, Story } from "@/models/OnboardingFlow/model";
+import {
+  FullFeedback as FullFeedbackModel,
+  InfoScreen,
+  Step,
+  Story,
+} from "@/models/OnboardingFlow/model";
 import { useContext, useState } from "react";
 import styled from "styled-components";
 import { onboardingFlowContext } from "./onboardingFlowContext";
 import { QuestionnaireTicker } from "./QuestionnaireTicker";
 import { StepRouter } from "./StepRouter";
+import { FullFeedback } from "@/components/OnboardingFlow/FullFeedback";
+import { useAutoCanceledTimeout } from "@/hooks/useAutoCanceledTimeout";
+import { globalContext } from "@/context/GlobalContext";
 
 export function StepWithTicker({
   stepDefinition,
@@ -23,14 +31,30 @@ export function StepWithTicker({
   stepId,
 }: ResolvedStep & { stepDefinition: Exclude<Step, InfoScreen | Story> }) {
   const { back, state, next } = useContext(onboardingFlowContext);
+  const { questionTransitionTime } = useContext(globalContext);
   const [fillingTickerCursor, setFillingTickerCursor] = useState<{
     cursor: Cursor;
-    autoNext: boolean;
+    shouldAdvance: boolean;
   } | null>(null);
+  const [fullFeedback, setFullfeedback] = useState<FullFeedbackModel | null>(
+    null
+  );
+  const setTimeout = useAutoCanceledTimeout();
 
   const isFilling =
     fillingTickerCursor != null &&
     areCursorsEqual(fillingTickerCursor.cursor, state.cursor);
+  if (fullFeedback != null) {
+    return (
+      <FullFeedback
+        feedback={fullFeedback}
+        onNext={() => {
+          setFullfeedback(null);
+          next();
+        }}
+      />
+    );
+  }
 
   return (
     <PageLayout background={Greys.White}>
@@ -39,7 +63,7 @@ export function StepWithTicker({
         {typeof sectionTitle === "string" ? (
           <ProfileHeader>{sectionTitle}</ProfileHeader>
         ) : (
-          <RCareBrand />
+          <RCareBrand height={14} />
         )}
       </TickerHeader>
       <QuestionnaireTicker
@@ -53,7 +77,7 @@ export function StepWithTicker({
         fillingGroupIndex={state.cursor.currentSubsectionIndex}
         isFilling={isFilling}
         onDidFill={() => {
-          if (fillingTickerCursor?.autoNext) {
+          if (fillingTickerCursor?.shouldAdvance) {
             next();
             setFillingTickerCursor(null);
           }
@@ -62,33 +86,30 @@ export function StepWithTicker({
       <StepRouter
         stepDefinition={stepDefinition}
         stepId={stepId}
-        onDidRespond={(autoTickerNext) => {
+        onDidRespond={(shouldAdvance) => {
           setFillingTickerCursor({
             cursor: state.cursor,
-            autoNext: autoTickerNext,
+            shouldAdvance: shouldAdvance === true,
           });
+          if (typeof shouldAdvance === "object") {
+            setTimeout(
+              () => setFullfeedback(shouldAdvance.fullFeedback),
+              questionTransitionTime
+            );
+          }
         }}
       />
     </PageLayout>
   );
 }
 
-const TickerStepLayout = styled.div`
-  background-color: ${Greys.White};
-  height: 100%;
-`;
-
-const TickerStepFrame = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 26px;
-`;
-
 const TickerHeader = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
+  margin-block: 20px;
+  box-sizing: border-box;
+  position: relative;
 `;
 
 const ProfileHeader = styled.h1`

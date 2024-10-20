@@ -1,7 +1,7 @@
 "use client";
 import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { globalContext } from "@/context/GlobalContext";
-import { Purples } from "@/design_components/design_system";
+import { Fonts, Greys, Purples } from "@/design_components/design_system";
 import {
   EmbeddedFeedback as EmbeddedFeedbackModel,
   Feedback as FeedbackModel,
@@ -9,19 +9,13 @@ import {
   FullFeedback as FullFeedbackModel,
   QuestionCommon,
 } from "@/models/OnboardingFlow/model";
-import {
-  ComponentType,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { ComponentType, useCallback, useContext, useState } from "react";
 import styled from "styled-components";
-import { FullFeedback } from "./FullFeedback";
 import { onboardingFlowContext } from "./onboardingFlowContext";
 import { QuestionHeader } from "./QuestionHeader";
 import { RichText } from "./RichText";
 import { AnswerValue } from "./types";
+import { fadeIn } from "@/utils/style_partials";
 
 export interface QuestionContainerProps<
   S extends QuestionCommon,
@@ -46,18 +40,15 @@ export function createQuestionContainer<
     props: P & {
       stepId: string;
       stepDefinition: S;
-      onDidAnswer?: (autoNext: boolean) => void;
+      onDidAnswer?: (
+        autoNext: boolean | { fullFeedback: FullFeedbackModel }
+      ) => void;
     }
   ) {
     const waitTime = useContext(globalContext).questionTransitionTime;
-    const { setResponse, overrideBackAction } = useContext(
-      onboardingFlowContext
-    );
+    const { setResponse } = useContext(onboardingFlowContext);
     const [embeddedFeedback, setEmbeddedFeedback] =
       useState<EmbeddedFeedbackModel | null>(null);
-    const [fullFeedback, setFullFeedback] = useState<FullFeedbackModel | null>(
-      null
-    );
     const [hasAnswered, setHasAnswered] = useState(false);
     const { stepId, stepDefinition, onDidAnswer } = props;
 
@@ -67,62 +58,36 @@ export function createQuestionContainer<
         setHasAnswered(true);
 
         const feedback = resolveFeedback(feedbackOrRef, stepDefinition);
-        switch (feedback?.type) {
-          case "embedded": {
-            setEmbeddedFeedback(feedback);
-            break;
-          }
-
-          case "full": {
-            setTimeout(() => {
-              setFullFeedback(feedback);
-            }, waitTime);
-            break;
-          }
+        if (feedback == null) {
+          onDidAnswer?.(true);
+          return;
         }
 
-        // If there's no feedback, we can auto-tick to the next question
-        const autoNext = feedback == null;
-        onDidAnswer?.(autoNext);
+        if (feedback.type === "embedded") {
+          setEmbeddedFeedback(feedback);
+          onDidAnswer?.(false);
+          return;
+        }
+
+        onDidAnswer?.({ fullFeedback: feedback });
       },
       [stepId, stepDefinition, onDidAnswer]
     );
 
-    const renderedChild = (
-      <div>
+    return (
+      <QuestionLayout>
         <QuestionHeader {...props.stepDefinition} />
-        <QuestionBody
-          {...props}
-          submitAnswer={submitAnswer}
-          stepDefinition={props.stepDefinition as S}
-          hasAnswered={hasAnswered}
-        />
+        <QuestionBodyContainer>
+          <QuestionBody
+            {...props}
+            submitAnswer={submitAnswer}
+            stepDefinition={props.stepDefinition as S}
+            hasAnswered={hasAnswered}
+          />
+        </QuestionBodyContainer>
         {embeddedFeedback && <EmbeddedFeedback feedback={embeddedFeedback} />}
-      </div>
+      </QuestionLayout>
     );
-
-    useEffect(() => {
-      // When we're showing the full feedback, we override the back button
-      // to hiding the feedback and showing the question again. Note that,
-      // because the question body is unmounted when the feedback is rendered,
-      // the newly rendered question body's state will be a blank slate and so
-      // the question can be re-attempted.
-      //
-      // If we don't do this, the back button would take the user to the question
-      // _before_ the one they just answered, which is not what we want.
-      if (fullFeedback != null) {
-        return overrideBackAction(() => {
-          setFullFeedback(null);
-          setHasAnswered(false);
-        });
-      }
-    }, [fullFeedback != null]);
-
-    if (fullFeedback) {
-      return <FullFeedback feedback={fullFeedback} />;
-    }
-
-    return renderedChild;
   }
 
   QuestionContainer.displayName =
@@ -149,22 +114,56 @@ function EmbeddedFeedback({ feedback }: { feedback: EmbeddedFeedbackModel }) {
   const { next } = useContext(onboardingFlowContext);
   const paragraphs =
     typeof feedback.text === "string" ? [feedback.text] : feedback.text;
+
   return (
-    <div>
-      {paragraphs.map((text, index) => (
-        <RichText key={index}>{text}</RichText>
-      ))}
+    <EmbeddedFeedbackLayout>
+      <EmbeddedFeedbackBox>
+        {paragraphs.map((text, index) => (
+          <RichText key={index}>{text}</RichText>
+        ))}
+      </EmbeddedFeedbackBox>
       <ForwardNavButton onClick={next} />
-    </div>
+    </EmbeddedFeedbackLayout>
   );
 }
 
 const QuestionLayout = styled.section`
-  background-color: ${Purples.PurpleF5_Undocumented};
   height: 100%;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  ${fadeIn}
+`;
+
+const QuestionBodyContainer = styled.section`
+  flex-grow: 1;
+  width: 100%;
+`;
+
+const EmbeddedFeedbackLayout = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-block: 20px;
+
+  ${fadeIn}
+`;
+
+const EmbeddedFeedbackBox = styled.div`
+  background-color: ${Purples.PurpleF9};
+  padding-inline: 20px;
+  padding-block: 10px;
+  border-radius: 20px;
+  ${Fonts.SFPro};
+  font-size: 13px;
+  line-height: 18px;
+  color: ${Greys.Grey4D};
+  margin-block: 13px;
+  width: 100%;
+  box-sizing: border-box;
 `;

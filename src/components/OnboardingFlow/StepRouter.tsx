@@ -1,5 +1,5 @@
 "use client";
-import { Step } from "@/models/OnboardingFlow/model";
+import { FullFeedback, Step } from "@/models/OnboardingFlow/model";
 import { FreeTextInputStep } from "./FreeTextInputStep";
 import { InfoStep } from "./InfoStep";
 import { IntegerInputStep } from "./IntegerInputStep";
@@ -17,7 +17,9 @@ export function StepRouter({
 }: {
   stepDefinition: Step;
   stepId: string;
-  onDidRespond?: (autoTickerNext: boolean) => void;
+  onDidRespond?: (
+    shouldAdvance: boolean | { fullFeedback: FullFeedback }
+  ) => void;
 }) {
   switch (stepDefinition.type) {
     case "single_select": {

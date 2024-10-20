@@ -1,3 +1,5 @@
+import { hexToRgb, rgbToHex } from "@/utils/color";
+
 export const ScoreGradientStops = [
   { at: 0, color: "#7AB6EC" },
   { at: 30.5, color: "#A7C5D0" },
@@ -28,19 +30,4 @@ function interpolateColor(color1: string, color2: string, position: number) {
     (value, index) => value + (color2Values[index] - value) * position
   );
   return rgbToHex(interpolatedValues);
-}
-
-function hexToRgb(hex: string) {
-  return [
-    parseInt(hex.slice(1, 3), 16),
-    parseInt(hex.slice(3, 5), 16),
-    parseInt(hex.slice(5, 7), 16),
-  ];
-}
-
-function rgbToHex(rgb: number[]) {
-  return (
-    "#" +
-    rgb.map((value) => Math.round(value).toString(16).padStart(2, "0")).join("")
-  );
 }

@@ -7,7 +7,6 @@ export interface OnboardingFlowContext {
   setResponse: (stepId: string, value: AnswerValue) => void;
   back: () => void;
   next: () => void;
-  overrideBackAction: (action: () => void) => () => void;
 }
 
 export const onboardingFlowContext = createContext<OnboardingFlowContext>(

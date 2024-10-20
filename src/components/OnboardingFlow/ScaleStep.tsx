@@ -1,6 +1,8 @@
 "use client";
 import { ScaleQuestion } from "@/models/OnboardingFlow/model";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
+import { ButtonColumnLayout } from "./ButtonColumnLayout";
+import { ButtonRowLayout } from "./ButtonRowLayout";
 import { createQuestionContainer } from "./createQuestionContainer";
 
 export const ScaleStep = createQuestionContainer<
@@ -8,48 +10,67 @@ export const ScaleStep = createQuestionContainer<
   ScaleQuestion
 >(({ stepDefinition, submitAnswer, hasAnswered }) => {
   const [selectedValue, setSelectedValue] = useState<number | null>(null);
-  const options = getOptions(stepDefinition);
+  if (stepDefinition.preset === "intensity") {
+    return (
+      <ButtonRowLayout<number>
+        options={["1", "2", "3", "4", "5"].map(makeFowardOption)}
+        onSelect={(value) => {
+          setSelectedValue(value);
+          submitAnswer(value, stepDefinition.feedbacks?.[value]);
+        }}
+        hasAnswered={hasAnswered}
+        selectedValue={selectedValue}
+        leftLabel={stepDefinition.min_label}
+        rightLabel={stepDefinition.max_label}
+      />
+    );
+  }
 
+  if (stepDefinition.preset === "agreement") {
+    return (
+      <ButtonRowLayout<number>
+        options={[
+          { label: "👎", value: 1, fontSize: "emoji-big" },
+          { label: "👎", value: 2, fontSize: "emoji-small" },
+          { label: "🤷‍♀️", value: 3, fontSize: "emoji-small" },
+          { label: "👍", value: 4, fontSize: "emoji-small" },
+          { label: "👍", value: 5, fontSize: "emoji-big" },
+        ]}
+        onSelect={(value) => {
+          setSelectedValue(value);
+          submitAnswer(value, stepDefinition.feedbacks?.[value]);
+        }}
+        hasAnswered={hasAnswered}
+        selectedValue={selectedValue}
+        leftLabel={stepDefinition.min_label ?? "Never"}
+        rightLabel={stepDefinition.max_label ?? "All the time"}
+      />
+    );
+  }
+
+  const options = getButtonColumnOptions(stepDefinition);
   return (
-    <div>
-      <ul>
-        {options.map(({ value, label }) => (
-          <li key={value}>
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedValue(value);
-                submitAnswer(value, stepDefinition.feedbacks?.[value]);
-              }}
-              disabled={hasAnswered}
-              style={{
-                border: selectedValue === value ? "1px solid blue" : "",
-              }}
-            >
-              {label}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ButtonColumnLayout<number>
+      options={options}
+      onSelect={(value) => {
+        setSelectedValue(value);
+        submitAnswer(value, stepDefinition.feedbacks?.[value]);
+      }}
+      hasAnswered={hasAnswered}
+      selectedValue={selectedValue}
+    />
   );
 });
 
 interface Option {
   value: number;
-  label: ReactNode;
+  label: string;
 }
 
-function getOptions(stepDefinition: ScaleQuestion): readonly Option[] {
+function getButtonColumnOptions(
+  stepDefinition: ScaleQuestion
+): readonly Option[] {
   switch (stepDefinition.preset) {
-    case "intensity": {
-      return ["1", "2", "3", "4", "5"].map(makeFowardOption);
-    }
-
-    case "agreement": {
-      return ["👎👎", "👎", "🤷‍♀️", "👍", "👍👍"].map(makeFowardOption);
-    }
-
     case "frequency": {
       return [
         "All the time",
@@ -59,7 +80,8 @@ function getOptions(stepDefinition: ScaleQuestion): readonly Option[] {
         "Never",
       ].map(makeFowardOption);
     }
-    case "custom": {
+
+    default: {
       return (stepDefinition.custom_labels || [1, 2, 3, 4, 5])!.map(
         makeFowardOption
       );

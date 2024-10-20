@@ -12,4 +12,9 @@ export function BackButton({ onClick }: { onClick(): void }) {
 const BackButtonLayout = styled.button`
   border: none;
   background-color: transparent;
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 `;

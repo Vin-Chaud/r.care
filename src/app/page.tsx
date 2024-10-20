@@ -51,8 +51,14 @@ async function loadImageAsBase64(graphicId: string) {
   if (imageFiles.length === 0) {
     return null;
   }
+  const extension = path.extname(imageFiles[0]).slice(1);
+  const mimeTypeMap = {
+    svg: "svg+xml",
+    png: "png",
+  } as Record<string, string>;
+
   const imageBuffer = await readFile(imageFiles[0]);
   const base64Image = imageBuffer.toString("base64");
 
-  return `data:image/jpeg;base64,${base64Image}`;
+  return `data:image/${mimeTypeMap[extension]};base64,${base64Image}`;
 }

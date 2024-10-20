@@ -18,8 +18,9 @@ export const Purples = {
   Purple94: "#945dd9",
   PurpleE4_Undocumented: "#E4DFFA",
   PurpleF3_Undocumented: "#f3e3ff",
-  PurpleFB_Undocumented: "#FBF7FF",
   PurpleF5_Undocumented: "#F5EAF8",
+  PurpleF9: "#F9F4FF",
+  PurpleFB_Undocumented: "#FBF7FF",
 };
 
 export const Greys = {
@@ -27,10 +28,17 @@ export const Greys = {
   Grey4D: "#4D4D4D",
   Grey96: "#969696",
   GreyA7: "#A7A7A7",
+  GreyAF: "#AFAFAF",
+  GreyD9: "#D9D9D9",
   GreyF0: "#F0F0F1",
   GreyF1: "#F1F1F1",
+  GreyF5: "#F5F5F5",
   Black: "#000000",
   White: "#FFFFFF",
+};
+
+export const Reds = {
+  Red_Undocumented: "#FF0000",
 };
 
 function fontCss(nextFont: NextFont) {

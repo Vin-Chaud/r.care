@@ -16,9 +16,11 @@ import {
   FeedbackReference,
   FlowRootSection as FlowSection,
   FlowSubsection,
+  InfoScreen,
   OnboardingFlow,
   ResponseEcho,
   Step,
+  Story,
   YesNoScoring,
 } from "./model";
 
@@ -524,16 +526,48 @@ export function* getGraphics(flow: OnboardingFlow) {
             break;
           }
           default: {
-            yield* getAllGraphicsFromFeedback(step?.base_feedback ?? null);
-            for (const feedbackDef of Object.values(
-              step?.feedback_definitions || {}
-            )) {
-              yield* getAllGraphicsFromFeedback(feedbackDef);
+            if (step != null) {
+              yield* getGraphicsFromQuizStep(step);
+              yield* getAllGraphicsFromFeedback(step.base_feedback ?? null);
+              for (const feedbackDef of Object.values(
+                step.feedback_definitions || {}
+              )) {
+                yield* getAllGraphicsFromFeedback(feedbackDef);
+              }
             }
             break;
           }
         }
       }
+    }
+  }
+}
+
+function* getGraphicsFromQuizStep(step: Exclude<Step, Story | InfoScreen>) {
+  switch (step.type) {
+    case "free_text":
+    case "integer": {
+      return;
+    }
+    case "multi_select":
+    case "single_select": {
+      for (const option of step.options) {
+        option.feedback && (yield* getAllGraphicsFromFeedback(option.feedback));
+      }
+      return;
+    }
+    case "scale": {
+      for (const feedback of Object.values(step.feedbacks || {})) {
+        yield* getAllGraphicsFromFeedback(feedback);
+      }
+      return;
+    }
+    case "yes_no": {
+      step.feedbacks?.yes &&
+        (yield* getAllGraphicsFromFeedback(step.feedbacks.yes));
+      step.feedbacks?.no &&
+        (yield* getAllGraphicsFromFeedback(step.feedbacks.no));
+      return;
     }
   }
 }

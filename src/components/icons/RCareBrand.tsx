@@ -1,8 +1,13 @@
-export function RCareBrand() {
+export function RCareBrand({
+  width,
+  height,
+}: {
+  width?: number;
+  height?: number;
+}) {
   return (
     <svg
-      width="95"
-      height="28"
+      height={height ?? 28}
       viewBox="0 0 95 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

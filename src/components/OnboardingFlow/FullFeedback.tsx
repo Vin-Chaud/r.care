@@ -1,24 +1,36 @@
 "use client";
-import { FullFeedback as FullFeedbackModel } from "@/models/OnboardingFlow/model";
-import { useContext } from "react";
-import { Content } from "./Content";
-import { onboardingFlowContext } from "./onboardingFlowContext";
 import { ForwardNavButton } from "@/components/ForwardNavButton";
-import styled from "styled-components";
 import { Purples } from "@/design_components/design_system";
+import { PageLayout } from "@/design_components/PageLayout";
+import { FullFeedback as FullFeedbackModel } from "@/models/OnboardingFlow/model";
+import { Content } from "./Content";
+import styled from "styled-components";
+import { fadeIn } from "@/utils/style_partials";
 
-export function FullFeedback({ feedback }: { feedback: FullFeedbackModel }) {
-  const { next } = useContext(onboardingFlowContext);
+export function FullFeedback({
+  feedback,
+  onNext,
+}: {
+  feedback: FullFeedbackModel;
+  onNext(): void;
+}) {
   return (
-    <FeedbackPane>
-      {feedback.contents.map((content, index) => (
-        <Content key={index} content={content} />
-      ))}
-      <ForwardNavButton onClick={next} />
-    </FeedbackPane>
+    <PageLayout background={Purples.PurpleF5_Undocumented}>
+      <FeedbackLayout>
+        {feedback.contents.map((content, index) => (
+          <Content key={index} content={content} />
+        ))}
+        <ForwardNavButton onClick={onNext} />
+      </FeedbackLayout>
+    </PageLayout>
   );
 }
 
-const FeedbackPane = styled.section`
-  background-color: ${Purples.PurpleF5_Undocumented};
+const FeedbackLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  ${fadeIn}
 `;

@@ -26,7 +26,7 @@ export function ForwardNavButton({
 const Button = styled.button.withConfig({
   shouldForwardProp: (prop) => prop !== "locked",
 })<{ locked: boolean }>`
-  width: calc(100% - 56px);
+  width: 100%;
   background-color: ${(props) =>
     props.locked
       ? Purples.PurpleB8_Undocumented
@@ -43,8 +43,8 @@ const Button = styled.button.withConfig({
   font-weight: 600;
   height: 60px;
   display: block;
-  margin-inline: 28;
   cursor: pointer;
+  margin-block: 28px;
   transition: background-color 0.2s;
 
   &:disabled {

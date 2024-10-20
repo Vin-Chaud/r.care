@@ -16,7 +16,7 @@ export function PageLayout({
   );
 }
 
-const PageLayoutContainer = styled.section.withConfig({
+const PageLayoutContainer = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== "background",
 })<{ background?: string }>`
   height: 100%;

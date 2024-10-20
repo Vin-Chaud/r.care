@@ -1,6 +1,7 @@
 "use client";
 
 import { ComponentClass, ComponentType, createElement, ReactNode } from "react";
+import styled from "styled-components";
 
 export const createMarkdownText = (
   wrapper: ComponentType<{ children: ReactNode }>
@@ -68,7 +69,7 @@ function applyMarkdownFormatting(text: string | null): ReactNode {
     const parsedChildren = applyMarkdownFormatting(matchedText);
     if (parsedChildren != null) {
       if (matchType === "strong") {
-        elements.push(<strong key={elements.length}>{parsedChildren}</strong>);
+        elements.push(<Strong key={elements.length}>{parsedChildren}</Strong>);
       } else if (matchType === "em") {
         elements.push(<em key={elements.length}>{parsedChildren}</em>);
       }
@@ -97,3 +98,7 @@ function applyLinebreaks(text: string | null): readonly ReactNode[] {
 
   return children;
 }
+
+const Strong = styled.strong`
+  font-weight: 700;
+`;

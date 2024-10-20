@@ -13,7 +13,6 @@ export const FreeTextInputStep = createQuestionContainer<
       hasAnswered={hasAnswered}
       placeholder={stepDefinition.placeholder}
       inputMode="email"
-      type="email"
       name="email"
       autoComplete="email"
     />

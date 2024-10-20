@@ -14,7 +14,7 @@ export function Content({ content }: { content: ContentModel }) {
       return (
         <img
           src={imageUrls[content.graphic_id]}
-          style={{ maxHeight: content.max_height }}
+          style={{ maxHeight: content.max_height ?? 200, maxWidth: "100%" }}
         />
       );
     }

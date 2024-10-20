@@ -215,6 +215,7 @@ const FillingSectionRuler = styled.div`
 const FillingSectionFilled = styled.div`
   position: absolute;
   background-color: ${Purples.Purple94};
+  border-radius: ${gutterThickness * 0.5}px;
   height: 100%;
 `;
 

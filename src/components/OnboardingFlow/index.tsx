@@ -148,14 +148,6 @@ export function OnboardingFlow({
         onFlowComplete();
       }
     },
-    overrideBackAction: (action) => {
-      backButtonOverride.current = action;
-      return () => {
-        if (backButtonOverride.current === action) {
-          backButtonOverride.current = null;
-        }
-      };
-    },
   };
 
   return (

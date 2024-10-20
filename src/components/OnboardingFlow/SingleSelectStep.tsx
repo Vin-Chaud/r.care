@@ -1,4 +1,5 @@
 "use client";
+import { ButtonColumnLayout } from "@/components/OnboardingFlow/ButtonColumnLayout";
 import { SingleSelectQuestion } from "@/models/OnboardingFlow/model";
 import { useState } from "react";
 import { createQuestionContainer } from "./createQuestionContainer";
@@ -10,28 +11,18 @@ export const SingleSelectStep = createQuestionContainer<
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   return (
-    <div>
-      <ul>
-        {stepDefinition.options.map(
-          ({ value, feedback, text }, optionIndex) => (
-            <li key={optionIndex}>
-              <button
-                type="button"
-                onClick={() => {
-                  setSelectedIndex(optionIndex);
-                  submitAnswer(value, feedback);
-                }}
-                disabled={hasAnswered}
-                style={{
-                  border: selectedIndex === optionIndex ? "1px solid blue" : "",
-                }}
-              >
-                {text}
-              </button>
-            </li>
-          )
-        )}
-      </ul>
-    </div>
+    <ButtonColumnLayout
+      options={stepDefinition.options.map(({ text, value }, index) => ({
+        label: text,
+        value: index,
+      }))}
+      hasAnswered={hasAnswered}
+      selectedValue={selectedIndex}
+      onSelect={(index) => {
+        const option = stepDefinition.options[index];
+        setSelectedIndex(index);
+        submitAnswer(option.value, option.feedback);
+      }}
+    />
   );
 });
