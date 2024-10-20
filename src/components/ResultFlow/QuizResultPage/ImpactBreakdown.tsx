@@ -4,6 +4,8 @@ import { getScoreZone, ScoreZone } from "@/models/OnboardingFlow/methods";
 import { Fragment } from "react";
 import { impactCopy, impactEmojis, scoreZoneCopy } from "./copy";
 import { FeedbackBox } from "./FeedbackBox";
+import styled from "styled-components";
+import { Fonts, Greys, Purples } from "@/design_components/design_system";
 
 export function ImpactBreakdown({
   percentageScores,
@@ -11,11 +13,13 @@ export function ImpactBreakdown({
   percentageScores: Readonly<Record<Impact, number>>;
 }) {
   return (
-    <section>
+    <SectionLayout>
       <header>
-        <MarkdownText tag="h2">
-          {"How are binge eating symptoms **impacting your daily life?**"}
-        </MarkdownText>
+        <Header>
+          {"How are binge eating symptoms"}
+          <br />
+          <strong>{"impacting your daily life?"}</strong>
+        </Header>
       </header>
       <ImpactChart percentageScores={percentageScores} />
       <FeedbackBox>
@@ -23,7 +27,7 @@ export function ImpactBreakdown({
           "Curbing your binge eating behavior can improve every aspect of your well-being. We can help you stop binge eating and lead a happy and fulfilled life."
         }
       </FeedbackBox>
-    </section>
+    </SectionLayout>
   );
 }
 
@@ -32,7 +36,6 @@ function ImpactChart({
 }: {
   percentageScores: Readonly<Record<Impact, number>>;
 }) {
-  const chartPlottingAreaHeight = 35 * 5;
   const yDomainMax = 100;
   const yDomainMin = 0;
 
@@ -57,24 +60,14 @@ function ImpactChart({
     const tickLabel = (value * 0.1).toFixed(0); // Scale 0 - 10
     return (
       <Fragment key={value}>
-        <span
+        <YAxisLabel
           style={{
-            position: "absolute",
             top: encodeYValue(value),
-            transform: "translate(-100%, -50%)",
           }}
         >
           {tickLabel}
-        </span>
-        <div
-          style={{
-            position: "absolute",
-            top: encodeYValue(value),
-            width: "100%",
-            height: 0,
-            borderBottom: "1px dashed #838383",
-          }}
-        ></div>
+        </YAxisLabel>
+        <YAxisGrid style={{ top: encodeYValue(value) }} />
       </Fragment>
     );
   });
@@ -114,36 +107,127 @@ function ImpactChart({
           {(scoreZone == ScoreZone.High ||
             scoreZone == ScoreZone.VeryHigh ||
             true) && (
-            <div
-              style={{
-                background: "#945DD9",
-                position: "absolute",
-                top: -10,
-                transform: `translateY(-100%)`,
-              }}
-            >
-              {scoreZoneCopy[scoreZone]}
-            </div>
+            <Tooltip>
+              <strong>{scoreZoneCopy[scoreZone]}</strong>
+              <br />
+              {"Impact"}
+            </Tooltip>
           )}
-          <div style={{ position: "absolute", top: "100%", marginTop: 5 }}>
-            {impactCopy[metric]}
-          </div>
+          <XAxisLabel>{impactCopy[metric]}</XAxisLabel>
         </div>
       </Fragment>
     );
   });
 
   return (
-    <div style={{ padding: 20 }}>
-      <div
-        style={{
-          position: "relative",
-          height: chartPlottingAreaHeight,
-        }}
-      >
+    <ChartContainer>
+      <ChartPlottingArea>
         {yAxisGrid}
         {bars}
-      </div>
-    </div>
+      </ChartPlottingArea>
+    </ChartContainer>
   );
 }
+
+const SectionLayout = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+`;
+
+const Header = styled.h2`
+  ${Fonts.Montserrat}
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-align: center;
+
+  strong {
+    font-weight: 600;
+  }
+`;
+
+const ChartContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  padding-left: 40px;
+  box-sizing: border-box;
+  width: 100%;
+`;
+
+const chartPlottingAreaHeight = 35 * 5;
+
+const ChartPlottingArea = styled.div`
+  position: relative;
+  height: ${chartPlottingAreaHeight}px;
+  width: 100%;
+`;
+
+const YAxisGrid = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  border-bottom: 1px dashed ${Greys.Grey83};
+`;
+
+const YAxisLabel = styled.span`
+  position: absolute;
+  transform: translate(-100%, -50%);
+  ${Fonts.SFPro}
+  left: -20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: ${Greys.Grey83};
+`;
+
+const XAxisLabel = styled.span`
+  position: absolute;
+  top: 100%;
+  margin-top: 5px;
+
+  ${Fonts.Montserrat}
+  font-size: 12px;
+  font-weight: 600;
+  color: ${Greys.Black};
+  text-align: center;
+  width: 150%;
+`;
+
+const Tooltip = styled.div`
+  position: absolute;
+  top: 0px;
+  color: white;
+  top: -20px;
+  transform: translateY(-100%);
+  width: fit-content;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background-color: ${Purples.Purple94};
+  text-align: center;
+
+  ${Fonts.Montserrat}
+  font-weight: 400;
+  font-size: 10px;
+
+  strong {
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 10px;
+    height: 8.66px;
+    clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
+    background-color: ${Purples.Purple94};
+    transform: translate(-50%, -20%);
+  }
+`;

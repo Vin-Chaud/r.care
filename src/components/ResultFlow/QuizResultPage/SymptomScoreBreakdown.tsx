@@ -58,7 +58,7 @@ const SectionLayout = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 `;
 
 const ResultHeader = styled.h2`

@@ -36,6 +36,11 @@ const BoxLayout = styled.aside`
     margin-top: 0px;
   }
 
+  p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
   ${Fonts.SFPro};
   font-size: 12px;
   font-weight: 400px;
