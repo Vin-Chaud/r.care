@@ -1,8 +1,10 @@
 "use client";
-import { RCareBrand } from "@/components/icons/RCareBrand";
-import { BackButton } from "@/components/OnboardingFlow/BackButton";
-import { Fonts, Greys } from "@/design_components/design_system";
+import { AppHeader } from "@/components/AppHeader";
+import { FullFeedback } from "@/components/OnboardingFlow/FullFeedback";
+import { globalContext } from "@/context/GlobalContext";
+import { Greys } from "@/design_components/design_system";
 import { PageLayout } from "@/design_components/PageLayout";
+import { useAutoCanceledTimeout } from "@/hooks/useAutoCanceledTimeout";
 import {
   Cursor,
   ResolvedStep,
@@ -15,13 +17,9 @@ import {
   Story,
 } from "@/models/OnboardingFlow/model";
 import { useContext, useState } from "react";
-import styled from "styled-components";
 import { onboardingFlowContext } from "./onboardingFlowContext";
 import { QuestionnaireTicker } from "./QuestionnaireTicker";
 import { StepRouter } from "./StepRouter";
-import { FullFeedback } from "@/components/OnboardingFlow/FullFeedback";
-import { useAutoCanceledTimeout } from "@/hooks/useAutoCanceledTimeout";
-import { globalContext } from "@/context/GlobalContext";
 
 export function StepWithTicker({
   stepDefinition,
@@ -58,14 +56,9 @@ export function StepWithTicker({
 
   return (
     <PageLayout background={Greys.White}>
-      <TickerHeader>
-        <BackButton onClick={back} />
-        {typeof sectionTitle === "string" ? (
-          <ProfileHeader>{sectionTitle}</ProfileHeader>
-        ) : (
-          <RCareBrand height={14} />
-        )}
-      </TickerHeader>
+      <AppHeader withBackButton onClickBack={back}>
+        {sectionTitle}
+      </AppHeader>
       <QuestionnaireTicker
         key={
           // We need to kill all transitions in the ticker
@@ -102,21 +95,3 @@ export function StepWithTicker({
     </PageLayout>
   );
 }
-
-const TickerHeader = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-block: 20px;
-  box-sizing: border-box;
-  position: relative;
-`;
-
-const ProfileHeader = styled.h1`
-  ${Fonts.SFPro}
-  font-size:14px;
-  font-weight: 500;
-  color: ${Greys.Grey96};
-  flex-grow: 1;
-  text-align: center;
-`;

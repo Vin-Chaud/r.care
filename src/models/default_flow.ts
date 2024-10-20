@@ -761,6 +761,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             "q28",
             "c5",
             "q29",
+            "q30",
+            "q31",
+            "q32",
             "r5",
           ],
         },
@@ -1129,6 +1132,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       { value: "50_OR_OLDER", text: "50+" },
     ],
   },
+  analysis_graphic_id: "testimonial_analysis",
   popup_quiz_step: {
     id: "popup_quiz",
     type: "yes_no",

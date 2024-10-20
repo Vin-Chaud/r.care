@@ -17,6 +17,7 @@ import { useContext, useRef, useState } from "react";
 import styled from "styled-components";
 import { onboardingFlowContext } from "./onboardingFlowContext";
 import { createRichText } from "./RichText";
+import { AppHeader } from "@/components/AppHeader";
 
 export function StoryStep({ stepDefinition }: { stepDefinition: Story }) {
   const { next } = useContext(onboardingFlowContext);
@@ -26,20 +27,19 @@ export function StoryStep({ stepDefinition }: { stepDefinition: Story }) {
   const setTimeout = useAutoCanceledTimeout();
   return (
     <PageLayout background={Purples.PurpleF5_Undocumented}>
-      <StoryHeader>
-        <RCareBrand height={14} />
-        <StoryTicker
-          length={stepDefinition.panes.length}
-          paneIndex={paneIndex}
-          onNext={() => {
-            if (paneIndex === stepDefinition.panes.length - 1) {
-              setTimeout(next, storyTransitionDelayTime);
-            } else {
-              setPaneIndex(paneIndex + 1);
-            }
-          }}
-        />
-      </StoryHeader>
+      <AppHeader>{{ branding: true }}</AppHeader>
+      <StoryTicker
+        length={stepDefinition.panes.length}
+        paneIndex={paneIndex}
+        onNext={() => {
+          if (paneIndex === stepDefinition.panes.length - 1) {
+            setTimeout(next, storyTransitionDelayTime);
+          } else {
+            setPaneIndex(paneIndex + 1);
+          }
+        }}
+      />
+
       <StoryBody>
         {stepDefinition.panes.map(
           (pane, itemIndex) =>
@@ -64,14 +64,6 @@ export function StoryPane({ title, body, graphic_id }: StoryPaneModel) {
     </StoryLayoutOverlay>
   );
 }
-
-const StoryHeader = styled.header`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-`;
 
 const StoryBody = styled.div`
   flex-grow: 1;
@@ -202,7 +194,6 @@ function StoryTickerBar({
 const tickerSize = 8;
 
 const TickerGutter = styled.div`
-  margin-top: 26px;
   position: relative;
   width: 100%;
   height: ${tickerSize}px;

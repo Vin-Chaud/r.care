@@ -67,6 +67,7 @@ const Button = styled.button.withConfig({
   shouldForwardProp: (prop) => prop !== "isSelected" && prop !== "fontSize",
 })<{ isSelected: boolean; fontSize: ButtonRowFontSize }>`
   ${Fonts.Montserrat};
+
   font-weight: 500;
   font-size: ${(props) =>
     props.fontSize === "emoji-big"
