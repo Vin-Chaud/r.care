@@ -450,7 +450,7 @@ export enum ScoreZone {
   VeryHigh = "VeryHigh",
 }
 
-const ScoreZoneCutoffs: Readonly<
+export const ScoreZoneCutoffs: Readonly<
   Record<Exclude<ScoreZone, ScoreZone.VeryHigh>, number>
 > = {
   [ScoreZone.Low]: 40,

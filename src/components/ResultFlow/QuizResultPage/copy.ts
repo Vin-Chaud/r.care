@@ -3,7 +3,7 @@ import { ScoreZone } from "@/models/OnboardingFlow/methods";
 
 export const scoreZoneCopy: Readonly<Record<ScoreZone, string>> = {
   Low: "Low",
-  Medium: "Medium",
+  Medium: "Moderate",
   High: "High",
   VeryHigh: "Very high",
 };

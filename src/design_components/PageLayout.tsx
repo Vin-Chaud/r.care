@@ -1,17 +1,20 @@
 import { Purples } from "@/design_components/design_system";
 import { ReactNode } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export function PageLayout({
   children,
   background,
+  scrollable,
 }: {
   children: ReactNode;
   background?: string;
+  scrollable?: boolean;
 }) {
+  const Frame = scrollable ? ScrollablePageContentFrame : PageContentFrame;
   return (
     <PageLayoutContainer background={background}>
-      <PageContentFrame>{children}</PageContentFrame>
+      <Frame>{children}</Frame>
     </PageLayoutContainer>
   );
 }
@@ -29,9 +32,13 @@ const PageLayoutContainer = styled.div.withConfig({
   justify-content: center;
 `;
 
-const PageContentFrame = styled.div`
+const pageCommon = css`
   width: 100%;
   max-width: 400px;
+`;
+
+const PageContentFrame = styled.div`
+  ${pageCommon}
   height: 100%;
   max-height: 800px;
 
@@ -39,4 +46,9 @@ const PageContentFrame = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+const ScrollablePageContentFrame = styled.div`
+  ${pageCommon}
+  min-height:100%;
 `;

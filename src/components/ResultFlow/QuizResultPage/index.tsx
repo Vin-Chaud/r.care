@@ -1,14 +1,17 @@
-import { useMemo } from "react";
+import { AppHeader } from "@/components/AppHeader";
 import {
   computePercentageScores,
   computeTotalScore,
 } from "@/models/OnboardingFlow/methods";
 import { OnboardingFlow } from "@/models/OnboardingFlow/model";
+import { useMemo } from "react";
 import { ImpactBreakdown } from "./ImpactBreakdown";
 import { OverallScore } from "./OverallScore";
 import { ReactionPanel } from "./ReactionPanel";
 import { SymptomExplanations } from "./SymptomExplanations";
 import { SymptomScoreBreakdown } from "./SymptomScoreBreakdown";
+import { PageLayout } from "@/design_components/PageLayout";
+import { Greys } from "@/design_components/design_system";
 
 export function QuizResultPage({
   responses,
@@ -24,7 +27,8 @@ export function QuizResultPage({
   }, [responses, flow]);
 
   return (
-    <div>
+    <PageLayout background={Greys.White} scrollable>
+      <AppHeader>{{ branding: true }}</AppHeader>
       <OverallScore
         totalPercentageScore={computeTotalScore(percentageScores)}
       />
@@ -36,6 +40,6 @@ export function QuizResultPage({
           onNext(answer);
         }}
       />
-    </div>
+    </PageLayout>
   );
 }
