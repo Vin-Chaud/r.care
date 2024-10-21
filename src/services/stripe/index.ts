@@ -10,6 +10,9 @@ export async function createCheckoutSession(
   onboardingSessionId: string
 ) {
   const stripe = new Stripe(stripeConfig.apiSecret);
+  const sevenDaysInSeconds = 7 * 24 * 60 * 60;
+  const secondsSinceEpoch = new Date().valueOf() * 1e-3;
+  const nextWeekTimeStamp = secondsSinceEpoch + sevenDaysInSeconds;
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     mode: "subscription",
@@ -22,6 +25,10 @@ export async function createCheckoutSession(
         quantity: 1,
       },
     ],
+    subscription_data: {
+      trial_period_days: 7,
+      billing_cycle_anchor: nextWeekTimeStamp,
+    },
     metadata: {
       onboarding_session_id: onboardingSessionId,
     },
