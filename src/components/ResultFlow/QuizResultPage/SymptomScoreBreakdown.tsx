@@ -3,6 +3,7 @@ import { symptomCopy, symptomEmojis, SymptomOrdering } from "./copy";
 import { computeScoreColor, ScoreGradientStops } from "./scoreColorEncoding";
 import styled from "styled-components";
 import { Fonts, Greys } from "@/design_components/design_system";
+import { SectionSubHeader } from "@/components/ResultFlow/QuizResultPage/Common";
 
 export function SymptomScoreBreakdown({
   percentageScores,
@@ -13,11 +14,11 @@ export function SymptomScoreBreakdown({
     <SectionLayout>
       <header>
         <ResultHeader>{"How your score is calculated"}</ResultHeader>
-        <ResultSubHeader>
+        <SectionSubHeader>
           {
             "Your symptoms fall into 3 main categories that impact different aspects of your life."
           }
-        </ResultSubHeader>
+        </SectionSubHeader>
       </header>
       <BreakdownList>
         {SymptomOrdering.map((metric) => (
@@ -67,16 +68,6 @@ const ResultHeader = styled.h2`
   font-size: 19px;
   margin-bottom: 15px;
   text-align: left;
-`;
-
-const ResultSubHeader = styled.p`
-  ${Fonts.SFPro};
-  font-weight: 400;
-  font-size: 15px;
-  margin-top: 15px;
-  margin-bottom: 25px;
-  text-align: left;
-  color: ${Greys.Grey83};
 `;
 
 const BreakdownList = styled.ul`

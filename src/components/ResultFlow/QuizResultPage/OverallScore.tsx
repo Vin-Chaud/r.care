@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { scoreZoneCopy } from "./copy";
 import { FeedbackBox } from "./FeedbackBox";
 import { computeScoreColor, ScoreGradientStops } from "./scoreColorEncoding";
+import { SectionLayout } from "@/components/ResultFlow/QuizResultPage/Common";
 
 export function OverallScore({
   totalPercentageScore,
@@ -140,13 +141,6 @@ const scoreZoneInterpretationCopy: Readonly<Record<ScoreZone, string>> = {
   VeryHigh:
     "Your score is very high, suggesting that severe binge eating disorder symptoms may be impacting your daily life.",
 };
-
-const SectionLayout = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 40px;
-`;
 
 const ResultHeader = styled.h2`
   ${Fonts.SFPro};

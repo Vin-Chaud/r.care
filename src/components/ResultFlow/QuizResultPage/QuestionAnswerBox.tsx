@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { MarkdownText } from "@/design_components/typography/MarkdownText";
+import styled from "styled-components";
+import { Fonts, Greys, Purples } from "@/design_components/design_system";
 
 export function QuestionAnswerBox({
   title,
@@ -12,7 +14,7 @@ export function QuestionAnswerBox({
 }) {
   const [isExpanded, setExpanded] = useState(false);
   return (
-    <aside style={{ backgroundColor: "#F9F4FF" }}>
+    <BoxLayout style={{ backgroundColor: "#F9F4FF" }}>
       {title != null && (
         <header>
           <h3>{title}</h3>
@@ -21,10 +23,64 @@ export function QuestionAnswerBox({
       )}
       {isExpanded && <MarkdownText>{children}</MarkdownText>}
       {!isExpanded && (
-        <button type="button" onClick={() => setExpanded(true)}>
-          {"Learn more"}
-        </button>
+        <ButtonRow>
+          <button type="button" onClick={() => setExpanded(true)}>
+            {"Learn more"}
+          </button>
+        </ButtonRow>
       )}
-    </aside>
+    </BoxLayout>
   );
 }
+
+const BoxLayout = styled.aside`
+  background-color: ${Purples.PurpleF9};
+  padding: 24px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin-top: 20px;
+
+  header p {
+    ${Fonts.SFPro};
+    font-size: 14px;
+    font-weight: 400px;
+    color: ${Greys.Black};
+    margin-block: 0px;
+  }
+
+  h3 {
+    ${Fonts.Montserrat}
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 0px;
+  }
+
+  header {
+    margin-bottom: 30px;
+  }
+
+  p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: ${Greys.Grey5D};
+    ${Fonts.SFPro};
+    font-size: 13px;
+    font-weight: 400px;
+  }
+
+  button {
+    ${Fonts.SFPro};
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: ${Greys.Grey5D};
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+`;
+
+const ButtonRow = styled.div`
+  text-align: center;
+`;

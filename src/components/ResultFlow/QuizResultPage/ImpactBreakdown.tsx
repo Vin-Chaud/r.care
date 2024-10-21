@@ -1,11 +1,14 @@
-import { MarkdownText } from "@/design_components/typography/MarkdownText";
+import {
+  SectionHeader,
+  SectionLayout,
+} from "@/components/ResultFlow/QuizResultPage/Common";
+import { Fonts, Greys, Purples } from "@/design_components/design_system";
 import { Impact } from "@/models/Metric";
 import { getScoreZone, ScoreZone } from "@/models/OnboardingFlow/methods";
 import { Fragment } from "react";
+import styled from "styled-components";
 import { impactCopy, impactEmojis, scoreZoneCopy } from "./copy";
 import { FeedbackBox } from "./FeedbackBox";
-import styled from "styled-components";
-import { Fonts, Greys, Purples } from "@/design_components/design_system";
 
 export function ImpactBreakdown({
   percentageScores,
@@ -15,11 +18,11 @@ export function ImpactBreakdown({
   return (
     <SectionLayout>
       <header>
-        <Header>
+        <SectionHeader>
           {"How are binge eating symptoms"}
           <br />
           <strong>{"impacting your daily life?"}</strong>
-        </Header>
+        </SectionHeader>
       </header>
       <ImpactChart percentageScores={percentageScores} />
       <FeedbackBox>
@@ -128,25 +131,6 @@ function ImpactChart({
     </ChartContainer>
   );
 }
-
-const SectionLayout = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 40px;
-`;
-
-const Header = styled.h2`
-  ${Fonts.Montserrat}
-  font-size: 19px;
-  font-weight: 500;
-  margin-bottom: 30px;
-  text-align: center;
-
-  strong {
-    font-weight: 600;
-  }
-`;
 
 const ChartContainer = styled.div`
   display: flex;

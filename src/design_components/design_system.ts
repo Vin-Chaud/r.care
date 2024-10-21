@@ -26,6 +26,7 @@ export const Purples = {
 export const Greys = {
   Grey26: "#262626",
   Grey4D: "#4D4D4D",
+  Grey5D: "#5D5D5D",
   Grey7E: "#7E7E7E",
   Grey83: "#838383",
   Grey96: "#969696",
