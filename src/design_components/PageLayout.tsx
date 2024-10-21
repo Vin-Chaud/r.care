@@ -19,7 +19,7 @@ export function PageLayout({
   );
 }
 
-const PageLayoutContainer = styled.div.withConfig({
+export const PageLayoutContainer = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== "background",
 })<{ background?: string }>`
   height: 100%;
@@ -34,7 +34,8 @@ const PageLayoutContainer = styled.div.withConfig({
 
 const pageCommon = css`
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
+  box-sizing: border-box;
 `;
 
 const PageContentFrame = styled.div`
@@ -48,7 +49,18 @@ const PageContentFrame = styled.div`
   justify-content: center;
 `;
 
-const ScrollablePageContentFrame = styled.div`
+export const ScrollablePageLayoutContainer = styled.div`
+  height: 100%;
+`;
+
+export const ScrollablePageContentFrame = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "background",
+})<{ background?: string }>`
   ${pageCommon}
-  min-height:100%;
+  position:relative;
+  min-height: 100dvh;
+  padding-inline: 26px;
+  background: ${(props) => props.background ?? Purples.PurpleF5_Undocumented};
+  left: 50%;
+  transform: translateX(-50%);
 `;

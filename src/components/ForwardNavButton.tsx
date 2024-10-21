@@ -46,6 +46,7 @@ const Button = styled.button.withConfig({
   cursor: pointer;
   margin-block: 28px;
   transition: background-color 0.2s;
+  box-shadow: 0px 2px 6px 0px #00000040;
 
   &:disabled {
     cursor: not-allowed;

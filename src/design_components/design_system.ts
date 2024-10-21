@@ -32,6 +32,7 @@ export const Greys = {
   Grey96: "#969696",
   GreyA7: "#A7A7A7",
   GreyAF: "#AFAFAF",
+  GreyDF: "#DFE2F9",
   GreyD9: "#D9D9D9",
   GreyF0: "#F0F0F1",
   GreyF1: "#F1F1F1",
