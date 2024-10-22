@@ -53,14 +53,37 @@ export const ScrollablePageLayoutContainer = styled.div`
   height: 100%;
 `;
 
-export const ScrollablePageContentFrame = styled.div.withConfig({
-  shouldForwardProp: (prop) => prop !== "background",
-})<{ background?: string }>`
-  ${pageCommon}
-  position:relative;
-  min-height: 100dvh;
-  padding-inline: 26px;
+export function ScrollablePageContentFrame({
+  children,
+  background,
+  full,
+}: {
+  children?: ReactNode;
+  background?: string;
+  full?: boolean;
+}) {
+  return (
+    <ScrollablePageContentFrameOuter background={background} full={full}>
+      <ScrollablePageContentFrameInner>
+        {children}
+      </ScrollablePageContentFrameInner>
+    </ScrollablePageContentFrameOuter>
+  );
+}
+
+const ScrollablePageContentFrameOuter = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "background" && prop !== "full",
+})<{ background?: string; full?: boolean }>`
+  position: relative;
+  min-height: ${(props) => (props.full ? "100dvh" : "50dvh")};
   background: ${(props) => props.background ?? Purples.PurpleF5_Undocumented};
+`;
+
+const ScrollablePageContentFrameInner = styled.div`
+  ${pageCommon}
+  position: relative;
+  padding-inline: 26px;
+  height: 100%;
   left: 50%;
   transform: translateX(-50%);
 `;

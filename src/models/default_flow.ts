@@ -1144,6 +1144,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   current_episode_count_id: "q36",
   target_episode_count_id: "q37",
   target_knowledge_score: 94,
+  testimonial_graphic_id: "persona",
   program_plan: [
     {
       step_id: "q33",

@@ -13,6 +13,7 @@ export interface OnboardingFlow {
   program_plan: readonly ResponseEcho[];
   knowledge_plan: readonly ResponseEcho[];
   target_knowledge_score: number;
+  testimonial_graphic_id: string;
 }
 
 export interface FlowRootSection {

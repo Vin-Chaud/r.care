@@ -19,9 +19,11 @@ export function FullFeedback({
     <PageLayout background={Purples.PurpleF5_Undocumented}>
       <FeedbackLayout>
         <AppHeader>{{ branding: true }}</AppHeader>
-        {feedback.contents.map((content, index) => (
-          <Content key={index} content={content} />
-        ))}
+        <FeedbackContent>
+          {feedback.contents.map((content, index) => (
+            <Content key={index} content={content} />
+          ))}
+        </FeedbackContent>
         <ForwardNavButton onClick={onNext} />
       </FeedbackLayout>
     </PageLayout>
@@ -35,4 +37,13 @@ const FeedbackLayout = styled.div`
   justify-content: center;
   height: 100%;
   ${fadeIn}
+`;
+
+const FeedbackContent = styled.div`
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;

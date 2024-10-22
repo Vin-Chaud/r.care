@@ -84,7 +84,7 @@ export function ResultFlow({
     }
 
     case Page.Testimonial: {
-      return <Testimonial onNext={onNext} />;
+      return <Testimonial flow={flow} onNext={onNext} />;
     }
 
     default: {

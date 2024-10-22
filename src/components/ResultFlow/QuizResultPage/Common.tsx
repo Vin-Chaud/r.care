@@ -28,4 +28,8 @@ export const SectionLayout = styled.section`
   flex-direction: column;
   align-items: center;
   margin-bottom: 60px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;

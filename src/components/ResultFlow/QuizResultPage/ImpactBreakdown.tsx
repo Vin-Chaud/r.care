@@ -63,11 +63,7 @@ function ImpactChart({
     const tickLabel = (value * 0.1).toFixed(0); // Scale 0 - 10
     return (
       <Fragment key={value}>
-        <YAxisLabel
-          style={{
-            top: encodeYValue(value),
-          }}
-        >
+        <YAxisLabel style={{ top: encodeYValue(value) }}>
           {tickLabel}
         </YAxisLabel>
         <YAxisGrid style={{ top: encodeYValue(value) }} />

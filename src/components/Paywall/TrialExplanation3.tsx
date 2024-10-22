@@ -1,44 +1,55 @@
 "use client";
 
+import { AppHeader } from "@/components/AppHeader";
 import { ForwardNavButton } from "@/components/ForwardNavButton";
-import { MarkdownText } from "@/design_components/typography/MarkdownText";
+import { Emoji, H2, TrialContents } from "@/components/Paywall/trialCommon";
+import { Fonts, Greys } from "@/design_components/design_system";
+import { PageLayout } from "@/design_components/PageLayout";
+import {
+  createMarkdownText,
+  MarkdownText,
+} from "@/design_components/typography/MarkdownText";
 import { useCallback, useLayoutEffect, useRef } from "react";
+import styled from "styled-components";
 
 export function TrialExplanation3({ onNext }: { onNext: () => void }) {
   return (
-    <section style={{ backgroundColor: "#F5EAF8" }}>
-      <header>
-        <p>{"🚀"}</p>
-        <h2>{"How your free trial works:"}</h2>
-      </header>
-      <Timeline
-        items={[
-          {
-            header: "Complete the Quiz",
-            content: "You successfully created your profile.",
-            icon: "check",
-          },
-          {
-            header: "Today : Instant Free Access",
-            content:
-              "Unlimited access to an exclusive program developed by binge eating experts.",
-            icon: "lock",
-          },
-          {
-            header: "Day 5 : Trial Reminder",
-            content:
-              "We’ll send you an email.<br>Cancel anytime in just 15 seconds.",
-            icon: "lock",
-          },
-          {
-            header: "Day 7",
-            content: "Your subscription will start.",
-            icon: "lock",
-          },
-        ]}
-      />
+    <PageLayout>
+      <AppHeader>{{ branding: true }}</AppHeader>
+      <TrialContents>
+        <header>
+          <Emoji>{"🚀"}</Emoji>
+          <H2>{"How your free trial works:"}</H2>
+        </header>
+        <Timeline
+          items={[
+            {
+              header: "Complete the Quiz",
+              content: "You successfully created your profile.",
+              icon: "check",
+            },
+            {
+              header: "Today : Instant Free Access",
+              content:
+                "Unlimited access to an exclusive program developed by binge eating experts.",
+              icon: "lock",
+            },
+            {
+              header: "Day 5 : Trial Reminder",
+              content:
+                "We’ll send you an email.<br>Cancel anytime in just 15 seconds.",
+              icon: "lock",
+            },
+            {
+              header: "Day 7",
+              content: "Your subscription will start.",
+              icon: "lock",
+            },
+          ]}
+        />
+      </TrialContents>
       <ForwardNavButton onClick={onNext}>{"Got it!"}</ForwardNavButton>
-    </section>
+    </PageLayout>
   );
 }
 function Timeline({
@@ -46,7 +57,6 @@ function Timeline({
 }: {
   items: { header: string; content: string; icon: "lock" | "check" }[];
 }) {
-  const pathwayGutter = 40;
   const firstItemIconRef = useRef<HTMLDivElement>(null);
   const lastItemIconref = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -93,17 +103,19 @@ function Timeline({
           borderLeft: "2px dashed #838383",
         }}
       />
-      <ul style={{ flexGrow: 1, padding: 0 }}>
+      <TrialStepList>
         {items.map((item, itemIndex, itemArray) => (
-          <li
+          <TrialStepListItem
             key={itemIndex}
             style={{ listStyle: "none", position: "relative" }}
           >
             <div>
-              <h3>{item.header}</h3>
-              <MarkdownText>{item.content}</MarkdownText>
+              <TrialStepListItemHeader>{item.header}</TrialStepListItemHeader>
+              <TrialStepListItemContent>
+                {item.content}
+              </TrialStepListItemContent>
             </div>
-            <div
+            <IconPositioner
               ref={
                 itemIndex === 0
                   ? firstItemIconRef
@@ -111,21 +123,52 @@ function Timeline({
                   ? lastItemIconref
                   : void 0
               }
-              style={{
-                position: "absolute",
-                left: -pathwayGutter,
-                top: "50%",
-                transform: "translate(-50%, -50%)",
-              }}
             >
               {item.icon === "lock" ? <LockIcon /> : <CheckIcon />}
-            </div>
-          </li>
+            </IconPositioner>
+          </TrialStepListItem>
         ))}
-      </ul>
+      </TrialStepList>
     </div>
   );
 }
+
+const TrialStepList = styled.ul`
+  flex-grow: 1;
+  padding: 0px;
+  list-style: none;
+`;
+
+const TrialStepListItem = styled.div`
+  position: relative;
+  margin-block: 35px;
+`;
+
+const TrialStepListItemHeader = styled.h3`
+  ${Fonts.Montserrat}
+  font-size: 16px;
+  font-weight: 700;
+  color: ${Greys.Black};
+  margin-block: 5px;
+`;
+
+const TrialStepListItemContent = createMarkdownText(styled.p`
+  ${Fonts.SFPro}
+  font-size: 14px;
+  font-weight: 300;
+  color: ${Greys.Grey26};
+  margin-block: 2px;
+`);
+
+const pathwayGutter = 40;
+
+const IconPositioner = styled.div`
+  position: absolute;
+  left: -${pathwayGutter}px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+
 function LockIcon() {
   return (
     <svg
@@ -147,6 +190,7 @@ function LockIcon() {
     </svg>
   );
 }
+
 function CheckIcon() {
   return (
     <svg
