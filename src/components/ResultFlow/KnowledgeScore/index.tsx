@@ -1,10 +1,14 @@
+import { AppHeader } from "@/components/AppHeader";
 import { ForwardNavButton } from "@/components/ForwardNavButton";
+import { Fonts, Greys, Purples } from "@/design_components/design_system";
+import { PageLayout } from "@/design_components/PageLayout";
 import { Experience } from "@/models/Metric";
 import {
   computePercentageScores,
   getEchoText,
 } from "@/models/OnboardingFlow/methods";
 import { OnboardingFlow } from "@/models/OnboardingFlow/model";
+import styled from "styled-components";
 
 export function KnowledgeScorePage({
   responses,
@@ -20,49 +24,105 @@ export function KnowledgeScorePage({
   ];
 
   return (
-    <section>
+    <PageLayout background={Greys.White}>
+      <AppHeader>{{ branding: true }}</AppHeader>
       <header>
-        <h2>
-          {"Your binge eating knowledge based on all your answers today :"}
-        </h2>
+        <Header>
+          {"Your binge eating knowledge based on all your answers today:"}
+        </Header>
       </header>
 
-      <output style={{ backgroundColor: "#F9F4FF" }}>
-        {knowledgePercentageScore.toFixed(0) + "%"}
-      </output>
+      <KnowledgeScoreOutput>
+        <div>
+          {knowledgePercentageScore.toFixed(0)}
+          <span>{"%"}</span>
+        </div>
+      </KnowledgeScoreOutput>
 
-      <ul>
+      <KnowledgeScoreList>
         {flow.knowledge_plan.map((spec, itemIndex) => (
-          <li key={itemIndex}>
-            <EchoPane
-              key={spec.step_id}
-              prompt={spec.prompt}
-              echo={getEchoText(responses, spec)}
-              color={spec.color}
-            />
-          </li>
+          <KnowledgeScoreItem key={itemIndex}>
+            {spec.prompt}
+            <KnowledgeScoreAnswer>
+              {getEchoText(responses, spec)}
+            </KnowledgeScoreAnswer>
+          </KnowledgeScoreItem>
         ))}
-      </ul>
+      </KnowledgeScoreList>
 
-      <p>{"This is a good start but what happens if you stick with R.care?"}</p>
+      <Marketing>
+        {"This is a good start but what happens if you stick with R.care?"}
+      </Marketing>
       <ForwardNavButton onClick={onNext} />
-    </section>
+    </PageLayout>
   );
 }
 
-function EchoPane({
-  prompt,
-  echo,
-  color,
-}: {
-  prompt: string;
-  echo: string;
-  color: string;
-}) {
-  return (
-    <section>
-      <div>{prompt}</div>
-      <div style={{ backgroundColor: color }}>{echo}</div>
-    </section>
-  );
-}
+const Header = styled.h2`
+  ${Fonts.SFPro};
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+`;
+
+const KnowledgeScoreOutput = styled.output`
+  width: 180px;
+  height: 75px;
+  border-radius: 20px;
+
+  background: #f9f4ff;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  ${Fonts.SFPro}
+  font-size: 45px;
+  font-weight: 700;
+
+  span {
+    font-size: 30px;
+    font-weight: 500;
+  }
+`;
+
+const KnowledgeScoreList = styled.ul`
+  list-style: none;
+  padding: 15px;
+  border: 1px solid ${Greys.GreyD1};
+  border-radius: 15px;
+`;
+
+const KnowledgeScoreItem = styled.li`
+  ${Fonts.SFPro};
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const KnowledgeScoreAnswer = styled.div`
+  background: #f9f4ff;
+  ${Fonts.Montserrat}
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  border-radius: 15px;
+`;
+
+const Marketing = styled.p`
+  ${Fonts.SFProItalic};
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  color: ${Purples.Purple94};
+`;

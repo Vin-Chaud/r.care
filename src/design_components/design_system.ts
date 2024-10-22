@@ -3,12 +3,19 @@ import { Inter, Montserrat } from "next/font/google";
 import { css } from "styled-components";
 
 const inter = Inter({ subsets: ["latin"], weight: "400" });
+const interItalic = Inter({
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+});
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400"],
 });
+
 export const Fonts = {
   SFPro: fontCss(inter),
+  SFProItalic: fontCss(interItalic),
   Montserrat: fontCss(montserrat),
 };
 
