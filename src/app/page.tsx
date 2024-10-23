@@ -3,13 +3,11 @@ import { getGraphics } from "@/models/OnboardingFlow/methods";
 import { db } from "@/services/firebase";
 import { ReadonlySession } from "@/services/session";
 import assert from "assert";
-import { readFile } from "fs/promises";
-import { glob } from "glob";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import path from "path";
 import { config } from "../config";
 import { HomeClient } from "./MainPageClient";
+import { loadImageAsBase64 } from "@/utils/loadImageAsBase64";
 
 export default async function HomeServer() {
   const onboardingSessionId = new ReadonlySession(
@@ -41,24 +39,4 @@ export default async function HomeServer() {
   );
 
   return <HomeClient flow={flow} imageUrls={imageUrls} />;
-}
-
-async function loadImageAsBase64(graphicId: string) {
-  const imagePathBase = path.join(process.cwd(), "public", graphicId);
-
-  // Look for the extension of the image file. There's only one.
-  const imageFiles = await glob(imagePathBase + ".*");
-  if (imageFiles.length === 0) {
-    return null;
-  }
-  const extension = path.extname(imageFiles[0]).slice(1);
-  const mimeTypeMap = {
-    svg: "svg+xml",
-    png: "png",
-  } as Record<string, string>;
-
-  const imageBuffer = await readFile(imageFiles[0]);
-  const base64Image = imageBuffer.toString("base64");
-
-  return `data:image/${mimeTypeMap[extension]};base64,${base64Image}`;
 }

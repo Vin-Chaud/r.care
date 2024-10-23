@@ -17,6 +17,8 @@ export interface OnboardingFlow {
   community_testimonials: readonly Testimonial[];
   testimonial_disclaimer: string | null;
   interview: Interview;
+  activate_graphic_id: string;
+  user_email_step_id: string;
 }
 
 export interface FlowRootSection {

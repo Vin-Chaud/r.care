@@ -18,6 +18,7 @@ export const configSchema = object({
         password: string(),
       }).optional(),
     }),
+    appUrl: string(),
     stripe: object({
       apiSecret: string(),
       catalog: object({

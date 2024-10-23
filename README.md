@@ -36,6 +36,7 @@ These variables allow the app to know about itself
 | RCARE__SERVER__BASIC_AUTH__USERNAME |                       | Optional (2) |
 | RCARE__SERVER__BASIC_AUTH__PASSWORD |                       | Optional (2) |
 
+
 #### Notes
 - (1) In Vercel, use the string `VERCEL` -- this will be correctly resolved
       to Vercel deployment's base URL.
@@ -78,4 +79,10 @@ A Firebase service account credential is a JSON (which typically needs to be fla
 }
 ```
 
+### App Configuration
 
+
+| Variable       | Example                                             | Comment |
+| -------------- | --------------------------------------------------- | ------- |
+| RCARE__APP_URL | https://apps.apple.com/us/app/app-name/id1234567890 |
+| The app URL.   |

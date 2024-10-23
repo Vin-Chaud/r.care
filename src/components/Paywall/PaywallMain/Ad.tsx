@@ -94,7 +94,7 @@ const OfferItem = styled.li`
   .description {
     ${Fonts.Montserrat}
     font-size: 14px;
-    font-weight: 600px;
+    font-weight: 600;
     color: ${Greys.Black};
     text-align: left;
   }

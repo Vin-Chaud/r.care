@@ -11,9 +11,7 @@ export async function createCheckoutSession(
   onboardingSessionId: string
 ) {
   const stripe = new Stripe(stripeConfig.apiSecret);
-  const sevenDaysInSeconds = 7 * 24 * 60 * 60;
-  const secondsSinceEpoch = new Date().valueOf() * 1e-3;
-  const nextWeekTimeStamp = secondsSinceEpoch + sevenDaysInSeconds;
+  console.log(productKind);
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     mode: "subscription",

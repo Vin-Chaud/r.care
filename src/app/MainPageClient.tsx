@@ -1,5 +1,6 @@
 "use client";
 
+import { saveEmailField } from "@/actions/saveEmailCorrection";
 import { saveQuizData } from "@/actions/saveQuizData";
 import { AnalysisTransition } from "@/components/AnalysisTransition";
 import { Landing } from "@/components/Landing";
@@ -25,12 +26,19 @@ export function HomeClient({
   const [isOnboardingDone, setOnboardingDone] = useState(false);
   const [isAnalysisTransitionDone, setAnalysisTransitionDone] = useState(false);
   const [isResultDone, setResultDone] = useState(false);
+  const email = quizResponses[flow.email_step_id];
 
   useEffect(() => {
     if (Object.keys(quizResponses).length > 0) {
       saveQuizData(quizResponses);
     }
   }, [quizResponses]);
+
+  useEffect(() => {
+    if (typeof email === "string") {
+      saveEmailField(email);
+    }
+  }, [email]);
 
   const onboardingFlowContextValue = useMemo(
     () => ({ flow, imageUrls }),
@@ -43,9 +51,11 @@ export function HomeClient({
         {!isLandingDone ? (
           <Landing
             flow={flow}
-            onNext={(quizAnswer) => {
-              setQuizResponses({ [flow.landing_quiz_step.id]: quizAnswer });
+            onNext={async (quizAnswer) => {
               setLandingDone(true);
+              setQuizResponses({
+                [flow.landing_quiz_step.id]: quizAnswer,
+              });
             }}
           />
         ) : !isOnboardingDone ? (

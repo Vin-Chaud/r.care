@@ -43,10 +43,11 @@ export function createQuestionContainer<
       onDidAnswer?: (
         autoNext: boolean | { fullFeedback: FullFeedbackModel }
       ) => void;
+      setResponse?: (stepId: string, value: A) => void;
     }
   ) {
-    const waitTime = useContext(globalContext).questionTransitionTime;
-    const { setResponse } = useContext(onboardingFlowContext);
+    const contextSetResponse = useContext(onboardingFlowContext);
+    const setResponse = props.setResponse ?? contextSetResponse.setResponse;
     const [embeddedFeedback, setEmbeddedFeedback] =
       useState<EmbeddedFeedbackModel | null>(null);
     const [hasAnswered, setHasAnswered] = useState(false);

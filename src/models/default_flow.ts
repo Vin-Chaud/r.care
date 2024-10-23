@@ -1333,4 +1333,6 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         "After using the app for a while, I can almost hear the expert’s voice whenever I eat. The **knowledge and guidance from R.care** are invaluable—it **empowers me during moments of doubt** and helps me avoid falling back into the binge cycle.",
     },
   ],
+  activate_graphic_id: "activate",
+  user_email_step_id: "email",
 };
