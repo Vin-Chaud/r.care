@@ -12,6 +12,7 @@ export interface OnboardingFlow {
   target_episode_count_id: string;
   program_plan: readonly ResponseEcho[];
   knowledge_plan: readonly ResponseEcho[];
+  faqs: readonly Faq[];
   target_knowledge_score: number;
   testimonial_graphic_id: string;
 }
@@ -232,3 +233,14 @@ export interface ScoringCommon {
   scaling_factor?: number;
   max_unscaled_score?: number;
 }
+
+export interface Faq {
+  question: string;
+  answer: FaqContent | readonly FaqContent[];
+}
+
+export interface FaqListContent {
+  list: readonly string[];
+}
+
+export type FaqContent = string | FaqListContent;

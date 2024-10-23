@@ -84,6 +84,7 @@ function ProductChooser<Value extends string>({
   name,
   promo,
   value,
+  onChange,
 }: {
   id: string;
   name: string;
@@ -95,7 +96,7 @@ function ProductChooser<Value extends string>({
   pricePeriodInDays: number;
   value: Value;
   promo?: string;
-  onChange?(value: Value): void;
+  onChange(value: Value): void;
 }) {
   const dailyPrice = Number(
     ((discountedAmount ?? fullAmount) / pricePeriodInDays).toFixed(2)
@@ -131,7 +132,14 @@ function ProductChooser<Value extends string>({
           <span className="unit">{"/ day"}</span>
         </p>
       </div>
-      <input type="radio" name={name} checked id={id} value={value} />
+      <input
+        type="radio"
+        name={name}
+        checked={checked}
+        id={id}
+        value={value}
+        onChange={(ev) => onChange(ev.target.value as Value)}
+      />
     </ProductChooserLayout>
   );
 }

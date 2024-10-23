@@ -17,6 +17,7 @@ export const Fonts = {
   SFPro: fontCss(inter),
   SFProItalic: fontCss(interItalic),
   Montserrat: fontCss(montserrat),
+  Inter: fontCss(inter),
 };
 
 export const Purples = {

@@ -1229,4 +1229,37 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       color: "#F9F4FF",
     },
   ],
+  faqs: [
+    {
+      question: "What is the primary purpose of the R.care app?",
+      answer:
+        "R.care is designed to help you stop binge eating. It’s a science-based digital program based on Cognitive Behavioral Therapy, Dialectical Behavioral Therapy, and Appetite Awareness Training principles, offering a range of tools to improve your relationship with food and eating habits.",
+    },
+    {
+      question:
+        "Do I need a formal Bing Eating Disorder diagnosis to use R.care?",
+      answer:
+        "No formal diagnosis is required. R.care is designed to be helpful for anyone seeking to improve their eating habits and relationship with food.",
+    },
+    {
+      question: "How can R.care help me improve my eating habits?",
+      answer: [
+        "R.care offers a comprehensive set of features to help you adopt and stick to more balanced eating habits:",
+        {
+          list: [
+            "Fullness tracking: Learn how to tune into your internal stomach signals and guide your eating decision based on those cues. It’s a clinically developed tool that has been proven to be effective for people struggling with binge eating.",
+            "Emotion tracking: Practice becoming aware of and naming the emotion that you feel. The enhanced awareness itself will reduce emotional eating and you will also learn how your emotional fluctuation relate to your eating patterns.",
+            "Intuitive eating journal: In R.care, we don’t record calories or weights. Instead we focus on aspects of eating that actually matters such as how you felt, what prompted you to eat, and your hunger and fullness levels before and after your meal.",
+            "Insight page: Based on your progress tracking, you will be presented with weekly insight on your personal factors that are often associated with overeating and binge eating.",
+          ],
+        },
+      ],
+    },
+    {
+      question:
+        "Can I still use R.care if I’m already working with a therapist or dietitian?",
+      answer:
+        "Yes, you can absolutely use R.care while working with a therapist or dietitian.  It provides self-guided resources and daily support to help you stay on track between sessions, reinforcing the progress you're making in therapy or nutritional counseling. Using R.care alongside your professional guidance can offer a more comprehensive and supportive approach to overcoming binge eating.",
+    },
+  ],
 };

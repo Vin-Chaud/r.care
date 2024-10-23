@@ -153,6 +153,7 @@ function KnowledgeChart({
 
   return (
     <ChartContainer>
+      <ChartTitle>{"Your binge eating knowledge"}</ChartTitle>
       <ChartPlottingArea>
         {yAxisGrid}
         {bars}
@@ -213,15 +214,19 @@ const SectionHeader = createMarkdownText(styled.h2`
 `);
 
 const ChartContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
   padding: 20px;
   padding-left: 40px;
   box-sizing: border-box;
-  width: 80%;
+  width: 100%;
   margin-bottom: 60px;
+`;
+
+const ChartTitle = styled.h3`
+  ${Fonts.SFPro}
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 80px;
+  text-align: center;
 `;
 
 const chartPlottingAreaHeight = 35 * 5;
@@ -229,7 +234,8 @@ const chartPlottingAreaHeight = 35 * 5;
 const ChartPlottingArea = styled.div`
   position: relative;
   height: ${chartPlottingAreaHeight}px;
-  width: 100%;
+  width: calc(100% - 40px);
+  left: 40px;
 `;
 
 const YAxisGrid = styled.div`

@@ -106,7 +106,7 @@ const KnowledgeScoreItem = styled.li`
 `;
 
 const KnowledgeScoreAnswer = styled.div`
-  background: #f9f4ff;
+  background: ${Purples.PurpleF9};
   ${Fonts.Montserrat}
   font-size: 14px;
   font-weight: 600;
@@ -117,6 +117,8 @@ const KnowledgeScoreAnswer = styled.div`
   justify-content: center;
   margin-top: 25px;
   border-radius: 15px;
+  padding-inline: 15px;
+  box-sizing: border-box;
 `;
 
 const Marketing = styled.p`

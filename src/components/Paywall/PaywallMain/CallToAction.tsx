@@ -1,8 +1,7 @@
-import { GreenCheck } from "@/components/icons/GreenCheck";
+import { Header } from "@/components/Paywall/PaywallMain/common";
 import { CheckItem, CheckList } from "@/design_components/CheckList";
 import { Fonts, Greys } from "@/design_components/design_system";
 import { ScrollablePageContentFrame } from "@/design_components/PageLayout";
-import { MarkdownText } from "@/design_components/typography/MarkdownText";
 import styled from "styled-components";
 
 export function CallToAction() {
@@ -38,23 +37,8 @@ export function CallToAction() {
     </ScrollablePageContentFrame>
   );
 }
-function CallToActionItem({ children }: { children: string }) {
-  return (
-    <li style={{ display: "flex" }}>
-      <GreenCheck />
-      <MarkdownText tag="div">{children}</MarkdownText>
-    </li>
-  );
-}
 
 const Layout = styled.section``;
-
-const Header = styled.h2`
-  ${Fonts.SFPro}
-  font-size: 24px;
-  font-weight: 700;
-  text-align: center;
-`;
 
 const TrialOfferLayout = styled.div`
   border: 1px solid ${Greys.GreyD1};

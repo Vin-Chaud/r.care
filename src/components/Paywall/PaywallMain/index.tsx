@@ -9,6 +9,8 @@ import { Timer } from "@/components/Paywall/PaywallMain/Timer";
 import { AppHeader } from "@/components/AppHeader";
 import { useState } from "react";
 import { SubscriptionType } from "@/models/Subscription";
+import { Ad } from "@/components/Paywall/PaywallMain/Ad";
+import { Faqs } from "@/components/Paywall/PaywallMain/Faqs";
 
 export function PaywallMain() {
   const [checkoutType, setCheckoutType] = useState<SubscriptionType>(
@@ -26,6 +28,8 @@ export function PaywallMain() {
         value={checkoutType}
         onChange={setCheckoutType}
       />
+      <Ad />
+      <Faqs />
       <PurchasePortal
         portalId="lower"
         value={checkoutType}
