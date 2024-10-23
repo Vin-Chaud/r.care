@@ -1001,8 +1001,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   text: "Managing your binge eating behavior is hard, but R.care makes it easy in 5 minutes a day.",
                 },
                 {
-                  type: "image",
-                  graphic_id: "testimonial_single",
+                  type: "testimonial",
                 },
               ],
             },
@@ -1132,7 +1131,6 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       { value: "50_OR_OLDER", text: "50+" },
     ],
   },
-  analysis_graphic_id: "testimonial_analysis",
   popup_quiz_step: {
     id: "popup_quiz",
     type: "yes_no",
@@ -1144,7 +1142,30 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   current_episode_count_id: "q36",
   target_episode_count_id: "q37",
   target_knowledge_score: 94,
-  testimonial_graphic_id: "persona",
+  interview: {
+    title: "From chaos to control",
+    subtitle: "Jenni’s personal story",
+    graphic_id: "persona",
+    questions: [
+      {
+        question: "How did binge eating impact your life before R.care?",
+        answer:
+          "Binge eating took over my life in ways I never expected. I was **constantly out of control around food**, eating way more than I needed, and then feeling **incredibly sick and guilty afterward.** It really took a toll on my **self-esteem, messed with my relationships, and even disrupted my sleep.** The more I stressed about food, the more I struggled to feel normal around it—I just couldn’t **break the cycle on my own.**",
+      },
+      {
+        question: "How has R.care helped you?",
+        answer:
+          "This program has been **a total game-changer** for me. It opened my eyes to all the **different reasons behind my binge eating**—things I never even realized before! I also got **practical tools to help manage my emotions** and understand my hunger cues better. I’ve learned to recognize my triggers and eat more mindfully. For the first time in a long while, I **actually feel in control again.** It’s also made a big difference in how I show up in my relationships and at work.",
+      },
+      {
+        question:
+          "What would you tell someone curious about trying out R.care?",
+        answer:
+          "I’d tell them to definitely give it a shot. It’s not just about stopping binge eating—it’s about really **getting to know yourself** and **finding that sense of control and focus again.** The program is supportive, practical, and helps you improve your life in a holistic way. When your relationship with food is a mess, it can **throw everything—your mind, body, and life—into chaos. This is your chance to take back control.**",
+      },
+    ],
+    disclaimer: null,
+  },
   program_plan: [
     {
       step_id: "q33",
@@ -1262,7 +1283,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         "Yes, you can absolutely use R.care while working with a therapist or dietitian.  It provides self-guided resources and daily support to help you stay on track between sessions, reinforcing the progress you're making in therapy or nutritional counseling. Using R.care alongside your professional guidance can offer a more comprehensive and supportive approach to overcoming binge eating.",
     },
   ],
-  testimonial_disclaimer: null,
+  testimonial_disclaimer: "test",
   highlighted_testimonial: {
     avatar_graphic_id: "rachel",
     screen_name: "Rachel",

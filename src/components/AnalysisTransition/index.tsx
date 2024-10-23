@@ -1,12 +1,13 @@
 "use client";
 
 import { AppHeader } from "@/components/AppHeader";
+import { Testimonial } from "@/components/Testimonial";
 import { usePopupHostPortal } from "@/components/WithPopupHost/index";
 import { globalContext } from "@/context/GlobalContext";
-import { useOnboardingFlowImageUrls } from "@/context/OnboardingFlowContext";
 import { buttonStyle } from "@/design_components/button";
 import { Fonts, Greys, Purples } from "@/design_components/design_system";
 import { PageLayout } from "@/design_components/PageLayout";
+import { Disclaimer } from "@/design_components/typography";
 import { useAutoCanceledTimeout } from "@/hooks/useAutoCanceledTimeout";
 import { useWatchedTransition } from "@/hooks/useWatchedTransition";
 import { OnboardingFlow, YesNoQuestion } from "@/models/OnboardingFlow/model";
@@ -38,8 +39,6 @@ export function AnalysisTransition({
   const isAnimationCompleteRef = useRef(false);
   const isQuizAnsweredRef = useRef(false);
   const { quizDelayTime, analysisFinalDelayTime } = useContext(globalContext);
-
-  const imageUrl = useOnboardingFlowImageUrls()[spec.analysis_graphic_id];
 
   useEffect(() => {
     setTimeout(() => setShowingQuiz(true), quizDelayTime);
@@ -77,7 +76,10 @@ export function AnalysisTransition({
           </AnalysisTransitionItem>
         ))}
       </ProgressList>
-      <img src={imageUrl} style={{ maxHeight: 350 }} />
+      <Testimonial {...spec.highlighted_testimonial} />
+      {spec.testimonial_disclaimer && (
+        <Disclaimer>{spec.testimonial_disclaimer}</Disclaimer>
+      )}
       {modalPortalTarget &&
         isShowingQuiz &&
         createPortal(

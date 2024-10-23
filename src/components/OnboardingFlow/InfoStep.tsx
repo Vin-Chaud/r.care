@@ -55,7 +55,8 @@ const InfoContent = styled.div`
 `;
 
 const InfoFooter = styled.footer`
-  margin-block: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 100%;
   display: flex;
   justify-content: center;

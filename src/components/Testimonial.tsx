@@ -10,10 +10,11 @@ export function Testimonial({
   screen_subtitle,
   avatar_graphic_id,
   content,
-}: TestimonialModel) {
+  compact,
+}: TestimonialModel & { compact?: boolean }) {
   const imageUrl = useOnboardingFlowImageUrls()[avatar_graphic_id];
   return (
-    <TestimonialLayout>
+    <TestimonialLayout compact={compact}>
       <div className="author">
         <img src={imageUrl} />
         <div className="details">
@@ -28,15 +29,18 @@ export function Testimonial({
   );
 }
 
-const TestimonialLayout = styled.div`
+const TestimonialLayout = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "compact",
+})<{ compact?: boolean }>`
   background-color: ${Greys.White};
-  height: 400px;
+  height: ${(props) => (props.compact ? "auto" : "400px")};
   border-radius: 45px;
   width: 100%;
 
   box-shadow: 0px 4px 4px 0px ${withOpacity(Greys.Grey7E, 0.25)};
   padding: 40px 30px;
   box-sizing: border-box;
+  margin-bottom: 20px;
 
   ${Fonts.Montserrat};
   font-size: 14px;

@@ -542,8 +542,7 @@ export function* getGraphics(flow: OnboardingFlow) {
     }
   }
 
-  yield flow.analysis_graphic_id;
-  yield flow.testimonial_graphic_id;
+  yield flow.interview.graphic_id;
   for (const testimonial of flow.community_testimonials) {
     yield testimonial.avatar_graphic_id;
   }

@@ -1,10 +1,19 @@
-import { useOnboardingFlowImageUrls } from "@/context/OnboardingFlowContext";
+import {
+  useOnboardingFlow,
+  useOnboardingFlowImageUrls,
+} from "@/context/OnboardingFlowContext";
 import { Fonts, Greys } from "@/design_components/design_system";
 import { Content as ContentModel } from "@/models/OnboardingFlow/model";
 import styled from "styled-components";
 import { createRichText } from "./RichText";
+import { Fragment } from "react";
+import { Testimonial } from "@/components/Testimonial";
 
 export function Content({ content }: { content: ContentModel }) {
+  const model = useOnboardingFlow();
+
+  const testimonial = model.highlighted_testimonial;
+  const testimonialDisclaimer = model.testimonial_disclaimer;
   const imageUrls = useOnboardingFlowImageUrls();
   switch (content.type) {
     case "emoji": {
@@ -26,6 +35,18 @@ export function Content({ content }: { content: ContentModel }) {
     }
     case "title": {
       return <Title>{normalizeText(content.text)}</Title>;
+    }
+    case "testimonial": {
+      return (
+        <Fragment>
+          <TestimonialContainer>
+            <Testimonial compact {...testimonial} />
+          </TestimonialContainer>
+          {testimonialDisclaimer && (
+            <TextSubtle>{testimonialDisclaimer}</TextSubtle>
+          )}
+        </Fragment>
+      );
     }
     default: {
       return null;
@@ -66,3 +87,8 @@ const Title = createRichText(styled.h2`
   margin-block: 20px;
   text-align: center;
 `);
+
+const TestimonialContainer = styled.div`
+  padding-top: 40px;
+  padding-bottom: 0px;
+`;

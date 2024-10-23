@@ -1,11 +1,5 @@
-import Image from "next/image";
-
+import { AppHeader } from "@/components/AppHeader";
 import { ForwardNavButton } from "@/components/ForwardNavButton";
-import {
-  createMarkdownText,
-  MarkdownText,
-} from "@/design_components/typography/MarkdownText";
-import { OnboardingFlow } from "@/models/OnboardingFlow/model";
 import {
   useOnboardingFlow,
   useOnboardingFlowImageUrls,
@@ -15,30 +9,13 @@ import {
   ScrollablePageLayoutContainer,
 } from "@/design_components/PageLayout";
 import { Fonts, Greys, Purples } from "@/design_components/design_system";
+import { Disclaimer } from "@/design_components/typography";
+import { createMarkdownText } from "@/design_components/typography/MarkdownText";
 import styled from "styled-components";
-import { AppHeader } from "@/components/AppHeader";
-
-const interview = [
-  {
-    question: "How did binge eating impact your life before R.care?",
-    answer:
-      "Binge eating took over my life in ways I never expected. I was **constantly out of control around food**, eating way more than I needed, and then feeling **incredibly sick and guilty afterward.** It really took a toll on my **self-esteem, messed with my relationships, and even disrupted my sleep.** The more I stressed about food, the more I struggled to feel normal around it—I just couldn’t **break the cycle on my own.**",
-  },
-  {
-    question: "How has R.care helped you?",
-    answer:
-      "This program has been **a total game-changer** for me. It opened my eyes to all the **different reasons behind my binge eating**—things I never even realized before! I also got **practical tools to help manage my emotions** and understand my hunger cues better. I’ve learned to recognize my triggers and eat more mindfully. For the first time in a long while, I **actually feel in control again.** It’s also made a big difference in how I show up in my relationships and at work.",
-  },
-  {
-    question: "What would you tell someone curious about trying out R.care?",
-    answer:
-      "I’d tell them to definitely give it a shot. It’s not just about stopping binge eating—it’s about really **getting to know yourself** and **finding that sense of control and focus again.** The program is supportive, practical, and helps you improve your life in a holistic way. When your relationship with food is a mess, it can **throw everything—your mind, body, and life—into chaos. This is your chance to take back control.**",
-  },
-];
 
 export function Testimonial({ onNext }: { onNext: () => void }) {
-  const flow = useOnboardingFlow();
-  const imageUrl = useOnboardingFlowImageUrls()[flow.testimonial_graphic_id];
+  const model = useOnboardingFlow().interview;
+  const imageUrl = useOnboardingFlowImageUrls()[model.graphic_id];
   return (
     <ScrollablePageLayoutContainer>
       <ScrollablePageContentFrame background={Greys.White}>
@@ -46,15 +23,20 @@ export function Testimonial({ onNext }: { onNext: () => void }) {
           <AppHeader>{{ branding: true }}</AppHeader>
           <HeaderImageGroup>
             <Header>
-              <p>{"Jenni’s personal story"}</p>
-              <h2>{"From chaos to control"}</h2>
+              <p>{model.subtitle}</p>
+              <h2>{model.title}</h2>
             </Header>
             <Graphic src={imageUrl} />
           </HeaderImageGroup>
-          {interview.map(({ question, answer }, itemIndex) => (
+          {model.questions.map(({ question, answer }, itemIndex) => (
             <Interview key={itemIndex} question={question} answer={answer} />
           ))}
           <ForwardNavButton onClick={onNext} />
+          {model.disclaimer && (
+            <DisclaimerContainer>
+              <Disclaimer>{model.disclaimer}</Disclaimer>
+            </DisclaimerContainer>
+          )}
         </article>
       </ScrollablePageContentFrame>
     </ScrollablePageLayoutContainer>
@@ -146,3 +128,8 @@ const InterviewContent = createMarkdownText(styled.p`
   background-color: ${Purples.PurpleF5_Undocumented};
   border-radius: 15px;
 `);
+
+const DisclaimerContainer = styled.div`
+  margin-top: 10px;
+  margin-bottom: 40px;
+`;

@@ -4,7 +4,6 @@ export interface OnboardingFlow {
   step_definitions?: Readonly<Record<string, Step>>;
   sections: readonly FlowRootSection[];
   landing_quiz_step: SingleSelectQuestion & { id: string };
-  analysis_graphic_id: string;
   popup_quiz_step: YesNoQuestion & { id: string };
   reaction_step_id: string;
   email_step_id: string;
@@ -14,10 +13,10 @@ export interface OnboardingFlow {
   knowledge_plan: readonly ResponseEcho[];
   faqs: readonly Faq[];
   target_knowledge_score: number;
-  testimonial_graphic_id: string;
   highlighted_testimonial: Testimonial;
   community_testimonials: readonly Testimonial[];
   testimonial_disclaimer: string | null;
+  interview: Interview;
 }
 
 export interface FlowRootSection {
@@ -165,7 +164,8 @@ export type Content =
   | Content_Emoji
   | Content_Text
   | Content_Image
-  | Content_Title;
+  | Content_Title
+  | Content_Testimonial;
 
 export interface Content_Emoji {
   type: "emoji";
@@ -192,6 +192,10 @@ export interface Content_Title {
    * syntax detected
    */
   text: string | readonly string[];
+}
+
+export interface Content_Testimonial {
+  type: "testimonial";
 }
 
 export interface QuestionCommon {
@@ -258,4 +262,17 @@ export interface Testimonial {
     shares: number;
     likes: number;
   };
+}
+
+export interface Interview {
+  title: string;
+  subtitle: string;
+  questions: readonly InterviewQuestion[];
+  graphic_id: string;
+  disclaimer: string | null;
+}
+
+export interface InterviewQuestion {
+  question: string;
+  answer: string;
 }
