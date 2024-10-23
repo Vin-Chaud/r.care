@@ -7,6 +7,7 @@ import { SubscriptionType } from "@/models/Subscription";
 import { withOpacity } from "@/utils/color";
 import styled from "styled-components";
 import { Seal } from "./Seal";
+import { HeaderB } from "@/components/Paywall/PaywallMain/common";
 
 const prices = {
   yearlyFull: 233.99,
@@ -32,7 +33,7 @@ export function PurchasePortal({
         }}
       >
         <header>
-          <Title>{"Choose your plan"}</Title>
+          <HeaderB>{"Choose your plan"}</HeaderB>
         </header>
 
         <ProductChooser
@@ -165,13 +166,6 @@ function MoneyBack() {
 const Layout = styled.form`
   padding-block: 20px;
 `;
-
-const Title = styled.h2`
-  ${Fonts.SFPro}
-  font-size: 19px;
-  font-weight: 600;
-`;
-
 const ProductChooserLayout = styled.label`
   display: block;
   position: relative;

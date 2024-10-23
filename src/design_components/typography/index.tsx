@@ -1,5 +1,5 @@
-import { createMarkdownText } from "@/design_components/typography/MarkdownText";
 import { Fonts, Greys } from "@/design_components/design_system";
+import { createMarkdownText } from "@/design_components/typography/MarkdownText";
 
 import { styled } from "styled-components";
 
@@ -33,4 +33,12 @@ export const LandingQuizHelpText = createMarkdownText(styled.p`
   line-height: 16.29px;
   text-align: center;
   color: ${Greys.GreyA7};
+`);
+
+export const Disclaimer = createMarkdownText(styled.p`
+  ${Fonts.SFPro}
+
+  color: ${Greys.Grey7E};
+  font-weight: 400;
+  font-size: 11px;
 `);

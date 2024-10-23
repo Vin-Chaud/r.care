@@ -1,5 +1,6 @@
 import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { Fonts, Greys } from "@/design_components/design_system";
+import { Disclaimer } from "@/design_components/typography";
 import styled from "styled-components";
 
 export function ReactionPanel({
@@ -142,12 +143,4 @@ const ReactionText = styled.div`
 
 const ReactionRadioInput = styled.input`
   opacity: 0;
-`;
-
-const Disclaimer = styled.p`
-  ${Fonts.SFPro}
-
-  color: ${Greys.Grey7E};
-  font-weight: 400;
-  font-size: 11px;
 `;

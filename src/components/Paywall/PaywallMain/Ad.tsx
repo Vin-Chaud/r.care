@@ -1,4 +1,4 @@
-import { Header } from "@/components/Paywall/PaywallMain/common";
+import { HeaderA } from "@/components/Paywall/PaywallMain/common";
 import { Fonts, Greys } from "@/design_components/design_system";
 import { ScrollablePageContentFrame } from "@/design_components/PageLayout";
 import styled from "styled-components";
@@ -8,7 +8,7 @@ export function Ad({}: {}) {
     <ScrollablePageContentFrame background={Greys.White}>
       <Layout>
         <header>
-          <Header>{"Unlock a week of progress with our free trial!"}</Header>
+          <HeaderA>{"Unlock a week of progress with our free trial!"}</HeaderA>
           <Subheader>{"Your personalized plan includes:"}</Subheader>
         </header>
         <OfferList>

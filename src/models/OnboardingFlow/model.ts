@@ -15,6 +15,9 @@ export interface OnboardingFlow {
   faqs: readonly Faq[];
   target_knowledge_score: number;
   testimonial_graphic_id: string;
+  highlighted_testimonial: Testimonial;
+  community_testimonials: readonly Testimonial[];
+  testimonial_disclaimer: string | null;
 }
 
 export interface FlowRootSection {
@@ -244,3 +247,15 @@ export interface FaqListContent {
 }
 
 export type FaqContent = string | FaqListContent;
+
+export interface Testimonial {
+  avatar_graphic_id: string;
+  screen_name: string;
+  screen_subtitle: string;
+  content: string;
+  social?: {
+    comments: number;
+    shares: number;
+    likes: number;
+  };
+}

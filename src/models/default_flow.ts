@@ -1262,4 +1262,54 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         "Yes, you can absolutely use R.care while working with a therapist or dietitian.  It provides self-guided resources and daily support to help you stay on track between sessions, reinforcing the progress you're making in therapy or nutritional counseling. Using R.care alongside your professional guidance can offer a more comprehensive and supportive approach to overcoming binge eating.",
     },
   ],
+  testimonial_disclaimer: null,
+  highlighted_testimonial: {
+    avatar_graphic_id: "rachel",
+    screen_name: "Rachel",
+    screen_subtitle: "32, Otawa (Canada)",
+    content:
+      "I am obsessed with r_care! I feel so understood, learning more how to heal my relationship with food. It helped me approach eating in a more peaceful and nourishing way. Highly recommend.",
+    social: {
+      comments: 12,
+      shares: 4,
+      likes: 35,
+    },
+  },
+  community_testimonials: [
+    {
+      avatar_graphic_id: "charlie",
+      screen_name: "Charlie",
+      screen_subtitle: "29, Sedona (USA)",
+      content:
+        "Struggled with food obsession for most of my life. I knew it was a serious issue, but I didn’t know how to break free. R.care **helped me identify** my problems and finally **escape the restrict-binge cycle.**",
+    },
+    {
+      avatar_graphic_id: "annie",
+      screen_name: "Annie",
+      screen_subtitle: "52, Austin (USA)",
+      content:
+        "R.care has truly **exceeded my expectations.** Its comprehensive approach to behavior change is **more effective than any therapy** I’ve tried. The **daily engagement kept me motivated** and on track. R.care has been a crucial tool in my recovery.",
+    },
+    {
+      avatar_graphic_id: "lea",
+      screen_name: "Lea",
+      screen_subtitle: "27, London (USA)",
+      content:
+        "R.care makes binge eating recovery feel more achievable. Following the daily program helps me gently take control of my struggles and rebuild a positive relationship with food. Having this 24/7 companion is truly a game-changer. Thank you!",
+    },
+    {
+      avatar_graphic_id: "kali",
+      screen_name: "Kali",
+      screen_subtitle: "21, Atlanta (USA)",
+      content:
+        "R.care feels like having a brilliant, **supportive expert** right in my pocket! I’m **no longer suffering from the sickness and guilt** that used to follow every binge. I feel incredible and **at peace with myself.** I’m absolutely thrilled to have discovered it!",
+    },
+    {
+      avatar_graphic_id: "kate",
+      screen_name: "Kate",
+      screen_subtitle: "35, Toronto (USA)",
+      content:
+        "After using the app for a while, I can almost hear the expert’s voice whenever I eat. The **knowledge and guidance from R.care** are invaluable—it **empowers me during moments of doubt** and helps me avoid falling back into the binge cycle.",
+    },
+  ],
 };

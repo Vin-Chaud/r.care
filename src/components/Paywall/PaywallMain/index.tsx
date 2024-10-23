@@ -11,6 +11,7 @@ import { useState } from "react";
 import { SubscriptionType } from "@/models/Subscription";
 import { Ad } from "@/components/Paywall/PaywallMain/Ad";
 import { Faqs } from "@/components/Paywall/PaywallMain/Faqs";
+import { CommunityTestimonials } from "@/components/Paywall/PaywallMain/CommunityTestimonials";
 
 export function PaywallMain() {
   const [checkoutType, setCheckoutType] = useState<SubscriptionType>(
@@ -29,6 +30,7 @@ export function PaywallMain() {
         onChange={setCheckoutType}
       />
       <Ad />
+      <CommunityTestimonials />
       <Faqs />
       <PurchasePortal
         portalId="lower"

@@ -1,4 +1,4 @@
-import { Header } from "@/components/Paywall/PaywallMain/common";
+import { HeaderA } from "@/components/Paywall/PaywallMain/common";
 import { useOnboardingFlow } from "@/context/OnboardingFlowContext";
 import { Fonts, Greys, Purples } from "@/design_components/design_system";
 import { ScrollablePageContentFrame } from "@/design_components/PageLayout";
@@ -13,7 +13,7 @@ export function Faqs() {
   const faqs = useOnboardingFlow().faqs;
   return (
     <ScrollablePageContentFrame background={Greys.White}>
-      <Header>{"Still have questions?"}</Header>
+      <HeaderA>{"Still have questions?"}</HeaderA>
       <FaqList>
         {faqs.map((faq, index) => (
           <FaqBox {...faq} key={index} />

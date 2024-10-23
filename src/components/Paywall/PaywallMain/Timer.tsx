@@ -1,5 +1,4 @@
 import { Fonts, Purples } from "@/design_components/design_system";
-import { pageWidthStyles } from "@/design_components/PageLayout";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 

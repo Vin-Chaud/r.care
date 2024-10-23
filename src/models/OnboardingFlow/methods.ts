@@ -544,6 +544,10 @@ export function* getGraphics(flow: OnboardingFlow) {
 
   yield flow.analysis_graphic_id;
   yield flow.testimonial_graphic_id;
+  for (const testimonial of flow.community_testimonials) {
+    yield testimonial.avatar_graphic_id;
+  }
+  yield flow.highlighted_testimonial.avatar_graphic_id;
 }
 
 function* getGraphicsFromQuizStep(step: Exclude<Step, Story | InfoScreen>) {

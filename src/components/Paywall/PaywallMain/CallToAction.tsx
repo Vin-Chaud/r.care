@@ -1,4 +1,4 @@
-import { Header } from "@/components/Paywall/PaywallMain/common";
+import { HeaderA } from "@/components/Paywall/PaywallMain/common";
 import { CheckItem, CheckList } from "@/design_components/CheckList";
 import { Fonts, Greys } from "@/design_components/design_system";
 import { ScrollablePageContentFrame } from "@/design_components/PageLayout";
@@ -8,7 +8,7 @@ export function CallToAction() {
   return (
     <ScrollablePageContentFrame background={Greys.White}>
       <Layout>
-        <Header>{"Delay no more - break free from binge eating."}</Header>
+        <HeaderA>{"Delay no more - break free from binge eating."}</HeaderA>
         <TrialOfferLayout>
           <TrialOfferHeader>{"Start with a 7-day free trial"}</TrialOfferHeader>
           <CheckList fontSize={14}>
