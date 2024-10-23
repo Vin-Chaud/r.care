@@ -7,19 +7,30 @@ import {
 import { Greys } from "@/design_components/design_system";
 import { Timer } from "@/components/Paywall/PaywallMain/Timer";
 import { AppHeader } from "@/components/AppHeader";
+import { useState } from "react";
+import { SubscriptionType } from "@/models/Subscription";
 
 export function PaywallMain() {
+  const [checkoutType, setCheckoutType] = useState<SubscriptionType>(
+    SubscriptionType.Yearly
+  );
   return (
     <ScrollablePageLayoutContainer>
       <ScrollablePageContentFrame background={Greys.White}>
         <AppHeader>{{ branding: true }}</AppHeader>
       </ScrollablePageContentFrame>
       <Timer />
-      <ScrollablePageContentFrame background={Greys.White}>
-        <CallToAction />
-        <PurchasePortal />
-        <PurchasePortal />
-      </ScrollablePageContentFrame>
+      <CallToAction />
+      <PurchasePortal
+        portalId="upper"
+        value={checkoutType}
+        onChange={setCheckoutType}
+      />
+      <PurchasePortal
+        portalId="lower"
+        value={checkoutType}
+        onChange={setCheckoutType}
+      />
     </ScrollablePageLayoutContainer>
   );
 }

@@ -1,4 +1,5 @@
 import { config } from "@/config";
+import { SubscriptionType } from "@/models/Subscription";
 
 const stripeConfig = config.stripe;
 const serverConfig = config.server;
@@ -6,7 +7,7 @@ const serverConfig = config.server;
 import Stripe from "stripe";
 
 export async function createCheckoutSession(
-  productKind: "quarterly" | "annual",
+  productKind: SubscriptionType,
   onboardingSessionId: string
 ) {
   const stripe = new Stripe(stripeConfig.apiSecret);
@@ -19,7 +20,7 @@ export async function createCheckoutSession(
     line_items: [
       {
         price:
-          productKind === "quarterly"
+          productKind === SubscriptionType.Quarterly
             ? stripeConfig.catalog.quarterlyPriceId
             : stripeConfig.catalog.annualPriceId,
         quantity: 1,
@@ -27,7 +28,6 @@ export async function createCheckoutSession(
     ],
     subscription_data: {
       trial_period_days: 7,
-      billing_cycle_anchor: nextWeekTimeStamp,
     },
     metadata: {
       onboarding_session_id: onboardingSessionId,

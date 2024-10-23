@@ -1,4 +1,5 @@
 import { config } from "@/config";
+import { isSubscriptionType } from "@/models/Subscription";
 import { db } from "@/services/firebase";
 import { ReadonlySession } from "@/services/session";
 import { createCheckoutSession } from "@/services/stripe";
@@ -15,7 +16,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(new URL("/error", req.url));
   }
 
-  if (type !== "quarterly" && type !== "annual") {
+  if (!type || !isSubscriptionType(type)) {
     return NextResponse.redirect(new URL("/error", req.url));
   }
 
@@ -32,7 +33,7 @@ export async function GET(req: NextRequest) {
   }
 
   const checkoutSession = await createCheckoutSession(
-    type === "quarterly" ? "quarterly" : "annual",
+    type,
     onboardingSessionId
   );
 

@@ -162,7 +162,7 @@ function fillLeft(
 ) {
   const totalOverlappingWidth = computeTotalOverlapWidth(groupCount);
   const sectionLeft = `${sectionLeftFraction} * ${totalOverlappingWidth} - ${overlapWidth} * ${groupIndex}`;
-  return `calc(${sectionLeft}`;
+  return `calc(${sectionLeft})`;
 }
 
 function computeTotalOverlapWidth(groupCount: number) {
