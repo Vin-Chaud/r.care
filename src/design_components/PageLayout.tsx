@@ -32,14 +32,15 @@ export const PageLayoutContainer = styled.div.withConfig({
   justify-content: center;
 `;
 
-const pageCommon = css`
+export const pageWidthStyles = css`
+  position: relative;
   width: 100%;
   max-width: 420px;
   box-sizing: border-box;
 `;
 
 const PageContentFrame = styled.div`
-  ${pageCommon}
+  ${pageWidthStyles}
   height: 100%;
   max-height: 800px;
 
@@ -75,12 +76,12 @@ const ScrollablePageContentFrameOuter = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== "background" && prop !== "full",
 })<{ background?: string; full?: boolean }>`
   position: relative;
-  min-height: ${(props) => (props.full ? "100dvh" : "50dvh")};
+  min-height: ${(props) => (props.full ? "100dvh" : "auto")};
   background: ${(props) => props.background ?? Purples.PurpleF5_Undocumented};
 `;
 
 const ScrollablePageContentFrameInner = styled.div`
-  ${pageCommon}
+  ${pageWidthStyles}
   position: relative;
   padding-inline: 26px;
   height: 100%;

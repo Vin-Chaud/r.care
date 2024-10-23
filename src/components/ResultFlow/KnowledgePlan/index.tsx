@@ -3,6 +3,7 @@ import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { CheckboxTick } from "@/components/icons/CheckboxTick";
 import { createRichText } from "@/components/OnboardingFlow/RichText";
 import { Graphic } from "@/components/ResultFlow/KnowledgePlan/Graphic";
+import { CheckItem, CheckList } from "@/design_components/CheckList";
 import { Fonts, Greys, Purples } from "@/design_components/design_system";
 import {
   ScrollablePageContentFrame,
@@ -179,30 +180,17 @@ function RCareApproach({ onNext }: { onNext: () => void }) {
           {"(Cognitive Behavioral Therapy)"}
         </ApproachSubtitle>
       </header>
-      <EmpathyList>
-        <EmpathyItem>
-          {"practice tuning into your **stomach signal**"}
-        </EmpathyItem>
-        <EmpathyItem>
+      <CheckList fontSize={16}>
+        <CheckItem>{"practice tuning into your **stomach signal**"}</CheckItem>
+        <CheckItem>
           {
             "improve understanding your **emotional triggers and self-regulation**"
           }
-        </EmpathyItem>
-        <EmpathyItem>{"**find coping strategy that works**"}</EmpathyItem>
-      </EmpathyList>
+        </CheckItem>
+        <CheckItem>{"**find coping strategy that works**"}</CheckItem>
+      </CheckList>
       <ForwardNavButton onClick={onNext} />
     </SectionLayout>
-  );
-}
-
-function EmpathyItem({ children }: { children: string }) {
-  return (
-    <EmpathyListItem>
-      <EmpathyItemNumber>
-        <CheckboxTick />
-      </EmpathyItemNumber>
-      <EmpathyItemText>{children}</EmpathyItemText>
-    </EmpathyListItem>
   );
 }
 
@@ -325,42 +313,3 @@ const ApproachSubtitle = styled.p`
     margin-right: 0.5em;
   }
 `;
-
-const EmpathyList = styled.ol`
-  padding: 0;
-  list-style: none;
-  margin-block: 20px;
-`;
-
-const EmpathyListItem = styled.li`
-  display: flex;
-  align-items: center;
-  margin-block: 10px;
-`;
-
-const EmpathyItemNumber = styled.div`
-  ${Fonts.SFPro}
-  font-size: 20px;
-  font-weight: 600;
-  color: ${Greys.White};
-  width: 35px;
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 35px;
-  background-color: #67c060;
-  margin-right: 20px;
-  border-radius: 100%;
-  box-shadow: 0px 4px 4px 0px #00000040;
-`;
-
-const EmpathyItemText = createRichText(styled.p`
-  ${Fonts.Montserrat}
-  font-size: 16px;
-  font-weight: 500;
-
-  strong {
-    font-weight: 700;
-  }
-`);

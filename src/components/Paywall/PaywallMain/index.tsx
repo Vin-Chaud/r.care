@@ -1,48 +1,25 @@
-import { GreenCheck } from "@/components/icons/GreenCheck";
-import { MarkdownText } from "@/design_components/typography/MarkdownText";
 import { PurchasePortal } from "./PurchasePortal";
+import { CallToAction } from "./CallToAction";
+import {
+  ScrollablePageContentFrame,
+  ScrollablePageLayoutContainer,
+} from "@/design_components/PageLayout";
+import { Greys } from "@/design_components/design_system";
+import { Timer } from "@/components/Paywall/PaywallMain/Timer";
+import { AppHeader } from "@/components/AppHeader";
 
 export function PaywallMain() {
   return (
-    <article>
-      <CallToAction />
-      <PurchasePortal />
-      <PurchasePortal />
-    </article>
-  );
-}
-
-export function CallToAction() {
-  return (
-    <section>
-      <h2>{"Delay no more - break free from binge eating."}</h2>
-      <div>
-        <h3>{"Start with a 7-day free trial"}</h3>
-        <ul>
-          <CallToActionItem>
-            {
-              "**Test R.care** without financial worries and see if it’s right for you."
-            }
-          </CallToActionItem>
-          <CallToActionItem>
-            {
-              "You will have 7 days to see how R.care uses science to help you achieve your goals."
-            }
-          </CallToActionItem>
-          <CallToActionItem>
-            {"**Full access to all premium features.**"}
-          </CallToActionItem>
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-function CallToActionItem({ children }: { children: string }) {
-  return (
-    <li style={{ display: "flex" }}>
-      <GreenCheck />
-      <MarkdownText tag="div">{children}</MarkdownText>
-    </li>
+    <ScrollablePageLayoutContainer>
+      <ScrollablePageContentFrame background={Greys.White}>
+        <AppHeader>{{ branding: true }}</AppHeader>
+      </ScrollablePageContentFrame>
+      <Timer />
+      <ScrollablePageContentFrame background={Greys.White}>
+        <CallToAction />
+        <PurchasePortal />
+        <PurchasePortal />
+      </ScrollablePageContentFrame>
+    </ScrollablePageLayoutContainer>
   );
 }
