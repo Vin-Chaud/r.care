@@ -13,8 +13,10 @@ enum Page {
   PaywallMain,
 }
 
-export function Paywall() {
-  const [page, setPage] = useState(Page.TrialExplanation1);
+export function Paywall({ hasCart }: { hasCart: boolean }) {
+  const [page, setPage] = useState(
+    hasCart ? Page.PaywallMain : Page.TrialExplanation1
+  );
   switch (page) {
     case Page.TrialExplanation1: {
       return (

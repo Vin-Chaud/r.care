@@ -36,6 +36,8 @@ export default async function PaywallServer() {
     redirect("/analysis");
   }
 
+  const hasCart = data.cart != null;
+
   const imageUrls = await getGraphicImageUrls(flow, GraphicSection.Paywall);
-  return <PaywallClient flow={flow} imageUrls={imageUrls} />;
+  return <PaywallClient hasCart={hasCart} flow={flow} imageUrls={imageUrls} />;
 }

@@ -1,11 +1,12 @@
 import { HeaderB } from "@/components/Paywall/PaywallMain/common";
 import { Testimonial } from "@/components/Testimonial";
+import { globalContext } from "@/context/GlobalContext";
 import { useOnboardingFlow } from "@/context/OnboardingFlowContext";
 import { Fonts, Purples } from "@/design_components/design_system";
 import { ScrollablePageContentFrame } from "@/design_components/PageLayout";
 import { Disclaimer } from "@/design_components/typography";
 import { Testimonial as TestimonialModel } from "@/models/OnboardingFlow/model";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
 export function CommunityTestimonials() {
@@ -35,6 +36,7 @@ function TestimonialCarousel({
 }: {
   testimonials: readonly TestimonialModel[];
 }) {
+  const rotationTime = useContext(globalContext).carouselRotationTime;
   const [hasInteracted, setHasInteracted] = useState(false);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const testimonialCount = testimonials.length;
@@ -49,7 +51,7 @@ function TestimonialCarousel({
         (currentTestimonialIndex) =>
           (currentTestimonialIndex + 1) % testimonialCount
       );
-    }, 5000);
+    }, rotationTime);
     return () => clearInterval(interval);
   }, [testimonialCount, hasInteracted]);
 

@@ -11,7 +11,6 @@ export async function createCheckoutSession(
   onboardingSessionId: string
 ) {
   const stripe = new Stripe(stripeConfig.apiSecret);
-  console.log(productKind);
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     mode: "subscription",
@@ -35,7 +34,8 @@ export async function createCheckoutSession(
     success_url:
       serverConfig.baseUrl +
       "/api/checkout_complete?checkout_session_id={CHECKOUT_SESSION_ID}",
-    cancel_url: serverConfig.baseUrl,
+    cancel_url: serverConfig.baseUrl + "/paywall",
+    ui_mode: "hosted",
   });
 
   return session;

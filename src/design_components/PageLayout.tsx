@@ -48,6 +48,7 @@ const PageContentFrame = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 `;
 
 export const ScrollablePageLayoutContainer = styled.div`
@@ -82,6 +83,7 @@ const ScrollablePageContentFrameOuter = styled.div.withConfig({
 
 const ScrollablePageContentFrameInner = styled.div`
   ${pageWidthStyles}
+  overflow-x: hidden;
   position: relative;
   padding-inline: 26px;
   height: 100%;

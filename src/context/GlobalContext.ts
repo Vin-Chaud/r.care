@@ -11,6 +11,7 @@ export const globalContext = createContext<GlobalContext>({
   quizDelayTime: 3500,
   quizAfterDelayTime: 1000,
   analysisFinalDelayTime: 1000,
+  carouselRotationTime: 10000,
 });
 
 export interface GlobalContext {
@@ -22,4 +23,5 @@ export interface GlobalContext {
   quizDelayTime: number;
   quizAfterDelayTime: number;
   analysisFinalDelayTime: number;
+  carouselRotationTime: number;
 }
