@@ -73,12 +73,14 @@ function getButtonColumnOptions(
   switch (stepDefinition.preset) {
     case "frequency": {
       return [
-        "All the time",
-        "A lot of the time",
-        "Sometimes",
-        "Rarely",
         "Never",
-      ].map(makeFowardOption);
+        "Rarely",
+        "Sometimes",
+        "A lot of the time",
+        "All the time",
+      ]
+        .map(makeFowardOption)
+        .toReversed();
     }
 
     default: {
