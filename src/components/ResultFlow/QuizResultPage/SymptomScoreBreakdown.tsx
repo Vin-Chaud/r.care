@@ -72,8 +72,9 @@ const ResultHeader = styled.h2`
 
 const BreakdownList = styled.ul`
   list-style: none;
-  padding: 0;
+  padding-inline: 20px;
   width: 100%;
+  box-sizing: border-box;
 `;
 
 const BreakdownBarTitle = styled.p`
