@@ -11,7 +11,7 @@ export class ReadonlySession {
         : reqOrCookiesFn.cookies;
   }
 
-  getExistingSessionIfExists(): string | null {
+  getSessionifExists(): string | null {
     return this.requestCookies.get("sessionId")?.value ?? null;
   }
 
@@ -23,9 +23,9 @@ export class Session extends ReadonlySession {
     super(req);
   }
 
-  ensureSessionId(res: NextResponse) {
-    let sessionId = this.getExistingSessionIfExists();
-    if (sessionId != null) {
+  ensureSessionId(res: NextResponse, forceNew: boolean) {
+    let sessionId = this.getSessionifExists();
+    if (sessionId != null && !forceNew) {
       return res;
     }
 

@@ -11,16 +11,11 @@ import {
 } from "zod";
 import { AllMetrics, Metric, Symptom } from "../Metric";
 import {
-  Content,
-  Feedback,
-  FeedbackReference,
   FlowRootSection as FlowSection,
   FlowSubsection,
-  InfoScreen,
   OnboardingFlow,
   ResponseEcho,
   Step,
-  Story,
   YesNoScoring,
 } from "./model";
 
@@ -501,101 +496,4 @@ export function getEchoText(
   }
 
   return spec.echo_default;
-}
-
-export function* getGraphics(flow: OnboardingFlow) {
-  for (const section of flow.sections) {
-    for (const subsection of section.subsections) {
-      for (const stepId of subsection.step_order) {
-        const step = getStepDefinitionWithFallback(
-          stepId,
-          subsection,
-          section,
-          flow
-        );
-
-        switch (step?.type) {
-          case "info": {
-            yield* getAllGraphicsFromContents(step.contents);
-            break;
-          }
-          case "story": {
-            for (const pane of step.panes) {
-              yield pane.graphic_id;
-            }
-            break;
-          }
-          default: {
-            if (step != null) {
-              yield* getGraphicsFromQuizStep(step);
-              yield* getAllGraphicsFromFeedback(step.base_feedback ?? null);
-              for (const feedbackDef of Object.values(
-                step.feedback_definitions || {}
-              )) {
-                yield* getAllGraphicsFromFeedback(feedbackDef);
-              }
-            }
-            break;
-          }
-        }
-      }
-    }
-  }
-
-  yield flow.interview.graphic_id;
-  for (const testimonial of flow.community_testimonials) {
-    yield testimonial.avatar_graphic_id;
-  }
-  yield flow.highlighted_testimonial.avatar_graphic_id;
-}
-
-function* getGraphicsFromQuizStep(step: Exclude<Step, Story | InfoScreen>) {
-  switch (step.type) {
-    case "free_text":
-    case "integer": {
-      return;
-    }
-    case "multi_select":
-    case "single_select": {
-      for (const option of step.options) {
-        option.feedback && (yield* getAllGraphicsFromFeedback(option.feedback));
-      }
-      return;
-    }
-    case "scale": {
-      for (const feedback of Object.values(step.feedbacks || {})) {
-        yield* getAllGraphicsFromFeedback(feedback);
-      }
-      return;
-    }
-    case "yes_no": {
-      step.feedbacks?.yes &&
-        (yield* getAllGraphicsFromFeedback(step.feedbacks.yes));
-      step.feedbacks?.no &&
-        (yield* getAllGraphicsFromFeedback(step.feedbacks.no));
-      return;
-    }
-  }
-}
-
-function* getAllGraphicsFromFeedback(
-  feedback: Feedback | FeedbackReference | null
-) {
-  if (feedback?.type === "full") {
-    yield* getAllGraphicsFromContents(feedback.contents);
-  }
-}
-
-function* getAllGraphicsFromContents(contents: readonly Content[]) {
-  for (const content of contents) {
-    yield* getAllGraphicsFromContent(content);
-  }
-}
-
-function* getAllGraphicsFromContent(content: Content) {
-  switch (content.type) {
-    case "image": {
-      yield content.graphic_id;
-    }
-  }
 }

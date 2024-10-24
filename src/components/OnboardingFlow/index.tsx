@@ -1,151 +1,75 @@
 "use client";
 
+import { saveQuizCursor } from "@/actions/saveQuizCursor";
+import { saveQuizData } from "@/actions/saveQuizData";
 import { useOnboardingFlow } from "@/context/OnboardingFlowContext";
 import {
+  Cursor,
   gotoNextStep,
   gotoPreviousStep,
   ResolvedStep,
   resolveStep,
 } from "@/models/OnboardingFlow/methods";
-import {
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useReducer,
-  useRef,
-  useState,
-} from "react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { ErrorScreen } from "../ErrorScreen";
 import {
   OnboardingFlowContext,
   onboardingFlowContext,
 } from "./onboardingFlowContext";
-import {
-  loadStateFromSessionStorage,
-  saveStateToSessionStorage,
-} from "./state_persistence";
 import { StepScreen } from "./StepScreen";
-import { OnboardingFlowState } from "./types";
+import { AnswerValue } from "./types";
 
 export function OnboardingFlow({
-  onBackNavigated,
-  onFlowComplete,
-  onResponseUpdate,
+  initialResponses,
+  initialCursor,
 }: {
-  onBackNavigated: () => void;
-  onFlowComplete: () => void;
-  onResponseUpdate: (state: Readonly<Record<string, unknown>>) => void;
+  initialResponses: Readonly<Record<string, unknown>>;
+  initialCursor: Cursor;
 }) {
+  const router = useRouter();
   const spec = useOnboardingFlow();
-  const initialState = useMemo<OnboardingFlowState>(
-    () => ({
-      cursor: {
-        currentSectionIndex: 0,
-        currentStepIndex: 0,
-        currentSubsectionIndex: 0,
-      },
-      responses: {},
-    }),
-    []
-  );
-
-  const [isRestored, setIsRestored] = useState(false);
-  const [state, updateState] = useReducer(
-    (
-      state: OnboardingFlowState,
-      action: (state: OnboardingFlowState) => OnboardingFlowState
-    ) => action(state),
-    initialState
-  );
-
-  useEffect(() => {
-    if (isRestored) {
-      saveStateToSessionStorage(state);
-    }
-  }, [isRestored, state]);
-
-  useEffect(() => {
-    if (isRestored) {
-      onResponseUpdate(state.responses);
-    }
-  }, [isRestored, state.responses]);
-
-  useLayoutEffect(() => {
-    if (!isRestored) {
-      updateState(
-        () =>
-          loadStateFromSessionStorage(spec) || {
-            cursor: {
-              currentSectionIndex: 0,
-              currentSubsectionIndex: 0,
-              currentStepIndex: 0,
-            },
-            responses: {},
-          }
-      );
-      setIsRestored(true);
-    }
-  }, [isRestored]);
-
-  const backButtonOverride = useRef<(() => void) | null>(null);
-
-  if (isRestored == false) {
-    return null;
-  }
+  const [cursor, setCursor] = useState(initialCursor);
+  const [responses, setResponses] = useState(initialResponses);
 
   let currentStep: ResolvedStep;
   try {
-    currentStep = resolveStep(spec, state.cursor);
+    currentStep = resolveStep(spec, cursor);
   } catch {
     return (
       <ErrorScreen
         clientMessage="Unexpected"
-        diagnostics={["Failed to resolve current step at cursor", state.cursor]}
+        diagnostics={["Failed to resolve current step at cursor", cursor]}
       />
     );
   }
 
   const context: OnboardingFlowContext = {
-    state: state,
+    state: {
+      cursor,
+      responses: responses as Readonly<Record<string, AnswerValue>>,
+    },
     setResponse: (stepId, value) => {
-      updateState((state) => ({
-        cursor: state.cursor,
-        responses: {
-          ...state.responses,
-          [stepId]: value,
-        },
-      }));
+      saveQuizData({ [stepId]: value }, spec.email_step_id);
+      setResponses((responses) => ({ ...responses, [stepId]: value }));
     },
     back: () => {
-      if (backButtonOverride.current) {
-        backButtonOverride.current();
-        return;
-      }
-
-      const newCursor = gotoPreviousStep(state.cursor, spec);
+      const newCursor = gotoPreviousStep(cursor, spec);
       if (newCursor) {
-        updateState((state) => ({
-          responses: state.responses,
-          cursor: newCursor,
-        }));
+        saveQuizCursor(newCursor);
+        setCursor(newCursor);
       } else {
-        onBackNavigated();
+        router.back();
       }
     },
-    next: () => {
-      const newCursor = gotoNextStep(state.cursor, spec);
+    next: async () => {
+      const newCursor = gotoNextStep(cursor, spec);
       if (newCursor) {
-        // This is where the reducer way of updating state becomes
-        // really important. If we were just to set the state based on
-        // the `state` above, we would lose the responses that were
-        // set in the current step when `setResponse` is called,
-        // because of the way state is captured in the closure.
-        updateState((state) => ({
-          responses: state.responses,
-          cursor: newCursor,
-        }));
+        saveQuizCursor(newCursor);
+        setCursor(newCursor);
       } else {
-        onFlowComplete();
+        await saveQuizCursor(true);
+        router.push("/analysis");
       }
     },
   };

@@ -4,8 +4,8 @@ import { createContext } from "react";
 
 export const globalContext = createContext<GlobalContext>({
   questionTransitionTime: 1000,
-  storyTransitionTime: 2000,
-  storyTransitionDelayTime: 500,
+  storyTransitionTime: 4000,
+  storyTransitionDelayTime: 1000,
   analysisTransitionTime: 2000,
   analysisTransitionDelayTime: 500,
   quizDelayTime: 3500,

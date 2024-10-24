@@ -1,3 +1,10 @@
+/**
+ * README
+ *
+ * This file is currently unused, but validation function is valid and should
+ * be applied on the server side.
+ */
+
 "use client";
 
 import { OnboardingFlow } from "@/models/OnboardingFlow/model";

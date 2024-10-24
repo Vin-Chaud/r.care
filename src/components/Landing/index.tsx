@@ -1,3 +1,6 @@
+"use client";
+
+import { saveQuizData } from "@/actions/saveQuizData";
 import { RCareBrand } from "@/components/icons/RCareBrand";
 import { Fonts, Greys, Purples } from "@/design_components/design_system";
 import { PageLayout } from "@/design_components/PageLayout";
@@ -8,16 +11,13 @@ import {
 } from "@/design_components/typography";
 import { useAutoCanceledTimeout } from "@/hooks/useAutoCanceledTimeout";
 import { OnboardingFlow } from "@/models/OnboardingFlow/model";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styled from "styled-components";
 
-export function Landing({
-  flow,
-  onNext,
-}: {
-  flow: OnboardingFlow;
-  onNext(quizAnswer: string): void;
-}) {
+export function Landing({ flow }: { flow: OnboardingFlow }) {
+  const router = useRouter();
+
   return (
     <PageLayout background={landingStyle}>
       <LandingContentFrame>
@@ -27,7 +27,13 @@ export function Landing({
             {"**Get a personalized program** to manage your binge eating ✨"}
           </LandingHeader>
         </LandingHeaderLayout>
-        <LandingQuiz flow={flow} onDidAnswer={onNext} />
+        <LandingQuiz
+          flow={flow}
+          onDidAnswer={async (answer) => {
+            await saveQuizData({ [flow.landing_quiz_step.id]: answer }, null);
+            router.push("/quiz");
+          }}
+        />
       </LandingContentFrame>
     </PageLayout>
   );

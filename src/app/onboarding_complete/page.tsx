@@ -9,9 +9,7 @@ import { loadImageAsBase64 } from "@/utils/loadImageAsBase64";
 
 export default async function OnboardingComplete() {
   const flow = defaultOnboardingFlow;
-  const onboardingSessionId = new ReadonlySession(
-    cookies
-  ).getExistingSessionIfExists();
+  const onboardingSessionId = new ReadonlySession(cookies).getSessionifExists();
   if (!onboardingSessionId) {
     redirect("/");
   }

@@ -1283,7 +1283,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         "Yes, you can absolutely use R.care while working with a therapist or dietitian.  It provides self-guided resources and daily support to help you stay on track between sessions, reinforcing the progress you're making in therapy or nutritional counseling. Using R.care alongside your professional guidance can offer a more comprehensive and supportive approach to overcoming binge eating.",
     },
   ],
-  testimonial_disclaimer: "test",
+  testimonial_disclaimer: null,
   highlighted_testimonial: {
     avatar_graphic_id: "rachel",
     screen_name: "Rachel",

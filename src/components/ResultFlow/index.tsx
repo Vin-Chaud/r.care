@@ -1,11 +1,13 @@
-import { OnboardingFlow } from "@/models/OnboardingFlow/model";
+import { saveQuizData } from "@/actions/saveQuizData";
+import { useOnboardingFlow } from "@/context/OnboardingFlowContext";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { QuizResultPage } from "./QuizResultPage";
-import { PostQuizPane } from "./PostQuizPane";
-import { ProgramPage } from "./ProgramPage";
 import { KnowledgeIntroPane } from "./KnowledgeIntroPane";
 import { KnowledgePlan } from "./KnowledgePlan";
 import { KnowledgeScorePage } from "./KnowledgeScore";
+import { PostQuizPane } from "./PostQuizPane";
+import { ProgramPage } from "./ProgramPage";
+import { QuizResultPage } from "./QuizResultPage";
 import { Testimonial } from "./Testimonial";
 
 enum Page {
@@ -20,16 +22,12 @@ enum Page {
 
 export function ResultFlow({
   responses,
-  flow,
-  onReactionDidAnswer,
-  onNext,
 }: {
   responses: Readonly<Record<string, unknown>>;
-  flow: OnboardingFlow;
-  onReactionDidAnswer: (reaction: string | null) => void;
-  onNext: () => void;
 }) {
+  const router = useRouter();
   const [page, setPage] = useState(Page.QuizResult);
+  const flow = useOnboardingFlow();
 
   switch (page) {
     case Page.QuizResult: {
@@ -38,7 +36,7 @@ export function ResultFlow({
           responses={responses}
           flow={flow}
           onNext={(reaction) => {
-            onReactionDidAnswer(reaction);
+            saveQuizData({ [flow.reaction_step_id]: reaction }, null);
             setPage(Page.PostQuiz);
           }}
         />
@@ -84,7 +82,13 @@ export function ResultFlow({
     }
 
     case Page.Testimonial: {
-      return <Testimonial onNext={onNext} />;
+      return (
+        <Testimonial
+          onNext={() => {
+            router.push("/paywall");
+          }}
+        />
+      );
     }
 
     default: {

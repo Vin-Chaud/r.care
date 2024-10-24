@@ -5,10 +5,7 @@ import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { Emoji, H2, TrialContents } from "@/components/Paywall/trialCommon";
 import { Fonts, Greys } from "@/design_components/design_system";
 import { PageLayout } from "@/design_components/PageLayout";
-import {
-  createMarkdownText,
-  MarkdownText,
-} from "@/design_components/typography/MarkdownText";
+import { createMarkdownText } from "@/design_components/typography/MarkdownText";
 import { useCallback, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 
@@ -52,6 +49,7 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
     </PageLayout>
   );
 }
+
 function Timeline({
   items,
 }: {

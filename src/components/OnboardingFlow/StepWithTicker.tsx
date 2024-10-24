@@ -72,7 +72,6 @@ export function StepWithTicker({
         onDidFill={() => {
           if (fillingTickerCursor?.shouldAdvance) {
             next();
-            setFillingTickerCursor(null);
           }
         }}
       />

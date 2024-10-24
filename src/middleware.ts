@@ -13,7 +13,10 @@ export function middleware(req: NextRequest) {
   }
 
   if (req.nextUrl.pathname === "/") {
-    return ensureSessionId(req);
+    const params = new URL(req.url!).searchParams;
+    const restart = params.has("restart");
+
+    return new Session(req).ensureSessionId(NextResponse.next(), restart);
   }
 
   return NextResponse.next();
@@ -39,9 +42,4 @@ function handleBasicAuth(
   }
 
   return null;
-}
-
-function ensureSessionId(req: NextRequest) {
-  const res = NextResponse.next();
-  return new Session(req).ensureSessionId(res);
 }

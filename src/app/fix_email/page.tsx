@@ -6,9 +6,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export default async function FixEmail() {
-  const onboardingSessionId = new ReadonlySession(
-    cookies
-  ).getExistingSessionIfExists();
+  const onboardingSessionId = new ReadonlySession(cookies).getSessionifExists();
   if (!onboardingSessionId) {
     redirect("/");
   }

@@ -9,9 +9,7 @@ export async function GET(req: NextRequest) {
   const params = new URL(req.url!).searchParams;
   const type = params.get("type");
 
-  const onboardingSessionId = new ReadonlySession(
-    req
-  ).getExistingSessionIfExists();
+  const onboardingSessionId = new ReadonlySession(req).getSessionifExists();
   if (onboardingSessionId == null) {
     return NextResponse.redirect(new URL("/error", req.url));
   }

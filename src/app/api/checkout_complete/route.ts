@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
   const params = new URL(req.url!).searchParams;
   const checkoutSessionId = params.get("checkout_session_id");
   const onboardingSession = new ReadonlySession(req);
-  const onboardingSessionId = onboardingSession.getExistingSessionIfExists();
+  const onboardingSessionId = onboardingSession.getSessionifExists();
 
   if (checkoutSessionId == null || onboardingSessionId == null) {
     return NextResponse.redirect(new URL("/error", req.url));
