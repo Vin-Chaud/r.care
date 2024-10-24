@@ -24,9 +24,11 @@ export async function createCheckoutSession(
         quantity: 1,
       },
     ],
-    subscription_data: {
-      trial_period_days: 7,
-    },
+    ...(productKind === SubscriptionType.Yearly && {
+      subscription_data: {
+        trial_period_days: 7,
+      },
+    }),
     metadata: {
       onboarding_session_id: onboardingSessionId,
     },
