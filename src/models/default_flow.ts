@@ -742,7 +742,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   graphic_id: "r5_2",
                 },
                 {
-                  body: "Nearly done! A Few final questions about your goals and lifestyle to further tailor your plan.",
+                  body: "Nearly done! Here are a few final questions about your goals and lifestyle to further tailor your plan.",
                   graphic_id: "r5_3",
                 },
               ],
