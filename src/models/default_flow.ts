@@ -435,7 +435,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Become more productive and live life fully by saying goodbye to obsessive thoughts about food.",
+                  text: "Let go of those constant food worries.",
                 },
                 {
                   type: "image",
@@ -443,7 +443,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
                 {
                   type: "text",
-                  text: "R.care helps you feeling more focused and less distracted by the obsessive thoughts about food.",
+                  text: " R.care empowers you to focus on what truly matters and live your life to the fullest.",
                 },
               ],
             },
