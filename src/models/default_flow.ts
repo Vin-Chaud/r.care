@@ -341,7 +341,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "R.care empowers you to separate emotions from food and help you maintain balanced eating patterns throughout the day.",
+                  text: "R.care fosters a mindful relationship with food, free from emotional chaos.",
                 },
                 {
                   type: "image",
@@ -349,7 +349,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
                 {
                   type: "text",
-                  text: "R.care helps you feeling more grounded and able to emotionally self-regulate throughout your day.",
+                  text: "R.care guides you in finding balance and taking control of your eating habits.",
                 },
               ],
             },
