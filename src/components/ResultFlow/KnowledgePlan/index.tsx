@@ -182,13 +182,13 @@ function RCareApproach({ onNext }: { onNext: () => void }) {
         </ApproachSubtitle>
       </header>
       <CheckList fontSize={16}>
-        <CheckItem>{"practice tuning into your **stomach signal**"}</CheckItem>
+        <CheckItem>{"Practice tuning into your **stomach signal**"}</CheckItem>
         <CheckItem>
           {
-            "improve understanding your **emotional triggers and self-regulation**"
+            "Improve understanding your **emotional triggers and self-regulation**"
           }
         </CheckItem>
-        <CheckItem>{"**find coping strategy that works**"}</CheckItem>
+        <CheckItem>{"**Find coping strategy that works**"}</CheckItem>
       </CheckList>
       <ForwardNavButton onClick={onNext} />
     </SectionLayout>
