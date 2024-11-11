@@ -14,7 +14,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: ["Built by psychologicsts &", "binge eating experts"],
+                  text: ["Built by psychologists &", "binge eating experts"],
                 },
                 {
                   type: "text",
