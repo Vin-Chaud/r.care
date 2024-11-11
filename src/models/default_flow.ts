@@ -366,7 +366,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you notice that you reach for certain types of food (e.g., sweets, comfort foods) when you’re feeling emotionally upset?",
+                "Do you notice that you reach for certain types of food when you’re feeling emotionally upset?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             r4: {
