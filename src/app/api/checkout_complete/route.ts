@@ -31,6 +31,8 @@ export async function GET(req: NextRequest) {
     .update({
       checkout: {
         timestamp: new Date().toISOString(),
+        subscription_id: checkoutSession.subscription,
+        customer_id: checkoutSession.customer,
       },
     });
 
