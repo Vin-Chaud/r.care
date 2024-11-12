@@ -1285,15 +1285,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   ],
   testimonial_disclaimer: null,
   highlighted_testimonial: {
-    avatar_graphic_id: "rachel",
-    screen_name: "Rachel",
-    screen_subtitle: "32, Otawa (Canada)",
+    avatar_graphic_id: "camila",
+    screen_name: "Camila",
+    screen_subtitle: "21, Miami (USA)",
     content:
-      "I am obsessed with r_care! I feel so understood, learning more how to heal my relationship with food. It helped me approach eating in a more peaceful and nourishing way. Highly recommend.",
+      "I’m learning so much about healing and breaking free from the cycle of stress and guilt around food. Thanks to R.care, I now eat with peace and intention.",
     social: {
-      comments: 12,
-      shares: 4,
-      likes: 35,
+      comments: 4,
+      shares: 25,
+      likes: 398,
     },
   },
   community_testimonials: [
