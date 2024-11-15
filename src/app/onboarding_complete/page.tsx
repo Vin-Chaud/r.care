@@ -34,6 +34,10 @@ export default async function OnboardingComplete() {
         (await loadImageAsBase64(flow.activate_graphic_id)) || ""
       }
       appUrl={config.appUrl}
+      stripeCheckoutSessionId={data.checkout.session_id}
+      stripeProductId={data.checkout.product_id}
+      productName={data.checkout.product_name}
+      subscriptionValue={data.checkout.value}
     />
   );
 }

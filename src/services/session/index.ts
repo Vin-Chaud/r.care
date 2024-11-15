@@ -12,7 +12,18 @@ export class ReadonlySession {
   }
 
   getSessionifExists(): string | null {
-    return this.requestCookies.get("sessionId")?.value ?? null;
+    return (
+      this.getDevelopmentSessionIdOverride() ??
+      this.requestCookies.get("sessionId")?.value ??
+      null
+    );
+  }
+
+  protected getDevelopmentSessionIdOverride(): string | null {
+    if (process.env.NODE_ENV === "production") {
+      return null;
+    }
+    return process.env["DEV_SESSION_ID"] ?? null;
   }
 
   private readonly requestCookies: Pick<ReadonlyRequestCookies, "get">;
@@ -24,6 +35,11 @@ export class Session extends ReadonlySession {
   }
 
   ensureSessionId(res: NextResponse, forceNew: boolean) {
+    const devSessionIdOverride = this.getDevelopmentSessionIdOverride();
+    if (devSessionIdOverride != null) {
+      return res;
+    }
+
     let sessionId = this.getSessionifExists();
     if (sessionId != null && !forceNew) {
       return res;

@@ -2,6 +2,11 @@
 
 import { saveQuizData } from "@/actions/saveQuizData";
 import { RCareBrand } from "@/components/icons/RCareBrand";
+import { dispatchGoogleTagEvent } from "@/components/Tracking/GoogleTag";
+import {
+  dispatchCustomMetaEvent,
+  dispatchStandardMetaEvent,
+} from "@/components/Tracking/MetaPixel";
 import { Fonts, Greys, Purples } from "@/design_components/design_system";
 import { PageLayout } from "@/design_components/PageLayout";
 import {
@@ -30,6 +35,8 @@ export function Landing({ flow }: { flow: OnboardingFlow }) {
         <LandingQuiz
           flow={flow}
           onDidAnswer={async (answer) => {
+            dispatchGoogleTagEvent("quiz_started", { age: answer });
+            dispatchCustomMetaEvent("QuizStarted", { age: answer });
             await saveQuizData({ [flow.landing_quiz_step.id]: answer }, null);
             router.push("/quiz");
           }}

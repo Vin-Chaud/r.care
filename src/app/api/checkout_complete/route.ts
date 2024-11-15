@@ -33,6 +33,10 @@ export async function GET(req: NextRequest) {
         timestamp: new Date().toISOString(),
         subscription_id: checkoutSession.subscription,
         customer_id: checkoutSession.customer,
+        session_id: checkoutSession.id,
+        product_id: checkoutSession.metadata?.product_id,
+        product_name: checkoutSession.metadata?.product_name,
+        value: checkoutSession.metadata?.subscription_price,
       },
     });
 

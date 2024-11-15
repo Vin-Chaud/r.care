@@ -1,4 +1,6 @@
 import { saveQuizData } from "@/actions/saveQuizData";
+import { dispatchGoogleTagEvent } from "@/components/Tracking/GoogleTag";
+import { dispatchStandardMetaEvent } from "@/components/Tracking/MetaPixel";
 import { useOnboardingFlow } from "@/context/OnboardingFlowContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -85,6 +87,11 @@ export function ResultFlow({
       return (
         <Testimonial
           onNext={() => {
+            dispatchGoogleTagEvent("begin_checkout", {
+              currency: "USD",
+              value: 0,
+            });
+            dispatchStandardMetaEvent("InitiateCheckout");
             router.push("/paywall");
           }}
         />
