@@ -13,9 +13,13 @@ import { Ad } from "@/components/Paywall/PaywallMain/Ad";
 import { Faqs } from "@/components/Paywall/PaywallMain/Faqs";
 import { CommunityTestimonials } from "@/components/Paywall/PaywallMain/CommunityTestimonials";
 
-export function PaywallMain() {
+export function PaywallMain({
+  existingCartType,
+}: {
+  existingCartType: SubscriptionType | null;
+}) {
   const [checkoutType, setCheckoutType] = useState<SubscriptionType>(
-    SubscriptionType.Yearly
+    existingCartType || SubscriptionType.Yearly
   );
   return (
     <ScrollablePageLayoutContainer>

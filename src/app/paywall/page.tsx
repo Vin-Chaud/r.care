@@ -3,6 +3,7 @@ import { getGraphicImageUrls } from "@/app/utils";
 import { config } from "@/config";
 import { defaultOnboardingFlow } from "@/models/default_flow";
 import { GraphicSection } from "@/models/OnboardingFlow/getGraphics";
+import { isSubscriptionType } from "@/models/Subscription";
 import { db } from "@/services/firebase";
 import { ReadonlySession } from "@/services/session";
 import { cookies } from "next/headers";
@@ -36,8 +37,16 @@ export default async function PaywallServer() {
     redirect("/analysis");
   }
 
-  const hasCart = data.cart != null;
+  const existingCartType = data.cart.subscription_type;
 
   const imageUrls = await getGraphicImageUrls(flow, GraphicSection.Paywall);
-  return <PaywallClient hasCart={hasCart} flow={flow} imageUrls={imageUrls} />;
+  return (
+    <PaywallClient
+      existingCartType={
+        isSubscriptionType(existingCartType) ? existingCartType : null
+      }
+      flow={flow}
+      imageUrls={imageUrls}
+    />
+  );
 }
