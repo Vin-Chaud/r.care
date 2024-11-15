@@ -52,7 +52,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       subsections: [
         {
           step_definitions: {
-            q1: {
+            ["gender"]: {
               type: "single_select",
               title: "Which gender do you identify with?",
               options: [
@@ -74,7 +74,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            q2: {
+            ["bed_diagnosis"]: {
               type: "single_select",
               title:
                 "Have you ever been diagnosed with Binge Eating Disorder (BED)?",
@@ -119,7 +119,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               ],
             },
           },
-          step_order: ["q1", "q2", "r1"],
+          step_order: ["gender", "bed_diagnosis", "r1"],
         },
       ],
     },
@@ -128,7 +128,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       subsections: [
         {
           step_definitions: {
-            q3: {
+            ["selfcontrol_feel"]: {
               type: "scale",
               preset: "frequency",
               title: "Do you feel in control of how much you eat?",
@@ -137,7 +137,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 reverse: true,
               },
             },
-            q4: {
+            ["internalsigdysfunc_eatquick"]: {
               type: "scale",
               preset: "frequency",
               title:
@@ -146,21 +146,21 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
             },
-            q5: {
+            ["selfcontrol_bored"]: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you have a strong habit of eating when you’re bored such that nothing else can distract you?",
               scoring: { target_metric: Symptom.SelfControlChallenge },
             },
-            q6: {
+            ["selfcontrol_desperate"]: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you often feel desperate that you can’t be more in control of what you eat?",
               scoring: { target_metric: Symptom.SelfControlChallenge },
             },
-            q7: {
+            ["selfcontrol_habit"]: {
               type: "scale",
               preset: "frequency",
               title:
@@ -185,11 +185,18 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               ],
             },
           },
-          step_order: ["q3", "q4", "q5", "q6", "q7", "r2"],
+          step_order: [
+            "selfcontrol_feel",
+            "internalsigdysfunc_eatquick",
+            "selfcontrol_bored",
+            "selfcontrol_desperate",
+            "selfcontrol_habit",
+            "r2",
+          ],
         },
         {
           step_definitions: {
-            q8: {
+            ["selfcontrol_getbackontrack"]: {
               type: "yes_no",
               title:
                 "Is it easy for you to get back on track with a diet or healthy eating regime?",
@@ -209,7 +216,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 yes_high: true,
               },
             },
-            q9: {
+            ["internalsigdysfunc_fulluntilsick"]: {
               type: "scale",
               preset: "frequency",
               title:
@@ -218,7 +225,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
             },
-            q10: {
+            ["internalsigdysfunc_feastfamine"]: {
               type: "scale",
               preset: "frequency",
               title:
@@ -227,7 +234,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
             },
-            q11: {
+            ["internalsigdysfunc_grazeallday"]: {
               type: "scale",
               preset: "frequency",
               title: "Do you tend to eat all day with no defined meal times?",
@@ -235,7 +242,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
             },
-            q12: {
+            ["internalsigdysfunc_regulareat"]: {
               type: "scale",
               preset: "frequency",
               title:
@@ -245,7 +252,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 reverse: true,
               },
             },
-            q13: {
+            ["selfcontrol_candistract"]: {
               type: "scale",
               preset: "intensity",
               preamble_text: "Do you relate to following statement?",
@@ -258,7 +265,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 reverse: true,
               },
             },
-            q14: {
+            ["internalsigdysfunc_eatpastcomfortablyfull"]: {
               type: "scale",
               preset: "intensity",
               preamble_text: "Do you relate to following statement?",
@@ -288,18 +295,27 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               ],
             },
           },
-          step_order: ["q8", "q9", "q10", "q11", "q12", "q13", "q14", "r3"],
+          step_order: [
+            "selfcontrol_getbackontrack",
+            "internalsigdysfunc_fulluntilsick",
+            "internalsigdysfunc_feastfamine",
+            "internalsigdysfunc_grazeallday",
+            "internalsigdysfunc_regulareat",
+            "selfcontrol_candistract ",
+            "internalsigdysfunc_eatpastcomfortablyfull",
+            "r3",
+          ],
         },
         {
           step_definitions: {
-            q15: {
+            ["emo_guilt"]: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you have strong feelings of self-hate or guilt if you overeat?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
-            q16: {
+            ["mental_harshestcritic"]: {
               type: "yes_no",
               title: "Are you your harshest critic?",
               feedbacks: {
@@ -320,7 +336,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 yes_high: true,
               },
             },
-            q17: {
+            ["relationship_selfconsciouseating"]: {
               type: "yes_no",
               title: "Do you feel self-conscious eating around other people?",
               scoring: {
@@ -329,7 +345,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 yes_high: true,
               },
             },
-            q18: {
+            ["emo_eat2cope"]: {
               type: "scale",
               preset: "frequency",
               title:
@@ -353,7 +369,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            q19: {
+            ["relationship_bodyconscious"]: {
               type: "scale",
               preset: "frequency",
               title:
@@ -362,7 +378,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 target_metric: Impact.Relationship,
               },
             },
-            q20: {
+            ["emo_specific_food"]: {
               type: "scale",
               preset: "frequency",
               title:
@@ -387,7 +403,16 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               ],
             },
           },
-          step_order: ["q15", "q16", "q17", "q18", "c1", "q19", "q20", "r4"],
+          step_order: [
+            "emo_guilt",
+            "mental_harshestcritic",
+            "relationship_selfconsciouseating",
+            "emo_eat2cope",
+            "c1",
+            "relationship_bodyconscious",
+            "emo_specific_food",
+            "r4",
+          ],
         },
       ],
     },
@@ -396,7 +421,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       subsections: [
         {
           step_definitions: {
-            q21: {
+            ["mental_bodyimage"]: {
               type: "scale",
               preset: "agreement",
               title:
@@ -405,7 +430,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 target_metric: Impact.MentalHealth,
               },
             },
-            q22: {
+            ["internalsigdysfunc_unawarehunger"]: {
               type: "scale",
               preset: "agreement",
               title:
@@ -421,7 +446,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
             },
-            q23: {
+            ["prod_distractedbyfood"]: {
               type: "scale",
               preset: "agreement",
               title:
@@ -447,7 +472,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            q24: {
+            ["prod_sleeptrouble"]: {
               type: "scale",
               preset: "agreement",
               title:
@@ -456,7 +481,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 target_metric: Impact.Productivity,
               },
             },
-            q25: {
+            ["internalsigdysfunc_skipmeals"]: {
               type: "scale",
               preset: "agreement",
               title: "How often do you skip meals?",
@@ -475,7 +500,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            q26: {
+            ["knowledge_alexithymia"]: {
               type: "yes_no",
               title: "Have you heard of Alexithymia?",
               help_text:
@@ -497,7 +522,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 scaling_factor: 5,
               },
             },
-            q27: {
+            ["knowledge_bingeeating"]: {
               type: "scale",
               preset: "custom",
               title: "How strong is your knowledge of binge eating?",
@@ -554,7 +579,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 max_unscaled_score: 5,
               },
             },
-            q28: {
+            ["binge_howlong"]: {
               type: "single_select",
               title:
                 "When did you first suspect you might be dealing with a binge eating issue?",
@@ -594,7 +619,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            q29: {
+            ["comorbidities"]: {
               type: "multi_select",
               title:
                 "Do you suspect you have any other mental health conditions that impact your life?",
@@ -701,7 +726,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               ],
               none_option: { text: "None" },
             },
-            q30: {
+            ["mental_othersnotserious"]: {
               type: "scale",
               preset: "agreement",
               preamble_text: "Do you relate to following statement?",
@@ -711,7 +736,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 target_metric: Impact.MentalHealth,
               },
             },
-            q31: {
+            ["mental_toldtojuststop"]: {
               type: "scale",
               preset: "agreement",
               preamble_text: "Do you relate to following statement?",
@@ -721,7 +746,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 target_metric: Impact.MentalHealth,
               },
             },
-            q32: {
+            ["relationship_misunderstood"]: {
               type: "scale",
               preset: "agreement",
               preamble_text: "Do you relate to following statement?",
@@ -749,21 +774,21 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
           },
           step_order: [
-            "q21",
-            "q22",
-            "q23",
+            "mental_bodyimage",
+            "internalsigdysfunc_unawarehunger",
+            "prod_distractedbyfood",
             "c2",
-            "q24",
-            "q25",
+            "prod_sleeptrouble",
+            "internalsigdysfunc_skipmeals",
             "c3",
-            "q26",
-            "q27",
-            "q28",
+            "knowledge_alexithymia",
+            "knowledge_bingeeating",
+            "binge_howlong",
             "c5",
-            "q29",
-            "q30",
-            "q31",
-            "q32",
+            "comorbidities",
+            "mental_othersnotserious",
+            "mental_toldtojuststop",
+            "relationship_misunderstood",
             "r5",
           ],
         },
@@ -774,7 +799,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       subsections: [
         {
           step_definitions: {
-            q33: {
+            ["binge_support_want"]: {
               type: "single_select",
               title: "What would you like to improve the most right now",
               options: [
@@ -804,7 +829,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            q34: {
+            ["binge_goal"]: {
               type: "multi_select",
               title:
                 "When I think of taking control of my life, I see myself...",
@@ -832,7 +857,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            q35: {
+            ["current_need"]: {
               type: "single_select",
               title: "What is your primary reason for downloading this app?",
               help_text: "Choose the option that resonates the most.",
@@ -855,7 +880,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            q36: {
+            ["binge_frequency"]: {
               type: "integer",
               title:
                 "Approximately how many times did you binge eat in the past week?",
@@ -865,7 +890,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               max: 100,
               placeholder: "X (times per week)",
             },
-            q37: {
+            ["binge_frequency_goal"]: {
               type: "integer",
               title:
                 "Three months from now, what is your target frequency of binge eating?",
@@ -874,7 +899,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               min: 0,
               max: 100,
               expressions: {
-                current_frequency: "response_value('q36')",
+                current_frequency: "response_value('binge_frequency')",
               },
               placeholder: "X (times per week)",
             },
@@ -895,7 +920,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            q38: {
+            ["desiredlearningpace"]: {
               type: "single_select",
               preamble_text:
                 "We’re tailoring your program to fit your lifestyle.",
@@ -915,7 +940,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            q39: {
+            ["avgday_howbusy"]: {
               type: "single_select",
               preamble_text:
                 "We’re tailoring your program to fit your lifestyle.",
@@ -973,7 +998,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               },
             },
-            q40: {
+            ["selfimprovement_time"]: {
               type: "single_select",
               preamble_text:
                 "We’re tailoring your program to fit your lifestyle.",
@@ -1005,7 +1030,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            q41: {
+            ["motivationlevel"]: {
               type: "scale",
               preset: "intensity",
               title: "How motivated are you to learn more about yourself?",
@@ -1051,17 +1076,17 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
           },
           step_order: [
-            "q33",
-            "q34",
-            "q35",
-            "q36",
-            "q37",
+            "binge_support_want",
+            "binge_goal",
+            "current_need",
+            "binge_frequency",
+            "binge_frequency_goal",
             "c7",
-            "q38",
-            "q39",
-            "q40",
+            "desiredlearningpace",
+            "avgday_howbusy",
+            "selfimprovement_time",
             "c9",
-            "q41",
+            "motivationlevel",
           ],
         },
       ],
@@ -1071,7 +1096,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       subsections: [
         {
           step_definitions: {
-            channel: {
+            ["channel"]: {
               type: "multi_select",
               title: "One more thing, where did you hear about R.care?",
               options: [
@@ -1120,7 +1145,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     },
   ],
   landing_quiz_step: {
-    id: "landing_quiz",
+    id: "age",
     type: "single_select",
     title: "Select your age to start the quiz",
     help_text: "⌛ 3 min quiz",
@@ -1139,8 +1164,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   },
   reaction_step_id: "reaction",
   email_step_id: "email",
-  current_episode_count_id: "q36",
-  target_episode_count_id: "q37",
+  current_episode_count_id: "binge_frequency",
+  target_episode_count_id: "binge_frequency_goal",
   target_knowledge_score: 94,
   interview: {
     title: "From chaos to control",
@@ -1168,7 +1193,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   },
   program_plan: [
     {
-      step_id: "q33",
+      step_id: "binge_support_want",
       prompt: "We’re going to focus on helping you",
       echo_mapping: {
         CONTROL_EATING_HABITS: "Regain control over my eating habits",
@@ -1216,7 +1241,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       color: "#F9F4FF",
     },
     {
-      step_id: "q34",
+      step_id: "binge_goal",
       prompt: "What you want to achieve:",
       echo_mapping: {
         CONFIDENCE: "Feeling confident",
