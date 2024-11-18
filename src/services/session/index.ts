@@ -20,9 +20,6 @@ export class ReadonlySession {
   }
 
   protected getDevelopmentSessionIdOverride(): string | null {
-    if (process.env.NODE_ENV === "production") {
-      return null;
-    }
     return process.env["DEV_SESSION_ID"] ?? null;
   }
 
