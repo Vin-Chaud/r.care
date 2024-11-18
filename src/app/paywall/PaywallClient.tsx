@@ -3,17 +3,17 @@
 import { Paywall } from "@/components/Paywall";
 import { OnboardingFlowContext } from "@/context/OnboardingFlowContext";
 import { OnboardingFlow as OnboardingFlowModel } from "@/models/OnboardingFlow/model";
-import { useSearchParams } from "next/navigation";
+import { SubscriptionType } from "@/models/Subscription";
 import { useMemo } from "react";
 
 export function PaywallClient({
   flow,
   imageUrls,
-  hasCart,
+  existingCartType,
 }: {
   flow: OnboardingFlowModel;
   imageUrls: Readonly<Record<string, string>>;
-  hasCart: boolean;
+  existingCartType: SubscriptionType | null;
 }) {
   const onboardingFlowContextValue = useMemo(
     () => ({ flow, imageUrls }),
@@ -22,7 +22,7 @@ export function PaywallClient({
 
   return (
     <OnboardingFlowContext.Provider value={onboardingFlowContextValue}>
-      <Paywall hasCart={hasCart} />
+      <Paywall existingCartType={existingCartType} />
     </OnboardingFlowContext.Provider>
   );
 }

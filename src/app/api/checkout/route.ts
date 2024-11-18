@@ -2,7 +2,11 @@ import { config } from "@/config";
 import { isSubscriptionType } from "@/models/Subscription";
 import { db } from "@/services/firebase";
 import { ReadonlySession } from "@/services/session";
-import { createCheckoutSession } from "@/services/stripe";
+import {
+  createCheckoutSession,
+  invalidateSession,
+  isCheckoutSessionValid,
+} from "@/services/stripe";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -24,9 +28,31 @@ export async function GET(req: NextRequest) {
 
   const onboardingDoc = await onboardingDocRef.get();
   if (onboardingDoc.exists) {
-    const existingSessionUrl = onboardingDoc.data()?.cart?.session_url;
-    if (existingSessionUrl != null) {
-      return NextResponse.redirect(existingSessionUrl);
+    const checkoutCart = onboardingDoc.data()?.cart;
+    if (checkoutCart != null) {
+      const existingSessionId = checkoutCart.session_id;
+      const isSessionValid =
+        existingSessionId != null &&
+        (await isCheckoutSessionValid(existingSessionId, 3600));
+
+      const existingSessionUrl = checkoutCart.session_url;
+      const isCorrectType = checkoutCart.subscription_type === type;
+      if (existingSessionUrl != null && isCorrectType && isSessionValid) {
+        return NextResponse.redirect(existingSessionUrl);
+      }
+
+      // Expires the existing session if it's not the correct type
+      if (!isCorrectType && isSessionValid) {
+        try {
+          invalidateSession(existingSessionId);
+        } catch (error) {
+          // Soft warn this, don't crash the checkout flow
+          console.warn(
+            `Failed to invalidate existing session ${existingSessionId}`,
+            error
+          );
+        }
+      }
     }
   }
 

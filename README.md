@@ -101,7 +101,8 @@ These variables are optional. Supplying them activates respective analytic track
 
 ### Development-only Configuration
 
-These variables are intended for development use only and have no effect under `process.env.NODE_ENV === "production"`
+These variables are intended for development use only. They can be set locally
+or on non-production Vercel branches. They should not be used in production.
 
 | Variable       | Example                            | Comment                                                                                                                                                                                                                                   |
 | -------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

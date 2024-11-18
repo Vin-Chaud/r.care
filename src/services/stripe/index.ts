@@ -53,3 +53,17 @@ export async function createCheckoutSession(
 
   return session;
 }
+
+export async function isCheckoutSessionValid(
+  sessionId: string,
+  offsetInSeconds = 0
+) {
+  const stripe = new Stripe(stripeConfig.apiSecret);
+  const session = await stripe.checkout.sessions.retrieve(sessionId);
+  return session.expires_at - offsetInSeconds > Date.now() / 1000;
+}
+
+export async function invalidateSession(sessionId: string) {
+  const stripe = new Stripe(stripeConfig.apiSecret);
+  await stripe.checkout.sessions.expire(sessionId);
+}

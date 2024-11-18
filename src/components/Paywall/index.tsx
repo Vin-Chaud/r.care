@@ -1,5 +1,6 @@
 "use client";
 
+import { SubscriptionType } from "@/models/Subscription";
 import { useState } from "react";
 import { PaywallMain } from "./PaywallMain";
 import { TrialExplanation1 } from "./TrialExplanation1";
@@ -13,9 +14,13 @@ enum Page {
   PaywallMain,
 }
 
-export function Paywall({ hasCart }: { hasCart: boolean }) {
+export function Paywall({
+  existingCartType,
+}: {
+  existingCartType: SubscriptionType | null;
+}) {
   const [page, setPage] = useState(
-    hasCart ? Page.PaywallMain : Page.TrialExplanation1
+    existingCartType ? Page.PaywallMain : Page.TrialExplanation1
   );
   switch (page) {
     case Page.TrialExplanation1: {
@@ -35,7 +40,7 @@ export function Paywall({ hasCart }: { hasCart: boolean }) {
     }
 
     default: {
-      return <PaywallMain />;
+      return <PaywallMain existingCartType={existingCartType} />;
     }
   }
 }
