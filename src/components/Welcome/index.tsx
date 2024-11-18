@@ -2,21 +2,64 @@
 
 import { AppHeader } from "@/components/AppHeader";
 import { ForwardNavButton } from "@/components/ForwardNavButton";
+import { dispatchGoogleTagEvent } from "@/components/Tracking/GoogleTag";
+import { dispatchStandardMetaEvent } from "@/components/Tracking/MetaPixel";
 import { Fonts, Greys } from "@/design_components/design_system";
 import { PageLayout } from "@/design_components/PageLayout";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import styled from "styled-components";
 
 export function Welcome({
   email,
   activateGraphicUrl,
   appUrl,
+  stripeProductId,
+  productName,
+  stripeCheckoutSessionId,
+  subscriptionValue,
 }: {
   email: string;
   activateGraphicUrl: string;
   appUrl: string;
+  stripeProductId?: string;
+  productName?: string;
+  subscriptionValue?: number;
+  stripeCheckoutSessionId?: string;
 }) {
+  useEffect(() => {
+    if (subscriptionValue == null) {
+      return;
+    }
+    if (localStorage.getItem("conversion_tracking_email") !== email) {
+      dispatchGoogleTagEvent("purchase", {
+        currency: "USD",
+        value: subscriptionValue,
+        ...(stripeCheckoutSessionId != null && {
+          transaction_id: stripeCheckoutSessionId,
+        }),
+        ...(stripeProductId != null && {
+          items: [
+            {
+              item_id: stripeProductId,
+              item_name: productName,
+              price: subscriptionValue,
+              quantity: 1,
+            },
+          ],
+        }),
+      });
+      dispatchStandardMetaEvent("Purchase", {
+        currency: "USD",
+        value: subscriptionValue,
+        ...(stripeProductId != null && {
+          content_ids: [stripeProductId],
+          content_type: "product",
+        }),
+      });
+      localStorage.setItem("conversion_tracking_email", email);
+    }
+  }, []);
   return (
     <PageLayout>
       <AppHeader>{{ branding: true }}</AppHeader>

@@ -88,3 +88,21 @@ A Firebase service account credential is a JSON (which typically needs to be fla
 | -------------- | --------------------------------------------------- | ------- |
 | RCARE__APP_URL | https://apps.apple.com/us/app/app-name/id1234567890 |
 | The app URL.   |
+
+### Tracking Configuration
+
+These variables are optional. Supplying them activates respective analytic tracking.
+
+
+| Variable                       | Example            | Comment                     |
+| ------------------------------ | ------------------ | --------------------------- |
+| RCARE__TRACKING__GOOGLE_TAG_ID | `G-1ABC2DEFGH3`    | Enables Google Tag Tracking |
+| RCARE__TRACKING__META_PIXEL_ID | `1234567890123456` | Enables Meta Pixel Tracking |
+
+### Development-only Configuration
+
+These variables are intended for development use only and have no effect under `process.env.NODE_ENV === "production"`
+
+| Variable       | Example                            | Comment                                                                                                                                                                                                                                   |
+| -------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DEV_SESSION_ID | `k1xwsax8xe9jm9p3tlz1hxwppaq3kv21` | Overrides the onboarding session ID. This lets you fix or "hijack" one of the sessions that's already on Firestore database. Setting this causes the server to ignore the session ID cookie ignore any attempt to initiate a new session. |

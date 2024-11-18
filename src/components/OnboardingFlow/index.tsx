@@ -2,6 +2,8 @@
 
 import { saveQuizCursor } from "@/actions/saveQuizCursor";
 import { saveQuizData } from "@/actions/saveQuizData";
+import { dispatchGoogleTagEvent } from "@/components/Tracking/GoogleTag";
+import { dispatchStandardMetaEvent } from "@/components/Tracking/MetaPixel";
 import { useOnboardingFlow } from "@/context/OnboardingFlowContext";
 import {
   Cursor,
@@ -68,6 +70,8 @@ export function OnboardingFlow({
         saveQuizCursor(newCursor);
         setCursor(newCursor);
       } else {
+        dispatchGoogleTagEvent("generate_lead", { currency: "USD", value: 0 });
+        dispatchStandardMetaEvent("Lead");
         await saveQuizCursor(true);
         router.push("/analysis");
       }
