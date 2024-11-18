@@ -37,7 +37,7 @@ export default async function PaywallServer() {
     redirect("/analysis");
   }
 
-  const existingCartType = data.cart.subscription_type;
+  const existingCartType = data.cart?.subscription_type;
 
   const imageUrls = await getGraphicImageUrls(flow, GraphicSection.Paywall);
   return (
