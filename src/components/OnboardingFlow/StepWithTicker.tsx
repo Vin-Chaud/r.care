@@ -56,7 +56,13 @@ export function StepWithTicker({
 
   return (
     <PageLayout background={Greys.White}>
-      <AppHeader withBackButton onClickBack={back}>
+      <AppHeader
+        withBackButton
+        onClickBack={() => {
+          setFillingTickerCursor(null);
+          back();
+        }}
+      >
         {sectionTitle}
       </AppHeader>
       <QuestionnaireTicker
