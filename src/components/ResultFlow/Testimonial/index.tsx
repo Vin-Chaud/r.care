@@ -11,11 +11,17 @@ import {
 import { Fonts, Greys, Purples } from "@/design_components/design_system";
 import { Disclaimer } from "@/design_components/typography";
 import { createMarkdownText } from "@/design_components/typography/MarkdownText";
+import { useEffect } from "react";
 import styled from "styled-components";
 
 export function Testimonial({ onNext }: { onNext: () => void }) {
   const model = useOnboardingFlow().interview;
   const imageUrl = useOnboardingFlowImageUrls()[model.graphic_id];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <ScrollablePageLayoutContainer>
       <ScrollablePageContentFrame background={Greys.White}>
