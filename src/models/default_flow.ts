@@ -1207,7 +1207,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       color: "#D7E2C9",
     },
     {
-      step_id: "q27",
+      step_id: "knowledge_bingeeating",
       prompt: "You said that",
       echo_mapping: {
         1: "You are relatively new to Binge Eating",
@@ -1218,7 +1218,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       color: "#EEE2CE",
     },
     {
-      step_id: "q38",
+      step_id: "desiredlearningpace",
       prompt: "You also shared that",
       echo_mapping: {
         FAST: "You want to learn as fast as possible",
@@ -1229,7 +1229,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   ],
   knowledge_plan: [
     {
-      step_id: "q27",
+      step_id: "knowledge_bingeeating",
       prompt: "How much you know about binge eating:",
       echo_mapping: {
         1: "Very little",
@@ -1262,7 +1262,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       color: "#F9F4FF",
     },
     {
-      step_id: "q41",
+      step_id: "motivationlevel",
       prompt: "Current state of mind:",
       echo_mapping: {
         1: "Unmotivated",
