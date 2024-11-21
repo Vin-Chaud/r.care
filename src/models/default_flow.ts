@@ -301,7 +301,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             "internalsigdysfunc_feastfamine",
             "internalsigdysfunc_grazeallday",
             "internalsigdysfunc_regulareat",
-            "selfcontrol_candistract ",
+            "selfcontrol_candistract",
             "internalsigdysfunc_eatpastcomfortablyfull",
             "r3",
           ],
