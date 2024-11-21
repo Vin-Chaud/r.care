@@ -72,7 +72,7 @@ export function resolveStep(
   const tickerStepMask = section.subsections.map((subsection) =>
     subsection.step_order.map((stepId) => {
       const stepDefinition = getStepDefinition(stepId, subsection);
-      return stepDefinition && isTickerStep(stepDefinition);
+      return stepDefinition && isQuizStep(stepDefinition);
     })
   );
 
@@ -221,7 +221,7 @@ export function gotoNextStep(cursor: Cursor, model: OnboardingFlow) {
   return null;
 }
 
-export function isTickerStep(step: Step) {
+export function isQuizStep(step: Step) {
   return (
     step.type === "single_select" ||
     step.type === "multi_select" ||

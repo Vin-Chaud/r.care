@@ -1,5 +1,5 @@
 "use client";
-import { ResolvedStep, isTickerStep } from "@/models/OnboardingFlow/methods";
+import { ResolvedStep, isQuizStep } from "@/models/OnboardingFlow/methods";
 import { useContext } from "react";
 import { onboardingFlowContext } from "./onboardingFlowContext";
 import { textInterpolationContext } from "./RichText";
@@ -18,7 +18,7 @@ export function StepScreen(resolvedStep: ResolvedStep) {
           ("expressions" in stepDefinition && stepDefinition.expressions) || {},
       }}
     >
-      {isTickerStep(stepDefinition) ? (
+      {isQuizStep(stepDefinition) ? (
         <StepWithTicker {...resolvedStep} stepDefinition={stepDefinition} />
       ) : (
         <StepRouter

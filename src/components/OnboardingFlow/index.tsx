@@ -47,6 +47,7 @@ export function OnboardingFlow({
   }
 
   const context: OnboardingFlowContext = {
+    flow: spec,
     state: {
       cursor,
       responses: responses as Readonly<Record<string, AnswerValue>>,

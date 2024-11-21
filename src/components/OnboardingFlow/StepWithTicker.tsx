@@ -9,6 +9,10 @@ import {
   Cursor,
   ResolvedStep,
   areCursorsEqual,
+  getStepDefinitionWithFallback,
+  gotoPreviousStep,
+  isQuizStep,
+  resolveStep,
 } from "@/models/OnboardingFlow/methods";
 import {
   FullFeedback as FullFeedbackModel,
@@ -28,7 +32,7 @@ export function StepWithTicker({
   tickerStepIndex,
   stepId,
 }: ResolvedStep & { stepDefinition: Exclude<Step, InfoScreen | Story> }) {
-  const { back, state, next } = useContext(onboardingFlowContext);
+  const { back, state, next, flow } = useContext(onboardingFlowContext);
   const { questionTransitionTime } = useContext(globalContext);
   const [fillingTickerCursor, setFillingTickerCursor] = useState<{
     cursor: Cursor;
@@ -54,10 +58,18 @@ export function StepWithTicker({
     );
   }
 
+  const previousStepCursor = gotoPreviousStep(state.cursor, flow);
+  const previousStepDef =
+    previousStepCursor != null && resolveStep(flow, previousStepCursor);
+  const shouldShowBackButton =
+    state.cursor.currentStepIndex > 0 &&
+    previousStepDef &&
+    isQuizStep(previousStepDef.stepDefinition);
+
   return (
     <PageLayout background={Greys.White}>
       <AppHeader
-        withBackButton
+        withBackButton={shouldShowBackButton}
         onClickBack={() => {
           setFillingTickerCursor(null);
           back();
