@@ -46,15 +46,28 @@ These variables allow the app to know about itself
       enabled. This can be used to hide a non-production deployment behind
       a password wall.
 
-### Stripe Configuration
+### Stripe/RevenueCat Configuration
 
-These variables allow the app to integrate with Stripe correctly.
+These variables allow the app to integrate with Stripe and RevenueCat correctly.
 
-| Variable                                   | Example        |
-| ------------------------------------------ | -------------- |
-| RCARE__STRIPE__API_SECRET                  | sk_test_xxxxxx |
-| RCARE__STRIPE__CATALOG__ANNUAL_PRICE_ID    | price_xxxxxx   |
-| RCARE__STRIPE__CATALOG__QUARTERLY_PRICE_ID | price_xxxxxx   |
+| Variable                                   | Example        | Comment |
+| ------------------------------------------ | -------------- | ------- |
+| RCARE__STRIPE__API_SECRET                  | sk_test_xxxxxx |         |
+| RCARE__STRIPE__CATALOG__ANNUAL_PRICE_ID    | price_xxxxxx   |         |
+| RCARE__STRIPE__CATALOG__QUARTERLY_PRICE_ID | price_xxxxxx   |         |
+| RCARE__REVENUECAT__STRIPE_API_KEY          | strp_xxxxx     | (*)     |
+
+(*) This is the API key for Stripe-RevenueCat integration. It is available
+_in RevenueCat_ after setting up the integration and is specific for the
+Stripe-RevenueCat inetgration.
+
+In addition, a [Stripe webhook](https://docs.stripe.com/webhooks)
+must be set up for `<server_url>/api/stripe_webhook`
+and it must listen for the
+[`customer.subscription.created`](https://docs.stripe.com/api/events/types#event_types-customer.subscription.created) event.
+This is needed for the correct forwarding of Stripe checkouts to customer
+creation on RevenueCat. See [here](https://www.revenuecat.com/docs/web/stripe#5-send-stripe-tokens-to-revenuecat)
+for details.
 
 ### Firebase Configuration
 
