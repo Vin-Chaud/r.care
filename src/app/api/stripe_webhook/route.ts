@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { literal, object, string } from "zod";
+import { Stripe } from "stripe";
 
 const StripeSubscription = object({
   id: string(),
@@ -16,8 +17,45 @@ const StripeSubscriptionEvent = object({
 });
 
 export async function POST(req: NextRequest) {
-  const body = await req.json();
-  const parsedBody = StripeSubscriptionEvent.safeParse(body);
+  const requestSignature = req.headers.get("stripe-signature");
+  if (!requestSignature) {
+    return NextResponse.json(
+      { error: "No Stripe signature header" },
+      { status: 401 }
+    );
+  }
+
+  if (!req.body) {
+    return NextResponse.json({ error: "No request body" }, { status: 400 });
+  }
+
+  const secretApiKey = process.env["RCARE__STRIPE__API_SECRET"];
+  const webhookSecret = process.env["RCARE__STRIPE__WEBHOOK_SECRET"];
+  if (!secretApiKey || !webhookSecret) {
+    return NextResponse.json(
+      { error: "Stripe secret key or webhook secret not set" },
+      { status: 500 }
+    );
+  }
+
+  let verifiedBody;
+
+  try {
+    const body = await getRawBody(req.body);
+    verifiedBody = new Stripe(secretApiKey).webhooks.constructEvent(
+      body,
+      requestSignature,
+      webhookSecret
+    );
+  } catch (err) {
+    const message = (err as Error).message;
+    return NextResponse.json(
+      { error: `Webhook Error: ${message}` },
+      { status: 401 }
+    );
+  }
+
+  const parsedBody = StripeSubscriptionEvent.safeParse(verifiedBody);
   if (!parsedBody.success) {
     return NextResponse.json(
       {
@@ -62,4 +100,13 @@ export async function POST(req: NextRequest) {
   }
 
   return NextResponse.json({ received: true });
+}
+
+// See: https://github.com/vercel/next.js/discussions/46483#discussioncomment-7197436
+async function getRawBody(stream: any): Promise<Buffer> {
+  const chunks = [];
+  for await (const chunk of stream) {
+    chunks.push(chunk);
+  }
+  return Buffer.concat(chunks);
 }

@@ -48,26 +48,35 @@ These variables allow the app to know about itself
 
 ### Stripe/RevenueCat Configuration
 
-These variables allow the app to integrate with Stripe and RevenueCat correctly.
+| Variable                                   | Example        |
+| ------------------------------------------ | -------------- |
+| RCARE__STRIPE__API_SECRET                  | sk_test_xxxxxx |
+| RCARE__STRIPE__CATALOG__ANNUAL_PRICE_ID    | price_xxxxxx   |
+| RCARE__STRIPE__CATALOG__QUARTERLY_PRICE_ID | price_xxxxxx   |
 
-| Variable                                   | Example        | Comment |
-| ------------------------------------------ | -------------- | ------- |
-| RCARE__STRIPE__API_SECRET                  | sk_test_xxxxxx |         |
-| RCARE__STRIPE__CATALOG__ANNUAL_PRICE_ID    | price_xxxxxx   |         |
-| RCARE__STRIPE__CATALOG__QUARTERLY_PRICE_ID | price_xxxxxx   |         |
-| RCARE__REVENUECAT__STRIPE_API_KEY          | strp_xxxxx     | (*)     |
+### Stripe/RevenueCat Integration Configuration
 
-(*) This is the API key for Stripe-RevenueCat integration. It is available
-_in RevenueCat_ after setting up the integration and is specific for the
-Stripe-RevenueCat inetgration.
+RevenueCat must be set up to [integrate with Stripe](https://www.revenuecat.com/docs/web/stripe). Once this is properly connected, there is an
+"integration API" key for Stripe that can be found on RevenueCat.
+(Important: this is not a Stripe API key, nor is it the generic RevenueCat API key, it is the Stripe-specific app API key for this integration, which
+is found in RevenueCat's integration UI.)
 
-In addition, a [Stripe webhook](https://docs.stripe.com/webhooks)
-must be set up for `<server_url>/api/stripe_webhook`
+A [Stripe webhook](https://docs.stripe.com/webhooks)
+must then be set up for `<server_url>/api/stripe_webhook`
 and it must listen for the
 [`customer.subscription.created`](https://docs.stripe.com/api/events/types#event_types-customer.subscription.created) event.
 This is needed for the correct forwarding of Stripe checkouts to customer
 creation on RevenueCat. See [here](https://www.revenuecat.com/docs/web/stripe#5-send-stripe-tokens-to-revenuecat)
 for details.
+
+Note down Stripe webhook's secret (in Stripe) and the Stripe-RevenueCat
+integration API key (in RevenueCat) and add to the configuration:
+
+| Variable                          | Example     |
+| --------------------------------- | ----------- |
+| RCARE__STRIPE__WEBHOOK_SECRET     | whsec_xxxxx |
+| RCARE__REVENUECAT__STRIPE_API_KEY | strp_xxxxx  |
+
 
 ### Firebase Configuration
 
