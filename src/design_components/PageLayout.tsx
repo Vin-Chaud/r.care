@@ -42,17 +42,16 @@ export const pageWidthStyles = css`
 const PageContentFrame = styled.div`
   ${pageWidthStyles}
   height: 100%;
-  max-height: 800px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
 `;
 
 export const ScrollablePageLayoutContainer = styled.div`
   height: 100%;
+  overflow-y: auto;
 `;
 
 export function ScrollablePageContentFrame({

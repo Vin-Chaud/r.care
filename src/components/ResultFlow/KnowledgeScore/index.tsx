@@ -32,24 +32,26 @@ export function KnowledgeScorePage({
         </Header>
       </header>
 
-      <KnowledgeScoreOutput>
-        <div>
-          {knowledgePercentageScore.toFixed(0)}
-          <span>{"%"}</span>
-        </div>
-      </KnowledgeScoreOutput>
-
-      <KnowledgeScoreList>
-        {flow.knowledge_plan.map((spec, itemIndex) => (
-          <KnowledgeScoreItem key={itemIndex}>
-            {spec.prompt}
-            <KnowledgeScoreAnswer>
-              {getEchoText(responses, spec)}
-            </KnowledgeScoreAnswer>
-          </KnowledgeScoreItem>
-        ))}
-      </KnowledgeScoreList>
-
+      <FlexGrow>
+        <KnowledgeScoreOutput>
+          <div>
+            {knowledgePercentageScore.toFixed(0)}
+            <span>{"%"}</span>
+          </div>
+        </KnowledgeScoreOutput>
+      </FlexGrow>
+      <FlexGrow>
+        <KnowledgeScoreList>
+          {flow.knowledge_plan.map((spec, itemIndex) => (
+            <KnowledgeScoreItem key={itemIndex}>
+              {spec.prompt}
+              <KnowledgeScoreAnswer>
+                {getEchoText(responses, spec)}
+              </KnowledgeScoreAnswer>
+            </KnowledgeScoreItem>
+          ))}
+        </KnowledgeScoreList>
+      </FlexGrow>
       <Marketing>
         {"This is a good start but what happens if you stick with R.care?"}
       </Marketing>
@@ -63,6 +65,13 @@ const Header = styled.h2`
   font-size: 18px;
   font-weight: 500;
   text-align: center;
+`;
+
+const FlexGrow = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const KnowledgeScoreOutput = styled.output`
