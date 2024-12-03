@@ -28,7 +28,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 {
                   type: "image",
                   graphic_id: "intro",
-                  max_height: 285,
+                  max_height: 260,
                 },
                 {
                   type: "text",

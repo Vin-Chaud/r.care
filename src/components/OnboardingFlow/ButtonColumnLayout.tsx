@@ -37,11 +37,21 @@ export function ButtonColumnLayout<A extends string | number>({
 
 const ButtonList = styled.ul`
   padding: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `;
 
 const ButtonListItem = styled.li`
   list-style: none;
-  margin-block: 16px;
+  max-height: 72px;
+  min-height: 40px;
+  flex-grow: 1;
+  margin-bottom: 16px;
+
+  @media (max-height: 799px) {
+    margin-bottom: 8px;
+  }
 `;
 
 const Button = styled.button.withConfig({
@@ -56,7 +66,7 @@ const Button = styled.button.withConfig({
   border-radius: 20px;
   display: block;
   width: 100%;
-  height: 72px;
+  height: 100%;
   border: 1px solid
     ${(props) => withOpacity(Purples.Purple94, props.isSelected ? 1 : 0)};
   transition: border 0.3s, background-color 0.3s;

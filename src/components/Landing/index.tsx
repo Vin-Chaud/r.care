@@ -98,24 +98,8 @@ const landingStyle = `
   )
 `;
 
-const LandingSection = styled.section`
-  height: 100%;
-  background: linear-gradient(
-    169.29deg,
-    ${Purples.PurpleF3_Undocumented} 6.17%,
-    ${Purples.PurpleFB_Undocumented} 61.87%,
-    ${Greys.GreyF0} 99%
-  );
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
 const LandingContentFrame = styled.div`
-  width: 300px;
-
+  width: calc(100% - 40px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,7 +107,8 @@ const LandingContentFrame = styled.div`
 `;
 
 const LandingHeaderLayout = styled.header`
-  margin-top: 100px;
+  text-align: center;
+  margin-top: 60px;
   margin-bottom: 25px;
 `;
 

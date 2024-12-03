@@ -75,7 +75,8 @@ export function Welcome({
           {"Download the R.care app on App Store or Google Play"}
         </Instruction>
         <Instruction step={"02"}>
-          <div>{"Activate your account using: " + email}</div>
+          <div>{"Activate your account using: "}</div>
+          <Email>{email}</Email>
           <ActivateImage src={activateGraphicUrl} />
         </Instruction>
       </InstructionList>
@@ -137,11 +138,15 @@ const InstructionItem = styled.li`
   padding: 20px 10px 10px;
   display: flex;
   align-items: start;
-  min-height: 90px;
+  min-height: 80px;
   box-sizing: border-box;
   margin-bottom: 25px;
   background-color: ${Greys.White};
   position: relative;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
 
   .step {
     ${Fonts.Inter}
@@ -192,4 +197,8 @@ const Emoji = styled.p`
   font-size: 80px;
   text-align: center;
   margin-block: 0px;
+`;
+
+const Email = styled.div`
+  word-break: break-all;
 `;

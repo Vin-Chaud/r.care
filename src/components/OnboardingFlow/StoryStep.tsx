@@ -1,4 +1,4 @@
-import { RCareBrand } from "@/components/icons/RCareBrand";
+import { AppHeader } from "@/components/AppHeader";
 import { globalContext } from "@/context/GlobalContext";
 import { useOnboardingFlowImageUrls } from "@/context/OnboardingFlowContext";
 import { Fonts, Greys, Purples } from "@/design_components/design_system";
@@ -17,7 +17,6 @@ import { useContext, useRef, useState } from "react";
 import styled from "styled-components";
 import { onboardingFlowContext } from "./onboardingFlowContext";
 import { createRichText } from "./RichText";
-import { AppHeader } from "@/components/AppHeader";
 
 export function StoryStep({ stepDefinition }: { stepDefinition: Story }) {
   const { next } = useContext(onboardingFlowContext);

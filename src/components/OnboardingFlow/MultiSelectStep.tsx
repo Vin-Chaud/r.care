@@ -104,14 +104,20 @@ const ButtonList = styled.ul`
   padding: 0px;
   width: 100%;
   flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  row-gap: 14px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const ButtonListItem = styled.li`
   list-style: none;
-  height: 100%;
+  max-height: 72px;
+  min-height: 40px;
+  flex-grow: 1;
+  margin-bottom: 16px;
+
+  @media (max-height: 799px) {
+    margin-bottom: 8px;
+  }
 `;
 
 const buttonWithCheckboxStyle = (props: { isSelected: boolean }) => css`
