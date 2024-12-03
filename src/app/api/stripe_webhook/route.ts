@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { literal, object, string } from "zod";
+import { config } from "@/config";
 import { Stripe } from "stripe";
+import { literal, object, string } from "zod";
 
 const StripeSubscription = object({
   id: string(),
@@ -17,6 +18,16 @@ const StripeSubscriptionEvent = object({
 });
 
 export async function POST(req: NextRequest) {
+  const stripeRevenueCatApiKey = config.revenuecat?.stripeApiKey;
+  const secretApiKey = config.stripe.apiSecret;
+  const webhookSecret = config.stripe.webhookSecret;
+  if (!secretApiKey || !webhookSecret || !stripeRevenueCatApiKey) {
+    return NextResponse.json(
+      { error: "Stripe-RevenueCat integration is not configured." },
+      { status: 500 }
+    );
+  }
+
   const requestSignature = req.headers.get("stripe-signature");
   if (!requestSignature) {
     return NextResponse.json(
@@ -29,17 +40,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "No request body" }, { status: 400 });
   }
 
-  const secretApiKey = process.env["RCARE__STRIPE__API_SECRET"];
-  const webhookSecret = process.env["RCARE__STRIPE__WEBHOOK_SECRET"];
-  if (!secretApiKey || !webhookSecret) {
-    return NextResponse.json(
-      { error: "Stripe secret key or webhook secret not set" },
-      { status: 500 }
-    );
-  }
-
   let verifiedBody;
-
   try {
     const body = await getRawBody(req.body);
     verifiedBody = new Stripe(secretApiKey).webhooks.constructEvent(
@@ -82,7 +83,7 @@ export async function POST(req: NextRequest) {
       headers: {
         "Content-Type": "application/json",
         "X-Platform": "stripe",
-        Authorization: `Bearer ${process.env["RCARE__REVENUECAT__STRIPE_API_KEY"]}`,
+        Authorization: `Bearer ${stripeRevenueCatApiKey}`,
       },
       body: JSON.stringify(revenueCatPayload),
     }

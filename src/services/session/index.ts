@@ -1,3 +1,4 @@
+import { devConfig } from "@/config";
 import { customAlphabet } from "nanoid";
 import type { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 import { cookies as nextCookies } from "next/headers";
@@ -20,7 +21,7 @@ export class ReadonlySession {
   }
 
   protected getDevelopmentSessionIdOverride(): string | null {
-    return process.env["DEV_SESSION_ID"] ?? null;
+    return devConfig.sessionId ?? null;
   }
 
   private readonly requestCookies: Pick<ReadonlyRequestCookies, "get">;
