@@ -76,10 +76,6 @@ export function AnalysisTransition({
           </AnalysisTransitionItem>
         ))}
       </ProgressList>
-      <Testimonial {...spec.highlighted_testimonial} />
-      {spec.testimonial_disclaimer && (
-        <Disclaimer>{spec.testimonial_disclaimer}</Disclaimer>
-      )}
       {modalPortalTarget &&
         isShowingQuiz &&
         createPortal(
