@@ -25,11 +25,6 @@ export function SymptomExplanations({
   return (
     <SectionLayout>
       <header>
-        <SectionHeader>
-          {"Your symptoms,"}
-          <br />
-          <strong>{"explained"}</strong>
-        </SectionHeader>
         <SectionSubHeader>
           {
             "Now let’s take a deeper look at how binge eating is impacting your well-being."
