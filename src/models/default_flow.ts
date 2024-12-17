@@ -32,13 +32,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
                 {
                   type: "text",
-                  text: "Created with experts from",
+                  text: "Created with experts from Harvard",
                   variant: "subtle",
-                },
-                {
-                  type: "image",
-                  graphic_id: "harvard",
-                  max_height: 50,
                 },
               ],
             },
