@@ -913,11 +913,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 {
                   type: "image",
                   graphic_id: "harvard",
-                },
-                {
-                  type: "image",
-                  graphic_id: "c7_wheel",
-                },
+                }
               ],
             },
             ["desiredlearningpace"]: {
