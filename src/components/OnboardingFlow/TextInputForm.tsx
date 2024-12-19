@@ -51,6 +51,8 @@ export function TextInputForm<A extends AnswerValue>({
     inputRef.current?.focus();
   }, []);
 
+  const scrollLockRef = useRef<number | null>(null);
+
   return (
     <Form
       onSubmit={(ev) => {
@@ -70,6 +72,16 @@ export function TextInputForm<A extends AnswerValue>({
           value={inputValue}
           onChange={(ev) => {
             setInputValue(ev.target.value);
+          }}
+          onFocus={() => {
+            scrollLockRef.current = window.scrollY;
+          }}
+          onBlur={() => {
+            // Safari LOVES making decisions for you
+            if (scrollLockRef.current !== null) {
+              window.scrollTo(0, scrollLockRef.current);
+              scrollLockRef.current = null;
+            }
           }}
           disabled={hasAnswered}
           ref={inputRef}
@@ -148,7 +160,14 @@ const TextInput = styled.input`
 
   ${Fonts.Montserrat};
   font-weight: 400;
-  font-size: 15px;
+  font-size: ${
+    /*
+      CAUTION: Don't make the font size smaller than this. Doing so will cause
+      Safari to zoom into the input field when it's focused, which in turn will
+      cause the page to gain a horizontal scroll bar.
+    */
+    "16px"
+  };
 
   &:focus {
     outline: none;

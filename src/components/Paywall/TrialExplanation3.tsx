@@ -74,8 +74,10 @@ function Timeline({
     const containerRect = container.getBoundingClientRect();
     const timelineStart = (firstIconRect.top + firstIconRect.bottom) * 0.5;
     const timelineEnd = (lastIconRect.top + lastIconRect.bottom) * 0.5;
-    timeline.style.top = timelineStart - containerRect.top + "px";
-    timeline.style.height = timelineEnd - timelineStart + "px";
+    const scaleFactor = firstIcon.offsetWidth / firstIconRect.width;
+    timeline.style.top =
+      (timelineStart - containerRect.top) * scaleFactor + "px";
+    timeline.style.height = (timelineEnd - timelineStart) * scaleFactor + "px";
   }, []);
 
   useLayoutEffect(() => {
@@ -134,6 +136,7 @@ function Timeline({
 const TrialStepList = styled.ul`
   flex-grow: 1;
   padding: 0px;
+  margin-block: 0px;
   list-style: none;
 `;
 

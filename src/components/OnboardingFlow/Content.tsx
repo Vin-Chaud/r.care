@@ -61,7 +61,7 @@ function normalizeText(text: string | readonly string[]) {
 const Emoji = styled.div`
   ${Fonts.SFPro}
   font-size: 100px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `;
 
 const TextNormal = createRichText(styled.p`

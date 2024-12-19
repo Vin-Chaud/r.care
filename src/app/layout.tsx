@@ -17,6 +17,10 @@ export default function RootLayout({
   const metaPixelId = process.env["RCARE__TRACKING__META_PIXEL_ID"];
   return (
     <html lang="en">
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      />
       <body>
         {(googleTagId && <GoogleTag gtagId={googleTagId} />) || null}
         {(metaPixelId && <MetaPixel pixelId={metaPixelId} />) || null}
