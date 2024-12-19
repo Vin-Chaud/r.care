@@ -158,4 +158,9 @@ const CarouselButton = styled.button.withConfig({
   border: none;
   margin-inline: 10px;
   cursor: pointer;
+  font-size: ${
+    // Horrible, horrible trick!
+    // https://stackoverflow.com/questions/3777494/is-it-possible-to-override-the-minimum-width-of-a-button-in-safari-on-ipad
+    0
+  };
 `;
