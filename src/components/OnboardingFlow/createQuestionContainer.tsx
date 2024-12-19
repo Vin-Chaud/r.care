@@ -24,6 +24,7 @@ export interface QuestionContainerProps<
   stepDefinition: S;
   submitAnswer: SubmitAnswerAction<A>;
   hasAnswered: boolean;
+  isShowingEmbeddedFeedback: boolean;
 }
 
 export type SubmitAnswerAction<A extends AnswerValue> = (
@@ -84,6 +85,7 @@ export function createQuestionContainer<
             submitAnswer={submitAnswer}
             stepDefinition={props.stepDefinition as S}
             hasAnswered={hasAnswered}
+            isShowingEmbeddedFeedback={embeddedFeedback != null}
           />
         </QuestionBodyContainer>
         {embeddedFeedback && <EmbeddedFeedback feedback={embeddedFeedback} />}

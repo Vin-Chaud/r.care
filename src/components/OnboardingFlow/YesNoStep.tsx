@@ -6,8 +6,14 @@ import styled from "styled-components";
 import { createQuestionContainer } from "./createQuestionContainer";
 
 export const YesNoStep = createQuestionContainer<boolean, YesNoQuestion>(
-  ({ stepDefinition, submitAnswer, hasAnswered }) => {
+  ({
+    stepDefinition,
+    submitAnswer,
+    hasAnswered,
+    isShowingEmbeddedFeedback,
+  }) => {
     const [selectedValue, setSelectedValue] = useState<boolean | null>(null);
+    const isInputDisabled = hasAnswered && !isShowingEmbeddedFeedback;
     return (
       <ButtonsLayout>
         <Button
@@ -17,7 +23,7 @@ export const YesNoStep = createQuestionContainer<boolean, YesNoQuestion>(
             setSelectedValue(false);
             submitAnswer(false, stepDefinition.feedbacks?.no);
           }}
-          disabled={hasAnswered}
+          disabled={isInputDisabled}
         >
           <Emoji>👎</Emoji>
           {"No"}
@@ -29,7 +35,7 @@ export const YesNoStep = createQuestionContainer<boolean, YesNoQuestion>(
             setSelectedValue(true);
             submitAnswer(true, stepDefinition.feedbacks?.yes);
           }}
-          disabled={hasAnswered}
+          disabled={isInputDisabled}
         >
           <Emoji>👍</Emoji>
           {"Yes"}
