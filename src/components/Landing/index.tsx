@@ -20,8 +20,13 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styled from "styled-components";
 
+import Lottie from "lottie-react";
+import spinnerAnimation from "./spinner.json";
+import { fadeIn } from "@/utils/style_partials";
+
 export function Landing({ flow }: { flow: OnboardingFlow }) {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <PageLayout background={landingStyle}>
@@ -37,11 +42,13 @@ export function Landing({ flow }: { flow: OnboardingFlow }) {
           onDidAnswer={async (answer) => {
             dispatchGoogleTagEvent("quiz_started", { age: answer });
             dispatchCustomMetaEvent("QuizStarted", { age: answer });
+            setIsLoading(true);
             await saveQuizData({ [flow.landing_quiz_step.id]: answer }, null);
             router.push("/quiz");
           }}
         />
       </LandingContentFrame>
+      {isLoading && <LoaderOverlay />}
     </PageLayout>
   );
 }
@@ -86,6 +93,14 @@ function LandingQuiz({
         ))}
       </QuizOptionList>
     </form>
+  );
+}
+
+function LoaderOverlay() {
+  return (
+    <LoaderOverlayContainer>
+      <Lottie animationData={spinnerAnimation} loop autoPlay />
+    </LoaderOverlayContainer>
   );
 }
 
@@ -142,4 +157,19 @@ const QuizOptionButton = styled("button").withConfig({
 
   color: ${Greys.White};
   font-size: 20px;
+`;
+
+const LoaderOverlayContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+
+  ${fadeIn}
 `;
