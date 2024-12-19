@@ -93,6 +93,12 @@ export const SectionLayout = styled.section`
   justify-content: center;
   background-color: ${Greys.GreyDF};
   height: 100dvh;
+
+  @media (max-width: 399px), (max-height: 799px) {
+    height: calc(100dvh / 0.85);
+  }
+}
+
 `;
 
 const Header = styled.header`

@@ -62,6 +62,9 @@ function Interview({ answer, question }: { answer: string; question: string }) {
 
 const HeaderImageGroup = styled.div`
   position: relative;
+  width: 312px;
+  left: 50%;
+  transform: translate(-50%);
 `;
 
 const Header = styled.header`

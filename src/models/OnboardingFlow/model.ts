@@ -172,6 +172,7 @@ export type Content =
 export interface Content_Emoji {
   type: "emoji";
   emoji: string;
+  scale?: number;
 }
 
 export interface Content_Text {

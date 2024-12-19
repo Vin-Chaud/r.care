@@ -143,6 +143,16 @@ const TrialStepList = styled.ul`
 const TrialStepListItem = styled.div`
   position: relative;
   margin-block: 35px;
+
+  @media (max-height: 699px) {
+    margin-block: 25px;
+    &:first-child {
+      margin-top: 0px;
+    }
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
 `;
 
 const TrialStepListItemHeader = styled.h3`

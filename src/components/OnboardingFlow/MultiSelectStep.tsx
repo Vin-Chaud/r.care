@@ -29,7 +29,7 @@ export const MultiSelectStep = createQuestionContainer<
 
   return (
     <QuestionLayout>
-      <ButtonList>
+      <ButtonList size={stepDefinition.options.length}>
         {stepDefinition.options.map(({ text }, optionIndex) => {
           const inputId = "multi-select-" + optionIndex;
           const isSelected = selectedIndices.includes(optionIndex);
@@ -100,23 +100,27 @@ const QuestionLayout = styled.div`
   flex-direction: column;
 `;
 
-const ButtonList = styled.ul`
+const ButtonListItem = styled.li`
+  list-style: none;
+  height: 72px;
+  margin-bottom: 16px;
+`;
+
+const ButtonList = styled.ul.withConfig({
+  shouldForwardProp: (prop) => prop !== "size",
+})<{ size: number }>`
   padding: 0px;
   width: 100%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-`;
 
-const ButtonListItem = styled.li`
-  list-style: none;
-  max-height: 72px;
-  min-height: 40px;
-  flex-grow: 1;
-  margin-bottom: 16px;
-
-  @media (max-height: 799px) {
-    margin-bottom: 8px;
+  ${ButtonListItem} {
+    @media (max-height: 799px) {
+      height: ${(props) =>
+        props.size <= 4 ? "60px" : props.size <= 5 ? "50px" : "40px"};
+      margin-bottom: 8px;
+    }
   }
 `;
 

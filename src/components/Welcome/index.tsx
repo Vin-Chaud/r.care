@@ -61,7 +61,7 @@ export function Welcome({
     }
   }, []);
   return (
-    <PageLayout>
+    <PageLayout scrollable>
       <AppHeader>{{ branding: true }}</AppHeader>
       <Emoji>{"🎊"}</Emoji>
       <Header>{"Wecome to R.care!"}</Header>

@@ -65,6 +65,10 @@ const Header = styled.h2`
   font-size: 18px;
   font-weight: 500;
   text-align: center;
+
+  @media (max-height: 674px) {
+    margin-top: 0px;
+  }
 `;
 
 const FlexGrow = styled.div`
@@ -72,6 +76,7 @@ const FlexGrow = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 const KnowledgeScoreOutput = styled.output`
@@ -91,8 +96,15 @@ const KnowledgeScoreOutput = styled.output`
   font-weight: 700;
 
   span {
-    font-size: 30px;
+    font-size: 0.6em;
     font-weight: 500;
+  }
+
+  @media (max-height: 599px) {
+    height: 50px;
+    width: 150px;
+
+    font-size: 30px;
   }
 `;
 
@@ -101,6 +113,7 @@ const KnowledgeScoreList = styled.ul`
   padding: 15px;
   border: 1px solid ${Greys.GreyD1};
   border-radius: 15px;
+  width: 100%;
 `;
 
 const KnowledgeScoreItem = styled.li`
@@ -111,6 +124,10 @@ const KnowledgeScoreItem = styled.li`
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @media (max-height: 674px) {
+    margin-bottom: 20px;
   }
 `;
 
@@ -128,6 +145,11 @@ const KnowledgeScoreAnswer = styled.div`
   border-radius: 15px;
   padding-inline: 15px;
   box-sizing: border-box;
+
+  @media (max-height: 674px) {
+    height: 40px;
+    margin-top: 15px;
+  }
 `;
 
 const Marketing = styled.p`

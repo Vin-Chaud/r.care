@@ -17,7 +17,7 @@ export function Content({ content }: { content: ContentModel }) {
   const imageUrls = useOnboardingFlowImageUrls();
   switch (content.type) {
     case "emoji": {
-      return <Emoji>{content.emoji}</Emoji>;
+      return <Emoji scale={content.scale}>{content.emoji}</Emoji>;
     }
     case "image": {
       return (
@@ -58,17 +58,19 @@ function normalizeText(text: string | readonly string[]) {
   return typeof text === "string" ? text : text.join("<br>");
 }
 
-const Emoji = styled.div`
+const Emoji = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "scale",
+})<{ scale?: number }>`
   ${Fonts.SFPro}
-  font-size: 100px;
-  margin-bottom: 30px;
+  font-size: ${(props) => 100 * (props.scale ?? 1)}px;
+  margin-block: 0px;
 `;
 
 const TextNormal = createRichText(styled.p`
   ${Fonts.SFPro}
   font-size: 17px;
   color: ${Greys.Grey26};
-  margin-block: 20px;
+  margin-block: 0px;
   text-align: center;
 `);
 
@@ -76,7 +78,7 @@ const TextSubtle = createRichText(styled.p`
   ${Fonts.SFPro}
   font-size: 14px;
   color: ${Greys.Grey4D};
-  margin-block: 20px;
+  margin-block: 0px;
   text-align: center;
 `);
 
@@ -84,11 +86,11 @@ const Title = createRichText(styled.h2`
   ${Fonts.SFPro}
   font-size: 24px;
   font-weight: 600;
-  margin-block: 20px;
+  margin-block: 0px;
   text-align: center;
 `);
 
 const TestimonialContainer = styled.div`
-  padding-top: 40px;
+  padding-top: 0px;
   padding-bottom: 0px;
 `;

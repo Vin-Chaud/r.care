@@ -7,6 +7,10 @@ const textStyle = css`
   font-size: 17px;
   font-style: regular;
   font-weight: 300;
+
+  @media (max-height: 699px) {
+    font-size: 15px;
+  }
 `;
 
 export const TrialContents = styled.section`
@@ -27,6 +31,11 @@ export const H2 = styled.h2`
 
 export const P = styled.p`
   ${textStyle}
+  margin-block: 1em;
+
+  @media (max-height: 599px) {
+    margin-block: 0.5em;
+  }
 `;
 
 export const Emoji = styled.div`
@@ -34,12 +43,21 @@ export const Emoji = styled.div`
   font-size: 100px;
   margin-block: 25px;
   text-align: center;
+
+  @media (max-height: 599px) {
+    font-size: 80px;
+    margin-block: 15px;
+  }
 `;
 
 export const Highlight = styled.p`
   ${textStyle}
   text-align: center;
   color: ${Purples.Purple94};
+
+  @media (max-height: 599px) {
+    margin-block: 0.5em;
+  }
 `;
 
 export const List = styled.ul`
@@ -53,5 +71,9 @@ export const ListItem = createMarkdownText(styled.li`
 
   strong {
     font-weight: 700;
+  }
+
+  @media (max-height: 699px) {
+    margin-bottom: 0.5em;
   }
 `);

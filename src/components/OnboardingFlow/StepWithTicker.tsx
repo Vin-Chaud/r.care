@@ -3,13 +3,15 @@ import { AppHeader } from "@/components/AppHeader";
 import { FullFeedback } from "@/components/OnboardingFlow/FullFeedback";
 import { globalContext } from "@/context/GlobalContext";
 import { Greys } from "@/design_components/design_system";
-import { PageLayout } from "@/design_components/PageLayout";
+import {
+  ScrollablePageContentFrame,
+  ScrollablePageLayoutContainer,
+} from "@/design_components/PageLayout";
 import { useAutoCanceledTimeout } from "@/hooks/useAutoCanceledTimeout";
 import {
   Cursor,
   ResolvedStep,
   areCursorsEqual,
-  getStepDefinitionWithFallback,
   gotoPreviousStep,
   isQuizStep,
   resolveStep,
@@ -67,48 +69,50 @@ export function StepWithTicker({
     isQuizStep(previousStepDef.stepDefinition);
 
   return (
-    <PageLayout background={Greys.White}>
-      <AppHeader
-        withBackButton={shouldShowBackButton}
-        onClickBack={() => {
-          setFillingTickerCursor(null);
-          back();
-        }}
-      >
-        {sectionTitle}
-      </AppHeader>
-      <QuestionnaireTicker
-        key={
-          // We need to kill all transitions in the ticker
-          // when the section changes.
-          state.cursor.currentSectionIndex
-        }
-        groupLengths={tickerSubsectionLengths}
-        stepIndex={tickerStepIndex}
-        fillingGroupIndex={state.cursor.currentSubsectionIndex}
-        isFilling={isFilling}
-        onDidFill={() => {
-          if (fillingTickerCursor?.shouldAdvance) {
-            next();
+    <ScrollablePageLayoutContainer>
+      <ScrollablePageContentFrame background={Greys.White}>
+        <AppHeader
+          withBackButton={shouldShowBackButton}
+          onClickBack={() => {
+            setFillingTickerCursor(null);
+            back();
+          }}
+        >
+          {sectionTitle}
+        </AppHeader>
+        <QuestionnaireTicker
+          key={
+            // We need to kill all transitions in the ticker
+            // when the section changes.
+            state.cursor.currentSectionIndex
           }
-        }}
-      />
-      <StepRouter
-        stepDefinition={stepDefinition}
-        stepId={stepId}
-        onDidRespond={(shouldAdvance) => {
-          setFillingTickerCursor({
-            cursor: state.cursor,
-            shouldAdvance: shouldAdvance === true,
-          });
-          if (typeof shouldAdvance === "object") {
-            setTimeout(
-              () => setFullfeedback(shouldAdvance.fullFeedback),
-              questionTransitionTime
-            );
-          }
-        }}
-      />
-    </PageLayout>
+          groupLengths={tickerSubsectionLengths}
+          stepIndex={tickerStepIndex}
+          fillingGroupIndex={state.cursor.currentSubsectionIndex}
+          isFilling={isFilling}
+          onDidFill={() => {
+            if (fillingTickerCursor?.shouldAdvance) {
+              next();
+            }
+          }}
+        />
+        <StepRouter
+          stepDefinition={stepDefinition}
+          stepId={stepId}
+          onDidRespond={(shouldAdvance) => {
+            setFillingTickerCursor({
+              cursor: state.cursor,
+              shouldAdvance: shouldAdvance === true,
+            });
+            if (typeof shouldAdvance === "object") {
+              setTimeout(
+                () => setFullfeedback(shouldAdvance.fullFeedback),
+                questionTransitionTime
+              );
+            }
+          }}
+        />
+      </ScrollablePageContentFrame>
+    </ScrollablePageLayoutContainer>
   );
 }

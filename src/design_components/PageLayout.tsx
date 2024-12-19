@@ -11,10 +11,18 @@ export function PageLayout({
   background?: string;
   scrollable?: boolean;
 }) {
-  const Frame = scrollable ? ScrollablePageContentFrame : PageContentFrame;
+  if (scrollable) {
+    return (
+      <ScrollablePageLayoutContainer>
+        <ScrollablePageContentFrame background={background}>
+          {children}
+        </ScrollablePageContentFrame>
+      </ScrollablePageLayoutContainer>
+    );
+  }
   return (
     <PageLayoutContainer background={background}>
-      <Frame>{children}</Frame>
+      <PageContentFrame>{children}</PageContentFrame>
     </PageLayoutContainer>
   );
 }

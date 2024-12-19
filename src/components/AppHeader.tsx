@@ -33,6 +33,7 @@ const AppHeaderLayout = styled.div`
   align-items: center;
   justify-content: center;
   height: 40px;
+  flex-shrink: 0;
 `;
 
 const Title = styled.h1`

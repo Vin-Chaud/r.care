@@ -6,7 +6,7 @@ export function KnowledgeIntroPane({ onNext }: { onNext: () => void }) {
       feedback={{
         type: "full",
         contents: [
-          { type: "emoji", emoji: "💡" },
+          { type: "emoji", emoji: "💡", scale: 0.8 },
           {
             type: "title",
             text: "Why is it so important to build our knowledge about binge eating?",
