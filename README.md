@@ -46,15 +46,37 @@ These variables allow the app to know about itself
       enabled. This can be used to hide a non-production deployment behind
       a password wall.
 
-### Stripe Configuration
-
-These variables allow the app to integrate with Stripe correctly.
+### Stripe/RevenueCat Configuration
 
 | Variable                                   | Example        |
 | ------------------------------------------ | -------------- |
 | RCARE__STRIPE__API_SECRET                  | sk_test_xxxxxx |
 | RCARE__STRIPE__CATALOG__ANNUAL_PRICE_ID    | price_xxxxxx   |
 | RCARE__STRIPE__CATALOG__QUARTERLY_PRICE_ID | price_xxxxxx   |
+
+### Stripe/RevenueCat Integration Configuration
+
+RevenueCat must be set up to [integrate with Stripe](https://www.revenuecat.com/docs/web/stripe). Once this is properly connected, there is an
+"integration API" key for Stripe that can be found on RevenueCat.
+(Important: this is not a Stripe API key, nor is it the generic RevenueCat API key, it is the Stripe-specific app API key for this integration, which
+is found in RevenueCat's integration UI.)
+
+A [Stripe webhook](https://docs.stripe.com/webhooks)
+must then be set up for `<server_url>/api/stripe_webhook`
+and it must listen for the
+[`customer.subscription.created`](https://docs.stripe.com/api/events/types#event_types-customer.subscription.created) event.
+This is needed for the correct forwarding of Stripe checkouts to customer
+creation on RevenueCat. See [here](https://www.revenuecat.com/docs/web/stripe#5-send-stripe-tokens-to-revenuecat)
+for details.
+
+Note down Stripe webhook's secret (in Stripe) and the Stripe-RevenueCat
+integration API key (in RevenueCat) and add to the configuration:
+
+| Variable                          | Example     |
+| --------------------------------- | ----------- |
+| RCARE__STRIPE__WEBHOOK_SECRET     | whsec_xxxxx |
+| RCARE__REVENUECAT__STRIPE_API_KEY | strp_xxxxx  |
+
 
 ### Firebase Configuration
 
@@ -104,6 +126,6 @@ These variables are optional. Supplying them activates respective analytic track
 These variables are intended for development use only. They can be set locally
 or on non-production Vercel branches. They should not be used in production.
 
-| Variable       | Example                            | Comment                                                                                                                                                                                                                                   |
-| -------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DEV_SESSION_ID | `k1xwsax8xe9jm9p3tlz1hxwppaq3kv21` | Overrides the onboarding session ID. This lets you fix or "hijack" one of the sessions that's already on Firestore database. Setting this causes the server to ignore the session ID cookie ignore any attempt to initiate a new session. |
+| Variable        | Example                            | Comment                                                                                                                                                                                                                                   |
+| --------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DEV__SESSION_ID | `k1xwsax8xe9jm9p3tlz1hxwppaq3kv21` | Overrides the onboarding session ID. This lets you fix or "hijack" one of the sessions that's already on Firestore database. Setting this causes the server to ignore the session ID cookie ignore any attempt to initiate a new session. |

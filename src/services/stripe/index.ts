@@ -9,7 +9,8 @@ import Stripe from "stripe";
 
 export async function createCheckoutSession(
   productKind: SubscriptionType,
-  onboardingSessionId: string
+  onboardingSessionId: string,
+  signupEmail: string
 ) {
   const priceId =
     productKind === SubscriptionType.Quarterly
@@ -33,16 +34,20 @@ export async function createCheckoutSession(
         quantity: 1,
       },
     ],
-    ...(productKind === SubscriptionType.Yearly && {
-      subscription_data: {
-        trial_period_days: 7,
-      },
-    }),
     metadata: {
       onboarding_session_id: onboardingSessionId,
       subscription_price: priceAmountCents && priceAmountCents * 0.01,
       product_id: productInfo.id,
       product_name: productInfo.name,
+    },
+    subscription_data: {
+      metadata: {
+        onboarding_session_id: onboardingSessionId,
+        signup_email: signupEmail,
+      },
+      ...(productKind === SubscriptionType.Yearly && {
+        trial_period_days: 7,
+      }),
     },
     success_url:
       serverConfig.baseUrl +

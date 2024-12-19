@@ -1,8 +1,9 @@
+import { GoogleTag } from "@/components/Tracking/GoogleTag";
+import { MetaPixel } from "@/components/Tracking/MetaPixel";
+import { config } from "@/config";
 import StyledComponentsRegistry from "@/lib/styledComponentRegistry";
 import type { Metadata } from "next";
 import "./globals.css";
-import { GoogleTag } from "@/components/Tracking/GoogleTag";
-import { MetaPixel } from "@/components/Tracking/MetaPixel";
 
 export const metadata: Metadata = {
   title: "r.care onboarding",
@@ -13,8 +14,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const googleTagId = process.env["RCARE__TRACKING__GOOGLE_TAG_ID"];
-  const metaPixelId = process.env["RCARE__TRACKING__META_PIXEL_ID"];
+  const googleTagId = config.tracking?.googleTagId;
+  const metaPixelId = config.tracking?.metaPixelId;
   return (
     <html lang="en">
       <meta

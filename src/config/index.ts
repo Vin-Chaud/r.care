@@ -1,6 +1,6 @@
 import { configSchema } from "./schema";
 import { transformEnvToNestedObject } from "./transformEnvToNestedObject";
 
-export const config = configSchema.parse(
+export const { rcare: config, dev: devConfig } = configSchema.parse(
   transformEnvToNestedObject(process.env || {})
-).rcare;
+);
