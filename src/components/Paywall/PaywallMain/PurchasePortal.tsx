@@ -51,21 +51,9 @@ export function PurchasePortal({
         />
         <YearlyProTip>
           {
-            "💡Yearly plan offers the **biggest savings**. You can save 57% compared to the 3-month plan!"
+            "💡Don't miss out on the **biggest savings** — Enjoy premium benefits all year long at the best value."
           }
         </YearlyProTip>
-
-        <ProductChooser
-          fullAmount={prices.quarterlyFull}
-          id={`purchase-${portalId}-quarterly`}
-          checked={value === SubscriptionType.Quarterly}
-          pricePeriodInDays={90}
-          title={"3-month"}
-          description={"Billed every 3 months"}
-          name={`purchase-${portalId}`}
-          value={SubscriptionType.Quarterly}
-          onChange={onChange}
-        />
 
         <ForwardNavButton type="submit">{"Start"}</ForwardNavButton>
         <MoneyBack />
