@@ -12,7 +12,7 @@ import { HeaderB } from "@/components/Paywall/PaywallMain/common";
 const prices = {
   yearlyFull: 233.99,
   yearlyDiscounted: 119.99,
-  quarterlyFull: 69.99,
+  quarterlyFull: 99.99,
 };
 
 export function PurchasePortal({
