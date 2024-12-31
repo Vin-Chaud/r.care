@@ -1330,7 +1330,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     {
       avatar_graphic_id: "lea",
       screen_name: "Lea",
-      screen_subtitle: "27, London (USA)",
+      screen_subtitle: "27, London (UK)",
       content:
         "R.care makes binge eating recovery feel more achievable. Following the daily program helps me gently take control of my struggles and rebuild a positive relationship with food. Having this 24/7 companion is truly a game-changer. Thank you!",
     },
@@ -1344,7 +1344,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     {
       avatar_graphic_id: "kate",
       screen_name: "Kate",
-      screen_subtitle: "35, Toronto (USA)",
+      screen_subtitle: "35, Toronto (Canada)",
       content:
         "After using the app for a while, I can almost hear the expert’s voice whenever I eat. The **knowledge and guidance from R.care** are invaluable—it **empowers me during moments of doubt** and helps me avoid falling back into the binge cycle.",
     },
