@@ -18,7 +18,7 @@ export function TrialExplanation2({ onNext }: { onNext: () => void }) {
       <TrialContents>
         <header>
           <Emoji>{"💜"}</Emoji>
-          <H2>{"We can help."}</H2>
+          <H2>{"Try for free."}</H2>
         </header>
         <Highlight>{"We’re not here to waste your time & money."}</Highlight>
         <P>
@@ -33,7 +33,7 @@ export function TrialExplanation2({ onNext }: { onNext: () => void }) {
           <ListItem>{"You can cancel at any time."}</ListItem>
           <ListItem>
             {
-              "If you go through the R.care program for 30 days and don't see results, **we offer 200% money back.**"
+              "100% secure payment process."
             }
           </ListItem>
         </List>
