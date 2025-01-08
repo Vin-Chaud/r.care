@@ -1166,18 +1166,18 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       {
         question: "How did binge eating impact your life?",
         answer:
-          "Binge eating honestly took over my life. I’d eat way more than I needed, then feel super sick and guilty afterward. It messed with my confidence and strained my relationships with family and my best friend.",
+          "I’d eat way more than I needed, then feel super sick and guilty afterward. It messed with my confidence and strained my relationships with family and my best friends.",
       },
       {
         question: "How has R.care helped you?",
         answer:
-          "This program has been a total game-changer. It helped me understand all the hidden reasons behind my binge. I got support and  tools to listen to my hunger cues and I’m still learning to eat more mindfully. For the first time in a long while, I feel in control.",
+          "This program has been a game changer. It’s incredibly supportive, helped me uncover the deep-rooted reasons behind my binge and gave me tools to reconnect with my body and mind. For the first time, I felt in control.",
       },
       {
         question:
           "What would you tell someone curious about trying out R.care?",
         answer:
-          "Give the free trial a shot! Binge eating is personal, so R.care might not be the answer for everyone, but it changed my life. The program is super supportive. I really hope this is your chance to take control again too!",
+          "Give the free trial a shot! Binge eating is personal, so R.care might not be the answer for everyone but it changed my life. I really hope this is your chance to take control again too!",
       },
     ],
     disclaimer: null,
