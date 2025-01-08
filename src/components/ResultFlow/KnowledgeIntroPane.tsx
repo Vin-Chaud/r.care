@@ -9,15 +9,15 @@ export function KnowledgeIntroPane({ onNext }: { onNext: () => void }) {
           { type: "emoji", emoji: "💡" },
           {
             type: "title",
-            text: "Why is it so important to build our knowledge about binge eating?",
+            text: "Why Is It So Important to Learn About Binge Eating?",
           },
           {
             type: "text",
-            text: "Understanding binge eating is important because it helps us see what drives this behavior and why it happens. The more we know, the better we can find ways to prevent it and support recovery.",
+            text: "Building knowledge about binge eating helps us understand its causes, break the stigma, and find better ways to prevent it and recover..",
           },
           {
             type: "text",
-            text: "Learning about binge eating also helps break down the stigma, making it easier for us to ask for help. In the end, this knowledge gives us the tools to build a healthier relationship with food and take better care of ourselves.",
+            text: "It empowers us to foster a healthier relationship with food and care for ourselves.",
           },
         ],
       }}
