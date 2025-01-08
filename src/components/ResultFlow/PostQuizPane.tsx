@@ -13,7 +13,7 @@ export function PostQuizPane({ onNext }: { onNext: () => void }) {
         <Content
           content={{
             type: "text",
-            text: "We’ve listened to your answers and created a personalized plan just for you",
+            text: "We’ve listened to your answers and created a personalized plan just for you.",
           }}
         />
       </SectionLayout>
