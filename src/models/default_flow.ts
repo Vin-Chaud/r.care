@@ -1160,24 +1160,24 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   target_knowledge_score: 94,
   interview: {
     title: "From chaos to control",
-    subtitle: "Emily’s personal story",
+    subtitle: "Emily’s recovery story",
     graphic_id: "persona",
     questions: [
       {
         question: "How did binge eating impact your life?",
         answer:
-          "Binge eating honestly took over my life. I’d eat way more than I needed, then feel super sick and guilty afterward. It messed with my confidence, made me feel crappy about myself, and strained my relationships with family and my best friend.",
+          "Binge eating honestly took over my life. I’d eat way more than I needed, then feel super sick and guilty afterward. It messed with my confidence and strained my relationships with family and my best friend.",
       },
       {
         question: "How has R.care helped you?",
         answer:
-          "This program has been a total game-changer. It helped me understand all the hidden reasons behind my binge—why didn’t anyone teach me this before? I got real tools to listen to my hunger cues and I’m still learning to eat more mindfully. For the first time in a long while, I actually feel in control.",
+          "This program has been a total game-changer. It helped me understand all the hidden reasons behind my binge. I got support and  tools to listen to my hunger cues and I’m still learning to eat more mindfully. For the first time in a long while, I feel in control.",
       },
       {
         question:
           "What would you tell someone curious about trying out R.care?",
         answer:
-          "At least give the trial a shot and see if it works for you! Every binge is personal, so R.care might not be for everyone, but it definitely worked for me. The program’s super supportive, practical, and holistic. I really hope this is your chance to take control again too.",
+          "Give the free trial a shot! Binge eating is personal, so R.care might not be the answer for everyone, but it changed my life. The program is super supportive. I really hope this is your chance to take control again too!",
       },
     ],
     disclaimer: null,
