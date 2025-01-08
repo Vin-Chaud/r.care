@@ -106,19 +106,19 @@ export function ProgramPage({
           </StopStrugglingHeader>
           <EmpathyList>
             <EmpathyItem number={1}>
-              {"**Understand more** about root causes of binge eating"}
+              {"Discover the roots of your binge"}
             </EmpathyItem>
             <EmpathyItem number={2}>
-              {"**Identify** ways **binge eating** affects you"}
+              {"Identify how binge eating affects you"}
             </EmpathyItem>
             <EmpathyItem number={3}>
-              {"Find practical **tips to manage the symptoms**"}
+              {"Find tips to manage the symptoms"}
             </EmpathyItem>
             <EmpathyItem number={4}>
-              {"Learn to **understand and accept yourself**"}
+              {"Understand and accept yourself"}
             </EmpathyItem>
             <EmpathyItem number={5}>
-              {"Reinforce your new, **healthier behaviors**"}
+              {"Build healthier behaviors"}
             </EmpathyItem>
           </EmpathyList>
 
