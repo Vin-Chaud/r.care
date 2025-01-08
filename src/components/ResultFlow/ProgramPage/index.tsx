@@ -102,22 +102,19 @@ export function ProgramPage({
         <EmpathySection>
           <StopStrugglingHeader>
             <Graphic />
-            <HeaderB>{"Stop struggling alone<br>**We will help you**"}</HeaderB>
+            <HeaderB>{"Stop struggling alone.<br>**We will help you...**"}</HeaderB>
           </StopStrugglingHeader>
           <EmpathyList>
             <EmpathyItem number={1}>
               {"Discover the roots of your binge"}
             </EmpathyItem>
             <EmpathyItem number={2}>
-              {"Identify how binge eating affects you"}
-            </EmpathyItem>
-            <EmpathyItem number={3}>
               {"Find tips to manage the symptoms"}
             </EmpathyItem>
-            <EmpathyItem number={4}>
+            <EmpathyItem number={3}>
               {"Understand and accept yourself"}
             </EmpathyItem>
-            <EmpathyItem number={5}>
+            <EmpathyItem number={4}>
               {"Build healthier behaviors"}
             </EmpathyItem>
           </EmpathyList>
