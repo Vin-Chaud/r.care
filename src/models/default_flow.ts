@@ -1160,24 +1160,24 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   target_knowledge_score: 94,
   interview: {
     title: "From chaos to control",
-    subtitle: "Jenni’s personal story",
+    subtitle: "Emily’s personal story",
     graphic_id: "persona",
     questions: [
       {
-        question: "How did binge eating impact your life before R.care?",
+        question: "How did binge eating impact your life?",
         answer:
-          "Binge eating took over my life in ways I never expected. I was **constantly out of control around food**, eating way more than I needed, and then feeling **incredibly sick and guilty afterward.** It really took a toll on my **self-esteem, messed with my relationships, and even disrupted my sleep.** The more I stressed about food, the more I struggled to feel normal around it—I just couldn’t **break the cycle on my own.**",
+          "Binge eating honestly took over my life. I’d eat way more than I needed, then feel super sick and guilty afterward. It messed with my confidence, made me feel crappy about myself, and strained my relationships with family and my best friend.",
       },
       {
         question: "How has R.care helped you?",
         answer:
-          "This program has been **a total game-changer** for me. It opened my eyes to all the **different reasons behind my binge eating**—things I never even realized before! I also got **practical tools to help manage my emotions** and understand my hunger cues better. I’ve learned to recognize my triggers and eat more mindfully. For the first time in a long while, I **actually feel in control again.** It’s also made a big difference in how I show up in my relationships and at work.",
+          "This program has been a total game-changer. It helped me understand all the hidden reasons behind my binge—why didn’t anyone teach me this before? I got real tools to listen to my hunger cues and I’m still learning to eat more mindfully. For the first time in a long while, I actually feel in control.",
       },
       {
         question:
           "What would you tell someone curious about trying out R.care?",
         answer:
-          "I’d tell them to definitely give it a shot. It’s not just about stopping binge eating—it’s about really **getting to know yourself** and **finding that sense of control and focus again.** The program is supportive, practical, and helps you improve your life in a holistic way. When your relationship with food is a mess, it can **throw everything—your mind, body, and life—into chaos. This is your chance to take back control.**",
+          "At least give the trial a shot and see if it works for you! Every binge is personal, so R.care might not be for everyone, but it definitely worked for me. The program’s super supportive, practical, and holistic. I really hope this is your chance to take control again too.",
       },
     ],
     disclaimer: null,
