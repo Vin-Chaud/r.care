@@ -10,9 +10,9 @@ import { Seal } from "./Seal";
 import { HeaderB } from "@/components/Paywall/PaywallMain/common";
 
 const prices = {
-  yearlyFull: 233.99,
-  yearlyDiscounted: 119.99,
-  quarterlyFull: 99.99,
+  yearlyFull: 189.99,
+  yearlyDiscounted: 89.99,
+  quarterlyFull: 69.99,
 };
 
 export function PurchasePortal({
