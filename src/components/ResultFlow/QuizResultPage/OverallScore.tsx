@@ -152,7 +152,7 @@ const ResultHeader = styled.h2`
 
   strong {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 600;
   }
 `;
 
@@ -218,7 +218,7 @@ const WheelDonutHole = styled.div`
 const PercentageText = styled.output`
   ${Fonts.SFPro};
 
-  font-weight: 700;
+  font-weight: 600;
   font-size: 35px;
   position: relative;
   top: 20%;
@@ -260,6 +260,6 @@ const ScoreZoneGuideItemLayout = styled.li.withConfig({
 
   strong {
     margin-inline: 0.5em;
-    font-weight: 700;
+    font-weight: 600;
   }
 `;
