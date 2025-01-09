@@ -51,7 +51,7 @@ export function PurchasePortal({
         />
         <YearlyProTip>
           {
-            "💡Don't miss out on the **biggest savings** — Enjoy premium benefits all year long at the best value."
+            "💡Don’t miss out on the biggest savings of the year — a special New Year discount!"
           }
         </YearlyProTip>
         <ProductChooser
