@@ -1,4 +1,5 @@
 import { GoogleTag } from "@/components/Tracking/GoogleTag";
+import { Hotjar } from "@/components/Tracking/Hotjar";
 import { MetaPixel } from "@/components/Tracking/MetaPixel";
 import { config } from "@/config";
 import StyledComponentsRegistry from "@/lib/styledComponentRegistry";
@@ -16,6 +17,7 @@ export default function RootLayout({
 }>) {
   const googleTagId = config.tracking?.googleTagId;
   const metaPixelId = config.tracking?.metaPixelId;
+  const hotjarId = config.tracking?.hotjarId;
   return (
     <html lang="en">
       <meta
@@ -25,6 +27,7 @@ export default function RootLayout({
       <body>
         {(googleTagId && <GoogleTag gtagId={googleTagId} />) || null}
         {(metaPixelId && <MetaPixel pixelId={metaPixelId} />) || null}
+        {(hotjarId && <Hotjar hjId={hotjarId} />) || null}
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>

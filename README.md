@@ -120,6 +120,7 @@ These variables are optional. Supplying them activates respective analytic track
 | ------------------------------ | ------------------ | --------------------------- |
 | RCARE__TRACKING__GOOGLE_TAG_ID | `G-1ABC2DEFGH3`    | Enables Google Tag Tracking |
 | RCARE__TRACKING__META_PIXEL_ID | `1234567890123456` | Enables Meta Pixel Tracking |
+| RCARE__TRACKING__HOTJAR_ID     | `1234567`          | Enables Hotjar Tracking     |
 
 ### Development-only Configuration
 

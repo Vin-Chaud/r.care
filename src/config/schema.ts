@@ -39,6 +39,7 @@ export const configSchema = object({
     tracking: object({
       googleTagId: string().optional(),
       metaPixelId: string().optional(),
+      hotjarId: string().optional(),
     }).optional(),
   }),
   dev: object({

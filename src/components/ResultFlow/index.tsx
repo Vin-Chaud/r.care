@@ -11,6 +11,10 @@ import { PostQuizPane } from "./PostQuizPane";
 import { ProgramPage } from "./ProgramPage";
 import { QuizResultPage } from "./QuizResultPage";
 import { Testimonial } from "./Testimonial";
+import {
+  dispatchHotJarEvent,
+  identifyHotJarUser,
+} from "@/components/Tracking/Hotjar";
 
 enum Page {
   QuizResult = 1,
@@ -30,6 +34,7 @@ export function ResultFlow({
   const router = useRouter();
   const [page, setPage] = useState(Page.QuizResult);
   const flow = useOnboardingFlow();
+  const email = responses[flow.email_step_id];
 
   switch (page) {
     case Page.QuizResult: {
@@ -92,6 +97,10 @@ export function ResultFlow({
               value: 0,
             });
             dispatchStandardMetaEvent("InitiateCheckout");
+            if (typeof email === "string") {
+              identifyHotJarUser(email, {});
+            }
+            dispatchHotJarEvent("InitiateCheckout");
             router.push("/paywall");
           }}
         />
