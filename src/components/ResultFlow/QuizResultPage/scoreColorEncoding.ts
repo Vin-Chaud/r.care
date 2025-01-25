@@ -12,7 +12,7 @@ export function computeScoreColor(percentageScore: number) {
   const stopIndex = stops.findIndex((stop) => stop.at >= percentageScore);
   if (stopIndex === 0) {
     return stops[0].color;
-  } else if (stopIndex === stops.length) {
+  } else if (stopIndex < 0) {
     return stops[stops.length - 1].color;
   } else {
     const lowerStop = stops[stopIndex - 1];
