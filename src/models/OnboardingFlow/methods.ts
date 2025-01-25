@@ -421,14 +421,17 @@ function computeYesNoScoring(
 export function computeTotalScore(
   metricScores: Readonly<Record<Symptom, number>>
 ) {
-  return Number(
-    (
-      (Object.values(Symptom)
-        .map((symptom) => metricScores[symptom] ?? 0)
-        .reduce((a, b) => a + b, 0) /
-        Object.values(Symptom).length) *
-      (100 / 85)
-    ).toFixed(0)
+  return Math.min(
+    100,
+    Number(
+      (
+        (Object.values(Symptom)
+          .map((symptom) => metricScores[symptom] ?? 0)
+          .reduce((a, b) => a + b, 0) /
+          Object.values(Symptom).length) *
+        (100 / 85)
+      ).toFixed(0)
+    )
   );
 }
 
