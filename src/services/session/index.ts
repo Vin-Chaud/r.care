@@ -1,4 +1,5 @@
 import { devConfig } from "@/config";
+import { getRequestHost } from "@/services/stripe";
 import { customAlphabet } from "nanoid";
 import type { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 import { cookies as nextCookies } from "next/headers";
@@ -28,7 +29,7 @@ export class ReadonlySession {
 }
 
 export class Session extends ReadonlySession {
-  constructor(req: NextRequest) {
+  constructor(private readonly req: NextRequest) {
     super(req);
   }
 
@@ -45,6 +46,7 @@ export class Session extends ReadonlySession {
 
     sessionId = createSessionId();
     res.cookies.set("sessionId", sessionId, { httpOnly: true });
+    res.cookies.set("baseUrl", getRequestHost(this.req));
     return res;
   }
 }

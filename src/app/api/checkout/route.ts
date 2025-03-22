@@ -78,7 +78,8 @@ export async function GET(req: NextRequest) {
   const checkoutSession = await createCheckoutSession(
     type,
     onboardingSessionId,
-    signupEmail
+    signupEmail,
+    req
   );
 
   await onboardingDocRef.update({

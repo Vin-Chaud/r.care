@@ -1,16 +1,17 @@
 import { config } from "@/config";
 import { SubscriptionType } from "@/models/Subscription";
 import assert from "assert";
+import { NextRequest } from "next/server";
 
 const stripeConfig = config.stripe;
-const serverConfig = config.server;
 
 import Stripe from "stripe";
 
 export async function createCheckoutSession(
   productKind: SubscriptionType,
   onboardingSessionId: string,
-  signupEmail: string
+  signupEmail: string,
+  req: NextRequest
 ) {
   const priceId =
     productKind === SubscriptionType.Quarterly
@@ -25,6 +26,7 @@ export async function createCheckoutSession(
       ? await stripe.products.retrieve(priceInfo.product)
       : priceInfo.product;
   assert(!productInfo.deleted);
+  const baseUrl = getRequestHost(req);
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     mode: "subscription",
@@ -50,9 +52,9 @@ export async function createCheckoutSession(
       }),
     },
     success_url:
-      serverConfig.baseUrl +
+      baseUrl +
       "/api/checkout_complete?checkout_session_id={CHECKOUT_SESSION_ID}",
-    cancel_url: serverConfig.baseUrl + "/paywall",
+    cancel_url: baseUrl + "/paywall",
     ui_mode: "hosted",
   });
 
@@ -71,4 +73,18 @@ export async function isCheckoutSessionValid(
 export async function invalidateSession(sessionId: string) {
   const stripe = new Stripe(stripeConfig.apiSecret);
   await stripe.checkout.sessions.expire(sessionId);
+}
+
+export function getRequestHost(req: NextRequest): string {
+  const host =
+    typeof req === "object" && "headers" in req && req.headers.get?.("host");
+
+  const protocol =
+    typeof host === "string"
+      ? host?.startsWith("localhost")
+        ? "http"
+        : "https"
+      : "http";
+
+  return host ? `${protocol}://${host}` : "";
 }

@@ -32,19 +32,14 @@ Vercel in a deployment environment.
 
 These variables allow the app to know about itself
 
-| Variable                            | Example               | Notes        |
-| ----------------------------------- | --------------------- | ------------ |
-| RCARE__SERVER__BASE_URL             | http://localhost:3000 | (1)          |
-| RCARE__SERVER__BASIC_AUTH__USERNAME |                       | Optional (2) |
-| RCARE__SERVER__BASIC_AUTH__PASSWORD |                       | Optional (2) |
+| Variable                            |
+| ----------------------------------- |
+| RCARE__SERVER__BASIC_AUTH__USERNAME |
+| RCARE__SERVER__BASIC_AUTH__PASSWORD |
 
-
-#### Notes
-- (1) In Vercel, use the string `VERCEL` -- this will be correctly resolved
-      to Vercel deployment's base URL.
-- (2) These are optional. When both are specified, HTTP Basic Auth will be
-      enabled. This can be used to hide a non-production deployment behind
-      a password wall.
+These are optional. When both are specified, HTTP Basic Auth will be
+enabled. This can be used to hide a non-production deployment behind
+a password wall.
 
 ### Stripe/RevenueCat Configuration
 
