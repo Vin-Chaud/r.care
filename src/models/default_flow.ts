@@ -908,7 +908,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 {
                   type: "image",
                   graphic_id: "harvard",
-                }
+                },
               ],
             },
             ["desiredlearningpace"]: {
@@ -1350,5 +1350,4 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     },
   ],
   activate_graphic_id: "activate",
-  user_email_step_id: "email",
 };

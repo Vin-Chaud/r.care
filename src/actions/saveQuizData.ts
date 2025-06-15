@@ -23,17 +23,21 @@ export async function saveQuizData(
     const quizUpdate = Object.fromEntries(
       Object.entries(data).map(([key, value]) => [`quiz_data.${key}`, value])
     );
-
+    const userPropertiesUpdate = { "user_properties.channel": "W2A" };
     await doc.update({
       last_updated: new Date().toISOString(),
       ...quizUpdate,
       ...emailPayload,
+      ...userPropertiesUpdate,
     });
   } else {
     await doc.set({
       quiz_data: data,
       last_updated: new Date().toISOString(),
       created: new Date().toISOString(),
+      user_properties: {
+        channel: "W2A",
+      },
       ...emailPayload,
     });
   }
