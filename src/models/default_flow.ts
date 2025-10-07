@@ -14,14 +14,14 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: ["Built by psychologists &", "binge eating experts"],
+                  text: ["Built by dating coaches &", "relationship psychology experts"],
                 },
                 {
                   type: "text",
                   text: [
-                    "Our quiz will help you learn more",
-                    "about yourself and provide you with a",
-                    "personal binge eating score.",
+                    "Our quiz helps you better understand",
+                    "yourself and estimate your chances of finding",
+                    "your ideal match through online dating.",
                   ],
                   variant: "subtle",
                 },
@@ -32,7 +32,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
                 {
                   type: "text",
-                  text: "Created with experts from Harvard",
+                  text: "",
                   variant: "subtle",
                 },
               ],
@@ -72,28 +72,28 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["bed_diagnosis"]: {
               type: "single_select",
               title:
-                "Have you ever been diagnosed with Binge Eating Disorder (BED)?",
+                "What kind of dating have you tried the most?",
               help_text:
-                "It helps us enhance your experience, but rest assured, everyone is welcome, diagnosis or not.",
+                "It helps us enhance your experience, but rest assured, everyone is welcome.",
               options: [
                 {
-                  text: "I’m diagnosed by a doctor.",
+                  text: "Online dating apps (Tinder, Bumble, Hinge...)",
                   value: "FORMAL_DIAGNOSIS",
                 },
                 {
-                  text: "I'm self-diagnosed.",
+                  text: "Meeting people through connections (friends, colleagues, family)",
                   value: "SELF_DIAGNOSIS",
                 },
                 {
-                  text: "I suspect I might have BED.",
+                  text: "Chance encounters (at a bar, hobby groups...)",
                   value: "SUSPICION",
                 },
                 {
-                  text: "Not with BED, but another eating disorder.",
+                  text: "Speed dating or matchmaking events",
                   value: "FORMAL_DIAGNOSIS_OTHER_ED",
                 },
                 {
-                  text: "Something else",
+                  text: "I haven’t tried dating yet",
                   value: "OTHER",
                 },
               ],
@@ -102,13 +102,13 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  title: "Glad you are here!",
-                  body: "If you are trying to get more insight into your binge eating behavior, our quiz is a great first step.",
+                  title: "Glad you're here!",
+                  body: "Discover your dating style, unlock your best strategy, and find your perfect match.",
                   graphic_id: "r1_1",
                 },
                 {
-                  title: "Glad you are here!",
-                  body: "This quiz will help you understand yourself better and discover if R.care is the right fit for you. ",
+                  title: "Our quiz is the perfect place to start.",
+                  body: "Discover your dating style, unlock your best strategy, and find your perfect match. ",
                   graphic_id: "r1_2",
                 },
               ],
@@ -126,7 +126,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["selfcontrol_feel"]: {
               type: "scale",
               preset: "frequency",
-              title: "Do you feel in control of how much you eat?",
+              title: "Do you know what you want in a partner?",
               scoring: {
                 target_metric: Symptom.SelfControlChallenge,
                 reverse: true,
@@ -136,7 +136,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you eat meals much more quickly than other and seem to eat a lot more than others as well?",
+                "Do you feel comfortable showing your true self when dating?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -145,36 +145,36 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you have a strong habit of eating when you’re bored such that nothing else can distract you?",
+                "Do you enjoy the process of dating and getting to know new people?",
               scoring: { target_metric: Symptom.SelfControlChallenge },
             },
             ["selfcontrol_desperate"]: {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you often feel desperate that you can’t be more in control of what you eat?",
+                "Do you approach dating with a clear strategy?",
               scoring: { target_metric: Symptom.SelfControlChallenge },
             },
             ["selfcontrol_habit"]: {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you often eat, even though you are not hungry, because of habit?",
+                "Do you have enough time, energy, and resources to date?",
               scoring: { target_metric: Symptom.SelfControlChallenge },
             },
             r2: {
               type: "story",
               panes: [
                 {
-                  body: "Binge eating symptoms can be exhausting.",
+                  body: "Online dating can be exhausting.",
                   graphic_id: "r2_1",
                 },
                 {
-                  body: "You’ve got some hurdles ahead, but you’re on the right path.",
+                  body: "With the right guidance, you’re on an exciting journey to finding your perfect match!",
                   graphic_id: "r2_2",
                 },
                 {
-                  body: " Let’s continue to explore further - you’ve got this!",
+                  body: "Let’s explore together — you’ve got this!",
                   graphic_id: "r2_3",
                 },
               ],
@@ -194,15 +194,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["selfcontrol_getbackontrack"]: {
               type: "yes_no",
               title:
-                "Is it easy for you to get back on track with a diet or healthy eating regime?",
+                "Do you have trouble getting matches that excite you?",
               feedbacks: {
                 no: {
                   type: "embedded",
-                  text: "🍃 It's okay to struggle; we're here to help you get back up to practice mindful eating, one step at a time!",
+                  text: "🍃 That’s fantastic! We’ll help you transform your matches into genuine connections.",
                 },
                 yes: {
                   type: "embedded",
-                  text: "🌟 Your resilience is your strength—keep using it to stay on track with your recovery goal.",
+                  text: "🌟 No worries — we’ll support you from start to finish, including improving your profile to attract the right connections.",
                 },
               },
               scoring: {
@@ -215,7 +215,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you sometimes make yourself sick because you are so uncomfortably full?",
+                "Do you start conversations with matches without hesitation?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -224,7 +224,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Does your life seem to be ‘feast’ or ‘famine’ with very little moderation?",
+                  "Do you feel confident planning the first date with your matches?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -232,7 +232,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["internalsigdysfunc_grazeallday"]: {
               type: "scale",
               preset: "frequency",
-              title: "Do you tend to eat all day with no defined meal times?",
+              title: "Do you trust your instincts about a date’s potential?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -241,7 +241,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you eat about the same amount of food every day and rarely binge?",
+                "Do you know how to express your interest after a good first date?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
                 reverse: true,
@@ -252,7 +252,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "intensity",
               preamble_text: "Do you relate to following statement?",
               title:
-                "“I feel in control of my urge to eat and can distract myself.”",
+                "I frequently stop hearing from matches without knowing why.",
               min_label: "Not at all",
               max_label: "Totally",
               scoring: {
@@ -265,7 +265,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "intensity",
               preamble_text: "Do you relate to following statement?",
               title:
-                "“I will keep eating, even when I am full, and it has become uncomfortable.”",
+                "I go on dates but don’t feel a real connection.",
               min_label: "Not at all",
               max_label: "Totally",
               scoring: {
@@ -276,15 +276,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  body: "Now we’re going to explore how **binge eating** might be impacting your _feelings_ and _emotions_.",
+                  body: "Now let’s dive into what you’re **truly** looking for in online dating.",
                   graphic_id: "r3_1",
                 },
                 {
-                  body: "Exploring the deeper emotional aspects of binge eating can be challenging and personal.",
+                  body: "Exploring the deeper emotions behind dating can feel personal and even a little tricky.",
                   graphic_id: "r3_2",
                 },
                 {
-                  body: "It’s important to remember that **you’re not alone** and that you’re taking a step towards emotional healing.",
+                  body: "But remember: you deserve to dream of the partner you truly want and need.",
                   graphic_id: "r3_3",
                 },
               ],
@@ -307,22 +307,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you have strong feelings of self-hate or guilt if you overeat?",
+                "Do you sometimes ignore red flags because of attraction?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             ["mental_harshestcritic"]: {
               type: "yes_no",
-              title: "Are you your harshest critic?",
+              title: "Do you prioritize quantity of matches/dates over quality of connection?",
               feedbacks: {
                 no: {
                   type: "embedded",
-                  title: "🌼 Your self-assurance is impressive!",
-                  text: "Great job practicing self-compassion—keep nurturing that kindness toward yourself!",
+                  title: "🌼 Awesome!",
+                  text: "Prioritizing quality can really help build deeper, lasting relationships. We’ll help you make the most of it.",
                 },
                 yes: {
                   type: "embedded",
-                  title: "💪 It’s normal to feel this way.",
-                  text: "Being tough on yourself is common, but remember, you deserve the same kindness you give others—we're here to help with that!",
+                  title: "💪 That’s totally understandable.",
+                  text: "This is a common approach, and we can help you find strategies to focus more on quality without losing momentum.",
                 },
               },
               scoring: {
@@ -333,7 +333,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             ["relationship_selfconsciouseating"]: {
               type: "yes_no",
-              title: "Do you feel self-conscious eating around other people?",
+              title: "Do you avoid taking things further due to fear of rejection?",
               scoring: {
                 target_metric: Impact.Relationship,
                 mode: "1_5",
@@ -344,7 +344,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "How frequently do you eat as a way to cope with difficult emotions?",
+                "Do you expect to find a perfect match without accepting flaws?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             c1: {
@@ -352,7 +352,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "R.care fosters a mindful relationship with food, free from emotional chaos.",
+                  text: "Glint transforms online dating into a mindful journey, free from uncertainty and burnout.",
                 },
                 {
                   type: "image",
@@ -360,7 +360,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
                 {
                   type: "text",
-                  text: "R.care guides you in finding balance and taking control of your eating habits.",
+                  text: "Our coaching helps you build authentic connections that truly matter.",
                 },
               ],
             },
@@ -368,7 +368,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you feel very self-conscious about your weight and body size such that it stops you from socializing?",
+                "Do you expect instant results, only to give up too soon?",
               scoring: {
                 target_metric: Impact.Relationship,
               },
@@ -377,22 +377,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you notice that you reach for certain types of food when you’re feeling emotionally upset?",
+                "Do you find yourself overthinking dates or worrying too much about how you come across — instead of just being yourself?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             r4: {
               type: "story",
               panes: [
                 {
-                  body: "Binge eating often stems from a deep sensitivity to emotions and a strong desire to find comfort and relief, which can be channeled into nurturing relationships and self-care.",
+                  body: "Online dating often fails because people don’t fully understand its nature. Many expect instant chemistry or a perfect match, forgetting that meaningful connections take time.",
                   graphic_id: "r4_1",
                 },
                 {
-                  body: "Where many people struggling with binge eating fall short is in recognizing and responding to their body's true hunger and fullness signals.",
+                  body: "Many quit after a few unsuccessful interactions instead of investing time and patience in the process.",
                   graphic_id: "r4_2",
                 },
                 {
-                  body: "This disconnect can be frustrating, but we're here to help. We'll now take a look at your ability to tune into your body's needs and maintain balanced eating habits.",
+                  body: "Building genuine connections can feel challenging, but we’re here to guide you. Let’s explore how you can be truly authentic and share your real feelings and thoughts.",
                   graphic_id: "r4_3",
                 },
               ],
@@ -412,7 +412,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       ],
     },
     {
-      title: "Your Relationship With Food",
+      title: "Communicate from the heart",
       subsections: [
         {
           step_definitions: {
@@ -420,7 +420,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "agreement",
               title:
-                "How often do you find yourself thinking about your body image?",
+                "Do you find yourself stuck in shallow chats with no real dates?",
               scoring: {
                 target_metric: Impact.MentalHealth,
               },
@@ -429,57 +429,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "agreement",
               title:
-                "Do you usually not know how physically hungry you really are and eat more than you need?",
+                "Do you feel like you’re not truly expressing your feelings?",
               base_feedback: {
                 type: "embedded",
                 text: [
-                  "💡 It's not uncommon to feel disconnected from your body's hunger signals. This can happen for many reasons, including emotional triggers and stress.",
-                  "By becoming more aware of your hunger and fullness cues, you can make choices that truly nourish both your body and mind.",
+                  "💡You’re not alone — this is something many people experience.",
+                  "It takes time and practice to communicate your feelings clearly, and the fact that you notice it is the first step toward improvement.",
                 ],
               },
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
             },
-            ["prod_distractedbyfood"]: {
-              type: "scale",
-              preset: "agreement",
-              title:
-                "How often do you get distracted by thoughts about food when trying to focus? ",
-              scoring: {
-                target_metric: Impact.Productivity,
-              },
-            },
-            c2: {
-              type: "info",
-              contents: [
-                {
-                  type: "title",
-                  text: "Let go of those constant food worries.",
-                },
-                {
-                  type: "image",
-                  graphic_id: "c2",
-                },
-                {
-                  type: "text",
-                  text: " R.care empowers you to focus on what truly matters and live your life to the fullest.",
-                },
-              ],
-            },
-            ["prod_sleeptrouble"]: {
-              type: "scale",
-              preset: "agreement",
-              title:
-                "How often do you experience difficulty falling asleep or staying asleep after a binge eating episode?",
-              scoring: {
-                target_metric: Impact.Productivity,
-              },
-            },
             ["internalsigdysfunc_skipmeals"]: {
               type: "scale",
               preset: "agreement",
-              title: "How often do you skip meals?",
+              title: "Do you sometimes avoid conversations because you’re afraid of being misunderstood?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -487,27 +452,27 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             c3: {
               type: "info",
               contents: [
-                { type: "emoji", emoji: "👏" },
-                { type: "title", text: "Thank you for sharing!" },
+                { type: "emoji", emoji: "🚀" },
+                { type: "title", text: "Almost there!" },
                 {
                   type: "text",
-                  text: "To fine-tune your results even further, let’s get to know you better. ",
+                  text: "To perfect your online dating game, let’s start by getting to know you better.",
                 },
               ],
             },
             ["knowledge_alexithymia"]: {
               type: "yes_no",
-              title: "Have you heard of Alexithymia?",
+              title: "Have you heard of 'Paradox of Choice'?",
               help_text:
-                "It’s a little known condition affecting many people with Binge Eating Disorder.",
+                "It’s one of the psychology-based insights related to why online dating often fails.",
               feedbacks: {
                 no: {
                   type: "embedded",
-                  text: "**Alexithymia is the inability to identify and describe emotions in oneself.** This condition makes it harder for individuals to understand their feelings and can result in using food as a way to cope with unresolved or unidentified emotional distress.",
+                  text: "Paradox of Choice : when presented with too many options, people can feel overwhelmed, leading to indecision or dissatisfaction. In online dating, endless profiles can make it harder to commit to one person.",
                 },
                 yes: {
                   type: "embedded",
-                  text: "**It’s great that you’re already familiar with Alexithymia.** To reiterate, it’s the inability to identify and describe emotions in oneself. This condition makes it harder for individuals to understand their feelings and can result in using food as a way to cope with unresolved or unidentified emotional distress.",
+                  text: "**It’s great that you’re already familiar with the concept of the paradox of choice.** To reiterate, it explains how endless profiles can make it harder to commit to one person in online dating.",
                 },
               },
               scoring: {
@@ -520,12 +485,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["knowledge_bingeeating"]: {
               type: "scale",
               preset: "custom",
-              title: "How strong is your knowledge of binge eating?",
+              title: "How strong is your knowledge of relationship psychology?",
               custom_labels: [
-                "I know very little about binge eating.",
-                "I know the basics, but that’s about it.",
-                "I have a good understanding.",
-                "I’m an expert in all things binge eating.",
+                "I know very little about it.",
+                "I've heard of a few concepts(e.g. attachment patterns, love languages...)",
+                "I am familiar with psychology in general.",
+                "I’m an expert in all things related to relationship psychology.",
               ],
               base_feedback: {
                 type: "full",
@@ -536,15 +501,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                   {
                     type: "title",
-                    text: "Great, we’ll build on your knowledge!",
+                    text: "Perfect — now let’s put your knowledge into action!",
                   },
                   {
                     type: "text",
-                    text: "Your personalized program will help you truly understand your eating patterns.",
+                    text: "With Glint, your insights become action.",
                   },
                   {
                     type: "text",
-                    text: "You’ll develop strategies and coping methods for overcoming binge eating related struggles and embracing your true self. ",
+                    text: "We will guide you to attract the right people, communicate authentically, and build meaningful connections.",
                   },
                 ],
               },
@@ -555,15 +520,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     { type: "emoji", emoji: "🫶" },
                     {
                       type: "title",
-                      text: "No worries, we’ll guide you on your journey!",
+                      text: "No worries, we’ll guide you to learn, grow, and connect better.",
                     },
                     {
                       type: "text",
-                      text: "Your personalized program will start with the basics, gradually building your understanding of binge eating and yourself.",
+                      text: "Relationship psychology helps you understand yourself and others, so you can communicate clearly and choose partners who truly match your values.",
                     },
                     {
                       type: "text",
-                      text: "You’ll develop strategies and coping methods for overcoming food-related struggles and embracing your true self",
+                      text: "We’ll help you learn not just the theory, but practical strategies you can use right away!",
                     },
                   ],
                 },
@@ -577,22 +542,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["binge_howlong"]: {
               type: "single_select",
               title:
-                "When did you first suspect you might be dealing with a binge eating issue?",
+                "When did you first start actively exploring online dating?",
               options: [
                 {
-                  text: "< 6 months ago",
+                  text: "🌱 I'm new to it!",
                   value: "LESS_THAN_SIX_MONTHS",
                 },
                 {
-                  text: "6 months - 1 year ago",
+                  text: "💫 I’ve been using dating apps on and off for a while.",
                   value: "SIX_TO_TWELVE_MONTHS",
                 },
                 {
-                  text: "1-2 years ago",
+                  text: "⏳ I’ve been actively online dating for a year or more.",
                   value: "ONE_TO_TWO_YEARS",
                 },
                 {
-                  text: "More than 2 years ago",
+                  text: "🕒 I’ve been at it for a while now.",
                   value: "MORE_THAN_TWO_YEARS",
                 },
               ],
@@ -602,11 +567,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Many R.care members don’t have a formal diagnosis.",
+                  text: "Real support. Real progress. Real connections.",
                 },
                 {
                   type: "text",
-                  text: "Our bite-sized lessons will help you kickstart your journey of healing your relationship with food, with or without a diagnosis. ",
+                  text: "With Glint, you’ll gain practical strategies, expert feedback, and confidence. Our coaching is completely private, judgment-free, and focused on real results.",
                 },
                 {
                   type: "image",
@@ -615,14 +580,14 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               ],
             },
             ["comorbidities"]: {
-              type: "multi_select",
+             type: "single_select",
               title:
-                "Do you suspect you have any other mental health conditions that impact your life?",
+                "What do you feel are your biggest challenges when it comes to online dating?",
               help_text:
-                "Knowing about any other conditions will help us tailor your results more accurately. Select all that apply.",
+                "Understanding your main blockers will help us give you the most effective guidance.",
               options: [
                 {
-                  text: "Anxiety",
+                  text: "🔍 Finding compatible matches",
                   value: "ANXIETY",
                   feedback: {
                     priority: 4,
@@ -630,11 +595,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     contents: [
                       {
                         type: "title",
-                        text: "Feeling anxious can be a result of binge eating symptoms.",
+                        text: "The right connection is out there.",
                       },
                       {
                         type: "text",
-                        text: "The stress of managing eating behaviors, body image concerns, and the fear of being judged can contribute to heightened anxiety levels. Often, managing your eating habit effectively can significantly reduce or eliminate this anxiety. ",
+                        text: "Let’s fine-tune your approach so you actually spot it.",
                       },
                       {
                         type: "image",
@@ -644,7 +609,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                 },
                 {
-                  text: "Depression",
+                  text: "💬 Starting or maintaining conversations",
                   value: "DEPRESSION",
                   feedback: {
                     priority: 3,
@@ -652,15 +617,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     contents: [
                       {
                         type: "title",
-                        text: "Feeling depressed can be a result of binge eating symptoms.",
+                        text: "Small tweaks can make a big difference.",
                       },
                       {
                         type: "text",
-                        text: "Binge eating often leads to feelings of guilt, shame, and loss of control, which can trigger or worsen depressive symptoms.",
-                      },
-                      {
-                        type: "text",
-                        text: "Additionally, the physical discomfort and health issues related to binge eating can further contribute to a depressed mood.",
+                        text: "You already have what it takes — we’ll help you spark conversations that feel natural and exciting.",
                       },
                       {
                         type: "image",
@@ -670,7 +631,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                 },
                 {
-                  text: "Alcohol/Substance use",
+                  text: "💔 Feeling discouraged or anxious about building a connection",
                   value: "ALCOHOL_SUBSTANCE_USE",
                   feedback: {
                     priority: 1,
@@ -678,11 +639,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     contents: [
                       {
                         type: "title",
-                        text: "It can be beneficial to address binge eating disorder alongside treatment for substance use disorder.",
+                        text: "It’s normal to feel this way.",
                       },
                       {
                         type: "text",
-                        text: "Addressing only one might leave the other unaddressed, potentially leading to relapse. Integrated treatment that tackles both binge eating and substance use can provide a more comprehensive approach to recovery.",
+                        text: "With the right tools, you can turn uncertainty into confidence — every great connection starts with taking one confident step forward.",
                       },
                       {
                         type: "image",
@@ -692,7 +653,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                 },
                 {
-                  text: "Body Dysmorphia",
+                  text: "🎯 Feeling stuck before reaching my relationship goal",
                   value: "BODY_DYSMORPHIA",
                   feedback: {
                     priority: 2,
@@ -700,15 +661,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     contents: [
                       {
                         type: "title",
-                        text: "Body Dysmorphia can be a result of binge eating symptoms.",
+                        text: "Every relationship journey has bumps.",
                       },
                       {
                         type: "text",
-                        text: "The negative self-image and guilt associated with binge eating can intensify preoccupation with perceived body flaws.",
-                      },
-                      {
-                        type: "text",
-                        text: "This heightened focus on body appearance and dissatisfaction can lead to or worsen body dysmorphic disorder.",
+                        text: "Let’s map a path that helps you move forward and push through when you feel stuck.",
                       },
                       {
                         type: "image",
@@ -724,9 +681,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["mental_othersnotserious"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Do you relate to following statement?",
+              preamble_text: "Which of these myths about dating coaching feels most true to you?",
               title:
-                "“I feel like others are not taking my eating struggles seriously.”",
+                "Dating coaching is only for people who can’t date on their own.",
               scoring: {
                 target_metric: Impact.MentalHealth,
               },
@@ -734,9 +691,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["mental_toldtojuststop"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Do you relate to following statement?",
+              preamble_text: "Which of these myths about dating coaching feels most true to you?",
               title:
-                "“I have been told to simply be more disciplined or to simply stop binge eating.”",
+                "Dating won’t actually make a difference; it’s just luck.",
               scoring: {
                 target_metric: Impact.MentalHealth,
               },
@@ -744,8 +701,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["relationship_misunderstood"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Do you relate to following statement?",
-              title: "“I often feel misunderstood by the people around me.”",
+              preamble_text: "Which of these myths about dating coaching feels most true to you?",
+              title: "Discussing my dating life with others feels too awkward.",
               scoring: {
                 target_metric: Impact.Relationship,
               },
@@ -754,15 +711,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  body: "Being _misunderstood_ by the people around you can feel **lonely** and **isolating**.",
+                  body: "Just like any other skill — whether it’s cooking, public speaking, or sports — **dating takes practice** and the right guidance.",
                   graphic_id: "r5_1",
                 },
                 {
-                  body: "We are here to **break the stigma** around binge eating and help you understand yourself better. ",
+                  body: "Coaching isn’t just for those who struggle; it’s for anyone who wants better results.",
                   graphic_id: "r5_2",
                 },
                 {
-                  body: "Nearly done! Here are a few final questions about your goals and lifestyle to further tailor your plan.",
+                  body: "We’ll help you get better at dating so you can reach one of life’s most important goals: **finding the right person.**",
                   graphic_id: "r5_3",
                 },
               ],
@@ -790,87 +747,57 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       ],
     },
     {
-      title: "Program Personalization",
+      title: "Online Dating Potentials",
       subsections: [
         {
           step_definitions: {
-            ["binge_support_want"]: {
-              type: "single_select",
-              title: "What would you like to improve the most right now",
-              options: [
-                {
-                  text: "Regain control over my eating habits",
-                  value: "CONTROL_EATING_HABITS",
-                },
-                {
-                  text: "Reduce emotional eating",
-                  value: "REDUCE_EMOTIONAL_EATING",
-                },
-                {
-                  text: "Create a more balanced eating routine",
-                  value: "BALANCED_EATING_ROUTINE",
-                },
-                {
-                  text: "Connect with my body’s hunger & fullness cues",
-                  value: "CONNECT_HUNGER_FULLNESS",
-                },
-                {
-                  text: "Break the cycle of guilt & shame around food",
-                  value: "BREAK_GUILT_SHAME",
-                },
-                {
-                  text: "Something else",
-                  value: "OTHER",
-                },
-              ],
-            },
-            ["binge_goal"]: {
+                ["binge_goal"]: {
               type: "multi_select",
               title:
-                "When I think of taking control of my life, I see myself...",
+                "When I think of what i want to get out of online dating, I see myself...",
               help_text: "Choose as many as you like",
               options: [
                 {
-                  text: "Feeling confident",
+                  text: "Meeting someone who truly matches my values and goals.",
                   value: "CONFIDENCE",
                 },
                 {
-                  text: "Building emotional resilience",
+                  text: "In a meaningful, lasting relationship.",
                   value: "EMOTIONAL_RESILIENCE",
                 },
                 {
-                  text: "Developing a healthier relationship with food",
+                  text: "Enjoying the process without stress or confusion.",
                   value: "HEALTHY_RELATIONSHIP_FOOD",
                 },
                 {
-                  text: "Living more mindfully and with intention",
+                  text: "Learning more about myself while finding love.",
                   value: "MINDFULNESS",
                 },
                 {
-                  text: "Having better relationships",
+                  text: "Confidently enjoying meeting and connecting with new people.",
                   value: "BETTER_RELATIONSHIPS",
                 },
               ],
             },
             ["current_need"]: {
               type: "single_select",
-              title: "What is your primary reason for downloading this app?",
+              title: "What excites you most about online dating?4",
               help_text: "Choose the option that resonates the most.",
               options: [
                 {
-                  text: "To manage my weight better",
+                  text: "🌐 Access to a bigger pool of potential matches",
                   value: "MANAGE_WEIGHT",
                 },
                 {
-                  text: "To stop binge eating in response to stress or negative emotions",
+                  text: "📱 Convenience of dating anytime, anywhere",
                   value: "STOP_BINGE_EATING",
                 },
                 {
-                  text: "To break the cycle of dieting and binge eating",
+                  text: "🕊️ Low pressure to start the first conversation",
                   value: "BREAK_CYCLE",
                 },
                 {
-                  text: "To improve my overall wellness - physical and mental",
+                  text: "⚡ Get the gist of someone in seconds",
                   value: "IMPROVE_WELLNESS",
                 },
               ],
@@ -878,32 +805,32 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["binge_frequency"]: {
               type: "integer",
               title:
-                "Approximately how many times did you binge eat in the past week?",
+                "On a scale from 0 to 10, how satisfied are you with your online dating experience so far?",
               help_text:
-                "It's okay if you can't recall the exact number. There's no need to stress out. Count the instances of binge eating as much as you can remember.",
+                "No need to be exact — just share how it feels.",
               min: 0,
-              max: 100,
-              placeholder: "X (times per week)",
+              max: 10,
+              placeholder: "0 (Not satisfied) - 10 (Fully satisfied)",
             },
             ["binge_frequency_goal"]: {
               type: "integer",
               title:
-                "Three months from now, what is your target frequency of binge eating?",
+                "How do you want your online dating journey to feel? What satisfaction level would keep you going until you meet the right person?",
               help_text:
-                "You reported you currently binge eat {{current_frequency}} times/week.",
+                "You reported your current satisfaction level is {{current_frequency}} out of 10.",
               min: 0,
-              max: 100,
+              max: 10,
               expressions: {
                 current_frequency: "response_value('binge_frequency')",
               },
-              placeholder: "X (times per week)",
+              placeholder: "0 (Not satisfied) - 10 (Fully satisfied)",
             },
             c7: {
               type: "info",
               contents: [
                 {
                   type: "title",
-                  text: "Our evidence-based program is designed by leading binge eating disorder experts.",
+                  text: "With Glint, you can master the online dating game and find your perfect match — and as a bonus, discover yourself, your true needs, and life’s deeper meaning along the way.",
                 },
                 {
                   type: "image",
@@ -911,100 +838,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            ["desiredlearningpace"]: {
+           ["selfimprovement_time"]: {
               type: "single_select",
               preamble_text:
-                "We’re tailoring your program to fit your lifestyle.",
-              title: "What learning pace feels right to you?",
+                "Let’s see how you can make the most of online dating.",
+              title: "How much time can you spend leveling up your online dating?",
               options: [
                 {
-                  text: "⚡ As fast as possible",
-                  value: "FAST",
-                },
-                {
-                  text: "🐢 Slow and steady",
-                  value: "SLOW",
-                },
-                {
-                  text: "🎯 Somewhere in between",
-                  value: "MEDIUM",
-                },
-              ],
-            },
-            ["avgday_howbusy"]: {
-              type: "single_select",
-              preamble_text:
-                "We’re tailoring your program to fit your lifestyle.",
-              title: "How busy are you on an average day?",
-              options: [
-                {
-                  text: "Very busy, I have almost no downtime.",
-                  value: "VERY_BUSY",
-                  feedback: { id: "busy" },
-                },
-                {
-                  text: "Busy, but I find moments to relax.",
-                  value: "BUSY",
-                  feedback: { id: "busy" },
-                },
-                {
-                  text: "Not too busy, my schedule’s flexible.",
-                  value: "NOT_BUSY",
-                  feedback: { id: "free" },
-                },
-                {
-                  text: "I have plenty of free time.",
-                  value: "FREE",
-                  feedback: { id: "free" },
-                },
-              ],
-              feedback_definitions: {
-                busy: {
-                  type: "full",
-                  contents: [
-                    { type: "emoji", emoji: "😌" },
-                    {
-                      type: "title",
-                      text: "It sounds like you have a lot on your plate.",
-                    },
-                    {
-                      type: "text",
-                      text: "We’ll make sure your program accommodates your busy schedule, so you can easily integrate self-improvement into your day.",
-                    },
-                  ],
-                },
-                free: {
-                  type: "full",
-                  contents: [
-                    { type: "emoji", emoji: "👍" },
-                    {
-                      type: "title",
-                      text: "Sounds like you have the time to prioritise managing your symptoms.",
-                    },
-                    {
-                      type: "text",
-                      text: "That’s great! While it can be tempting to go all in at once, we encourage you to slow down and take it one day at a time, which will help building a lasting habit.",
-                    },
-                  ],
-                },
-              },
-            },
-            ["selfimprovement_time"]: {
-              type: "single_select",
-              preamble_text:
-                "We’re tailoring your program to fit your lifestyle.",
-              title: "How much time can you dedicate to self-improvement?",
-              options: [
-                {
-                  text: "5 mins",
+                  text: "5 mins/day",
                   value: "5_MINUTES",
                 },
                 {
-                  text: "10 mins",
+                  text: "10 mins/day",
                   value: "10_MINUTES",
                 },
                 {
-                  text: "15 mins+",
+                  text: "15 mins+/day",
                   value: "15_MINUTES_OR_MORE",
                 },
               ],
@@ -1014,7 +863,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Managing your binge eating behavior is hard, but R.care makes it easy in 5 minutes a day.",
+                  text: "**Five minutes a day** is all it takes to level up your online dating game and boost your results.",
                 },
                 {
                   type: "testimonial",
@@ -1024,7 +873,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["motivationlevel"]: {
               type: "scale",
               preset: "intensity",
-              title: "How motivated are you to learn more about yourself?",
+              title: "How ready are you for personalized coaching to improve your online dating?",
               min_label: "Not at all",
               max_label: "Very Motivated",
               feedbacks: {
@@ -1041,11 +890,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     { type: "emoji", emoji: "🚀" },
                     {
                       type: "title",
-                      text: "**Your enthusiasm is a great sign!** A positive mindset is the foundation of any growth journey.",
+                      text: "That excitement is powerful!",
                     },
                     {
                       type: "text",
-                      text: "Based on everything you shared with us, we’ll show you how your personal struggles align with binge eating. ",
+                      text: "Motivation and excitement unlock power — fuel your energy to kickstart online dating success.",
                     },
                   ],
                 },
@@ -1055,11 +904,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     { type: "emoji", emoji: "👭" },
                     {
                       type: "title",
-                      text: "**It’s normal to feel this way!** We’re here to boost your motivation and guide you on your journey.",
+                      text: "We know online dating can feel intimidating.",
                     },
                     {
                       type: "text",
-                      text: "Based on everything you shared with us, we’ll show you how your personal struggles align with binge eating.",
+                      text: "We’re here to boost your motivation and guide your journey.🌟",
                     },
                   ],
                 },
@@ -1087,50 +936,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       subsections: [
         {
           step_definitions: {
-            ["channel"]: {
-              type: "multi_select",
-              title: "One more thing, where did you hear about R.care?",
-              options: [
-                {
-                  text: "Friends or Family",
-                  value: "FRIENDS_FAMILY",
-                },
-                {
-                  text: "Clinician",
-                  value: "CLINICIAN",
-                },
-                {
-                  text: "Google search",
-                  value: "GOOGLE",
-                },
-                {
-                  text: "Instagram or Facebook",
-                  value: "FACEBOOK_INSTRAGRAM",
-                },
-                {
-                  text: "TikTok",
-                  value: "TIKTOK",
-                },
-                {
-                  text: "Reddit",
-                  value: "REDDIT",
-                },
-                {
-                  text: "Other",
-                  value: "OTHER",
-                },
-              ],
-              none_option: { text: "None" },
-            },
             email: {
               type: "free_text",
               title: "What’s the best email address for you?",
-              help_text: "You’ll use this to log back in later.",
+              help_text: "You’ll use this to get access to your coaching later.",
               format: "email",
               placeholder: "Please enter your email.",
             },
           },
-          step_order: ["channel", "email"],
+          step_order: ["email"],
         },
       ],
     },
@@ -1141,17 +955,17 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     title: "Select your age to start the quiz",
     help_text: "⌛ 3 min quiz",
     options: [
-      { value: "13_17", text: "13-17" },
-      { value: "18_29", text: "18-29" },
-      { value: "30_49", text: "30-49" },
-      { value: "50_OR_OLDER", text: "50+" },
+      { value: "18_23", text: "13-17" },
+      { value: "23_29", text: "18-29" },
+      { value: "30_39", text: "30-49" },
+      { value: "40_OR_OLDER", text: "50+" },
     ],
   },
   popup_quiz_step: {
     id: "popup_quiz",
     type: "yes_no",
     title:
-      "Have you ever noticed any disordered eating symptoms in your extended family?",
+      "Are you excited to finally meet the person you’ve always dreamed of? 🔑",
   },
   reaction_step_id: "reaction",
   email_step_id: "email",
@@ -1159,74 +973,64 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   target_episode_count_id: "binge_frequency_goal",
   target_knowledge_score: 94,
   interview: {
-    title: "From chaos to control",
-    subtitle: "Emily’s recovery story",
+    title: "From Confusion to Loving Connection",
+    subtitle: "Alex’s recovery story",
     graphic_id: "persona",
     questions: [
       {
-        question: "How did binge eating impact your life?",
+        question: "How was your online dating experience before?",
         answer:
-          "I’d eat way more than I needed, then feel super sick and guilty afterward. It messed with my confidence and strained my relationships with family and my best friends.",
+          "I felt lost scrolling through endless profiles, unsure how to start conversations or even what I was really looking for. It became frustrating, exhausting, and honestly, it started to make me doubt myself.",
       },
       {
-        question: "How has R.care helped you?",
+        question: "How has Glint helped you?",
         answer:
-          "This program has been a game changer. It’s incredibly supportive, helped me uncover the deep-rooted reasons behind my binge and gave me tools to reconnect with my body and mind. For the first time, I felt in control.",
+          "It has been a game changer. Glint didn’t just give me tips — it gave me confidence, clarity, and a fresh perspective. With confidence and a fresh mindset, now I’m in a relationship with someone I never thought was possible.",
       },
       {
         question:
-          "What would you tell someone curious about trying out R.care?",
+          "What would you say to someone curious about trying Glint?",
         answer:
-          "Give the free trial a shot! Binge eating is personal, so R.care might not be the answer for everyone but it changed my life. I really hope this is your chance to take control again too!",
+          "Glint is worth it — even a little guidance makes a world of difference. Online dating is no longer optional, it’s standard. Getting good at it makes a huge difference, and Glint made it easy.",
       },
     ],
     disclaimer: null,
   },
   program_plan: [
     {
-      step_id: "binge_support_want",
+      step_id: "comorbidities",
       prompt: "We’re going to focus on helping you",
       echo_mapping: {
-        CONTROL_EATING_HABITS: "Regain control over my eating habits",
-        REDUCE_EMOTIONAL_EATING: "Reduce emotional eating",
-        BALANCED_EATING_ROUTINE: "Create a more balanced eating routine",
-        CONNECT_HUNGER_FULLNESS:
-          "Connect with my body’s hunger & fullness cues",
-        BREAK_GUILT_SHAME: "Break the cycle of guilt & shame around food",
+        ANXIETY: "Find and match with quality dates.",
+        DEPRESSION: "Start conversations and connect smoothly in real life.",
+        ALCOHOL_SUBSTANCE_USE: "Stay positive and motivated throughout your dating journey",
+       BODY_DYSMORPHIA:
+          "Overcome barriers to reach your ultimate dating goal.",
       },
-      echo_default: "Managing your binge eating symptoms",
+      echo_default: "Start conversations and connect smoothly in real life.",
       color: "#D7E2C9",
     },
     {
       step_id: "knowledge_bingeeating",
       prompt: "You said that",
       echo_mapping: {
-        1: "You are relatively new to Binge Eating",
-        3: "You have a good understanding of Binge Eating",
-        4: "You have a good understanding of Binge Eating",
+        1: "You are relatively new to Relationship Psychology",
+        3: "You have a good understanding of Relationship Psychology",
+        4: "You have a great understanding of Relationship Psychology",
       },
-      echo_default: "You’ve done some research into Binge Eating",
+      echo_default: "You’ve done some research into Relationship Psychology",
       color: "#EEE2CE",
-    },
-    {
-      step_id: "desiredlearningpace",
-      prompt: "You also shared that",
-      echo_mapping: {
-        FAST: "You want to learn as fast as possible",
-      },
-      echo_default: "You want to take your time to learn",
-      color: "#C8DBE3",
     },
   ],
   knowledge_plan: [
     {
       step_id: "knowledge_bingeeating",
-      prompt: "How much you know about binge eating:",
+      prompt: "How much you know about relationship psychology:",
       echo_mapping: {
         1: "Very little",
         2: "The basics",
         3: "A good amount",
-        4: "Expert in all things binge eating",
+        4: "Expert in all things online dating",
       },
       echo_default: "",
       color: "#F9F4FF",
@@ -1235,12 +1039,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       step_id: "binge_goal",
       prompt: "What you want to achieve:",
       echo_mapping: {
-        CONFIDENCE: "Feeling confident",
-        EMOTIONAL_RESILIENCE: "Building emotional resilience",
+        CONFIDENCE: "Meeting someone who truly matches your values and goals",
+        EMOTIONAL_RESILIENCE: "Being in a meaningful, lasting relationship",
         HEALTHY_RELATIONSHIP_FOOD:
-          "Developing a healthier relationship with food",
-        MINDFULNESS: "Living more mindfully and with intention",
-        BETTER_RELATIONSHIPS: "Having better relationships",
+          "Enjoying the process without stress or confusion",
+        MINDFULNESS: "Learning more about yourself while finding love",
+        BETTER_RELATIONSHIPS: "Confidently enjoying meeting and connecting with new people",
       },
       multi_select_priority: [
         "CONFIDENCE",
@@ -1268,85 +1072,85 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   ],
   faqs: [
     {
-      question: "What is the primary purpose of the R.care app?",
+      question: "What’s Glint all about?",
       answer:
-        "R.care is designed to help you stop binge eating. It’s a science-based digital program based on Cognitive Behavioral Therapy, Dialectical Behavioral Therapy, and Appetite Awareness Training principles, offering a range of tools to improve your relationship with food and eating habits.",
+        "Glint is your ultimate coach for online dating — guiding you to connect confidently, attract the right matches, and turn dating into something exciting instead of exhausting. We combine proven relationship psychology with practical tools to help you level up your dating experience.",
     },
     {
       question:
-        "Do I need a formal Bing Eating Disorder diagnosis to use R.care?",
+        "What is Glint comparable to?",
       answer:
-        "No formal diagnosis is required. R.care is designed to be helpful for anyone seeking to improve their eating habits and relationship with food.",
+        "Glint is like having a relationship therapist ❤️, a trusted friend who’s great at dating 🌟, and a personalized self-help guide tailored just for you 📖.",
     },
     {
-      question: "How can R.care help me improve my eating habits?",
+      question: "How can Glint change my dating experience?",
       answer: [
-        "R.care offers a comprehensive set of features to help you adopt and stick to more balanced eating habits:",
+        "Glint helps you:",
         {
           list: [
-            "Fullness tracking: Learn how to tune into your internal stomach signals and guide your eating decision based on those cues. It’s a clinically developed tool that has been proven to be effective for people struggling with binge eating.",
-            "Emotion tracking: Practice becoming aware of and naming the emotion that you feel. The enhanced awareness itself will reduce emotional eating and you will also learn how your emotional fluctuation relate to your eating patterns.",
-            "Intuitive eating journal: In R.care, we don’t record calories or weights. Instead we focus on aspects of eating that actually matters such as how you felt, what prompted you to eat, and your hunger and fullness levels before and after your meal.",
-            "Insight page: Based on your progress tracking, you will be presented with weekly insight on your personal factors that are often associated with overeating and binge eating.",
+            "Profile Magic: Build a profile that stands out and truly represents you.",
+            "Conversation Flow: Learn how to start and keep conversations flowing effortlessly.",
+            "Authenticity Boost: Express your true self while feeling confident and attractive.",
+            "Smart Insights: Decode your dating patterns, sharpen your goals, and get better with every swipe and message.",
           ],
         },
       ],
     },
     {
       question:
-        "Can I still use R.care if I’m already working with a therapist or dietitian?",
+        "Is Glint a pick‑up artist?",
       answer:
-        "Yes, you can absolutely use R.care while working with a therapist or dietitian.  It provides self-guided resources and daily support to help you stay on track between sessions, reinforcing the progress you're making in therapy or nutritional counseling. Using R.care alongside your professional guidance can offer a more comprehensive and supportive approach to overcoming binge eating.",
+        "Glint is never about pretending to be someone you’re not 🎭. It’s not about quick fixes or generic advice ❌. It’s about mastering real connection skills so you can be your true self and attract the right match.",
     },
   ],
   testimonial_disclaimer: null,
   highlighted_testimonial: {
-    avatar_graphic_id: "camila",
-    screen_name: "Camila",
-    screen_subtitle: "21, Miami (USA)",
+    avatar_graphic_id: "jason",
+    screen_name: "Jason",
+    screen_subtitle: "32, Austin (USA)",
     content:
-      "I’m learning so much about healing and breaking free from the cycle of stress and guilt around food. Thanks to R.care, I now eat with peace and intention.",
+      "I never thought online dating was for me — but I realized I had no choice but to get better at this game. Glint was exactly what I needed: actionable, personalized strategies and skills to practice. My dating quality improved drastically.",
     social: {
-      comments: 4,
-      shares: 25,
-      likes: 398,
+      comments: 11,
+      shares: 35,
+      likes: 898,
     },
   },
   community_testimonials: [
     {
       avatar_graphic_id: "charlie",
-      screen_name: "Charlie",
+      screen_name: "Liam",
       screen_subtitle: "29, Sedona (USA)",
       content:
-        "Struggled with food obsession for most of my life. I knew it was a serious issue, but I didn’t know how to break free. R.care **helped me identify** my problems and finally **escape the restrict-binge cycle.**",
+        "I was hesitant about dating coaching at first, but Glint feels different. It’s not about cheesy lines — it’s about building real skills. I feel more confident, authentic, and excited to meet new people. My dating life has truly leveled up.",
     },
     {
-      avatar_graphic_id: "annie",
-      screen_name: "Annie",
-      screen_subtitle: "52, Austin (USA)",
+      avatar_graphic_id: "diego",
+      screen_name: "Diego",
+      screen_subtitle: "24, Mexico City (Mexico)",
       content:
-        "R.care has truly **exceeded my expectations.** Its comprehensive approach to behavior change is **more effective than any therapy** I’ve tried. The **daily engagement kept me motivated** and on track. R.care has been a crucial tool in my recovery.",
+        "I’ve always been shy and wanted to improve my dating life, but I never knew where to start. Glint broke it down for me — step-by-step, no pressure. Now I’m dating with confidence, and I actually look forward to it.",
     },
     {
-      avatar_graphic_id: "lea",
-      screen_name: "Lea",
-      screen_subtitle: "27, London (UK)",
+      avatar_graphic_id: "marcus",
+      screen_name: "Marcus",
+      screen_subtitle: "32, London (UK)",
       content:
-        "R.care makes binge eating recovery feel more achievable. Following the daily program helps me gently take control of my struggles and rebuild a positive relationship with food. Having this 24/7 companion is truly a game-changer. Thank you!",
+        "Glint gave me the tools to cut through the noise and connect with people who actually matched what I’m looking for. I went on just three dates — all with clarity and purpose — and now I’m in a relationship with someone I never thought I’d find.",
     },
     {
-      avatar_graphic_id: "kali",
-      screen_name: "Kali",
-      screen_subtitle: "21, Atlanta (USA)",
+      avatar_graphic_id: "javier",
+      screen_name: "Javier",
+      screen_subtitle: "42, Miami (USA)",
       content:
-        "R.care feels like having a brilliant, **supportive expert** right in my pocket! I’m **no longer suffering from the sickness and guilt** that used to follow every binge. I feel incredible and **at peace with myself.** I’m absolutely thrilled to have discovered it!",
+        "At my age, online dating felt overwhelming. I tried so many dating apps and had no idea what I was doing. Glint gave me the right perspective, attitude, and strategy to follow. Last month, I met someone amazing and have never been happier.",
     },
     {
-      avatar_graphic_id: "kate",
-      screen_name: "Kate",
-      screen_subtitle: "35, Toronto (Canada)",
+      avatar_graphic_id: "ethan",
+      screen_name: "Ethan",
+      screen_subtitle: "39, San Francisco (USA)",
       content:
-        "After using the app for a while, I can almost hear the expert’s voice whenever I eat. The **knowledge and guidance from R.care** are invaluable—it **empowers me during moments of doubt** and helps me avoid falling back into the binge cycle.",
+        "After divorcing my high school sweetheart, I made an online dating profile but it never led to a real-life date. Glint rebuilt everything for me from scratch: my mindset, my profile, and my messaging style — all in less than a month. Since then, I’ve scored countless matches and enjoyed four amazing dates. In one word: life-changing.",
     },
   ],
   activate_graphic_id: "activate",
