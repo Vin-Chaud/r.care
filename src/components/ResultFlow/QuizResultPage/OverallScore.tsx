@@ -20,7 +20,7 @@ export function OverallScore({
     <SectionLayout>
       <header>
         <ResultHeader>
-          {"Your binge eating score is "}
+          {"Your likelihood of finding the right match online is"}
           <br />
           <strong>{scoreZoneCopy[scoreZone]}</strong>
         </ResultHeader>
@@ -29,8 +29,7 @@ export function OverallScore({
       <ScoreZoneGuides percentageScore={totalPercentageScore} />
       <HelpText>
         {
-          "The questions are based on the ‘Binge Eating Scale’ rating scale developed by Gormally et al. in 1982  and should only be used as an indicator of whether you may be at risk of having or developing a binge eating disorder. They are not intended to replace a professional diagnosis."
-        }
+          "The score is based on general relationship psychology principles. They are intended for guidance only."}
       </HelpText>
       <FeedbackBox title={"🧐 What does this mean?"}>
         {scoreZoneInterpretationCopy[scoreZone]}
@@ -134,12 +133,12 @@ function ScoreZoneGuideItem({
 }
 
 const scoreZoneInterpretationCopy: Readonly<Record<ScoreZone, string>> = {
-  Low: "Your score is low, suggesting that you do not seem to be reporting common symptoms of a binge eating disorder. If you have completed this quiz because you feel out of control with food or have concerns about your eating habits, the program can be still helpful.",
+  Low: "Your score is low — but that just means the game is wide open. Nobody is born ready for online dating — and that’s okay. Your score shows there’s room to build from scratch.",
   Medium:
-    "Your score is medium, suggesting that you may be experiencing some symptoms of a binge eating disorder. If you have completed this quiz because you feel out of control with food or have concerns about your eating habits, the program can be helpful.",
-  High: "Your score is high, suggesting that you may be experiencing many symptoms of a binge eating disorder. If you have completed this quiz because you feel out of control with food or have concerns about your eating habits, the program can be helpful.",
+    "Your score is medium, which means there’s room to level up. With the right guidance, you can turn uncertainty into confidence and open the door to real connections. Your online dating experience can shift from bearable to unforgettable.",
+  High: "Your score is high — your chances of finding the right match online are strong! If you’ve felt unsure or frustrated with dating so far, don’t worry. Just a small tweak in strategy, mindset, or approach can flip your dating game completely and put you on the path to success.",
   VeryHigh:
-    "Your score is very high, suggesting that severe binge eating disorder symptoms may be impacting your daily life.",
+    "Your score is very high! You’re already on the right track to finding the perfect match online. With a little refinement to your approach, your dating journey could transform into something truly amazing.",
 };
 
 const ResultHeader = styled.h2`
