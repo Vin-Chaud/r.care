@@ -17,21 +17,21 @@ export function TrialExplanation1({ onNext }: { onNext: () => void }) {
       <TrialContents>
         <header>
           <Emoji>{"💡"}</Emoji>
-          <H2>{"See results or 200% money back."}</H2>
+          <H2>{"See results or 100% money back."}</H2>
         </header>
         <Highlight>
           {
-            "Join thousands who've overcome binge eating & transformed their lives."
+            "Discover how thousands have improved their dating lives and built lasting connections."
           }
         </Highlight>
         <List>
           <ListItem>
             {
-              "If you go through the R.care program for 30 days and don't see results, we offer 200% money back. "
+              "If you go through the Glint coaching for 30 days and don't see results, we offer 100% money back. "
             }
           </ListItem>
           <ListItem>
-            {"Your success is our success. We're here to help you lead a healthier life, and we're confident you will see the difference."}
+            {"Your success is our success and we're confident you will see the difference."}
           </ListItem>
         </List>
       </TrialContents>
