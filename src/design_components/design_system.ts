@@ -22,13 +22,13 @@ export const Fonts = {
 
 export const Purples = {
   PurpleB8_Undocumented: "#B88AF2",
-  PurpleBC: "#BCA7C9",
-  Purple94: "#945dd9",
+  PurpleBC: "#E3B552",
+  Purple94: "#000000",
   PurpleCA_Undocumented: "#CAABF0",
   PurpleE4_Undocumented: "#E4DFFA",
   PurpleF3_Undocumented: "#f3e3ff",
   PurpleF5_Undocumented: "#F5EAF8",
-  PurpleF9: "#F9F4FF",
+  PurpleF9: "#FFF9EB",
   PurpleFB_Undocumented: "#FBF7FF",
 };
 
