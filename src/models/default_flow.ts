@@ -913,11 +913,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
           },
           step_order: [
-           "binge_goal",
+            "binge_goal",
             "current_need",
             "binge_frequency",
             "binge_frequency_goal",
-            "c7”,
+            "c7",
             "selfimprovement_time",
             "c9",
             "motivationlevel",
