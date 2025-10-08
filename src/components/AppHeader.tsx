@@ -18,7 +18,7 @@ export function AppHeader({
       {typeof children === "string" ? (
         <Title>{children}</Title>
       ) : (
-        <RCareBrand height={08} />
+        <RCareBrand height={14} />
       )}
     </AppHeaderLayout>
   );
