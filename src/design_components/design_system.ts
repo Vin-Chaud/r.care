@@ -27,7 +27,7 @@ export const Purples = {
   PurpleCA_Undocumented: "#CAABF0",
   PurpleE4_Undocumented: "#E4DFFA",
   PurpleF3_Undocumented: "#f3e3ff",
-  PurpleF5_Undocumented: "#F5EAF8",
+  PurpleF5_Undocumented: "#FFFCF5",
   PurpleF9: "#FFF9EB",
   PurpleFB_Undocumented: "#FBF7FF",
 };
