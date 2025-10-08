@@ -15,7 +15,7 @@ export function ImpactBreakdown({
 }: {
   percentageScores: Readonly<Record<Impact, number>>;
 }) {
- return (
+  return (
     <SectionLayout>
       <header>
         <SectionHeader>
@@ -34,7 +34,31 @@ export function ImpactBreakdown({
   );
 }
 
-@@ -62,12 +47,6 @@ function ImpactChart({
+function ImpactChart({
+  percentageScores,
+}: {
+  percentageScores: Readonly<Record<Impact, number>>;
+}) {
+  const yDomainMax = 100;
+  const yDomainMin = 0;
+
+  const yAxisTicks = [0, 20, 40, 60, 80, 100];
+  const emojiPosition = 0.05;
+
+  function encodeYValue(percentage: number) {
+    return (
+      chartPlottingAreaHeight *
+      (1 - (percentage - yDomainMin) / (yDomainMax - yDomainMin))
+    );
+  }
+
+  function encodeXValue(index: number, total: number) {
+    // Leave equal space on both sides of the bar, return the percentage
+    // coordinate for the bar's x-axis positioning for the center of
+    // the bar.
+    return ((index + 0.5) / total) * 100;
+  }
+
   const yAxisGrid = yAxisTicks.map((value) => {
     const tickLabel = (value * 0.1).toFixed(0); // Scale 0 - 10
     return (
@@ -47,7 +71,12 @@ export function ImpactBreakdown({
     );
   });
 
-@@ -80,51 +59,12 @@ function ImpactChart({
+  const bars = [
+    { metric: Impact.MentalHealth, color: "#D7E2C9" },
+    { metric: Impact.Relationship, color: "#EEE2CE" },
+    { metric: Impact.Productivity, color: "#C8DBE3" },
+  ].map(({ metric, color }, itemIndex, itemArray) => {
+    const percentageScore = percentageScores[metric];
     const height = encodeYValue(0) - encodeYValue(percentageScore);
     const scoreZone = getScoreZone(percentageScore);
     return (
@@ -86,7 +115,6 @@ export function ImpactBreakdown({
           <XAxisLabel>{impactCopy[metric]}</XAxisLabel>
         </div>
       </Fragment>
-      
     );
   });
 
@@ -97,6 +125,89 @@ export function ImpactBreakdown({
         {bars}
       </ChartPlottingArea>
     </ChartContainer>
-  
   );
 }
+
+const ChartContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  padding-left: 40px;
+  box-sizing: border-box;
+  width: 100%;
+`;
+
+const chartPlottingAreaHeight = 35 * 5;
+
+const ChartPlottingArea = styled.div`
+  position: relative;
+  height: ${chartPlottingAreaHeight}px;
+  width: 100%;
+`;
+
+const YAxisGrid = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  border-bottom: 1px dashed ${Greys.Grey83};
+`;
+
+const YAxisLabel = styled.span`
+  position: absolute;
+  transform: translate(-100%, -50%);
+  ${Fonts.SFPro}
+  left: -20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: ${Greys.Grey83};
+`;
+
+const XAxisLabel = styled.span`
+  position: absolute;
+  top: 100%;
+  margin-top: 5px;
+
+  ${Fonts.Montserrat}
+  font-size: 12px;
+  font-weight: 600;
+  color: ${Greys.Black};
+  text-align: center;
+  width: 150%;
+`;
+
+const Tooltip = styled.div`
+  position: absolute;
+  top: 0px;
+  color: white;
+  top: -20px;
+  transform: translateY(-100%);
+  width: fit-content;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background-color: ${Purples.Purple94};
+  text-align: center;
+
+  ${Fonts.Montserrat}
+  font-weight: 400;
+  font-size: 10px;
+
+  strong {
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 10px;
+    height: 8.66px;
+    clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
+    background-color: ${Purples.Purple94};
+    transform: translate(-50%, -20%);
+  }
+`;
