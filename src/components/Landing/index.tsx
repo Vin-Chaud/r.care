@@ -34,7 +34,7 @@ export function Landing({ flow }: { flow: OnboardingFlow }) {
         <RCareBrand />
         <LandingHeaderLayout>
           <LandingHeader>
-            {"**Your tailored roadmap to online dating success starts here 🚀 ✨"}
+            {"Your online dating success starts here ✨"}
           </LandingHeader>
         </LandingHeaderLayout>
         <LandingQuiz
@@ -107,8 +107,8 @@ function LoaderOverlay() {
 const landingStyle = `
   linear-gradient(
     169.29deg,
-    ${Purples.PurpleF3_Undocumented} 6.17%,
-    ${Purples.PurpleFB_Undocumented} 61.87%,
+    ${Purples.PurpleF3_Undocumented} 0%,
+    ${Purples.PurpleFB_Undocumented} 0%,
     ${Greys.GreyF0} 99%
   )
 `;
