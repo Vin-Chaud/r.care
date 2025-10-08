@@ -580,7 +580,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               ],
             },
             ["comorbidities"]: {
-             type: "single_select",
+             type: "multi_select",
               title:
                 "What do you feel are your biggest challenges when it comes to online dating?",
               help_text:
