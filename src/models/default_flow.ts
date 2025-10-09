@@ -19,9 +19,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 {
                   type: "text",
                   text: [
-                    "Our quiz helps you better understand",
-                    "yourself and estimate your chances of finding",
-                    "your ideal match through online dating.",
+                    "Take the quiz and see your",
+                    "chances for online dating success.",
                   ],
                   variant: "subtle",
                 },
@@ -52,12 +51,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               title: "Which gender do you identify with?",
               options: [
                 {
-                  text: "Female",
-                  value: "FEMALE",
-                },
-                {
                   text: "Male",
                   value: "MALE",
+                },
+                {
+                  text: "Female",
+                  value: "FEMALE",
                 },
                 {
                   text: "Non-binary",
@@ -72,20 +71,20 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["bed_diagnosis"]: {
               type: "single_select",
               title:
-                "What kind of dating have you tried the most?",
+                "Which type of dating have you tried the most?",
               help_text:
-                "It helps us enhance your experience, but rest assured, everyone is welcome.",
+                "In other words, how do you usually meet people?",
               options: [
                 {
                   text: "Online dating apps (Tinder, Bumble, Hinge...)",
                   value: "FORMAL_DIAGNOSIS",
                 },
                 {
-                  text: "Meeting people through connections (friends, colleagues, family)",
+                  text: "Meeting through friends or connections",
                   value: "SELF_DIAGNOSIS",
                 },
                 {
-                  text: "Chance encounters (at a bar, hobby groups...)",
+                  text: "Chance encounters (bars, hobby groups...)",
                   value: "SUSPICION",
                 },
                 {
@@ -93,7 +92,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   value: "FORMAL_DIAGNOSIS_OTHER_ED",
                 },
                 {
-                  text: "I haven’t tried dating yet",
+                  text: "I’m new to dating",
                   value: "OTHER",
                 },
               ],
@@ -102,13 +101,13 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  title: "Glad you're here!",
-                  body: "Discover your dating style, unlock your best strategy, and find your perfect match.",
+                  title: "Welcome!",
+                  body: "This quiz reveals your dating style and shows your true potential in online dating.",
                   graphic_id: "r1_1",
                 },
                 {
-                  title: "Our quiz is the perfect place to start.",
-                  body: "Discover your dating style, unlock your best strategy, and find your perfect match. ",
+                  title: "Are you ready?",
+                  body: "Make online dating work for you, with clarity and purpose.",
                   graphic_id: "r1_2",
                 },
               ],
@@ -126,7 +125,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["selfcontrol_feel"]: {
               type: "scale",
               preset: "frequency",
-              title: "Do you know what you want in a partner?",
+              title: "Do you usually know what you want in a date?",
               scoring: {
                 target_metric: Symptom.SelfControlChallenge,
                 reverse: true,
@@ -159,7 +158,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you have enough time, energy, and resources to date?",
+                "Do you feel you have enough time and energy to date?",
               scoring: { target_metric: Symptom.SelfControlChallenge },
             },
             r2: {
@@ -194,11 +193,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["selfcontrol_getbackontrack"]: {
               type: "yes_no",
               title:
-                "Do you have trouble getting matches that excite you?",
+                "Do you have trouble getting matches you like?",
               feedbacks: {
                 no: {
                   type: "embedded",
-                  text: "🍃 That’s fantastic! We’ll help you transform your matches into genuine connections.",
+                  text: "🍃 That’s fantastic! We’ll focus on transforming your matches into genuine connections.",
                 },
                 yes: {
                   type: "embedded",
@@ -276,7 +275,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  body: "Now let’s dive into what you’re **truly** looking for in online dating.",
+                  body: "Now we’ll go deeper to discover what you really want from online dating.",
                   graphic_id: "r3_1",
                 },
                 {
@@ -317,12 +316,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 no: {
                   type: "embedded",
                   title: "🌼 Awesome!",
-                  text: "Prioritizing quality can really help build deeper, lasting relationships. We’ll help you make the most of it.",
+                  text: "🌼 Awesome! Prioritizing quality can really help build deeper, lasting relationships. We’ll help you make the most of it.",
                 },
                 yes: {
                   type: "embedded",
                   title: "💪 That’s totally understandable.",
-                  text: "This is a common approach, and we can help you find strategies to focus more on quality without losing momentum.",
+                  text: "💪 That’s totally understandable. We can help you find strategies to focus more on quality without losing momentum.",
                 },
               },
               scoring: {
@@ -384,15 +383,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  body: "Online dating often fails because people don’t fully understand its nature. Many expect instant chemistry or a perfect match, forgetting that meaningful connections take time.",
+                  body: "Online dating often fails because people don’t fully understand its nature.",
                   graphic_id: "r4_1",
                 },
                 {
-                  body: "Many quit after a few unsuccessful interactions instead of investing time and patience in the process.",
+                  body: " Many expect instant chemistry or a perfect match, forgetting that meaningful connections take time.",
                   graphic_id: "r4_2",
                 },
                 {
-                  body: "Building genuine connections can feel challenging, but we’re here to guide you. Let’s explore how you can be truly authentic and share your real feelings and thoughts.",
+                  body: "Building genuine connections can feel challenging, but we’re here to guide you.",
                   graphic_id: "r4_3",
                 },
               ],
@@ -412,7 +411,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       ],
     },
     {
-      title: "Communicate from the heart",
+      title: "Examining your patterns",
       subsections: [
         {
           step_definitions: {
@@ -456,7 +455,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 { type: "title", text: "Almost there!" },
                 {
                   type: "text",
-                  text: "To perfect your online dating game, let’s start by getting to know you better.",
+                  text: "To perfect your online dating game, let’s go deeper",
                 },
               ],
             },
@@ -468,11 +467,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               feedbacks: {
                 no: {
                   type: "embedded",
-                  text: "Paradox of Choice : when presented with too many options, people can feel overwhelmed, leading to indecision or dissatisfaction. In online dating, endless profiles can make it harder to commit to one person.",
+                  text: "Paradox of Choice : when presented with too many options, people can feel overwhelmed, leading to indecision or dissatisfaction. In dating, endless choices can make it harder to stay mindful.",
                 },
                 yes: {
                   type: "embedded",
-                  text: "**It’s great that you’re already familiar with the concept of the paradox of choice.** To reiterate, it explains how endless profiles can make it harder to commit to one person in online dating.",
+                  text: "**It’s great that you’re already familiar with the concept of the paradox of choice.** To recap, it explains how endless options can make mindful dating more challenging.",
                 },
               },
               scoring: {
@@ -485,12 +484,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["knowledge_bingeeating"]: {
               type: "scale",
               preset: "custom",
-              title: "How strong is your knowledge of relationship psychology?",
+              title: "How much do you know about relationship psychology?",
               custom_labels: [
-                "I know very little about it.",
-                "I've heard of a few concepts(e.g. attachment patterns, love languages...)",
-                "I am familiar with psychology in general.",
-                "I’m an expert in all things related to relationship psychology.",
+                "I know very little.",
+                "I’ve heard of a few ideas (like attachment styles.)",
+                "I know quite a bit about psychology.",
+                "I’m an expert in relationship psychology.",
               ],
               base_feedback: {
                 type: "full",
@@ -567,11 +566,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Real support. Real progress. Real connections.",
+                  text: "Real coaching. Real connections.",
                 },
                 {
                   type: "text",
-                  text: "With Glint, you’ll gain practical strategies, expert feedback, and confidence. Our coaching is completely private, judgment-free, and focused on real results.",
+                  text: "With Glint, you’ll get clear strategies, expert advice, and confidence. Our coaching is private, judgment-free, and designed to deliver real results.",
                 },
                 {
                   type: "image",
@@ -584,10 +583,10 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               title:
                 "What do you feel are your biggest challenges when it comes to online dating?",
               help_text:
-                "Understanding your main blockers will help us give you the most effective guidance.",
+                "Knowing what’s holding you back will help us guide you better.",
               options: [
                 {
-                  text: "🔍 Finding compatible matches",
+                  text: "🔍 Finding compatible dates",
                   value: "ANXIETY",
                   feedback: {
                     priority: 4,
@@ -609,7 +608,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                 },
                 {
-                  text: "💬 Starting or maintaining conversations",
+                  text: "💬 Starting or keeping a conversations",
                   value: "DEPRESSION",
                   feedback: {
                     priority: 3,
@@ -631,7 +630,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                 },
                 {
-                  text: "💔 Feeling discouraged or anxious about building a connection",
+                  text: "😬 Feeling anxious about building connections",
                   value: "ALCOHOL_SUBSTANCE_USE",
                   feedback: {
                     priority: 1,
@@ -653,7 +652,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                 },
                 {
-                  text: "🎯 Feeling stuck before reaching my relationship goal",
+                  text: "💔 Dealing with rejection",
                   value: "BODY_DYSMORPHIA",
                   feedback: {
                     priority: 2,
@@ -681,7 +680,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["mental_othersnotserious"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Which of these myths about dating coaching feels most true to you?",
+              preamble_text: "Which of these dating coaching myths do you relate to?",
               title:
                 "Dating coaching is only for people who can’t date on their own.",
               scoring: {
@@ -691,9 +690,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["mental_toldtojuststop"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Which of these myths about dating coaching feels most true to you?",
+              preamble_text: "Which of these dating coaching myths do you relate to?",
               title:
-                "Dating won’t actually make a difference; it’s just luck.",
+                "Coaching won’t really make a difference — dating is just luck.",
               scoring: {
                 target_metric: Impact.MentalHealth,
               },
@@ -702,7 +701,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "agreement",
               preamble_text: "Which of these myths about dating coaching feels most true to you?",
-              title: "Discussing my dating life with others feels too awkward.",
+              title: "Dating coaching is too serious — it should just happen naturally.",
               scoring: {
                 target_metric: Impact.Relationship,
               },
@@ -755,7 +754,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               help_text: "Choose as many as you like",
               options: [
                 {
-                  text: "Meeting someone who truly matches my values and goals.",
+                  text: "Meeting someone who matches me.",
                   value: "CONFIDENCE",
                 },
                 {
@@ -763,7 +762,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   value: "EMOTIONAL_RESILIENCE",
                 },
                 {
-                  text: "Enjoying the process without stress or confusion.",
+                  text: "Enjoying dating without stress or confusion.",
                   value: "HEALTHY_RELATIONSHIP_FOOD",
                 },
                 {
@@ -771,30 +770,30 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   value: "MINDFULNESS",
                 },
                 {
-                  text: "Confidently enjoying meeting and connecting with new people.",
+                  text: "Openly connecting with new people.",
                   value: "BETTER_RELATIONSHIPS",
                 },
               ],
             },
             ["current_need"]: {
               type: "single_select",
-              title: "What excites you most about online dating?4",
+              title: "What excites you most about online dating?",
               help_text: "Choose the option that resonates the most.",
               options: [
                 {
-                  text: "🌐 Access to a bigger pool of potential matches",
+                  text: "🌐 More choices – I can meet lots of new people",
                   value: "MANAGE_WEIGHT",
                 },
                 {
-                  text: "📱 Convenience of dating anytime, anywhere",
+                  text: "📱 Easy & convenient – Date whenever and wherever I want",
                   value: "STOP_BINGE_EATING",
                 },
                 {
-                  text: "🕊️ Low pressure to start the first conversation",
+                  text: "🕊️ No pressure – Starting a conversation feels easier",
                   value: "BREAK_CYCLE",
                 },
                 {
-                  text: "⚡ Get the gist of someone in seconds",
+                  text: "⚡ Quick first impression – I can get to know someone fast.",
                   value: "IMPROVE_WELLNESS",
                 },
               ],
@@ -812,7 +811,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["binge_frequency_goal"]: {
               type: "integer",
               title:
-                "How do you want your online dating journey to feel? What satisfaction level would keep you going until you meet the right person?",
+                "How do you want online dating to feel?",
               help_text:
                 "You reported your current satisfaction level is {{current_frequency}} out of 10.",
               min: 0,
@@ -827,7 +826,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "With Glint, you can master the online dating game and find your perfect match — and as a bonus, discover yourself, your true needs, and life’s deeper meaning along the way.",
+                  text: "With Glint, you can get better at online dating and find your perfect match. Along the way, you’ll also learn more about yourself, what you really want, and what matters most in life.",
                 },
                 {
                   type: "image",
@@ -838,19 +837,19 @@ export const defaultOnboardingFlow: OnboardingFlow = {
            ["selfimprovement_time"]: {
               type: "single_select",
               preamble_text:
-                "Let’s see how you can make the most of online dating.",
-              title: "How much time can you spend leveling up your online dating?",
+                "Let’s see your potential for growth.",
+              title: "How much time per day can you spend leveling up your online dating?",
               options: [
                 {
-                  text: "5 mins/day",
+                  text: "5 mins",
                   value: "5_MINUTES",
                 },
                 {
-                  text: "10 mins/day",
+                  text: "10 mins",
                   value: "10_MINUTES",
                 },
                 {
-                  text: "15 mins+/day",
+                  text: "15 mins+",
                   value: "15_MINUTES_OR_MORE",
                 },
               ],
@@ -860,7 +859,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "**Five minutes a day** is all it takes to level up your online dating game and boost your results.",
+                  text: "Just five minutes a day can make your online dating better and get you better results.",
                 },
                 {
                   type: "testimonial",
@@ -946,7 +945,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   landing_quiz_step: {
     id: "age",
     type: "single_select",
-    title: "Select your age to start the quiz",
+    title: "Tell us your age to unlock your custom dating tips.",
     help_text: "⌛ 3 min quiz",
     options: [
       { value: "18_23", text: "18-23" },
@@ -959,7 +958,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     id: "popup_quiz",
     type: "yes_no",
     title:
-      "Are you excited to finally meet the person you’ve always dreamed of? 🔑",
+      "Ready to meet your dream person? ✨",
   },
   reaction_step_id: "reaction",
   email_step_id: "email",
@@ -967,8 +966,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   target_episode_count_id: "binge_frequency_goal",
   target_knowledge_score: 94,
   interview: {
-    title: "From Confusion to Loving Connection",
-    subtitle: "Alex’s recovery story",
+    title: "She is the best!",
+    subtitle: "Alex’s story",
     graphic_id: "persona",
     questions: [
       {
@@ -1004,17 +1003,6 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       echo_default: "Start conversations and connect smoothly in real life.",
       color: "#D7E2C9",
     },
-    {
-      step_id: "knowledge_bingeeating",
-      prompt: "You said that",
-      echo_mapping: {
-        1: "You are relatively new to Relationship Psychology",
-        3: "You have a good understanding of Relationship Psychology",
-        4: "You have a great understanding of Relationship Psychology",
-      },
-      echo_default: "You’ve done some research into Relationship Psychology",
-      color: "#EEE2CE",
-    },
   ],
   knowledge_plan: [
     {
@@ -1024,7 +1012,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         1: "Very little",
         2: "The basics",
         3: "A good amount",
-        4: "Expert in all things online dating",
+        4: "Expert in all things",
       },
       echo_default: "",
       color: "#F9F4FF",
@@ -1033,12 +1021,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       step_id: "binge_goal",
       prompt: "What you want to achieve:",
       echo_mapping: {
-        CONFIDENCE: "Meeting someone who truly matches your values and goals",
+        CONFIDENCE: "Meeting someone who matches you",
         EMOTIONAL_RESILIENCE: "Being in a meaningful, lasting relationship",
         HEALTHY_RELATIONSHIP_FOOD:
-          "Enjoying the process without stress or confusion",
+          "Enjoying dating without stress or confusion",
         MINDFULNESS: "Learning more about yourself while finding love",
-        BETTER_RELATIONSHIPS: "Confidently enjoying meeting and connecting with new people",
+        BETTER_RELATIONSHIPS: "Openly connecting with new people",
       },
       multi_select_priority: [
         "CONFIDENCE",
