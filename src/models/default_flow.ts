@@ -945,7 +945,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   landing_quiz_step: {
     id: "age",
     type: "single_select",
-    title: "Tell us your age to unlock your custom dating tips.",
+    title: "Tap your age for custom dating tips.",
     help_text: "⌛ 3 min quiz",
     options: [
       { value: "18_23", text: "18-23" },
@@ -966,8 +966,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   target_episode_count_id: "binge_frequency_goal",
   target_knowledge_score: 94,
   interview: {
-    title: "She is the best!",
-    subtitle: "Alex’s story",
+    title: "Glint works!",
+    subtitle: "Alex says:",
     graphic_id: "persona",
     questions: [
       {
