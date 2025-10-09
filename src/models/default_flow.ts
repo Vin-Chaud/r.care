@@ -950,7 +950,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     help_text: "⌛ 3 min quiz",
     options: [
       { value: "18_23", text: "18-23" },
-      { value: "23_29", text: "23-29" },
+      { value: "23_29", text: "24-29" },
       { value: "30_39", text: "30-39" },
       { value: "40_OR_OLDER", text: "40+" },
     ],
