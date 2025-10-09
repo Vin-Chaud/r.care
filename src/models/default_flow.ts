@@ -1087,7 +1087,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   ],
   testimonial_disclaimer: null,
   highlighted_testimonial: {
-    avatar_graphic_id: "jason",
+    avatar_graphic_id: "Jason",
     screen_name: "Jason",
     screen_subtitle: "32, Austin (USA)",
     content:
@@ -1107,28 +1107,28 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         "I was hesitant about dating coaching at first, but Glint feels different. It’s not about cheesy lines — it’s about building real skills. I feel more confident, authentic, and excited to meet new people. My dating life has truly leveled up.",
     },
     {
-      avatar_graphic_id: "diego",
+      avatar_graphic_id: "Diego",
       screen_name: "Diego",
       screen_subtitle: "24, Mexico City (Mexico)",
       content:
         "I’ve always been shy and wanted to improve my dating life, but I never knew where to start. Glint broke it down for me — step-by-step, no pressure. Now I’m dating with confidence, and I actually look forward to it.",
     },
     {
-      avatar_graphic_id: "marcus",
+      avatar_graphic_id: "Marcus",
       screen_name: "Marcus",
       screen_subtitle: "32, London (UK)",
       content:
         "Glint gave me the tools to cut through the noise and connect with people who actually matched what I’m looking for. I went on just three dates — all with clarity and purpose — and now I’m in a relationship with someone I never thought I’d find.",
     },
     {
-      avatar_graphic_id: "javier",
+      avatar_graphic_id: "Javier",
       screen_name: "Javier",
       screen_subtitle: "42, Miami (USA)",
       content:
         "At my age, online dating felt overwhelming. I tried so many dating apps and had no idea what I was doing. Glint gave me the right perspective, attitude, and strategy to follow. Last month, I met someone amazing and have never been happier.",
     },
     {
-      avatar_graphic_id: "ethan",
+      avatar_graphic_id: "Ethan",
       screen_name: "Ethan",
       screen_subtitle: "39, San Francisco (USA)",
       content:
