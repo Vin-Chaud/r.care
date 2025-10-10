@@ -9,15 +9,15 @@ export const scoreZoneCopy: Readonly<Record<ScoreZone, string>> = {
 };
 
 export const symptomCopy: Readonly<Record<Symptom, string>> = {
-  EMOTIONAL_EATING: "Emotional eating",
-  SELF_CONTROL_CHALLENGE: "Self-control challenges",
-  INTERNAL_SIGNAL_DYSFUNCTION: "Internal signal dysfunction",
+  EMOTIONAL_EATING: "Being your confident, authentic self",
+  SELF_CONTROL_CHALLENGE: "Effective communication",
+  INTERNAL_SIGNAL_DYSFUNCTION: "Goal setting and strategy",
 };
 
 export const symptomEmojis: Readonly<Record<Symptom, string>> = {
-  EMOTIONAL_EATING: "🍔",
-  SELF_CONTROL_CHALLENGE: "🛑",
-  INTERNAL_SIGNAL_DYSFUNCTION: "🔄",
+  EMOTIONAL_EATING: "🌟",
+  SELF_CONTROL_CHALLENGE: "💬",
+  INTERNAL_SIGNAL_DYSFUNCTION: "🎯",
 };
 
 export const impactCopy: Readonly<Record<Impact, string>> = {
@@ -40,18 +40,18 @@ export const SymptomOrdering = [
 
 export const SymptomExplanationQuestion: Readonly<Record<Symptom, string>> = {
   [Symptom.EmotionalEating]:
-    "What am I eating in response to stress and difficult emotions?",
+    "Why is being your confident, authentic self important for online dating success?",
   [Symptom.SelfControlChallenge]:
-    "Why do I sense a loss of control when it comes to eating?",
+    "Why is clear communication important, and how can I improve it?",
   [Symptom.InternalSignalDysfunction]:
-    "Why am I not in tune with my hunger and fullness signal?",
+    "Why is setting goals and being strategic crucial for online dating?",
 };
 
 export const SymptomExplanationAnswer: Readonly<Record<Symptom, string>> = {
   [Symptom.EmotionalEating]:
-    "Emotional eating often occurs when food becomes a way to manage or numb intense feelings like stress, sadness, or loneliness. Instead of addressing the emotions directly, you might turn to food for comfort, leading to a temporary relief that can quickly spiral into a cycle of guilt and overeating. Recognizing this pattern is the first step toward finding healthier ways to cope with your emotions.",
+    "Being your authentic self means embracing who you truly are—your strengths, quirks, and values. Confidence comes from accepting yourself and not feeling pressured to fit others’ expectations. When you act genuinely, you build trust and create opportunities for meaningful connections that are more likely to last.",
   [Symptom.SelfControlChallenge]:
-    "Binge eating can feel like a battle against your own willpower, where the urge to eat takes over and feels impossible to resist. This loss of control is often fueled by a combination of restrictive dieting, emotional triggers, and ingrained habits. It’s important to understand that it’s not just about willpower—addressing the root causes can help you regain a sense of control and break the cycle.",
+    "Clear communication helps others understand your thoughts, feelings, and needs without confusion. It involves both speaking honestly and listening actively. To improve, be mindful of your tone, choose words carefully, and check that your message is understood. Strong communication reduces misunderstandings and strengthens relationships.",
   [Symptom.InternalSignalDysfunction]:
-    "Over time, binge eating can disrupt your natural ability to recognize when you’re truly hungry or full. Dieting, stress, and emotional eating can dull these internal signals, making it difficult to know when to start or stop eating. Reconnecting with your body’s cues is essential for restoring a balanced relationship with food, allowing you to eat in response to your true needs rather than external pressures or emotions.",
+    "Setting goals gives your dating journey direction and purpose, while having a strategy turns those goals into actionable steps. Breaking larger goals into smaller, manageable tasks helps you stay motivated and track progress. A clear plan also lets you adjust when obstacles arise, keeping you on track to find the connections you want.",
 };
