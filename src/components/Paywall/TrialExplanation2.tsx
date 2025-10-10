@@ -17,25 +17,17 @@ export function TrialExplanation2({ onNext }: { onNext: () => void }) {
       <AppHeader>{{ branding: true }}</AppHeader>
       <TrialContents>
         <header>
-          <Emoji>{"💜"}</Emoji>
-          <H2>{"Try for free."}</H2>
+          <Emoji>{"🤓"}</Emoji>
+          <H2>{"Stop guessing,trust the data."}</H2>
         </header>
         <Highlight>{"We’re not here to waste your time & money."}</Highlight>
-        <P>
-          {
-            "We know that you have a busy schedule and life happens, so we offer a guarantee:"
-          }
-        </P>
-        <List>
-          <ListItem>
-            {"We’ll send you a reminder before your trial ends."}
-          </ListItem>
-          <ListItem>{"You can cancel at any time."}</ListItem>
-          <ListItem>
-            {
-              "100% secure payment process."
-            }
-          </ListItem>
+    
+        <List>3
+          <ListItem>{"Professionally crafted profiles can increase your match rate by up to 70%."} </ListItem>
+          <ListItem>{"Using tailored messages can get 30–60% more replies."}</ListItem>
+          <ListItem>{"8 out of 10 people who get coaching feel more confident and better about themselves."}</ListItem>
+          <ListItem>{"In just one month, 70% of Glint users found dates they were genuinely satisfied with."}</ListItem>
+
         </List>
       </TrialContents>
       <ForwardNavButton onClick={onNext} />
