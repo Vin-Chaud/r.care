@@ -64,7 +64,13 @@ function EchoPane({
   echo: string;
   color: string;
 }) {
-  return null;
+  return (
+    <EchoPaneLayout>
+      <div>{prompt}</div>
+      <EchoPaneInset style={{ backgroundColor: color }}>{echo}</EchoPaneInset>
+    </EchoPaneLayout>
+  );
+  
 }
 
 function EmpathyItem({
@@ -74,6 +80,7 @@ function EmpathyItem({
   children: string;
   number: number;
 }) {
+  
   return null;
 }
 
