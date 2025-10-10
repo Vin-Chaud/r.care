@@ -20,7 +20,7 @@ export function OverallScore({
     <SectionLayout>
       <header>
         <ResultHeader>
-          {"Your likelihood of finding the right match online is"}
+          {"Your prospects for online dating success :"}
           <br />
           <strong>{scoreZoneCopy[scoreZone]}</strong>
         </ResultHeader>
