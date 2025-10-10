@@ -21,15 +21,15 @@ export const symptomEmojis: Readonly<Record<Symptom, string>> = {
 };
 
 export const impactCopy: Readonly<Record<Impact, string>> = {
-  MENTAL_HEALTH: "Mental Health",
-  RELATIONSHIP: "Relationships",
-  PRODUCTIVITY: "Productivity",
+  MENTAL_HEALTH: "Love & Happiness",
+  RELATIONSHIP: "Health & Libido",
+  PRODUCTIVITY: "Growth & Confidence",
 };
 
 export const impactEmojis: Readonly<Record<Impact, string>> = {
-  MENTAL_HEALTH: "🪷",
-  RELATIONSHIP: "🧑‍🤝‍🧑",
-  PRODUCTIVITY: "🎯",
+  MENTAL_HEALTH: "❤️",
+  RELATIONSHIP: "💪",
+  PRODUCTIVITY: "✨",
 };
 
 export const SymptomOrdering = [
