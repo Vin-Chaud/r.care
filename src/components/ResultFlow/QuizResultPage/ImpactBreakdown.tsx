@@ -19,15 +19,13 @@ export function ImpactBreakdown({
     <SectionLayout>
       <header>
         <SectionHeader>
-          {"How are binge eating symptoms"}
-          <br />
-          <strong>{"impacting your daily life?"}</strong>
+          {"How can successful online dating improve my life?"}
         </SectionHeader>
       </header>
       <ImpactChart percentageScores={percentageScores} />
       <FeedbackBox>
         {
-          "Curbing your binge eating behavior can improve every aspect of your well-being. We can help you stop binge eating and lead a happy and fulfilled life."
+          "Building meaningful connections can boost your overall well-being. We can help you improve your online dating experience and create a happier, more fulfilling life."
         }
       </FeedbackBox>
     </SectionLayout>
