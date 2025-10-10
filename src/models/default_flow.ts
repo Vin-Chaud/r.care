@@ -128,7 +128,6 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               title: "Do you usually know what you want in a date?",
               scoring: {
                 target_metric: Symptom.SelfControlChallenge,
-                reverse: true,
               },
             },
             ["internalsigdysfunc_eatquick"]: {
@@ -145,21 +144,27 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "frequency",
               title:
                 "Do you enjoy the process of dating and getting to know new people?",
-              scoring: { target_metric: Symptom.SelfControlChallenge },
+              scoring: { 
+                target_metric: Symptom.SelfControlChallenge,
+              },
             },
             ["selfcontrol_desperate"]: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you approach dating with a clear strategy?",
-              scoring: { target_metric: Symptom.SelfControlChallenge },
+              scoring: { 
+                target_metric: Symptom.SelfControlChallenge,
+              },
             },
             ["selfcontrol_habit"]: {
               type: "scale",
               preset: "frequency",
               title:
                 "Do you feel you have enough time and energy to date?",
-              scoring: { target_metric: Symptom.SelfControlChallenge },
+              scoring: { 
+                target_metric: Symptom.SelfControlChallenge,
+              },
             },
             r2: {
               type: "story",
@@ -217,6 +222,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "Do you start conversations with matches without hesitation?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
+                reverse: true,
               },
             },
             ["internalsigdysfunc_feastfamine"]: {
@@ -225,7 +231,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               title:
                   "Do you feel confident planning the first date with your matches?",
               scoring: {
-                target_metric: Symptom.InternalSignalDysfunction,
+                target_metric: Impact.Productivity,
+                reverse: true,
               },
             },
             ["internalsigdysfunc_grazeallday"]: {
@@ -233,7 +240,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "frequency",
               title: "Do you trust your instincts about a date’s potential?",
               scoring: {
-                target_metric: Symptom.InternalSignalDysfunction,
+                target_metric: Impact.Productivity,
+                reverse: true,
               },
             },
             ["internalsigdysfunc_regulareat"]: {
@@ -243,7 +251,6 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "Do you know how to express your interest after a good first date?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
-                reverse: true,
               },
             },
             ["selfcontrol_candistract"]: {
@@ -256,7 +263,6 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               max_label: "Totally",
               scoring: {
                 target_metric: Symptom.SelfControlChallenge,
-                reverse: true,
               },
             },
             ["internalsigdysfunc_eatpastcomfortablyfull"]: {
