@@ -27,7 +27,7 @@ export function SymptomExplanations({
       <header>
         <SectionSubHeader>
           {
-            "Now let’s take a deeper look at how binge eating is impacting your well-being."
+            "Now let’s take a deeper look at your online dating success potenteial."
           }
         </SectionSubHeader>
       </header>
