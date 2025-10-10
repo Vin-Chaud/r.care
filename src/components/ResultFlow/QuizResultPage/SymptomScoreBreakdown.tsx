@@ -11,25 +11,7 @@ export function SymptomScoreBreakdown({
   percentageScores: Readonly<Record<Symptom, number>>;
 }) {
   return (
-    <SectionLayout>
-      <header>
-        <ResultHeader>{"How your score is calculated"}</ResultHeader>
-        <SectionSubHeader>
-          {
-            "Your symptoms fall into 3 main categories that impact different aspects of your life."
-          }
-        </SectionSubHeader>
-      </header>
-      <BreakdownList>
-        {SymptomOrdering.map((metric) => (
-          <ScoreBreakdownBar
-            key={metric}
-            title={symptomEmojis[metric] + " " + symptomCopy[metric]}
-            percentageScore={percentageScores[metric]}
-          />
-        ))}
-      </BreakdownList>
-    </SectionLayout>
+ 
   );
 }
 function ScoreBreakdownBar({
@@ -40,18 +22,7 @@ function ScoreBreakdownBar({
   percentageScore: number;
 }) {
   return (
-    <li style={{ position: "relative" }}>
-      <BreakdownBarTitle>{title}</BreakdownBarTitle>
-      <BreakdownBar />
-      <BreakdownTooltip
-        backgroundColor={computeScoreColor(percentageScore)}
-        style={{
-          left: `${percentageScore}%`,
-        }}
-      >
-        {percentageScore.toFixed(0) + "%"}
-      </BreakdownTooltip>
-    </li>
+ 
   );
 }
 
