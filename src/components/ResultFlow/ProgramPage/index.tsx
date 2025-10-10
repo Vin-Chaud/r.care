@@ -40,90 +40,7 @@ export function ProgramPage({
     )
   );
 
-  return (
-    <ScrollablePageLayoutContainer>
-      <ScrollablePageContentFrame background={Greys.White}>
-        <section>
-          <AppHeader>{{ branding: true }}</AppHeader>
-          <HeaderA>
-            {"Your personalized program will help you reduce your symptoms."}
-          </HeaderA>
-          <ChartContainer>
-            <ChartTooltip
-              style={{ top: "10px", left: "calc((100% - 280px) / 2 + 10px)" }}
-              backgroundColor={Greys.Grey79}
-            >
-              <strong>{currentEpisodeCount + " times"}</strong>
-              <br />
-              {"per week"}
-            </ChartTooltip>
-            <ChartTooltip
-              style={{ top: "140px", left: "calc((100% - 280px) / 2 + 270px)" }}
-              backgroundColor={Purples.Purple94}
-            >
-              <strong>{targetEpisodeCount + " times"}</strong>
-              <br />
-              {"per week"}
-            </ChartTooltip>
-            <Chart />
-          </ChartContainer>
-        </section>
-        <section>
-          <HeaderB>
-            {`We will work together to reduce your binge eating episodes by ${reductionPercentage}% in first three months.`}
-          </HeaderB>
-          <CountPanel>
-            <CountPane
-              title={"now"}
-              count={currentEpisodeCount}
-              isHighlighted={false}
-            />
-            <ArrowWrapper>
-              <Arrow />
-            </ArrowWrapper>
-            <CountPane
-              title={"in 3 months"}
-              count={targetEpisodeCount}
-              isHighlighted={true}
-            />
-          </CountPanel>
-        </section>
-
-        {flow.program_plan.map((spec, itemIndex) => (
-          <EchoPane
-            key={itemIndex}
-            prompt={spec.prompt}
-            echo={getEchoText(responses, spec)}
-            color={spec.color}
-          />
-        ))}
-      </ScrollablePageContentFrame>
-      <ScrollablePageContentFrame background={"#FFF5EB"}>
-        <EmpathySection>
-          <StopStrugglingHeader>
-            <Graphic />
-            <HeaderB>{"Stop struggling alone.<br>**We will help you...**"}</HeaderB>
-          </StopStrugglingHeader>
-          <EmpathyList>
-            <EmpathyItem number={1}>
-              {"Discover the roots of your binge"}
-            </EmpathyItem>
-            <EmpathyItem number={2}>
-              {"Find tips to manage the symptoms"}
-            </EmpathyItem>
-            <EmpathyItem number={3}>
-              {"Understand and accept yourself"}
-            </EmpathyItem>
-            <EmpathyItem number={4}>
-              {"Build healthier behaviors"}
-            </EmpathyItem>
-          </EmpathyList>
-
-          <ForwardNavButton onClick={onNext} />
-        </EmpathySection>
-      </ScrollablePageContentFrame>
-    </ScrollablePageLayoutContainer>
-  );
+  return null;
 }
 
 function CountPane({
@@ -135,15 +52,7 @@ function CountPane({
   count: number;
   isHighlighted: boolean;
 }) {
-  return (
-    <CountPaneLayout>
-      <CountPaneTitle isHighlighted={isHighlighted}>{title}</CountPaneTitle>
-      <CountPaneBox isHighlighted={isHighlighted}>
-        <strong>{count}</strong>
-        <div>{"times/week"}</div>
-      </CountPaneBox>
-    </CountPaneLayout>
-  );
+  return null;
 }
 
 function EchoPane({
@@ -155,12 +64,7 @@ function EchoPane({
   echo: string;
   color: string;
 }) {
-  return (
-    <EchoPaneLayout>
-      <div>{prompt}</div>
-      <EchoPaneInset style={{ backgroundColor: color }}>{echo}</EchoPaneInset>
-    </EchoPaneLayout>
-  );
+  return null;
 }
 
 function EmpathyItem({
@@ -170,12 +74,7 @@ function EmpathyItem({
   children: string;
   number: number;
 }) {
-  return (
-    <EmpathyListItem>
-      <EmpathyItemNumber>{number}</EmpathyItemNumber>
-      <EmpathyItemText>{children}</EmpathyItemText>
-    </EmpathyListItem>
-  );
+  return null;
 }
 
 const HeaderA = styled.h2`
