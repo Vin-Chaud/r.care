@@ -13,10 +13,10 @@ export function SymptomScoreBreakdown({
   return (
      <SectionLayout>
           <header>
-            <ResultHeader>{"How your score is calculated"}</ResultHeader>
+            <ResultHeader>{"How your success potential is calculated"}</ResultHeader>
             <SectionSubHeader>
               {
-                "Your symptoms fall into 3 main categories that impact different aspects of your life."
+                "Your potential lies in these three major areas:"
               }
             </SectionSubHeader>
           </header>
