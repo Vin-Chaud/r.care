@@ -20,10 +20,7 @@ enum Page {
   QuizResult = 1,
   PostQuiz = 2,
   Program = 3,
-  KnowledgeIntro = 4,
-  KnowledgeScore = 5,
-  KnowledgePlan = 6,
-  Testimonial = 7,
+  Testimonial = 4,
 }
 
 export function ResultFlow({
