@@ -19,7 +19,7 @@ export function ImpactBreakdown({
     <SectionLayout>
       <header>
         <SectionHeader>
-          {"How can successful online dating improve my life?"}
+          {"How can successful online dating improve your life?"}
         </SectionHeader>
       </header>
       <ImpactChart percentageScores={percentageScores} />
