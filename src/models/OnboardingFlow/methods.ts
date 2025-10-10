@@ -451,9 +451,9 @@ export enum ScoreZone {
 export const ScoreZoneCutoffs: Readonly<
   Record<Exclude<ScoreZone, ScoreZone.VeryHigh>, number>
 > = {
-  [ScoreZone.Low]: 40,
-  [ScoreZone.Medium]: 65,
-  [ScoreZone.High]: 85,
+  [ScoreZone.Low]: 10,
+  [ScoreZone.Medium]: 25,
+  [ScoreZone.High]: 35,
 };
 
 export function getScoreZone(percentage: number): ScoreZone {
