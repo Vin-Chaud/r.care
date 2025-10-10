@@ -46,49 +46,10 @@ export function ProgramPage({
         <section>
           <AppHeader>{{ branding: true }}</AppHeader>
           <HeaderA>
-            {"Your personalized program will help you reduce your symptoms."}
+            {"Glint Coaching guides you to date with confidence, ignite authentic sparks, and create connections that truly transform your love life."}
           </HeaderA>
-          <ChartContainer>
-            <ChartTooltip
-              style={{ top: "10px", left: "calc((100% - 280px) / 2 + 10px)" }}
-              backgroundColor={Greys.Grey79}
-            >
-              <strong>{currentEpisodeCount + " times"}</strong>
-              <br />
-              {"per week"}
-            </ChartTooltip>
-            <ChartTooltip
-              style={{ top: "140px", left: "calc((100% - 280px) / 2 + 270px)" }}
-              backgroundColor={Purples.Purple94}
-            >
-              <strong>{targetEpisodeCount + " times"}</strong>
-              <br />
-              {"per week"}
-            </ChartTooltip>
-            <Chart />
-          </ChartContainer>
         </section>
-        <section>
-          <HeaderB>
-            {`We will work together to reduce your binge eating episodes by ${reductionPercentage}% in first three months.`}
-          </HeaderB>
-          <CountPanel>
-            <CountPane
-              title={"now"}
-              count={currentEpisodeCount}
-              isHighlighted={false}
-            />
-            <ArrowWrapper>
-              <Arrow />
-            </ArrowWrapper>
-            <CountPane
-              title={"in 3 months"}
-              count={targetEpisodeCount}
-              isHighlighted={true}
-            />
-          </CountPanel>
-        </section>
-
+      
         {flow.program_plan.map((spec, itemIndex) => (
           <EchoPane
             key={itemIndex}
@@ -102,20 +63,20 @@ export function ProgramPage({
         <EmpathySection>
           <StopStrugglingHeader>
             <Graphic />
-            <HeaderB>{"Stop struggling alone.<br>**We will help you...**"}</HeaderB>
+            <HeaderB>{"Stop navigating dating alone. <br> We will help you…"}</HeaderB>
           </StopStrugglingHeader>
           <EmpathyList>
             <EmpathyItem number={1}>
-              {"Discover the roots of your binge"}
+              {"Review your online dating profile – make it stand out and attract the right matches."}
             </EmpathyItem>
             <EmpathyItem number={2}>
-              {"Find tips to manage the symptoms"}
+              {"Master the first move – get guidance on starting conversations that spark interest."}
             </EmpathyItem>
             <EmpathyItem number={3}>
-              {"Understand and accept yourself"}
+              {"Build confidence and self-awareness – understand your patterns and strengths."}
             </EmpathyItem>
             <EmpathyItem number={4}>
-              {"Build healthier behaviors"}
+              {"Spark genuine chemistry – learn how to create meaningful interactions."}
             </EmpathyItem>
           </EmpathyList>
 
@@ -141,7 +102,7 @@ function CountPane({
       <CountPaneTitle isHighlighted={isHighlighted}>{title}</CountPaneTitle>
       <CountPaneBox isHighlighted={isHighlighted}>
         <strong>{count}</strong>
-        <div>{"times/week"}</div>
+        <div>{"out of 10"}</div>
       </CountPaneBox>
     </CountPaneLayout>
   );
