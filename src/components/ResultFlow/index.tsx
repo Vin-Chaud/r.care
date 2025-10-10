@@ -56,34 +56,11 @@ export function ResultFlow({
         <ProgramPage
           responses={responses}
           flow={flow}
-          onNext={() => setPage(Page.KnowledgeIntro)}
-        />
-      );
-    }
-
-    case Page.KnowledgeIntro: {
-      return <KnowledgeIntroPane onNext={() => setPage(Page.KnowledgeScore)} />;
-    }
-
-    case Page.KnowledgeScore: {
-      return (
-        <KnowledgeScorePage
-          responses={responses}
-          flow={flow}
-          onNext={() => setPage(Page.KnowledgePlan)}
-        />
-      );
-    }
-
-    case Page.KnowledgePlan: {
-      return (
-        <KnowledgePlan
-          flow={flow}
-          responses={responses}
           onNext={() => setPage(Page.Testimonial)}
         />
       );
     }
+
 
     case Page.Testimonial: {
       return (
