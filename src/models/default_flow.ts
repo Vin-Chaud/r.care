@@ -998,7 +998,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   program_plan: [
     {
       step_id: "comorbidities",
-      prompt: "We’re going to focus on helping you",
+      prompt: "We will focus on helping you: ",
       echo_mapping: {
         ANXIETY: "Find and match with quality dates.",
         DEPRESSION: "Start conversations and connect smoothly in real life.",
