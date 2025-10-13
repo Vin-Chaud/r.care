@@ -46,7 +46,7 @@ export function ProgramPage({
         <section>
           <AppHeader>{{ branding: true }}</AppHeader>
           <HeaderA>
-            {"Glint Coaching guides you to date with confidence, ignite authentic sparks, and create connections that truly transform your love life."}
+            {"Glint is your personal coaching system to help you date with confidence and transform your love life."}
           </HeaderA>
         </section>
       
@@ -62,21 +62,20 @@ export function ProgramPage({
       <ScrollablePageContentFrame background={"#FFF5EB"}>
         <EmpathySection>
           <StopStrugglingHeader>
-            <Graphic />
             <HeaderB>{"Stop navigating dating alone. <br> We will help you…"}</HeaderB>
           </StopStrugglingHeader>
           <EmpathyList>
             <EmpathyItem number={1}>
-              {"Review your online dating profile – make it stand out and attract the right matches."}
+              {"Transform your profile – craft a profile that reflects your best self and attracts right matches."}
             </EmpathyItem>
             <EmpathyItem number={2}>
-              {"Master the first move – get guidance on starting conversations that spark interest."}
+              {"Master the first message – write messages that spark chemistry and connect."}
             </EmpathyItem>
             <EmpathyItem number={3}>
-              {"Build confidence and self-awareness – understand your patterns and strengths."}
+              {"Level up your mindset – understand your patterns, build confidence and remove mental blocks."}
             </EmpathyItem>
             <EmpathyItem number={4}>
-              {"Spark genuine chemistry – learn how to create meaningful interactions."}
+              {"Stay positive – don't give up until you reach your goal."}
             </EmpathyItem>
           </EmpathyList>
 
