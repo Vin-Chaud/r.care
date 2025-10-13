@@ -48,7 +48,7 @@ export async function createCheckoutSession(
         signup_email: signupEmail,
       },
       ...(productKind === SubscriptionType.Yearly && {
-        trial_period_days: 0,
+      //  trial_period_days: 0,
       }),
     },
     success_url:
