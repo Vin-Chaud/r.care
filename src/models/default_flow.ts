@@ -170,11 +170,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  body: "Online dating can be exhausting.",
+                  body: "Ever wonder why some people seem to get the dates they want online… but you don’t?",
                   graphic_id: "r2_1",
                 },
                 {
-                  body: "With the right guidance, you’re on an exciting journey to finding your perfect match!",
+                  body: "Your perfect match isn’t out of reach; it’s just waiting for you to step up with the right approach.",
                   graphic_id: "r2_2",
                 },
                 {
@@ -525,11 +525,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     { type: "emoji", emoji: "🫶" },
                     {
                       type: "title",
-                      text: "No worries, we’ll guide you to learn, grow, and connect better.",
+                      text: "No worries, we’ll guide you to learn and connect better.",
                     },
                     {
                       type: "text",
-                      text: "Relationship psychology helps you understand yourself and others, so you can communicate clearly and choose partners who truly match your values.",
+                      text: "Relationship psychology helps you choose partners who truly match you.",
                     },
                     {
                       type: "text",
@@ -1071,16 +1071,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         "Glint is like having a relationship therapist ❤️, a trusted friend who’s great at dating 🌟, and a personalized self-help guide tailored just for you 📖.",
     },
     {
-      question: "How can Glint change my dating experience?",
+      question: "I keep failing at online dating. Am I the problem?",
       answer: [
-        "Glint helps you:",
-        {
-          list: [
-            "Profile Magic: Build a profile that stands out and truly represents you.",
-            "Conversation Flow: Learn how to start and keep conversations flowing effortlessly.",
-            "Authenticity Boost: Express your true self while feeling confident and attractive.",
-            "Smart Insights: Decode your dating patterns, sharpen your goals, and get better with every swipe and message.",
-          ],
+        "No — the problem isn’t you. Many people who are less successful, less attractive, or less experienced still achieve great results. Success in online dating comes down to the right strategy, mindset, and approach. With Glint, you can too."
         },
       ],
     },
