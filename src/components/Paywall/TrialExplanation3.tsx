@@ -26,9 +26,9 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
               icon: "check",
             },
             {
-              header: "Today : Commit to Your Success",
+              header: "Today: Commit to Your Success",
               content:
-                "Kickstart your coaching program developed by by dating & relationship psychology experts.",
+                "Kickstart your coaching program developed by dating & relationship psychology experts.",
               icon: "lock",
             },
             {
@@ -39,7 +39,7 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
             },
             {
               header: "No results? No worries",
-              content: "If you go through the Glint program for 30 days and don't see results, we offer 100% money back.",
+              content: "If you go through the Glint program for 30 days and don't see results, we offer a 100% money-back guarantee.",
               icon: "lock",
             },
           ]}
