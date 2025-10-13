@@ -33,7 +33,7 @@ export function PurchasePortal({
         }}
       >
         <header>
-          <HeaderB>{"How much would you invest in your love life?"}</HeaderB>
+          <HeaderB>   {"How much would you invest"} <br /> {"in your love life?"}</HeaderB>
         </header>
 
         <ProductChooser
@@ -299,11 +299,10 @@ const ProductChooserLayout = styled.label`
 `;
 
 const YearlyProTip = createMarkdownText(styled.p`
-  background-color: ${Purples.PurpleF9};
   ${Fonts.SFPro}
   font-weight: 400px;
   font-size: 13px;
-  padding: 15px 25px;
+  padding: 5px 20px;
   border-radius: 20px;
 `);
 
