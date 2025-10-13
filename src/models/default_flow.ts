@@ -1073,7 +1073,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     {
       question: "I keep failing at online dating. Am I the problem?",
       answer: [
-        "No — the problem isn’t you. Many people who are less successful, less attractive, or less experienced still achieve great results. Success in online dating comes down to the right strategy, mindset, and approach. With Glint, you can too."
+        "No — the problem isn’t you. Many people who are less successful, less attractive, or less experienced still achieve great results. Success in online dating comes down to the right strategy, mindset, and approach. With Glint, you can too.",
         },
       ],
     },
