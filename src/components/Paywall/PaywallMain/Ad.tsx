@@ -8,26 +8,26 @@ export function Ad({}: {}) {
     <ScrollablePageContentFrame background={Greys.White}>
       <Layout>
         <header>
-          <HeaderA>{"Unlock a week of progress with our free trial!"}</HeaderA>
-          <Subheader>{"Your personalized plan includes:"}</Subheader>
+          <HeaderA>{"90 Days to Results"}</HeaderA>
+          <Subheader>{"Glint coaching program includes:"}</Subheader>
         </header>
         <OfferList>
           <Offer
-            count={210}
+            count={110}
             description={
-              "Daily bite-sized lessons that will rewire your brain and build healthier eating habits"
+              "Bite-sized self-study courses that help you set dating intentions, understand relationships and build confidence."
             }
           />
           <Offer
-            count={13}
+            count={24}
             description={
-              "CBT, DBT, and AAT based modules to understand and manage cravings and urges"
+              "Real-life exercises and practices to communicate better and improve your online dating skills."
             }
           />
           <Offer
             count={9}
             description={
-              "In-app tools to set you up for success: activities, reminders as well as progress tracking."
+              "In-app tools that include a profile makeover tool, conversation starter tools and more."
             }
           />
         </OfferList>
