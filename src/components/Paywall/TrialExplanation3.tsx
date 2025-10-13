@@ -16,7 +16,7 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
       <TrialContents>
         <header>
           <Emoji>{"🚀"}</Emoji>
-          <H2>{"How your free trial works:"}</H2>
+          <H2>{"How Glint Program Works:"}</H2>
         </header>
         <Timeline
           items={[
@@ -26,20 +26,20 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
               icon: "check",
             },
             {
-              header: "Today : Instant Free Access",
+              header: "Today : Commit to Your Success",
               content:
-                "Unlimited access to an exclusive program developed by binge eating experts.",
+                "Kickstart your coaching program developed by by dating & relationship psychology experts.",
               icon: "lock",
             },
             {
-              header: "Day 5 : Trial Reminder",
+              header: "Discover and Transform",
               content:
-                "We’ll send you an email.<br>Cancel anytime in just 15 seconds.",
+                "Just 5 minutes a day to level up your online dating.",
               icon: "lock",
             },
             {
-              header: "Day 7",
-              content: "Your subscription will start.",
+              header: "No results? No worries",
+              content: "If you go through the Glint program for 30 days and don't see results, we offer 100% money back.",
               icon: "lock",
             },
           ]}
