@@ -50,10 +50,10 @@ const BoxLayout = styled.aside`
 
   h3 {
     ${Fonts.Montserrat}
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 600;
-    margin-bottom: 5px;
-    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 
   header {
