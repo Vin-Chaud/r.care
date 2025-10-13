@@ -8,29 +8,30 @@ export function CallToAction() {
   return (
     <ScrollablePageContentFrame background={Greys.White}>
       <Layout>
-        <HeaderA>{"Delay no more - break free from binge eating."}</HeaderA>
+        <HeaderA>{"Date Smarter. Match Better."}</HeaderA>
         <TrialOfferLayout>
-          <TrialOfferHeader>{"Start with a 7-day free trial"}</TrialOfferHeader>
+          <TrialOfferHeader>{"No more guess work — our features include:"}</TrialOfferHeader>
           <CheckList fontSize={14}>
             <CheckItem>
               {
-                "**Test R.care** without financial worries and see if it’s right for you."
+                "**Profile Studio** : 💎 Transform your profile with expert feedback to showcase your most attractive self."
               }
             </CheckItem>
             <CheckItem>
               {
-                "You will have 7 days to see how R.care uses science to help you achieve your goals."
+                "**Conversation Assistant** : 💬 Get customized conversation starters that catch attention, spark interest and create chemistry."
               }
             </CheckItem>
-            <CheckItem>{"**Full access to all premium features.**"}</CheckItem>
+            <CheckItem>
+              {"**Mindset Coaching** : 🌟 Overcome dating blocks, boost your confidence, and discover the joy in meeting new people."}</CheckItem>
           </CheckList>
           <TrialDivider />
           <TrialTotalBox>
             <span className="total_yearly">
-              <span className="total">{"Total Today"}</span>
-              <span className="yearly">{"for yearly plan"}</span>
+              <span className="total">{"We’ll refund every cent"}</span>
+              <span className="yearly">{"if it’s not for you."}</span>
             </span>
-            <span className="amount">{"$ 0"}</span>
+            <span className="amount">{""}</span>
           </TrialTotalBox>
         </TrialOfferLayout>
       </Layout>
