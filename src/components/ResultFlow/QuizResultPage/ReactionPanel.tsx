@@ -11,7 +11,7 @@ export function ReactionPanel({
   return (
     <SectionLayout>
       <header>
-        <Header>{"How do these results make you feel?"}</Header>
+        <Header>{"How do you feel about the results?"}</Header>
       </header>
       <form
         onSubmit={(ev) => {
@@ -31,7 +31,7 @@ export function ReactionPanel({
         <ForwardNavButton type="submit" />
         <Disclaimer>
           {
-            "This is not a formal diagnosis. Consult a healthcare professional for a fulll BED assessment."
+            ""
           }
         </Disclaimer>
       </form>
@@ -99,15 +99,15 @@ const Header = styled.header`
   ${Fonts.Montserrat}
 
   font-weight: 600;
-  font-size: 22px;
+  font-size: 21px;
   text-align: center;
 `;
 
 const ReactionGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 2fr);
-  gap: 20px;
-  margin-block: 80px;
+  gap: 15px;
+  margin-block: 60px;
   padding: 0px;
 `;
 
