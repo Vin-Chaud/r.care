@@ -10,9 +10,9 @@ import { Seal } from "./Seal";
 import { HeaderB } from "@/components/Paywall/PaywallMain/common";
 
 const prices = {
-  yearlyFull: 189.99,
+  yearlyFull: 119.99,
   yearlyDiscounted: 89.99,
-  quarterlyFull: 69.99,
+  quarterlyFull: 229.99,
 };
 
 export function PurchasePortal({
@@ -33,7 +33,7 @@ export function PurchasePortal({
         }}
       >
         <header>
-          <HeaderB>{"Choose your plan"}</HeaderB>
+          <HeaderB>{"Choose your coaching plan"}</HeaderB>
         </header>
 
         <ProductChooser
@@ -42,25 +42,25 @@ export function PurchasePortal({
           id={`purchase-${portalId}-yearly`}
           checked={value === SubscriptionType.Yearly}
           name={`purchase-${portalId}`}
-          title={"Yearly"}
-          description={"Billed yearly"}
-          promo={"🔥 Includes 7-day Free Trial"}
-          pricePeriodInDays={365}
+          title={"3-month"}
+          description={"Billed quarterly"}
+          promo={"🔥Most Popular: Find the One in 3 Months!"}
+          pricePeriodInDays={91}
           value={SubscriptionType.Yearly}
           onChange={onChange}
         />
         <YearlyProTip>
           {
-            "💡Don’t miss out on the biggest savings of the year — a special New Year discount!"
+            "79% of Glint users found their match in 3 months.💡 — join them!"
           }
         </YearlyProTip>
         <ProductChooser
           fullAmount={prices.quarterlyFull}
           id={`purchase-${portalId}-quarterly`}
           checked={value === SubscriptionType.Quarterly}
-          pricePeriodInDays={90}
-          title={"3-month"}
-          description={"Billed every 3 months"}
+          pricePeriodInDays={365}
+          title={"1-year"}
+          description={"Billed every year"}
           name={`purchase-${portalId}`}
           value={SubscriptionType.Quarterly}
           onChange={onChange}
@@ -150,10 +150,10 @@ function MoneyBack() {
         <Seal />
       </div>
       <div>
-        <h4>{"See results or 200% money back."}</h4>
+        <h4>{"Your Success, Guaranteed"}</h4>
         <p>
           {
-            "If you go through the R.care program for 30 days and don't see results, we offer 200% money back."
+            "Try Glint coaching for 30 days — if it doesn’t work, you get 100% of your money back."
           }
         </p>
       </div>
