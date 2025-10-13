@@ -22,7 +22,7 @@ export function CommunityTestimonials() {
       <Layout>
         <header>
           <HeaderB>{"What people are saying about Glint"}</HeaderB>
-          <p className="subtitle">{"5,000+ Users"}</p>
+          <p className="subtitle">{"Hear from 5,000+ Users"}</p>
         </header>
         <TestimonialCarousel testimonials={testimonials} />
         {disclaimer && <Disclaimer>{disclaimer}</Disclaimer>}
