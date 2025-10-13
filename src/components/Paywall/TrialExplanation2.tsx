@@ -22,7 +22,7 @@ export function TrialExplanation2({ onNext }: { onNext: () => void }) {
         </header>
         <Highlight>{"We’re not here to waste your time & money."}</Highlight>
     
-        <List>3
+        <List>
           <ListItem>{"Professionally crafted profiles can increase your match rate by up to 70%."} </ListItem>
           <ListItem>{"Using tailored messages can get 30–60% more replies."}</ListItem>
           <ListItem>{"8 out of 10 people who get coaching feel more confident and better about themselves."}</ListItem>
