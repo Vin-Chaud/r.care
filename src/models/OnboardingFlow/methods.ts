@@ -452,8 +452,8 @@ export const ScoreZoneCutoffs: Readonly<
   Record<Exclude<ScoreZone, ScoreZone.VeryHigh>, number>
 > = {
   [ScoreZone.Low]: 10,
-  [ScoreZone.Medium]: 25,
-  [ScoreZone.High]: 35,
+  [ScoreZone.Medium]: 35,
+  [ScoreZone.High]: 70,
 };
 
 export function getScoreZone(percentage: number): ScoreZone {
