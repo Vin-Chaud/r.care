@@ -33,7 +33,7 @@ export function PurchasePortal({
         }}
       >
         <header>
-          <HeaderB>{"Choose your coaching plan"}</HeaderB>
+          <HeaderB>{"How much would you invest in your love life?"}</HeaderB>
         </header>
 
         <ProductChooser
