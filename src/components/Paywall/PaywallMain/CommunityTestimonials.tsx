@@ -21,8 +21,8 @@ export function CommunityTestimonials() {
     <ScrollablePageContentFrame background={Purples.PurpleF9}>
       <Layout>
         <header>
-          <HeaderB>{"Hear from the binge eating community"}</HeaderB>
-          <p className="subtitle">{"Recovery is possible with R.care"}</p>
+          <HeaderB>{"What people are saying about Glint"}</HeaderB>
+          <p className="subtitle">{"5,000+ Users"}</p>
         </header>
         <TestimonialCarousel testimonials={testimonials} />
         {disclaimer && <Disclaimer>{disclaimer}</Disclaimer>}
