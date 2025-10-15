@@ -63,35 +63,13 @@ export function Welcome({
   return (
     <PageLayout>
       <AppHeader>{{ branding: true }}</AppHeader>
-      <Emoji>{"🎊"}</Emoji>
-      <Header>{"Wecome to R.care!"}</Header>
+      <Emoji>{"😞"}</Emoji>
+      <Header>{"Oh no!"}</Header>
       <Subtitle>
         {
-          "We’re so happy to have you here. Follow the steps below to continue your R.care journey."
+          "Our coaching spots are currently full, and there was an error on our end in not catching this earlier. Don’t worry — your payment will be refunded right away. We’ll let you know as soon as we’re able to welcome new clients."
         }
       </Subtitle>
-      <InstructionList>
-        <Instruction step={"01"}>
-          {"Download the R.care app on App Store or Google Play"}
-        </Instruction>
-        <Instruction step={"02"}>
-          <div>{"Activate your account using: "}</div>
-          <Email>{email}</Email>
-          <ActivateImage src={activateGraphicUrl} />
-        </Instruction>
-      </InstructionList>
-      <Link href={"/fix_email"} style={{ textDecoration: "none" }}>
-        <StyledLink>
-          {"Is the email above incorrect? Click here to update."}
-        </StyledLink>
-      </Link>
-      <ForwardNavButton
-        onClick={() => {
-          window.location.href = appUrl;
-        }}
-      >
-        {"Download the app"}
-      </ForwardNavButton>
     </PageLayout>
   );
 }
