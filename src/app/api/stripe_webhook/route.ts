@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-
 import { config } from "@/config";
 import { Stripe } from "stripe";
 import { literal, object, string } from "zod";
@@ -21,6 +20,7 @@ export async function POST(req: NextRequest) {
   const stripeRevenueCatApiKey = config.revenuecat?.stripeApiKey;
   const secretApiKey = config.stripe.apiSecret;
   const webhookSecret = config.stripe.webhookSecret;
+
   if (!secretApiKey || !webhookSecret || !stripeRevenueCatApiKey) {
     return NextResponse.json(
       { error: "Stripe-RevenueCat integration is not configured." },
@@ -40,10 +40,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "No request body" }, { status: 400 });
   }
 
-  let verifiedBody;
+  let event;
   try {
     const body = await getRawBody(req.body);
-    verifiedBody = new Stripe(secretApiKey).webhooks.constructEvent(
+    event = new Stripe(secretApiKey).webhooks.constructEvent(
       body,
       requestSignature,
       webhookSecret
@@ -56,50 +56,68 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const parsedBody = StripeSubscriptionEvent.safeParse(verifiedBody);
-  if (!parsedBody.success) {
-    return NextResponse.json(
-      {
-        error: "Invalid event payload",
-        errors: parsedBody.error.message,
-      },
-      { status: 400 }
-    );
+  // 🟢 NEW BLOCK #1 – Handle manual-capture checkout sessions
+  if (event.type === "checkout.session.completed") {
+    const session = event.data.object as Stripe.Checkout.Session;
+
+    const paymentIntentId = session.payment_intent as string;
+    const onboardingId = session.metadata?.onboarding_session_id;
+    const signupEmail = session.metadata?.signup_email;
+
+    console.log("✅ Checkout session completed. Payment authorized:", {
+      paymentIntentId,
+      onboardingId,
+      signupEmail,
+    });
+
+    // TODO: Save this to your DB (paymentIntentId, onboardingId, etc.)
+    // Example:
+    // await db.authorizations.insert({
+    //   onboarding_session_id: onboardingId,
+    //   payment_intent_id: paymentIntentId,
+    //   signup_email: signupEmail,
+    //   status: "authorized",
+    // });
   }
-  const ev = parsedBody.data;
 
-  const revenueCatPayload = {
-    app_user_id: ev.data.object.metadata.signup_email,
-    fetch_token: ev.data.object.id,
-  };
+  // 🟢 EXISTING BLOCK – Your current RevenueCat subscription handler
+  const parsedBody = StripeSubscriptionEvent.safeParse(event);
+  if (parsedBody.success) {
+    const ev = parsedBody.data;
 
-  console.log(revenueCatPayload);
+    const revenueCatPayload = {
+      app_user_id: ev.data.object.metadata.signup_email,
+      fetch_token: ev.data.object.id,
+    };
 
-  // https://www.revenuecat.com/docs/web/stripe#5-send-stripe-tokens-to-revenuecat
-  const revenueCatReceiptResult = await fetch(
-    "https://api.revenuecat.com/v1/receipts",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Platform": "stripe",
-        Authorization: `Bearer ${stripeRevenueCatApiKey}`,
-      },
-      body: JSON.stringify(revenueCatPayload),
+    console.log("Sending subscription to RevenueCat:", revenueCatPayload);
+
+    const revenueCatReceiptResult = await fetch(
+      "https://api.revenuecat.com/v1/receipts",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Platform": "stripe",
+          Authorization: `Bearer ${stripeRevenueCatApiKey}`,
+        },
+        body: JSON.stringify(revenueCatPayload),
+      }
+    );
+
+    if (!revenueCatReceiptResult.ok) {
+      return NextResponse.json(
+        {
+          error: "Failed to send Stripe token to RevenueCat",
+          status: revenueCatReceiptResult.status,
+          body: await revenueCatReceiptResult.text(),
+        },
+        { status: 500 }
+      );
     }
-  );
-
-  if (!revenueCatReceiptResult.ok) {
-    return NextResponse.json(
-      {
-        error: "Failed to send Stripe token to RevenueCat",
-        status: revenueCatReceiptResult.status,
-        body: await revenueCatReceiptResult.text(),
-      },
-      { status: 500 }
-    );
   }
 
+  // ✅ Always respond to Stripe
   return NextResponse.json({ received: true });
 }
 
