@@ -29,7 +29,7 @@ export async function createCheckoutSession(
   const baseUrl = getRequestHost(req);
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
-    mode: "subscription",
+    mode: "payment",
     line_items: [
       {
         price: priceId,
@@ -42,7 +42,8 @@ export async function createCheckoutSession(
       product_id: productInfo.id,
       product_name: productInfo.name,
     },
-    subscription_data: {
+    payment_intent_data: {
+      capture_method: "manual",
       metadata: {
         onboarding_session_id: onboardingSessionId,
         signup_email: signupEmail,
