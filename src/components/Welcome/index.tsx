@@ -63,11 +63,11 @@ export function Welcome({
   return (
     <PageLayout>
       <AppHeader>{{ branding: true }}</AppHeader>
-      <Emoji>{"😞"}</Emoji>
-      <Header>{"Oh no!"}</Header>
+      <Emoji>{"🙈"}</Emoji>
+      <Header>{"Your payment hasn’t been processed yet!"}</Header>
       <Subtitle>
         {
-          "Our coaching spots are currently full, and there was an error on our end in not catching this earlier. Don’t worry — your payment will be refunded right away. We’ll let you know as soon as we’re able to welcome new clients."
+          "Unfortunately, all Glint coaching spots are currently full. We’ll reach out to you soon with more information on the next steps. Thank you for your patience — and don’t worry, no payment has been charged!"
         }
       </Subtitle>
     </PageLayout>
