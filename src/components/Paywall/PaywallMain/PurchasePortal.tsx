@@ -12,7 +12,7 @@ import { HeaderB } from "@/components/Paywall/PaywallMain/common";
 const prices = {
   yearlyFull: 119.99,
   yearlyDiscounted: 89.99,
-  quarterlyFull: 229.99,
+  quarterlyFull: 9.99,
 };
 
 export function PurchasePortal({
@@ -58,9 +58,9 @@ export function PurchasePortal({
           fullAmount={prices.quarterlyFull}
           id={`purchase-${portalId}-quarterly`}
           checked={value === SubscriptionType.Quarterly}
-          pricePeriodInDays={365}
-          title={"1-year"}
-          description={"Billed every year"}
+          pricePeriodInDays={7}
+          title={"1-week"}
+          description={"Billed every week"}
           name={`purchase-${portalId}`}
           value={SubscriptionType.Quarterly}
           onChange={onChange}
