@@ -14,13 +14,13 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: ["Built by dating coaches &", "relationship psychology experts"],
+                  text: ["Engineered by dating strategists", "and behavioral scientists"],
                 },
                 {
                   type: "text",
                   text: [
-                    "Take the quiz and see your",
-                    "chances for online dating success.",
+                    "Take the quiz —",
+                    "discover the science behind your dating power.",
                   ],
                   variant: "subtle",
                 },
@@ -101,13 +101,13 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  title: "Welcome!",
-                  body: "This quiz reveals your dating style and shows your true potential in online dating.",
+                  title: "Welcome to Winmate.",
+                  body: "We’ll analyze your mindset and strength to build your personalized advantage in online dating.",
                   graphic_id: "r1_1",
                 },
                 {
-                  title: "Are you ready?",
-                  body: "Make online dating work for you, with clarity and purpose.",
+                  title: "Ready to lead?",
+                  body: "Stop guessing. Use data and proven psychology to take control of your dating success.",
                   graphic_id: "r1_2",
                 },
               ],
@@ -125,7 +125,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["selfcontrol_feel"]: {
               type: "scale",
               preset: "frequency",
-              title: "Do you usually know what you want in a date?",
+              title: "Do you date with direction — or let circumstances dictate?",
               scoring: {
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -134,7 +134,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you feel comfortable showing your true self when dating?",
+                "How naturally can you show your real self?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -143,7 +143,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you enjoy the process of dating and getting to know new people?",
+                "Do you enjoy the process of dating and building attraction?",
               scoring: { 
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -161,7 +161,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you feel you have enough time and energy to date?",
+                "Do you handle rejection as failure?",
               scoring: { 
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -170,15 +170,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  body: "Ever wonder why some people seem to get the dates they want online… but you don’t?",
+                  body: "Ever wonder why some people always seem to get the dates they want online… but you don’t?",
                   graphic_id: "r2_1",
                 },
                 {
-                  body: "Your perfect match isn’t out of reach; it’s just waiting for you to step up with the right approach.",
+                  body: "Your ideal match isn’t out of reach; you just need the right system and mindset.",
                   graphic_id: "r2_2",
                 },
                 {
-                  body: "Let’s explore together — you’ve got this!",
+                  body: "Let’s break it down — this is where you gain the edge!",
                   graphic_id: "r2_3",
                 },
               ],
@@ -198,15 +198,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["selfcontrol_getbackontrack"]: {
               type: "yes_no",
               title:
-                "Do you have trouble getting matches you like?",
+                "Are you struggling to match with people you actually like?",
               feedbacks: {
                 no: {
                   type: "embedded",
-                  text: "🍃 That’s fantastic! We’ll focus on transforming your matches into genuine connections.",
+                  text: "🍃 That’s fantastic! We’ll focus on transforming your matches into connections.",
                 },
                 yes: {
                   type: "embedded",
-                  text: "🌟 No worries — we’ll support you from start to finish, including improving your profile to attract the right connections.",
+                  text: "🌟 No worries — we’ll optimize your strategy, profile, and approach together.",
                 },
               },
               scoring: {
@@ -219,7 +219,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you start conversations with matches without hesitation?",
+                "Do you start conversations with matches with ease?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
                 reverse: true,
@@ -229,7 +229,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                  "Do you feel confident planning the first date with your matches?",
+                  "Can you plan a first date with clarity and purpose?",
               scoring: {
                 target_metric: Impact.Productivity,
                 reverse: true,
@@ -248,7 +248,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you know how to express your interest after a good first date?",
+                "Do you know how to express your interest after a great first date?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -258,7 +258,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "intensity",
               preamble_text: "Do you relate to following statement?",
               title:
-                "I frequently stop hearing from matches without knowing why.",
+                "I frequently lose matches without knowing why.",
               min_label: "Not at all",
               max_label: "Totally",
               scoring: {
@@ -270,7 +270,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "intensity",
               preamble_text: "Do you relate to following statement?",
               title:
-                "I go on dates but don’t feel a real connection.",
+                "I go on dates, but I rarely meet anyone truly satisfying.",
               min_label: "Not at all",
               max_label: "Totally",
               scoring: {
@@ -281,15 +281,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  body: "Now we’ll go deeper to discover what you really want from online dating.",
+                  body: "Everything you share here stays 100% private.",
                   graphic_id: "r3_1",
                 },
                 {
-                  body: "Exploring the deeper emotions behind dating can feel personal and even a little tricky.",
+                  body: "Think of Winmate as your secret wingman — discreet, data-driven, and fully focused on helping you.",
                   graphic_id: "r3_2",
                 },
                 {
-                  body: "But remember: you deserve to dream of the partner you truly want and need.",
+                  body: "We guide you, decode your patterns, and help you master the dating game — from start to success.",
                   graphic_id: "r3_3",
                 },
               ],
@@ -312,17 +312,17 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you sometimes ignore red flags because of attraction?",
+                "Do you overlook red flags because of attraction?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             ["mental_harshestcritic"]: {
               type: "yes_no",
-              title: "Do you prioritize quantity of matches/dates over quality of connection?",
+              title: "Do you chase quantity over quality?",
               feedbacks: {
                 no: {
                   type: "embedded",
-                  title: "🌼 Awesome!",
-                  text: "🌼 Awesome! Prioritizing quality can really help build deeper, lasting relationships. We’ll help you make the most of it.",
+                  title: "Awesome!",
+                  text: "Awesome!  Investing in quality upfront always pays off with stronger, faster results.",
                 },
                 yes: {
                   type: "embedded",
@@ -338,7 +338,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             ["relationship_selfconsciouseating"]: {
               type: "yes_no",
-              title: "Do you avoid taking things further due to fear of rejection?",
+              title: "Do you pull back from opportunities because of fear of rejection?",
               scoring: {
                 target_metric: Impact.Relationship,
                 mode: "1_5",
@@ -349,7 +349,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you expect to find a perfect match without accepting flaws?",
+                "Do you expect perfection instead of progress?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             c1: {
@@ -357,7 +357,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Glint transforms online dating into a mindful journey, free from uncertainty and burnout.",
+                  text: "Winmate transforms online dating into a winning journey, free from uncertainty and burnout.",
                 },
                 {
                   type: "image",
@@ -365,7 +365,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
                 {
                   type: "text",
-                  text: "Our coaching helps you build authentic connections that truly matter.",
+                  text: "Your private advantage in modern dating — data-driven and strategic.",
                 },
               ],
             },
@@ -373,7 +373,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you expect instant results, only to give up too soon?",
+                "Do you give up when results don’t come instantly?",
               scoring: {
                 target_metric: Impact.Relationship,
               },
@@ -382,22 +382,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you find yourself overthinking dates or worrying too much about how you come across — instead of just being yourself?",
+                "Do you overthink how you come across instead of leading with confidence?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             r4: {
               type: "story",
               panes: [
                 {
-                  body: "Online dating often fails because people don’t fully understand its nature.",
+                  body: "Online dating isn’t luck — it’s a system.",
                   graphic_id: "r4_1",
                 },
                 {
-                  body: " Many expect instant chemistry or a perfect match, forgetting that meaningful connections take time.",
+                  body: "When you master the logic behind it, you create consistently high results.",
                   graphic_id: "r4_2",
                 },
                 {
-                  body: "Building genuine connections can feel challenging, but we’re here to guide you.",
+                  body: "We’ll help you date with precision, presence, and control.",
                   graphic_id: "r4_3",
                 },
               ],
@@ -425,7 +425,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "agreement",
               title:
-                "Do you find yourself stuck in shallow chats with no real dates?",
+                "Do you get stuck in shallow chats that go nowhere?",
               scoring: {
                 target_metric: Impact.MentalHealth,
               },
@@ -434,12 +434,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "agreement",
               title:
-                "Do you feel like you’re not truly expressing your feelings?",
+                "Do you struggle to express what you truly want?",
               base_feedback: {
                 type: "embedded",
                 text: [
-                  "💡You’re not alone — this is something many people experience.",
-                  "It takes time and practice to communicate your feelings clearly, and the fact that you notice it is the first step toward improvement.",
+                  "💡You’re not alone.",
+                  "With time and practice, you’ll learn to express what you want clearly and confidently.",
                 ],
               },
               scoring: {
@@ -449,7 +449,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["internalsigdysfunc_skipmeals"]: {
               type: "scale",
               preset: "agreement",
-              title: "Do you sometimes avoid conversations because you’re afraid of being misunderstood?",
+              title: "Do you ever feel like you’re wasting time and money on disappointing dates?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -461,7 +461,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 { type: "title", text: "Almost there!" },
                 {
                   type: "text",
-                  text: "To perfect your online dating game, let’s go deeper",
+                  text: "Let’s dive deeper to sharpen your awareness and build unstoppable confidence.",
                 },
               ],
             },
@@ -510,11 +510,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                   {
                     type: "text",
-                    text: "With Glint, your insights become action.",
+                    text: "With Winmate, your insights become action.",
                   },
                   {
                     type: "text",
-                    text: "We will guide you to attract the right people, communicate authentically, and build meaningful connections.",
+                    text: "We will guide you to attract the quality people, communicate authentically, and get results.",
                   },
                 ],
               },
@@ -572,11 +572,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Real coaching. Real connections.",
+                  text: "Real coaching. Real results.",
                 },
                 {
                   type: "text",
-                  text: "With Glint, you’ll get clear strategies, expert advice, and confidence. Our coaching is private, judgment-free, and designed to deliver real results.",
+                  text: "With Winmate, you’ll get clear strategies, expert advice, and confidence. Our coaching is private, judgment-free, and designed to deliver real results.",
                 },
                 {
                   type: "image",
@@ -587,12 +587,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["comorbidities"]: {
              type: "multi_select",
               title:
-                "What do you feel are your biggest challenges when it comes to online dating?",
+                "What are your biggest challenges in online dating?",
               help_text:
-                "Knowing what’s holding you back will help us guide you better.",
+                "We’ll help you turn every obstacle into a measurable win.",
               options: [
                 {
-                  text: "🔍 Finding compatible dates",
+                  text: "🔍 Finding quality matches",
                   value: "ANXIETY",
                   feedback: {
                     priority: 4,
@@ -636,7 +636,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                 },
                 {
-                  text: "😬 Feeling anxious about building connections",
+                  text: "😬 Feeling anxious about next moves",
                   value: "ALCOHOL_SUBSTANCE_USE",
                   feedback: {
                     priority: 1,
@@ -648,7 +648,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                       },
                       {
                         type: "text",
-                        text: "With the right tools, you can turn uncertainty into confidence — every great connection starts with taking one confident step forward.",
+                        text: "With the right tools, you can turn uncertainty into confidence — every great result starts with taking one confident step forward.",
                       },
                       {
                         type: "image",
@@ -658,7 +658,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                 },
                 {
-                  text: "💔 Dealing with rejection",
+                  text: "💔 Handling rejection",
                   value: "BODY_DYSMORPHIA",
                   feedback: {
                     priority: 2,
@@ -666,7 +666,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     contents: [
                       {
                         type: "title",
-                        text: "Every relationship journey has bumps.",
+                        text: "Every dating journey has bumps.",
                       },
                       {
                         type: "text",
@@ -686,7 +686,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["mental_othersnotserious"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Which of these dating coaching myths do you relate to?",
+              preamble_text: "Which of these myths do you relate to?",
               title:
                 "Dating coaching is only for people who can’t date on their own.",
               scoring: {
@@ -696,9 +696,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["mental_toldtojuststop"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Which of these dating coaching myths do you relate to?",
+              preamble_text: "Which of these myths do you relate to?",
               title:
-                "Coaching won’t really make a difference — dating is just luck.",
+                "Strategy won’t really make a difference — dating is just luck.",
               scoring: {
                 target_metric: Impact.MentalHealth,
               },
@@ -706,8 +706,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["relationship_misunderstood"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Which of these myths about dating coaching feels most true to you?",
-              title: "Dating coaching is too serious — it should just happen naturally.",
+              preamble_text: "Which of these myths feels most true to you?",
+              title: "There is no science or data behind online dating.",
               scoring: {
                 target_metric: Impact.Relationship,
               },
@@ -716,7 +716,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  body: "Just like any other skill — whether it’s cooking, public speaking, or sports — **dating takes practice** and the right guidance.",
+                  body: "Dating’s a skill — just like lifting or leading. With the right mindset and strategy, you get better fast.",
                   graphic_id: "r5_1",
                 },
                 {
@@ -724,7 +724,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   graphic_id: "r5_2",
                 },
                 {
-                  body: "We’ll help you get better at dating so you can reach one of life’s most important goals: **finding the right person.**",
+                  body: "We help you master online dating through exclusive insights and proven data.",
                   graphic_id: "r5_3",
                 },
               ],
@@ -832,7 +832,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "With Glint, you can get better at online dating and find your perfect match. Along the way, you’ll also learn more about yourself, what you really want, and what matters most in life.",
+                  text: "With Winmate, you’ll transform dating from trial-and-error into a focused system for success.",
                 },
                 {
                   type: "image",
@@ -844,7 +844,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "single_select",
               preamble_text:
                 "Let’s see your potential for growth.",
-              title: "How much time per day can you spend leveling up your online dating?",
+              title: "How much time per day can you spend leveling up your online dating performance?",
               options: [
                 {
                   text: "5 mins",
@@ -865,7 +865,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Just five minutes a day can make your online dating better and get you better results.",
+                  text: "Even five minutes of focused effort can create exponential results.",
                 },
                 {
                   type: "testimonial",
@@ -875,7 +875,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["motivationlevel"]: {
               type: "scale",
               preset: "intensity",
-              title: "How ready are you for personalized coaching to improve your online dating?",
+              title: "How ready are you for personalized coaching?",
               min_label: "Not at all",
               max_label: "Very Motivated",
               feedbacks: {
@@ -896,7 +896,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     },
                     {
                       type: "text",
-                      text: "Motivation and excitement unlock power — fuel your energy to kickstart online dating success.",
+                      text: "Your motivation fuels mastery — let’s turn it into results.",
                     },
                   ],
                 },
@@ -906,11 +906,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     { type: "emoji", emoji: "👭" },
                     {
                       type: "title",
-                      text: "We know online dating can feel intimidating.",
+                      text: "No gimmicks. No out-dated pickup lines. ",
                     },
                     {
                       type: "text",
-                      text: "We’re here to boost your motivation and guide your journey.🌟",
+                      text: "Just personalized coaching grounded in data, science and what actually works in today’s online dating world.🌟",
                     },
                   ],
                 },
@@ -951,7 +951,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   landing_quiz_step: {
     id: "age",
     type: "single_select",
-    title: "Tap your age for custom dating tips.",
+    title: "Select your age to unlock tailored dating strategies.",
     help_text: "⌛ 3 min quiz",
     options: [
       { value: "18_23", text: "18-23" },
@@ -964,7 +964,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     id: "popup_quiz",
     type: "yes_no",
     title:
-      "Ready to meet your dream person? ✨",
+      "Ready to achieve results starting now?",
   },
   reaction_step_id: "reaction",
   email_step_id: "email",
@@ -1060,15 +1060,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   ],
   faqs: [
     {
-      question: "What’s Glint all about?",
+      question: "What’s Winmate all about?",
       answer:
-        "Glint is your ultimate coach for online dating — guiding you to connect confidently, attract the right matches, and turn dating into something exciting instead of exhausting. We combine proven relationship psychology with practical tools to help you level up your dating experience.",
+        "Winmate is your ultimate coach for online dating — guiding you to connect confidently, attract the right matches, and turn dating into something exciting instead of exhausting.",
     },
     {
       question:
-        "What is Glint comparable to?",
+        "What is Winmate comparable to?",
       answer:
-        "Glint is like having a relationship therapist ❤️, a trusted friend who’s great at dating 🌟, and a personalized self-help guide tailored just for you 📖.",
+        "Winmate is like having a relationship scientist, a trusted friend who’s great at dating, and a personalized self-help guide tailored just for you.",
     },
     {
       question: "I keep failing at online dating. Am I the problem?",
@@ -1078,9 +1078,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     },
     {
       question:
-        "Is Glint a pick‑up artist?",
+        "Is Winmate a pick‑up artist?",
       answer:
-        "Glint is never about pretending to be someone you’re not 🎭. It’s not about quick fixes or generic advice ❌. It’s about mastering real connection skills so you can be your true self and attract the right match.",
+        "Winmate is never about pretending to be someone you’re not 🎭. It’s not about quick fixes or generic advice ❌. It’s about mastering real connection skills so you can be your true self and attract the right match.",
     },
   ],
   testimonial_disclaimer: null,
@@ -1089,7 +1089,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     screen_name: "Jason",
     screen_subtitle: "32, Austin (USA)",
     content:
-      "I never thought online dating was for me — but I realized I had no choice but to get better at this game. Glint was exactly what I needed: actionable, personalized strategies and skills to practice. My dating quality improved drastically.",
+      "I never thought online dating was for me — but I realized I had no choice but to get better at this game. Winmate was exactly what I needed: actionable, personalized strategies and skills to practice. My dating quality improved drastically.",
     social: {
       comments: 11,
       shares: 35,
@@ -1102,35 +1102,35 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       screen_name: "Liam",
       screen_subtitle: "29, Sedona (USA)",
       content:
-        "I was hesitant about dating coaching at first, but Glint feels different. It’s not about cheesy lines — it’s about building real skills. I feel more confident, authentic, and excited to meet new people. My dating life has truly leveled up.",
+        "I was hesitant about dating coaching at first, but Winmate feels different. It’s not about cheesy lines — it’s about building real skills. I feel more confident, authentic, and excited to meet new people. My dating life has truly leveled up.",
     },
     {
       avatar_graphic_id: "Diego",
       screen_name: "Diego",
       screen_subtitle: "24, Mexico City (Mexico)",
       content:
-        "I’ve always been shy and wanted to improve my dating life, but I never knew where to start. Glint broke it down for me — step-by-step, no pressure. Now I’m dating with confidence, and I actually look forward to it.",
+        "I’ve always been shy and wanted to improve my dating life, but I never knew where to start. Winmate broke it down for me — step-by-step, no pressure. Now I’m dating with confidence, and I actually look forward to it.",
     },
     {
       avatar_graphic_id: "Marcus",
       screen_name: "Marcus",
       screen_subtitle: "32, London (UK)",
       content:
-        "Glint gave me the tools to cut through the noise and connect with people who actually matched what I’m looking for. I went on just three dates — all with clarity and purpose — and now I’m in a relationship with someone I never thought I’d find.",
+        "Winmate gave me the tools to cut through the noise and connect with people who actually matched what I’m looking for. I went on just three dates — all with clarity and purpose — and now I’m in a relationship with someone I never thought I’d find.",
     },
     {
       avatar_graphic_id: "Javier",
       screen_name: "Javier",
       screen_subtitle: "42, Miami (USA)",
       content:
-        "At my age, online dating felt overwhelming. I tried so many dating apps and had no idea what I was doing. Glint gave me the right perspective, attitude, and strategy to follow. Last month, I met someone amazing and have never been happier.",
+        "At my age, online dating felt overwhelming. I tried so many dating apps and had no idea what I was doing. Winmate gave me the right perspective, attitude, and strategy to follow. Last month, I met someone amazing and have never been happier.",
     },
     {
       avatar_graphic_id: "Ethan",
       screen_name: "Ethan",
       screen_subtitle: "39, San Francisco (USA)",
       content:
-        "After divorcing my high school sweetheart, I made an online dating profile but it never led to a real-life date. Glint rebuilt everything for me from scratch: my mindset, my profile, and my messaging style — all in less than a month. Since then, I’ve scored countless matches and enjoyed four amazing dates. In one word: life-changing.",
+        "After divorcing my high school sweetheart, I made an online dating profile but it never led to a real-life date. Winmate rebuilt everything for me from scratch: my mindset, my profile, and my messaging style — all in less than a month. Since then, I’ve scored countless matches and enjoyed four amazing dates. In one word: life-changing.",
     },
   ],
   activate_graphic_id: "activate",
