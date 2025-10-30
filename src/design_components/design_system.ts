@@ -1,5 +1,5 @@
 import { NextFont } from "next/dist/compiled/@next/font";
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Anton } from "next/font/google";
 import { css } from "styled-components";
 
 const inter = Inter({ subsets: ["latin"], weight: "400" });
@@ -8,7 +8,7 @@ const interItalic = Inter({
   weight: "400",
   style: "italic",
 });
-const montserrat = Poppins({
+const montserrat = Anton ({
   subsets: ["latin"],
   weight: ["400"],
 });
