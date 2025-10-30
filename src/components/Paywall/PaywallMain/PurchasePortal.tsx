@@ -51,7 +51,7 @@ export function PurchasePortal({
         />
         <YearlyProTip>
           {
-            "79% of Glint users found their match in 3 months.💡 — join them!"
+            "79% of Winmate users found their match in 3 months.💡 — join them!"
           }
         </YearlyProTip>
         <ProductChooser
@@ -153,7 +153,7 @@ function MoneyBack() {
         <h4>{"Your Success, Guaranteed"}</h4>
         <p>
           {
-            "Try Glint coaching for 30 days — if it doesn’t work, you get 100% of your money back."
+            "Try Winmate for 30 days — if it doesn’t work, you get 100% of your money back."
           }
         </p>
       </div>
