@@ -16,7 +16,7 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
       <TrialContents>
         <header>
           <Emoji>{"🚀"}</Emoji>
-          <H2>{"How Glint Program Works:"}</H2>
+          <H2>{"How Winmate Works:"}</H2>
         </header>
         <Timeline
           items={[
@@ -28,7 +28,7 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
             {
               header: "Today: Commit to Your Success",
               content:
-                "Kickstart your coaching program developed by dating & relationship psychology experts.",
+                "Kickstart your coaching developed by dating experts & scientists.",
               icon: "lock",
             },
             {
@@ -39,7 +39,7 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
             },
             {
               header: "No results? No worries",
-              content: "If you go through the Glint program for 30 days and don't see results, we offer a 100% money-back guarantee.",
+              content: "If you go through the Winmate program for 30 days and don't see results, we offer a 100% money-back guarantee.",
               icon: "lock",
             },
           ]}
