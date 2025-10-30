@@ -21,13 +21,13 @@ export function TrialExplanation1({ onNext }: { onNext: () => void }) {
         </header>
         <Highlight>
           {
-            "Discover how thousands have improved their dating lives and built lasting connections."
+            "See how thousands have optimized their dating lives — and started getting real results."
           }
         </Highlight>
         <List>
           <ListItem>
             {
-              "If you go through the Glint coaching for 30 days and don't see results, we offer 100% money back. "
+              "If you go through the Winmate coaching for 30 days and don't see results, we offer 100% money back. "
             }
           </ListItem>
           <ListItem>
