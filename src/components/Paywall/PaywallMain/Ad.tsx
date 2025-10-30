@@ -9,13 +9,13 @@ export function Ad({}: {}) {
       <Layout>
         <header>
           <HeaderA>{"90 Days to Results"}</HeaderA>
-          <Subheader>{"Glint coaching program includes:"}</Subheader>
+          <Subheader>{"Winmate includes:"}</Subheader>
         </header>
         <OfferList>
           <Offer
             count={110}
             description={
-              "Bite-sized self-study courses that help you set dating intentions, understand relationships and build confidence."
+              "Bite-sized self-study courses that teach you online dating strategies and the science behind attraction."
             }
           />
           <Offer
