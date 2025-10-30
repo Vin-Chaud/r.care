@@ -21,7 +21,7 @@ export function CommunityTestimonials() {
     <ScrollablePageContentFrame background={Purples.PurpleF9}>
       <Layout>
         <header>
-          <HeaderB>{"What people are saying about Glint"}</HeaderB>
+          <HeaderB>{"What people are saying about Winmate"}</HeaderB>
           <p className="subtitle">{"Hear from 5,000+ Users"}</p>
         </header>
         <TestimonialCarousel testimonials={testimonials} />
