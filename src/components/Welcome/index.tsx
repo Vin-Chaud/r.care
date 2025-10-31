@@ -64,10 +64,10 @@ export function Welcome({
     <PageLayout>
       <AppHeader>{{ branding: true }}</AppHeader>
       <Emoji>{"🙈"}</Emoji>
-      <Header>{"Your payment hasn’t been processed yet!"}</Header>
+      <Header>{"Your payment hasn’t been processed!"}</Header>
       <Subtitle>
         {
-          "Unfortunately, all Glint coaching spots are currently full. We’ll reach out to you soon with more information on the next steps. Thank you for your patience — and don’t worry, no payment has been charged!"
+          "Winmate coaching is fully booked at the moment. We’ll notify you once a spot becomes available — don’t worry, no payment has been charged."
         }
       </Subtitle>
     </PageLayout>
