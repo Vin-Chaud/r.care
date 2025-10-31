@@ -24,9 +24,9 @@ const QuestionHeaderLayout = styled.div`
 `;
 
 const QuestionTitle = createRichText(styled.h2`
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-size:20px;
-  font-weight: 600;
+  font-weight: 800;
   color: ${Greys.Grey4D};
   margin-block: 12px;
   height: 4em;
@@ -35,9 +35,9 @@ const QuestionTitle = createRichText(styled.h2`
 `);
 
 const QuestionHelpText = createRichText(styled.p`
-  ${Fonts.SFPro}
-  font-size:14px;
-  font-weight: 500px;
+  ${Fonts.Inter}
+  font-size:15px;
+  font-weight: 500;
   color: ${Purples.PurpleBC};
   margin-block: 12px;
 `);
