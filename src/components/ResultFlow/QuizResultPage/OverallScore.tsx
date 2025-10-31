@@ -250,8 +250,8 @@ const ScoreZoneGuideItemLayout = styled.li.withConfig({
     props.isHighlighted ? Purples.PurpleF5_Undocumented : "transparent"};
   border-radius: 10px;
 
-  ${Fonts.SFPro};
-  font-size: 9px;
+  ${Fonts.Inter};
+  font-size: 10px;
   line-height: 10px;
   font-weight: 400;
   padding: 7px;
