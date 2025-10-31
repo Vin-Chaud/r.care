@@ -984,25 +984,25 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   target_episode_count_id: "binge_frequency_goal",
   target_knowledge_score: 94,
   interview: {
-    title: "Glint works!",
+    title: "Winmate works!",
     subtitle: "Alex says:",
     graphic_id: "persona",
     questions: [
       {
         question: "How was your online dating experience before?",
         answer:
-          "I felt lost scrolling through endless profiles, unsure how to start conversations or even what I was really looking for. It became frustrating, exhausting, and honestly, it started to make me doubt myself.",
+          "I felt lost scrolling through endless profiles. It became frustrating, exhausting, and honestly, it started to make me doubt myself.",
       },
       {
-        question: "How has Glint helped you?",
+        question: "How has Winmate helped you?",
         answer:
-          "It has been a game changer. Glint didn’t just give me tips — it gave me confidence, clarity, and a fresh perspective. With confidence and a fresh mindset, now I’m in a relationship with someone I never thought was possible.",
+          "It’s been a game changer. Winmate shared tips I never knew about online dating—and gave me confidence, clarity, and a fresh perspective.",
       },
       {
         question:
-          "What would you say to someone curious about trying Glint?",
+          "What would you say to someone curious about trying Winmate?",
         answer:
-          "Glint is worth it — even a little guidance makes a world of difference. Online dating is no longer optional, it’s standard. Getting good at it makes a huge difference, and Glint made it easy.",
+          "Winmate is worth it — even a little guidance makes a world of difference. You will get the results that will surprise you in less than a month!",
       },
     ],
     disclaimer: null,
