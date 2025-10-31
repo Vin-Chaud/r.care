@@ -72,7 +72,7 @@ const FaqList = styled.ul`
 
 const FaqBoxLayout = styled.section`
   background-color: ${Purples.PurpleF9};
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-size: 13px;
   font-weight: 400;
   border-radius: 20px;
@@ -80,7 +80,7 @@ const FaqBoxLayout = styled.section`
   margin-bottom: 15px;
 
   h3 {
-    ${Fonts.SFPro}
+    ${Fonts.Inter}
     font-size: 15px;
     font-weight: 500;
   }
@@ -106,7 +106,7 @@ const FaqBoxLayout = styled.section`
 
   button {
     text-transform: uppercase;
-    ${Fonts.SFPro}
+    ${Fonts.Inter}
     font-weight: 600;
     font-size: 9px;
     color: ${Greys.Grey5D};
