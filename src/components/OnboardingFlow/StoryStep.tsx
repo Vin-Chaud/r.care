@@ -96,6 +96,7 @@ const StoryImage = styled.img`
 const StoryText = createRichText(styled.p`
   ${Fonts.Inter}
   font-weight: 300;
+  font-size: 16px;
   color: ${Greys.Grey26};
   margin-block: 40px;
   text-align: center;
