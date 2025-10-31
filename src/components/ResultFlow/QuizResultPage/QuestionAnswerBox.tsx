@@ -42,7 +42,7 @@ const BoxLayout = styled.aside`
 
   header p {
     ${Fonts.Inter};
-    font-size: 64px;
+    font-size: 24px;
     font-weight: 400px;
     color: ${Greys.Black};
     margin-block: 0px;
