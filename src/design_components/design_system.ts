@@ -1,9 +1,9 @@
 import { NextFont } from "next/dist/compiled/@next/font";
-import { Oswald, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import { css } from "styled-components";
 
-const inter = Oswald({ subsets: ["latin"], weight: "400" });
-const interItalic = Oswald({
+const inter = Inter ({ subsets: ["latin"], weight: "400" });
+const interItalic = Inter({
   subsets: ["latin"],
   weight: "400",
   style: "italic",
