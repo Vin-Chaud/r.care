@@ -951,7 +951,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   landing_quiz_step: {
     id: "age",
     type: "single_select",
-    title: "Select your age to unlock tailored dating strategies.",
+    title: "Tap your age to unlock tailored dating tips.",
     help_text: "⌛ 3 min quiz",
     options: [
       { value: "18_23", text: "18-23" },
