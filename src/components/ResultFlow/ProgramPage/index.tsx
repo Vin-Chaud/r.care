@@ -46,7 +46,7 @@ export function ProgramPage({
         <section>
           <AppHeader>{{ branding: true }}</AppHeader>
           <HeaderA>
-            {"Glint is your personal coaching system to help you date with confidence and transform your love life."}
+            {"Winmate is your personal coaching system to help you date with confidence and transform your love life."}
           </HeaderA>
         </section>
       
