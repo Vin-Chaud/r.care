@@ -1,5 +1,5 @@
 import { NextFont } from "next/dist/compiled/@next/font";
-import { Oswald, Geologica } from "next/font/google";
+import { Oswald, Inter } from "next/font/google";
 import { css } from "styled-components";
 
 const inter = Oswald({ subsets: ["latin"], weight: "400" });
@@ -8,7 +8,7 @@ const interItalic = Oswald({
   weight: "400",
   style: "italic",
 });
-const montserrat = Geologica ({
+const montserrat = Inter ({
   subsets: ["latin"],
   weight: ["400"],
 });
@@ -16,7 +16,7 @@ const montserrat = Geologica ({
 export const Fonts = {
   SFPro: fontCss(inter),
   SFProItalic: fontCss(interItalic),
-  Montserrat: fontCss(montserrat),
+  Montserrat: fontCss(inter),
   Inter: fontCss(montserrat),
 };
 
