@@ -1,6 +1,8 @@
 import { NextFont } from "next/dist/compiled/@next/font";
-import { Inter } from "next/font/google";
+import { Inter, Anton } from "next/font/google";
 import { css } from "styled-components";
+
+const anton = Anton ({ subsets: ["latin"], weight: "400" });
 
 const inter = Inter ({ subsets: ["latin"], weight: "400" });
 const interItalic = Inter({
@@ -14,7 +16,7 @@ const montserrat = Inter ({
 });
 
 export const Fonts = {
-  SFPro: fontCss(inter),
+  SFPro: fontCss(anton),
   SFProItalic: fontCss(interItalic),
   Montserrat: fontCss(inter),
   Inter: fontCss(montserrat),
