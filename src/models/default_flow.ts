@@ -103,12 +103,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 {
                   title: "Welcome to Winmate.",
                   body: "We’ll analyze your mindset and strength to build your personalized advantage in online dating.",
- //                 graphic_id: "r1_1",
+                  graphic_id: "",
                 },
                 {
                   title: "Ready to lead?",
                   body: "Stop guessing. Use data and proven psychology to take control of your dating success.",
-//                  graphic_id: "r1_2",
+                  graphic_id: "",
                 },
               ],
             },
