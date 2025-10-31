@@ -42,7 +42,7 @@ const BoxLayout = styled.aside`
 
   header p {
     ${Fonts.Inter};
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400px;
     color: ${Greys.Black};
     margin-block: 0px;
@@ -50,7 +50,7 @@ const BoxLayout = styled.aside`
 
   h3 {
     ${Fonts.Montserrat}
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -64,8 +64,8 @@ const BoxLayout = styled.aside`
     margin-top: 0px;
     margin-bottom: 0px;
     color: ${Greys.Grey5D};
-    ${Fonts.SFPro};
-    font-size: 13px;
+    ${Fonts.Inter};
+    font-size: 14px;
     font-weight: 400px;
   }
 
