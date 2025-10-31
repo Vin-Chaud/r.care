@@ -65,7 +65,7 @@ const Emoji = styled.div`
 `;
 
 const TextNormal = createRichText(styled.p`
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-size: 17px;
   color: ${Greys.Grey26};
   margin-block: 20px;
@@ -73,7 +73,7 @@ const TextNormal = createRichText(styled.p`
 `);
 
 const TextSubtle = createRichText(styled.p`
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-size: 14px;
   color: ${Greys.Grey4D};
   margin-block: 20px;
@@ -81,7 +81,7 @@ const TextSubtle = createRichText(styled.p`
 `);
 
 const Title = createRichText(styled.h2`
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-size: 24px;
   font-weight: 600;
   margin-block: 20px;
