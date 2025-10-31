@@ -223,13 +223,13 @@ const ProductChooserLayout = styled.label`
 
     .price {
       ${Fonts.SFPro};
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 600;
     }
 
     .price_struck {
       ${Fonts.SFPro};
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       color: red;
       text-decoration: line-through;
@@ -237,7 +237,7 @@ const ProductChooserLayout = styled.label`
     }
 
     .description {
-      ${Fonts.SFPro};
+      ${Fonts.Inter};
       font-size: 13px;
       font-weight: 500;
       color: ${Purples.Purple94};
@@ -257,7 +257,7 @@ const ProductChooserLayout = styled.label`
     }
 
     .integer {
-      font-weight: 600;
+      font-weight: 500;
       font-size: 3.5em;
       vertical-align: text-top;
       position: relative;
@@ -299,9 +299,9 @@ const ProductChooserLayout = styled.label`
 `;
 
 const YearlyProTip = createMarkdownText(styled.p`
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-weight: 400px;
-  font-size: 13px;
+  font-size: 14px;
   padding: 5px 20px;
   border-radius: 20px;
 `);
@@ -318,7 +318,7 @@ const MoneyBackLayout = styled.section`
   }
 
   h4 {
-    ${Fonts.SFPro}
+    ${Fonts.Inter}
     font-size: 14px;
     font-weight: 700;
     margin-top: 10px;
@@ -326,7 +326,7 @@ const MoneyBackLayout = styled.section`
   }
 
   p {
-    ${Fonts.SFPro}
+    ${Fonts.Inter}
     font-size: 12px;
     font-weight: 400;
     margin-block: 0px;
