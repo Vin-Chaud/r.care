@@ -65,7 +65,7 @@ const HeaderImageGroup = styled.div`
 `;
 
 const Header = styled.header`
-  width: 189px;
+  width: 200px;
   height: 133px;
   top: 88px;
   left: 30px;
@@ -84,12 +84,12 @@ const Header = styled.header`
   left: 0px;
 
   p {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
   }
 
   h2 {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 800;
     width: 140px;
   }
@@ -114,14 +114,14 @@ const InterviewHeader = styled.h3`
   margin-top: 0px;
   margin-bottom: 25px;
 
-  ${Fonts.SFPro};
+  ${Fonts.Inter};
   font-weight: 500;
-  font-size: 14px;
+  font-size: 18px;
 `;
 
 const InterviewContent = createMarkdownText(styled.p`
   ${Fonts.Montserrat};
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 400;
 
   strong {
