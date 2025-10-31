@@ -153,7 +153,7 @@ const QuizOptionButton = styled("button").withConfig({
   transition: background 0.3s;
   cursor: pointer;
 
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
 
   color: ${Greys.White};
   font-size: 20px;
