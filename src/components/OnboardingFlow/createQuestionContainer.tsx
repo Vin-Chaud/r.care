@@ -162,8 +162,8 @@ const EmbeddedFeedbackBox = styled.div`
   padding-inline: 20px;
   padding-block: 10px;
   border-radius: 20px;
-  ${Fonts.SFPro};
-  font-size: 13px;
+  ${Fonts.Inter};
+  font-size: 14px;
   line-height: 18px;
   color: ${Greys.Grey4D};
   margin-block: 13px;
