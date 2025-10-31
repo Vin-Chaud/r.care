@@ -36,7 +36,7 @@ const AppHeaderLayout = styled.div`
 `;
 
 const Title = styled.h1`
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-size:14px;
   font-weight: 500;
   color: ${Greys.Grey96};
