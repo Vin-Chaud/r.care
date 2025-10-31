@@ -34,7 +34,7 @@ const Button = styled.button.withConfig({
       ? Purples.PurpleE4_Undocumented
       : Purples.Purple94};
 
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   color: ${Greys.White};
   border: 0;
   border-radius: 20px;
