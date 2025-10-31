@@ -9,7 +9,7 @@ export const LandingHeader = createMarkdownText(styled.h1`
   ${{ c: 0 }}
   font-size: 30px;
   line-height: 35px;
-  font-weight: normal;
+  font-weight: 600;
   color: ${Greys.Grey4D};
 
   strong {
@@ -20,7 +20,7 @@ export const LandingHeader = createMarkdownText(styled.h1`
 
 export const LandingQuizTitle = createMarkdownText(styled.h2`
   ${Fonts.Montserrat}
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   line-height: 16.29px;
   text-align: center;
@@ -29,7 +29,7 @@ export const LandingQuizTitle = createMarkdownText(styled.h2`
 
 export const LandingQuizHelpText = createMarkdownText(styled.p`
   ${Fonts.SFPro}
-  font-size: 14px;
+  font-size: 15px;
   line-height: 16.29px;
   text-align: center;
   color: ${Greys.GreyA7};
