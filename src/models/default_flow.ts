@@ -170,15 +170,18 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
+                  title: "What's wrong?",
                   body: "Ever wonder why some people always seem to get the dates they want online… but you don’t?",
                   graphic_id: "r2_1",
                 },
                 {
+                  title: "You are not the problem.",
                   body: "Your ideal match isn’t out of reach; you just need the right system and mindset.",
                   graphic_id: "r2_2",
                 },
                 {
-                  body: "Let’s break it down — this is where you gain the edge!",
+                   title: "Let's break it down.",
+                  body: "This quiz will help Winmate discover your strengths and show how you can excel!",
                   graphic_id: "r2_3",
                 },
               ],
@@ -281,15 +284,18 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
+                  title: "Trust us.",
                   body: "Everything you share here stays 100% private.",
                   graphic_id: "r3_1",
                 },
                 {
-                  body: "Think of Winmate as your secret wingman — discreet, data-driven, and fully focused on helping you.",
+                  title: "Think of Winmate as your secret wingman.",
+                  body: "Discreet, data-driven, and fully focused on helping you.",
                   graphic_id: "r3_2",
                 },
                 {
-                  body: "We guide you, decode your patterns, and help you master the dating game — from start to success.",
+                  title: "From start to success.",
+                  body: "We guide you, decode your patterns, and help you master the dating game.",
                   graphic_id: "r3_3",
                 },
               ],
@@ -389,14 +395,17 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
+                  title: "Don't be mistaken.",
                   body: "Online dating isn’t luck — it’s a system.",
                   graphic_id: "r4_1",
                 },
                 {
-                  body: "When you master the logic behind it, you create consistently high results.",
+                  title: "Understand the logic behind it.",
+                  body: "When you master the algorithm behind it—and yourself—you can achieve consistently high results.",
                   graphic_id: "r4_2",
                 },
                 {
+                  title: "Take advantage of Winmate.",
                   body: "We’ll help you date with precision, presence, and control.",
                   graphic_id: "r4_3",
                 },
@@ -716,14 +725,17 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  body: "Dating’s a skill — just like lifting or leading. With the right mindset and strategy, you get better fast.",
+                  title: "Dating’s a skill.",
+                  body: "Like lifting or leading, you can train it. With the right mindset and strategy, you’ll improve fast.",
                   graphic_id: "r5_1",
                 },
                 {
+                  title: "Command expert guidance.",
                   body: "Coaching isn’t just for those who struggle; it’s for anyone who wants better results.",
                   graphic_id: "r5_2",
                 },
                 {
+                  title: "Winmate at your fingertips.",
                   body: "We help you master online dating through exclusive insights and proven data.",
                   graphic_id: "r5_3",
                 },
