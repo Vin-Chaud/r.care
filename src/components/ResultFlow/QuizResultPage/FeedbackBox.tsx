@@ -41,7 +41,7 @@ const BoxLayout = styled.aside`
     margin-bottom: 0px;
   }
 
-  ${Fonts.SFPro};
-  font-size: 12px;
+  ${Fonts.Inter};
+  font-size: 14px;
   font-weight: 400px;
 `;
