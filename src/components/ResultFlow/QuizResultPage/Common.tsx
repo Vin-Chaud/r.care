@@ -14,7 +14,7 @@ export const SectionHeader = styled.h2`
 `;
 
 export const SectionSubHeader = styled.p`
-  ${Fonts.SFPro};
+  ${Fonts.Inter};
   font-weight: 400;
   font-size: 15px;
   margin-top: 15px;
