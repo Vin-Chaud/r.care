@@ -143,7 +143,7 @@ function EmpathyItem({
 }
 
 const HeaderA = styled.h2`
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-size: 18px;
   font-weight: 500;
   text-align: center;
@@ -191,7 +191,7 @@ const ChartTooltip = styled.div.withConfig({
 `;
 
 const HeaderB = createMarkdownText(styled.h2`
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-size: 18px;
   font-weight: 500;
   text-align: center;
@@ -271,7 +271,7 @@ const EchoPaneLayout = styled.section`
   padding: 20px;
   box-sizing: border-box;
 
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-size: 14px;
   font-weight: 500;
 `;
