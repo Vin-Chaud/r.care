@@ -90,7 +90,7 @@ const StoryImageLayout = styled.div`
 `;
 
 const StoryImage = styled.img`
-  height: 180px;
+  height: 0px;
 `;
 
 const StoryText = createRichText(styled.p`
