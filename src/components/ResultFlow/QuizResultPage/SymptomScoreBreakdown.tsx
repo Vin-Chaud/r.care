@@ -63,7 +63,7 @@ const SectionLayout = styled.section`
 `;
 
 const ResultHeader = styled.h2`
-  ${Fonts.SFPro};
+  ${Fonts.Inter};
   font-weight: 600;
   font-size: 19px;
   margin-bottom: 15px;
