@@ -1,5 +1,5 @@
 import { NextFont } from "next/dist/compiled/@next/font";
-import { Oswald, League Gothic } from "next/font/google";
+import { Oswald, Geologica } from "next/font/google";
 import { css } from "styled-components";
 
 const inter = Oswald({ subsets: ["latin"], weight: "400" });
@@ -8,7 +8,7 @@ const interItalic = Oswald({
   weight: "400",
   style: "italic",
 });
-const montserrat = League Gothic ({
+const montserrat = Geologica ({
   subsets: ["latin"],
   weight: ["400"],
 });
