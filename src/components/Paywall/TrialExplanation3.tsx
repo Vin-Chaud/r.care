@@ -147,15 +147,15 @@ const TrialStepListItem = styled.div`
 
 const TrialStepListItemHeader = styled.h3`
   ${Fonts.Montserrat}
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: ${Greys.Black};
   margin-block: 5px;
 `;
 
 const TrialStepListItemContent = createMarkdownText(styled.p`
-  ${Fonts.SFPro}
-  font-size: 14px;
+  ${Fonts.Inter}
+  font-size: 15px;
   font-weight: 300;
   color: ${Greys.Grey26};
   margin-block: 2px;
