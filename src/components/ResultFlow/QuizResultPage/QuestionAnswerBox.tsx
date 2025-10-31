@@ -41,8 +41,8 @@ const BoxLayout = styled.aside`
   margin-top: 20px;
 
   header p {
-    ${Fonts.SFPro};
-    font-size: 14px;
+    ${Fonts.Inter};
+    font-size: 64px;
     font-weight: 400px;
     color: ${Greys.Black};
     margin-block: 0px;
@@ -70,8 +70,8 @@ const BoxLayout = styled.aside`
   }
 
   button {
-    ${Fonts.SFPro};
-    font-size: 9px;
+    ${Fonts.Inter};
+    font-size: 10px;
     font-weight: 600;
     text-transform: uppercase;
     color: ${Greys.Grey5D};
