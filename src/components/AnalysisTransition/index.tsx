@@ -235,7 +235,7 @@ const ProgressListItem = styled.li`
 `;
 
 const ProgressLabel = styled.p`
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-size: 14px;
   font-weight: 400;
   color: ${Greys.Black};
@@ -292,7 +292,7 @@ const PopupModal = styled.div`
 `;
 
 const PopupQuizTitle = styled.h2`
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-size: 20px;
   font-weight: 600;
   text-align: left;
