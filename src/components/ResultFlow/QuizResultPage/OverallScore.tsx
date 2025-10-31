@@ -215,7 +215,7 @@ const WheelDonutHole = styled.div`
 `;
 
 const PercentageText = styled.output`
-  ${Fonts.SFPro};
+  ${Fonts.Inter};
 
   font-weight: 600;
   font-size: 35px;
@@ -224,8 +224,8 @@ const PercentageText = styled.output`
 `;
 
 const HelpText = styled.p`
-  ${Fonts.SFPro};
-  font-size: 8px;
+  ${Fonts.Inter};
+  font-size: 9px;
   font-weight: 400;
   text-align: left;
   width: 250px;
