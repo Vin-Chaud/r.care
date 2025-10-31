@@ -1,14 +1,14 @@
 import { NextFont } from "next/dist/compiled/@next/font";
-import { Inter, Anton } from "next/font/google";
+import { Oswald, League Gothic } from "next/font/google";
 import { css } from "styled-components";
 
-const inter = Inter({ subsets: ["latin"], weight: "400" });
-const interItalic = Inter({
+const inter = Oswald({ subsets: ["latin"], weight: "400" });
+const interItalic = Oswald({
   subsets: ["latin"],
   weight: "400",
   style: "italic",
 });
-const montserrat = Anton ({
+const montserrat = League Gothic ({
   subsets: ["latin"],
   weight: ["400"],
 });
@@ -17,7 +17,7 @@ export const Fonts = {
   SFPro: fontCss(inter),
   SFProItalic: fontCss(interItalic),
   Montserrat: fontCss(montserrat),
-  Inter: fontCss(inter),
+  Inter: fontCss(montserrat),
 };
 
 export const Purples = {
