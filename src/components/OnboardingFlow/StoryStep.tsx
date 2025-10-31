@@ -94,7 +94,7 @@ const StoryImage = styled.img`
 `;
 
 const StoryText = createRichText(styled.p`
-  ${Fonts.SFPro}
+  ${Fonts.Inter}
   font-weight: 300;
   color: ${Greys.Grey26};
   margin-block: 40px;
@@ -103,7 +103,7 @@ const StoryText = createRichText(styled.p`
 `);
 
 const StoryTitle = createRichText(styled.h1`
-  ${Fonts.Montserrat}
+  ${Fonts.SFPro}
   font-weight: 600;
   color: ${Greys.Black};
   margin-block: 40px;
