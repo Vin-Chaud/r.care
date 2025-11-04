@@ -9,7 +9,7 @@ export function PostQuizPane({ onNext }: { onNext: () => void }) {
     <PageLayout>
       <AppHeader>{{ branding: true }}</AppHeader>
       <SectionLayout>
-        <Content content={{ type: "emoji", emoji: "🪽" }} />
+        <Content content={{ type: "emoji", emoji: "🔥" }} />
         <Content
           content={{
             type: "text",
