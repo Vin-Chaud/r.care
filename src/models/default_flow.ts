@@ -984,7 +984,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   target_episode_count_id: "binge_frequency_goal",
   target_knowledge_score: 94,
   interview: {
-    title: "Winmate works!",
+    title: "It works!",
     subtitle: "Alex says:",
     graphic_id: "persona",
     questions: [
