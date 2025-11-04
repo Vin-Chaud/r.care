@@ -22,24 +22,24 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
           items={[
             {
               header: "Complete the Quiz",
-              content: "You successfully created your profile.",
+              content: "You've successfully taken the first step.",
               icon: "check",
             },
             {
               header: "Today: Commit to Your Success",
               content:
-                "Kickstart your coaching developed by dating experts & scientists.",
+                "Start your transformation journey with Winmate.",
               icon: "lock",
             },
             {
               header: "Discover and Transform",
               content:
-                "Just 5 minutes a day to level up your online dating.",
+                "Build powerful skills and take control.",
               icon: "lock",
             },
             {
               header: "No results? No worries",
-              content: "If you go through the Winmate program for 30 days and don't see results, we offer a 100% money-back guarantee.",
+              content: "If you go through the Winmate program for 30 days and don't see results, we’ll refund 100%.",
               icon: "lock",
             },
           ]}
