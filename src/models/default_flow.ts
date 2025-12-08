@@ -73,10 +73,10 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               title:
                 "How do you usually organize your thoughts?",
               help_text:
-                "In other words, what should be the main layout of the diary?",
+                "In other words, what should be the main activity of your diary?",
               options: [
                 {
-                  text: "By journaling",
+                  text: "By writing",
                   value: "FORMAL_DIAGNOSIS",
                 },
                 {
@@ -125,7 +125,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["selfcontrol_feel"]: {
               type: "scale",
               preset: "frequency",
-              title: "Do you plan your days with intention or go with the flow?",
+              title: "Do you like planning your days in advance?",
               scoring: {
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -134,7 +134,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you enjoy revisiting the day and having a retrosepction?",
+                "Do you enjoy going with the flow without fixed plans?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -143,7 +143,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you feel comfortable expressing your thoughts from scratch or do you prefer more guidance?",
+                "Do you feel comfortable expressing your thoughts from scratch?",
               scoring: { 
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -152,7 +152,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you enjoy setting golas and tracking your growth?",
+                "Do you prefer having prompts or guides to bring out thoughts?",
               scoring: { 
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -161,7 +161,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you like following routines?",
+                "Do you like setting goals and tracking progress?",
               scoring: { 
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -181,7 +181,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
                 {
                    title: "Let's break it down.",
-                  body: "This quiz helps us learn your planning personality so we can craft a 2026 diary that supports your strengths — whether you’re a gentle planner or a reflective soul.",
+                  body: "This quiz helps us learn your personality so we can craft a personalized diary that supports you.",
                   graphic_id: "r2_3",
                 },
               ],
@@ -209,7 +209,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
                 yes: {
                   type: "embedded",
-                  text: "🌟 No worries — you're not alone. We’ll help you continue with your commitment, and make a true difference in 2026. your strategy, profile, and approach together.",
+                  text: "🌟 No worries — you're not alone. We’ll help you continue with your commitment, and make a true difference.",
                 },
               },
               scoring: {
@@ -259,7 +259,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["selfcontrol_candistract"]: {
               type: "scale",
               preset: "intensity",
-              preamble_text: "Do you relate to following statement?",
+              preamble_text: "Do you relate to the following statement?",
               title:
                 "I frequently feel lost in my thoguhts or emotions.",
               min_label: "Not at all",
@@ -271,7 +271,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["internalsigdysfunc_eatpastcomfortablyfull"]: {
               type: "scale",
               preset: "intensity",
-              preamble_text: "Do you relate to following statement?",
+              preamble_text: "Do you relate to the following statement?",
               title:
                 "I go on with my life but often forget the daily joy and the gratitude.",
               min_label: "Not at all",
@@ -318,7 +318,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you often feel overwhelemed?",
+                "Do you often feel overwhelmed?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             ["mental_harshestcritic"]: {
@@ -332,7 +332,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
                 yes: {
                   type: "embedded",
-                  title: "That's beuatiful!",
+                  title: "That's beautiful!",
                   text: "Now, Aster and Ink will be your best support so that you can stay in the safe space and stay in balance.",
                 },
               },
@@ -396,7 +396,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               panes: [
                 {
                   title: "Don't be mistaken.",
-                  body: "Journaling isn't just writing — it’s a proven system for growing, healing, and understnading yourself.",
+                  body: "Journaling isn't just writing — it’s a proven system for growing, healing, and understanding yourself.",
                   graphic_id: "r4_1",
                 },
                 {
@@ -443,7 +443,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "agreement",
               title:
-                "Do you struggle to have a clarity in your days?",
+                "Do you struggle to have clarity in your days?",
               base_feedback: {
                 type: "embedded",
                 text: [
@@ -523,7 +523,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                   {
                     type: "text",
-                    text: "With your 2026 journal, everything you know becomes a daily practice.",
+                    text: "With your customized diary, you will feel empowered and inspired everyday.",
                   },
                 ],
               },
@@ -542,7 +542,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     },
                     {
                       type: "text",
-                      text: "With your 2026 journal, everything you know becomes a daily practice.",
+                      text: "With your customized diary, you will feel empowered and inspired everyday.",
                     },
                   ],
                 },
@@ -695,7 +695,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["mental_othersnotserious"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Which of these frustrations feel familiar to you?",
+              preamble_text: "Does this sound familiar to you?",
               title:
                 "Blank spaces in the diary feel overwhelming and intimidating.",
               scoring: {
@@ -705,7 +705,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["mental_toldtojuststop"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Which of these frustrations feel familiar to you?",
+              preamble_text: "Does this sound familiar to you?",
               title:
                 "Diary layouts don’t match my personal needs or styles.",
               scoring: {
@@ -715,7 +715,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["relationship_misunderstood"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Which of these frustrations feel familiar to you?",
+              preamble_text: "Does this sound familiar to you?",
               title: "Diaries lack personalization, making it feel less motivating or engaging.",
               scoring: {
                 target_metric: Impact.Relationship,
@@ -748,50 +748,50 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 ["binge_goal"]: {
               type: "multi_select",
               title:
-                "When I think of what i want to get out of online dating, I see myself...",
+                "When I think of why I want to keep a journal / diary...",
               help_text: "Choose as many as you like",
               options: [
                 {
-                  text: "Meeting someone who matches me.",
+                  text: "Express my thoughts and emotions freely without judgment or pressure.",
                   value: "CONFIDENCE",
                 },
                 {
-                  text: "In a meaningful, lasting relationship.",
+                  text: "Understand myself better.",
                   value: "EMOTIONAL_RESILIENCE",
                 },
                 {
-                  text: "Enjoying dating without stress or confusion.",
+                  text: "Preserve my memories and life experiences",
                   value: "HEALTHY_RELATIONSHIP_FOOD",
                 },
                 {
-                  text: "Learning more about myself while finding love.",
+                  text: "Reduce stress and calm my mind ",
                   value: "MINDFULNESS",
                 },
                 {
-                  text: "Openly connecting with new people.",
+                  text: "Set my goal, plan my next step and track my daily progress",
                   value: "BETTER_RELATIONSHIPS",
                 },
               ],
             },
             ["current_need"]: {
               type: "single_select",
-              title: "What excites you most about online dating?",
+              title: "What excites you most about customized diary?",
               help_text: "Choose the option that resonates the most.",
               options: [
                 {
-                  text: "🌐 More choices – I can meet lots of new people",
+                  text: "🌐 General look and feel that makes the diary as MY diary",
                   value: "MANAGE_WEIGHT",
                 },
                 {
-                  text: "📱 Easy & convenient – Date whenever and wherever I want",
+                  text: "📱 Personalized prompts based on habits and values instead of blank space",
                   value: "STOP_BINGE_EATING",
                 },
                 {
-                  text: "🕊️ No pressure – Starting a conversation feels easier",
+                  text: "🕊️ Affirmation and guidance that makes me feel most comfortable and safe",
                   value: "BREAK_CYCLE",
                 },
                 {
-                  text: "⚡ Quick first impression – I can get to know someone fast.",
+                  text: "⚡ Structure and layout that match my needs and style",
                   value: "IMPROVE_WELLNESS",
                 },
               ],
@@ -799,8 +799,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
            ["selfimprovement_time"]: {
               type: "single_select",
               preamble_text:
-                "Let’s see your potential for growth.",
-              title: "How much time per day can you spend leveling up your online dating performance?",
+                "Let's see.",
+              title: "How much time per day can you spend on keeping the diary?",
               options: [
                 {
                   text: "5 mins",
@@ -821,7 +821,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Even five minutes of focused effort can create exponential results.",
+                  text: "Five minutes of focused effort can give you exponential values.",
                 },
                 {
                   type: "testimonial",
@@ -846,8 +846,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
           step_definitions: {
             email: {
               type: "free_text",
-              title: "What’s the best email address for you?",
-              help_text: "You’ll use this to get access to your order details.",
+              title: "How can we contact you?",
+              help_text: "You’ll use this to get keep track of your order.",
               format: "email",
               placeholder: "Please enter your email.",
             },
@@ -873,7 +873,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     id: "popup_quiz",
     type: "yes_no",
     title:
-      "Ready to get a personalized diary for you?",
+      "Have you bought a gift for yourself this year?",
   },
   reaction_step_id: "reaction",
   email_step_id: "email",
@@ -881,67 +881,62 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   target_episode_count_id: "binge_frequency_goal",
   target_knowledge_score: 94,
   interview: {
-    title: "It works!",
+    title: "It works. 💖",
     subtitle: "Alex says:",
     graphic_id: "persona",
     questions: [
       {
-        question: "How was your online dating experience before?",
+        question: "How was your journaling experience before?",
         answer:
-          "I felt lost scrolling through endless profiles. It became frustrating, exhausting, and honestly, it started to make me doubt myself.",
+          "I always wanted to journal, but it never quite stuck. Most journals felt impersonal and uninspiring, and I’d stare at blank pages not knowing where to begin. Over time, it made me feel disconnected from myself.",
       },
       {
-        question: "How has Winmate helped you?",
+        question: "How has Aster & Ink helped you?",
         answer:
-          "It’s been a game changer. Winmate shared tips I never knew about online dating—and gave me confidence, clarity, and a fresh perspective.",
+          "It’s honestly been beautiful in every way. The diary feels like it was created just for me — from the thoughtful prompts to the way each page flows. Writing in it feels calming and nurturing, like a little ritual I look forward to. It’s helped me reconnect with my emotions, slow down, and feel more grounded.",
       },
-      {
-        question:
-          "What would you say to someone curious about trying Winmate?",
-        answer:
-          "Winmate is worth it — even a little guidance makes a world of difference. You will get the results that will surprise you in less than a month!",
-      },
+    
     ],
     disclaimer: null,
   },
   program_plan: [
     {
       step_id: "comorbidities",
-      prompt: "We will focus on helping you: ",
+      prompt: "Your tailored diary's key magic will be: ",
       echo_mapping: {
-        ANXIETY: "Find and match with quality dates.",
-        DEPRESSION: "Start conversations and connect smoothly in real life.",
-        ALCOHOL_SUBSTANCE_USE: "Stay positive and motivated throughout your dating journey",
+        ANXIETY: "🌸 Personalized prompts tailored to you.",
+        DEPRESSION: "🕊️ A perfect layout designed around your daily rhythm and needs",
+        ALCOHOL_SUBSTANCE_USE: "✨ A creative space that inspires you everyday",
        BODY_DYSMORPHIA:
-          "Overcome barriers to reach your ultimate dating goal.",
+          "💕 Gentle encouragement that speaks to your heart",
       },
-      echo_default: "Start conversations and connect smoothly in real life.",
+      echo_default: "💕 Gentle encouragement that speaks to your hear",
       color: "#D7E2C9",
     },
   ],
   knowledge_plan: [
     {
       step_id: "knowledge_bingeeating",
-      prompt: "How much you know about relationship psychology:",
+      prompt: "How familiar are you with keeping a journal/diary?",
       echo_mapping: {
-        1: "Very little",
-        2: "The basics",
-        3: "A good amount",
-        4: "Expert in all things",
+        1: "Just beginning.",
+        2: "Dabbled a little.",
+        3: "Already a routine.",
+        4: "Feels second nature.",
       },
       echo_default: "",
       color: "#F9F4FF",
     },
     {
       step_id: "binge_goal",
-      prompt: "What you want to achieve:",
+      prompt: "What your customized diary will bring:",
       echo_mapping: {
-        CONFIDENCE: "Meeting someone who matches you",
-        EMOTIONAL_RESILIENCE: "Being in a meaningful, lasting relationship",
+        CONFIDENCE: "Pour out your thoughts and emotions freely",
+        EMOTIONAL_RESILIENCE: "Get to know yourself on a deeper level",
         HEALTHY_RELATIONSHIP_FOOD:
-          "Enjoying dating without stress or confusion",
-        MINDFULNESS: "Learning more about yourself while finding love",
-        BETTER_RELATIONSHIPS: "Openly connecting with new people",
+          "Hold onto your memories and meaningful moments",
+        MINDFULNESS: "Let go of stress and soothe your mind",
+        BETTER_RELATIONSHIPS: "Set loving intentions and celebrate your daily progress",
       },
       multi_select_priority: [
         "CONFIDENCE",
@@ -969,36 +964,30 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   ],
   faqs: [
     {
-      question: "What’s Winmate all about?",
+      question: "What’s Aster & Ink all about?",
       answer:
-        "Winmate is your ultimate coach for online dating — guiding you to connect confidently, attract the right matches, and turn dating into something exciting instead of exhausting.",
+        "Aster & Ink is your beautifully crafted, fully personalized diary — a gentle space to reflect, dream, and express yourself. With the help of AI, every page feels like it was made just for you.",
     },
     {
       question:
-        "What is Winmate comparable to?",
+        "How is Aster & Ink different from a traditional diary?",
       answer:
-        "Winmate is like having a relationship scientist, a trusted friend who’s great at dating, and a personalized self-help guide tailored just for you.",
+        "Unlike ordinary diaries with the same generic pages for everyone, Aster & Ink is fully personalized just for you. Ready-made diaries can feel impersonal or even overwhelming, leaving you unsure of what to write. Aster & Ink is different — it adapts to you, offering guidance that matches your rhythm, mood, and aspirations, turning journaling into a joyful, meaningful ritual rather than a chore.",
     },
     {
-      question: "I keep failing at online dating. Am I the problem?",
+      question: "Will it help me actually stick with journaling?",
       answer: 
-        "No — the problem isn’t you. Many people who are less successful, less attractive, or less experienced still achieve great results. Success in online dating comes down to the right strategy, mindset, and approach. With Glint, you can too.",
+        "Yes! The prompts and encouragements as well as tailored layouts make it effortless and delightful to write regularly.",
        
-    },
-    {
-      question:
-        "Is Winmate a pick‑up artist?",
-      answer:
-        "Winmate is never about pretending to be someone you’re not 🎭. It’s not about quick fixes or generic advice ❌. It’s about mastering real connection skills so you can be your true self and attract the right match.",
     },
   ],
   testimonial_disclaimer: null,
   highlighted_testimonial: {
-    avatar_graphic_id: "Jason",
-    screen_name: "Jason",
-    screen_subtitle: "32, Austin (USA)",
+    avatar_graphic_id: "Sophia",
+    screen_name: "Sophia",
+    screen_subtitle: "32, Portland (USA)",
     content:
-      "I never thought online dating was for me — but I realized I had no choice but to get better at this game. Winmate was exactly what I needed: actionable, personalized strategies and skills to practice. My dating quality improved drastically.",
+      "Aster & Ink diary is pure magic. The pages are gorgeous and tactile, making me slow down and write by hand. Yet every page is customized by AI and the prompts and reflections feel like they are made just for me. It’s the perfect blend of analogue beauty and smart technology — truly inspiring.",
     social: {
       comments: 11,
       shares: 35,
@@ -1007,40 +996,26 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   },
   community_testimonials: [
     {
-      avatar_graphic_id: "charlie",
-      screen_name: "Liam",
-      screen_subtitle: "29, Sedona (USA)",
+      avatar_graphic_id: "Lila",
+      screen_name: "Lila",
+      screen_subtitle: "25, Seattle (USA)",
       content:
-        "I was hesitant about dating coaching at first, but Winmate feels different. It’s not about cheesy lines — it’s about building real skills. I feel more confident, authentic, and excited to meet new people. My dating life has truly leveled up.",
+        "Thanks to this diary, I'm learning myself more and more everyday. Each entry is guided in a way that’s personal, meaningful, and perfectly timed. Aster & Ink turns reflection into insight effortlessly.",
     },
     {
-      avatar_graphic_id: "Diego",
-      screen_name: "Diego",
-      screen_subtitle: "24, Mexico City (Mexico)",
+      avatar_graphic_id: "Maya",
+      screen_name: "Maya",
+      screen_subtitle: "44, Mexico City (Mexico)",
       content:
-        "I’ve always been shy and wanted to improve my dating life, but I never knew where to start. Winmate broke it down for me — step-by-step, no pressure. Now I’m dating with confidence, and I actually look forward to it.",
+        "It is my best friend. Every time I write, I feel held and seen. The combination of beautiful pages and tailored guidance makes journaling feel emotionally nourishing.",
     },
     {
-      avatar_graphic_id: "Marcus",
-      screen_name: "Marcus",
-      screen_subtitle: "32, London (UK)",
+      avatar_graphic_id: "Aria",
+      screen_name: "Aria",
+      screen_subtitle: "22, Toronto (Canada)",
       content:
-        "Winmate gave me the tools to cut through the noise and connect with people who actually matched what I’m looking for. I went on just three dates — all with clarity and purpose — and now I’m in a relationship with someone I never thought I’d find.",
-    },
-    {
-      avatar_graphic_id: "Javier",
-      screen_name: "Javier",
-      screen_subtitle: "42, Miami (USA)",
-      content:
-        "At my age, online dating felt overwhelming. I tried so many dating apps and had no idea what I was doing. Winmate gave me the right perspective, attitude, and strategy to follow. Last month, I met someone amazing and have never been happier.",
-    },
-    {
-      avatar_graphic_id: "Ethan",
-      screen_name: "Ethan",
-      screen_subtitle: "39, San Francisco (USA)",
-      content:
-        "After divorcing my high school sweetheart, I made an online dating profile but it never led to a real-life date. Winmate rebuilt everything for me from scratch: my mindset, my profile, and my messaging style — all in less than a month. Since then, I’ve scored countless matches and enjoyed four amazing dates. In one word: life-changing.",
-    },
+"I have many goals in my life but I often forget or lose motivation. Aster & Ink gently reminds me with thoughtful prompts and tracks my progress in a way that feels supportive, not pushy. It makes reaching my goals feel natural, encouraging, and joyful."    },
+    
   ],
   activate_graphic_id: "activate",
 };
