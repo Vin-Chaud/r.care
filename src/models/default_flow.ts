@@ -261,7 +261,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "intensity",
               preamble_text: "Do you relate to the following statement?",
               title:
-                "I frequently feel lost in my thoguhts or emotions.",
+                "I frequently feel lost in my thoughts or emotions.",
               min_label: "Not at all",
               max_label: "Totally",
               scoring: {
@@ -333,7 +333,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 yes: {
                   type: "embedded",
                   title: "That's beautiful!",
-                  text: "Now, Aster and Ink will be your best support so that you can stay in the safe space and stay in balance.",
+                  text: "That's beautiful! Aster and Ink will be your best support so that you can stay in balance.",
                 },
               },
               scoring: {
@@ -748,7 +748,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 ["binge_goal"]: {
               type: "multi_select",
               title:
-                "When I think of why I want to keep a journal / diary...",
+                "When I think of why I want to keep a diary...",
               help_text: "Choose as many as you like",
               options: [
                 {
@@ -917,7 +917,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   knowledge_plan: [
     {
       step_id: "knowledge_bingeeating",
-      prompt: "How familiar are you with keeping a journal/diary?",
+      prompt: "How familiar are you with keeping a diary?",
       echo_mapping: {
         1: "Just beginning.",
         2: "Dabbled a little.",
