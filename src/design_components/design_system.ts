@@ -1,8 +1,8 @@
 import { NextFont } from "next/dist/compiled/@next/font";
-import { Inter, Anton } from "next/font/google";
+import { Inter, Bitter } from "next/font/google";
 import { css } from "styled-components";
 
-const anton = Anton ({ subsets: ["latin"], weight: "400" });
+const bitter = Bitter ({ subsets: ["latin"], weight: "400" });
 
 const inter = Inter ({ subsets: ["latin"], weight: "400" });
 const interItalic = Inter({
