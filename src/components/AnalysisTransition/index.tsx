@@ -18,10 +18,10 @@ import { createPortal } from "react-dom";
 import styled from "styled-components";
 
 const analysisTransitionTexts: readonly string[] = [
-  "Analyzing your online dating potential...",
-  "Analyzing your dating patterns...",
-  "Analyzing your demographic profile...",
-  "Creating your personalized plan...",
+  "Analyzing your preferences...",
+  "Analyzing your journaling patterns...",
+  "Analyzing your options...",
+  "Creating your personalized profile...",
 ];
 
 export function AnalysisTransition({
