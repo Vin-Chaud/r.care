@@ -16,7 +16,7 @@ const montserrat = Inter ({
 });
 
 export const Fonts = {
-  SFPro: fontCss(anton),
+  SFPro: fontCss(bitter),
   SFProItalic: fontCss(interItalic),
   Montserrat: fontCss(inter),
   Inter: fontCss(montserrat),
