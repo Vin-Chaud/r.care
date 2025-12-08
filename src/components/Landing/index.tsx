@@ -34,7 +34,7 @@ export function Landing({ flow }: { flow: OnboardingFlow }) {
         <RCareBrand />
         <LandingHeaderLayout>
           <LandingHeader>
-           {"Online dating,\n Decoded."}
+           {"A sweet gentle space for your heart to grow"}
           </LandingHeader>
         </LandingHeaderLayout>
         <LandingQuiz
