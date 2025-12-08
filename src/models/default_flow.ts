@@ -14,13 +14,13 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: ["Engineered by dating strategists", "and behavioral scientists"],
+                  text: ["Let's start customizing a diary that feels truly yours."],
                 },
                 {
                   type: "text",
                   text: [
-                    "Take the quiz —",
-                    "discover the science behind your dating power.",
+                    "Step inside —",
+                    "discover what helps you grow deeper, softer, stronger.",
                   ],
                   variant: "subtle",
                 },
@@ -71,28 +71,28 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["bed_diagnosis"]: {
               type: "single_select",
               title:
-                "Which type of dating have you tried the most?",
+                "How do you usually organize your thoughts?",
               help_text:
-                "In other words, how do you usually meet people?",
+                "In other words, what should be the main layout of the diary?",
               options: [
                 {
-                  text: "Online dating apps (Tinder, Bumble, Hinge...)",
+                  text: "By journaling",
                   value: "FORMAL_DIAGNOSIS",
                 },
                 {
-                  text: "Meeting through friends or connections",
+                  text: "Making a to-do list",
                   value: "SELF_DIAGNOSIS",
                 },
                 {
-                  text: "Chance encounters (bars, hobby groups...)",
+                  text: "Doodles and sketches",
                   value: "SUSPICION",
                 },
                 {
-                  text: "Speed dating or matchmaking events",
+                  text: "Scrapbooking",
                   value: "FORMAL_DIAGNOSIS_OTHER_ED",
                 },
                 {
-                  text: "I’m new to dating",
+                  text: "I’m not sure",
                   value: "OTHER",
                 },
               ],
@@ -101,13 +101,13 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  title: "Welcome to Winmate.",
-                  body: "We’ll analyze your mindset and strength to build your personalized advantage in online dating.",
+                  title: "Welcome to Aster & Ink.",
+                  body: "We’ll understand your personality, intentions, and lifestyle to craft a diary that feels soft, personal, and perfectly you.",
                   graphic_id: "",
                 },
                 {
-                  title: "Ready to lead?",
-                  body: "Stop guessing. Use data and proven psychology to take control of your dating success.",
+                  title: "Ready to begin?",
+                  body: "No more ready-print diary. Make it specially designed for you. Make every day in 2026 count.",
                   graphic_id: "",
                 },
               ],
@@ -125,7 +125,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["selfcontrol_feel"]: {
               type: "scale",
               preset: "frequency",
-              title: "Do you date with direction — or let circumstances dictate?",
+              title: "Do you plan your days with intention or go with the flow?",
               scoring: {
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -134,7 +134,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "How naturally can you show your real self?",
+                "Do you enjoy revisiting the day and having a retrosepction?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -143,7 +143,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you enjoy the process of dating and building attraction?",
+                "Do you feel comfortable expressing your thoughts from scratch or do you prefer more guidance?",
               scoring: { 
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -152,7 +152,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you approach dating with a clear strategy?",
+                "Do you enjoy setting golas and tracking your growth?",
               scoring: { 
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -161,7 +161,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you handle rejection as failure?",
+                "Do you like following routines?",
               scoring: { 
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -170,18 +170,18 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  title: "What's wrong?",
-                  body: "Ever wonder why some people always seem to get the dates they want online… but you don’t?",
+                  title: "Everyone blossoms differently.",
+                  body: "Some people thrive with perfectly planned days, while others grow best by going with the flow and reflecting later.",
                   graphic_id: "r2_1",
                 },
                 {
-                  title: "You are not the problem.",
-                  body: "Your ideal match isn’t out of reach; you just need the right system and mindset.",
+                  title: "Your style isn't wrong.",
+                  body: "You simply need a diary that understands how you naturally think, feel, and grow. Your rhythm matters.",
                   graphic_id: "r2_2",
                 },
                 {
                    title: "Let's break it down.",
-                  body: "This quiz will help Winmate discover your strengths and show how you can excel!",
+                  body: "This quiz helps us learn your planning personality so we can craft a 2026 diary that supports your strengths — whether you’re a gentle planner or a reflective soul.",
                   graphic_id: "r2_3",
                 },
               ],
@@ -201,15 +201,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["selfcontrol_getbackontrack"]: {
               type: "yes_no",
               title:
-                "Are you struggling to match with people you actually like?",
+                "Do you struggle to commit to the goal you set at the beginning of the year?",
               feedbacks: {
                 no: {
                   type: "embedded",
-                  text: "🍃 That’s fantastic! We’ll focus on transforming your matches into connections.",
+                  text: "🍃 That’s fantastic! We’ll focus on enriching your process to realize your commitment.",
                 },
                 yes: {
                   type: "embedded",
-                  text: "🌟 No worries — we’ll optimize your strategy, profile, and approach together.",
+                  text: "🌟 No worries — you're not alone. We’ll help you continue with your commitment, and make a true difference in 2026. your strategy, profile, and approach together.",
                 },
               },
               scoring: {
@@ -222,7 +222,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you start conversations with matches with ease?",
+                "Are you good at setting goals?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
                 reverse: true,
@@ -232,7 +232,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                  "Can you plan a first date with clarity and purpose?",
+                  "Do you find it difficult to be honest with yourself?",
               scoring: {
                 target_metric: Impact.Productivity,
                 reverse: true,
@@ -241,7 +241,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["internalsigdysfunc_grazeallday"]: {
               type: "scale",
               preset: "frequency",
-              title: "Do you trust your instincts about a date’s potential?",
+              title: "Do you have difficulties making personal decisions?",
               scoring: {
                 target_metric: Impact.Productivity,
                 reverse: true,
@@ -251,7 +251,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you know how to express your interest after a great first date?",
+                "Do you know how to express your fear and concerns?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -261,7 +261,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "intensity",
               preamble_text: "Do you relate to following statement?",
               title:
-                "I frequently lose matches without knowing why.",
+                "I frequently feel lost in my thoguhts or emotions.",
               min_label: "Not at all",
               max_label: "Totally",
               scoring: {
@@ -273,7 +273,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "intensity",
               preamble_text: "Do you relate to following statement?",
               title:
-                "I go on dates, but I rarely meet anyone truly satisfying.",
+                "I go on with my life but often forget the daily joy and the gratitude.",
               min_label: "Not at all",
               max_label: "Totally",
               scoring: {
@@ -284,18 +284,18 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "story",
               panes: [
                 {
-                  title: "Trust us.",
-                  body: "Everything you share here stays 100% private.",
+                  title: "Think of Aster & Ink as a soft little companion.",
+                  body: "It’s here to help you organize your days with ease and reflect on your moments with love.",
                   graphic_id: "r3_1",
                 },
                 {
-                  title: "Think of Winmate as your secret wingman.",
-                  body: "Discreet, data-driven, and fully focused on helping you.",
+                  title: "Beautiful inside out.",
+                  body: "Your diary isn’t just pretty — it’s thoughtfully shaped by behavioral science and real data on habits, reflection, and emotional growth.",
                   graphic_id: "r3_2",
                 },
                 {
-                  title: "From start to success.",
-                  body: "We guide you, decode your patterns, and help you master the dating game.",
+                  title: "From your first page to your fullest you.",
+                  body: "With thoughtful prompts and guided moments, this diary helps you make every single day count.",
                   graphic_id: "r3_3",
                 },
               ],
@@ -318,22 +318,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you overlook red flags because of attraction?",
+                "Do you often feel overwhelemed?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             ["mental_harshestcritic"]: {
               type: "yes_no",
-              title: "Do you chase quantity over quality?",
+              title: "Does your work vs. private life feel balanced?",
               feedbacks: {
                 no: {
                   type: "embedded",
-                  title: "Awesome!",
-                  text: "Awesome!  Investing in quality upfront always pays off with stronger, faster results.",
+                  title: "That’s totally understandable.",
+                  text: "That’s totally understandable. Aster and Ink can help you regain balance through thoughtful prompts and considerate supports in planning your days.",
                 },
                 yes: {
                   type: "embedded",
-                  title: "💪 That’s totally understandable.",
-                  text: "💪 That’s totally understandable. We can help you find strategies to focus more on quality without losing momentum.",
+                  title: "That's beuatiful!",
+                  text: "Now, Aster and Ink will be your best support so that you can stay in the safe space and stay in balance.",
                 },
               },
               scoring: {
@@ -344,7 +344,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             ["relationship_selfconsciouseating"]: {
               type: "yes_no",
-              title: "Do you pull back from opportunities because of fear of rejection?",
+              title: "Do you feel like you are stuck in the similar issues or blockers?",
               scoring: {
                 target_metric: Impact.Relationship,
                 mode: "1_5",
@@ -363,7 +363,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Winmate transforms online dating into a winning journey, free from uncertainty and burnout.",
+                  text: "Experience a diary tailored for you and turn 2026 into a year of soft, steady growth — without burnout or pressure.",
                 },
                 {
                   type: "image",
@@ -371,7 +371,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
                 {
                   type: "text",
-                  text: "Your private advantage in modern dating — data-driven and strategic.",
+                  text: "Turn everyday moments into tiny joys — one cozy entry at a time.",
                 },
               ],
             },
@@ -379,7 +379,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you give up when results don’t come instantly?",
+                "Are you happy with your current habits and routines?",
               scoring: {
                 target_metric: Impact.Relationship,
               },
@@ -388,7 +388,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you overthink how you come across instead of leading with confidence?",
+                "Would you like to live more intentionally?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             r4: {
@@ -396,17 +396,17 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               panes: [
                 {
                   title: "Don't be mistaken.",
-                  body: "Online dating isn’t luck — it’s a system.",
+                  body: "Journaling isn't just writing — it’s a proven system for growing, healing, and understnading yourself.",
                   graphic_id: "r4_1",
                 },
                 {
-                  title: "Understand the logic behind it.",
-                  body: "When you master the algorithm behind it—and yourself—you can achieve consistently high results.",
+                  title: "Understand the magic behind it.",
+                  body: "When you build a rhythm that’s customized for you, your days become clearer, calmer, and more meaningful.",
                   graphic_id: "r4_2",
                 },
                 {
-                  title: "Take advantage of Winmate.",
-                  body: "We’ll help you date with precision, presence, and control.",
+                  title: "Make the most of your customized diary.",
+                  body: "We’ll create pages that guide you softly — helping you stay connected to your heart.",
                   graphic_id: "r4_3",
                 },
               ],
@@ -426,7 +426,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       ],
     },
     {
-      title: "Examining your patterns",
+      title: "Examining your needs",
       subsections: [
         {
           step_definitions: {
@@ -434,7 +434,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "agreement",
               title:
-                "Do you get stuck in shallow chats that go nowhere?",
+                "Do you get stuck in regrets or mistakes you've made?",
               scoring: {
                 target_metric: Impact.MentalHealth,
               },
@@ -443,12 +443,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "agreement",
               title:
-                "Do you struggle to express what you truly want?",
+                "Do you struggle to have a clarity in your days?",
               base_feedback: {
                 type: "embedded",
                 text: [
                   "💡You’re not alone.",
-                  "With time and practice, you’ll learn to express what you want clearly and confidently.",
+                  "With time and practice, you’ll learn to have a better idea of what you want and need.",
                 ],
               },
               scoring: {
@@ -458,7 +458,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["internalsigdysfunc_skipmeals"]: {
               type: "scale",
               preset: "agreement",
-              title: "Do you ever feel like you’re wasting time and money on disappointing dates?",
+              title: "Do you ever feel like you’re wasting time and energy on things that don't matter?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -466,27 +466,27 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             c3: {
               type: "info",
               contents: [
-                { type: "emoji", emoji: "🚀" },
+                { type: "emoji", emoji: "💗" },
                 { type: "title", text: "Almost there!" },
                 {
                   type: "text",
-                  text: "Let’s dive deeper to sharpen your awareness and build unstoppable confidence.",
+                  text: "Let’s dive deeper to finalize what can bring more joy to your day.",
                 },
               ],
             },
             ["knowledge_alexithymia"]: {
               type: "yes_no",
-              title: "Have you heard of 'Paradox of Choice'?",
+              title: "Have you heard of 'Cognitive Offloading'?",
               help_text:
-                "It’s one of the psychology-based insights related to why online dating often fails.",
+                "It’s a research-backed idea about why Aster and Ink can be so powerful.",
               feedbacks: {
                 no: {
                   type: "embedded",
-                  text: "Paradox of Choice : when presented with too many options, people can feel overwhelmed, leading to indecision or dissatisfaction. In dating, endless choices can make it harder to stay mindful.",
+                  text: "Cognitive Offloading: your brain relaxes when you move thoughts out of your head and onto paper. Customized diary like Aster and Ink can reduce mental load, helps with focus, and makes room for calm.",
                 },
                 yes: {
                   type: "embedded",
-                  text: "**It’s great that you’re already familiar with the concept of the paradox of choice.** To recap, it explains how endless options can make mindful dating more challenging.",
+                  text: "**It’s great that you’re already familiar with the concept of the cognitive offloading.** Now, it's time to make the best out of it.",
                 },
               },
               scoring: {
@@ -499,31 +499,31 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["knowledge_bingeeating"]: {
               type: "scale",
               preset: "custom",
-              title: "How much do you know about relationship psychology?",
+              title: "How familiar are you with journaling and self-reflection?",
               custom_labels: [
-                "I know very little.",
-                "I’ve heard of a few ideas (like attachment styles.)",
-                "I know quite a bit about psychology.",
-                "I’m an expert in relationship psychology.",
+                "I'm very new to jouranling.",
+                "I’ve tried it a few times.",
+                "I journal often.",
+                "I’m a journaling pro.",
               ],
               base_feedback: {
                 type: "full",
                 contents: [
                   {
                     type: "emoji",
-                    emoji: "💪",
+                    emoji: "💖",
                   },
                   {
                     type: "title",
-                    text: "Perfect — now let’s put your knowledge into action!",
+                    text: "Beautiful — let’s level up your journaling to real growth!",
                   },
                   {
                     type: "text",
-                    text: "With Winmate, your insights become action.",
+                    text: "Your customized diary will help you be the best version of yourself slowly, lovingly, and at your pace.",
                   },
                   {
                     type: "text",
-                    text: "We will guide you to attract the quality people, communicate authentically, and get results.",
+                    text: "With your 2026 journal, everything you know becomes a daily practice.",
                   },
                 ],
               },
@@ -534,15 +534,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     { type: "emoji", emoji: "🫶" },
                     {
                       type: "title",
-                      text: "No worries, we’ll guide you to learn and connect better.",
+                      text: "No worries, we’ll guide you to learn and connect with yourself better.",
                     },
                     {
                       type: "text",
-                      text: "Relationship psychology helps you choose partners who truly match you.",
+                      text: "Your customized diary will help you be the best version of yourself slowly, lovingly, and at your pace.",
                     },
                     {
                       type: "text",
-                      text: "We’ll help you learn not just the theory, but practical strategies you can use right away!",
+                      text: "With your 2026 journal, everything you know becomes a daily practice.",
                     },
                   ],
                 },
@@ -556,22 +556,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["binge_howlong"]: {
               type: "single_select",
               title:
-                "When did you first start actively exploring online dating?",
+                "What kind of journaling feels most natural to you?",
               options: [
                 {
-                  text: "🌱 I'm new to it!",
+                  text: "🌸 Short and sweet — just a few lines a day.",
                   value: "LESS_THAN_SIX_MONTHS",
                 },
                 {
-                  text: "💫 I’ve been using dating apps on and off for a while.",
+                  text: "📖 Reflective and meaningful — I like writing deeper thoughts.",
                   value: "SIX_TO_TWELVE_MONTHS",
                 },
                 {
-                  text: "⏳ I’ve been actively online dating for a year or more.",
+                  text: "🎀 Creative and playful — doodles, colors, stickers...",
                   value: "ONE_TO_TWO_YEARS",
                 },
                 {
-                  text: "🕒 I’ve been at it for a while now.",
+                  text: "✨ Organized and action-oriented — I write to plan my days.",
                   value: "MORE_THAN_TWO_YEARS",
                 },
               ],
@@ -581,11 +581,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Real coaching. Real results.",
+                  text: "Truly premium. Truly yours.",
                 },
                 {
                   type: "text",
-                  text: "With Winmate, you’ll get clear strategies, expert advice, and confidence. Our coaching is private, judgment-free, and designed to deliver real results.",
+                  text: "A bespoke diary crafted just for you — a private space to grow, reflect, and bloom at your own sweet pace.",
                 },
                 {
                   type: "image",
@@ -596,12 +596,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["comorbidities"]: {
              type: "multi_select",
               title:
-                "What are your biggest challenges in online dating?",
+                "What would make your diary feel truly special to you?",
               help_text:
-                "We’ll help you turn every obstacle into a measurable win.",
+                "Ashton & Ink is here to make your 2026 truly meaningful and beautifully yours.",
               options: [
                 {
-                  text: "🔍 Finding quality matches",
+                  text: "🌸 Personalized prompts tailored to your thoughts",
                   value: "ANXIETY",
                   feedback: {
                     priority: 4,
@@ -609,11 +609,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     contents: [
                       {
                         type: "title",
-                        text: "The right connection is out there.",
+                        text: "Your thoughts deserve gentle guidance.",
                       },
                       {
                         type: "text",
-                        text: "Let’s fine-tune your approach so you actually spot it.",
+                        text: "We’ll craft calming, science-backed prompts that meet you exactly where you are.",
                       },
                       {
                         type: "image",
@@ -623,7 +623,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                 },
                 {
-                  text: "💬 Starting or keeping a conversations",
+                  text: "🕊️ A soothing structure designed around your daily rhythm",
                   value: "DEPRESSION",
                   feedback: {
                     priority: 3,
@@ -631,11 +631,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     contents: [
                       {
                         type: "title",
-                        text: "Small tweaks can make a big difference.",
+                        text: "Your days have their own natural flow.",
                       },
                       {
                         type: "text",
-                        text: "You already have what it takes — we’ll help you spark conversations that feel natural and exciting.",
+                        text: "We’ll tailor your diary’s layout to match your pace — making consistency feel soft, simple, and beautifully doable.",
                       },
                       {
                         type: "image",
@@ -645,7 +645,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                 },
                 {
-                  text: "😬 Feeling anxious about next moves",
+                  text: "✨ A creative space tailored for doodles, dreams & ideas",
                   value: "ALCOHOL_SUBSTANCE_USE",
                   feedback: {
                     priority: 1,
@@ -653,11 +653,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     contents: [
                       {
                         type: "title",
-                        text: "It’s normal to feel this way.",
+                        text: "Your creativity deserves room to breathe.",
                       },
                       {
                         type: "text",
-                        text: "With the right tools, you can turn uncertainty into confidence — every great result starts with taking one confident step forward.",
+                        text: "We’ll shape your diary with extra space for imagination — a cozy corner for sketches and ideas.",
                       },
                       {
                         type: "image",
@@ -667,7 +667,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                   },
                 },
                 {
-                  text: "💔 Handling rejection",
+                  text: "💕 Gentle, tailored encouragement that speaks to your heart",
                   value: "BODY_DYSMORPHIA",
                   feedback: {
                     priority: 2,
@@ -675,11 +675,11 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                     contents: [
                       {
                         type: "title",
-                        text: "Every dating journey has bumps.",
+                        text: "A little encouragement can brighten every day.",
                       },
                       {
                         type: "text",
-                        text: "Let’s map a path that helps you move forward and push through when you feel stuck.",
+                        text: "We’ll add uplifting notes crafted just for you — tiny reminders of strength, softness, and self-love.",
                       },
                       {
                         type: "image",
@@ -695,9 +695,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["mental_othersnotserious"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Which of these myths do you relate to?",
+              preamble_text: "Which of these frustrations feel familiar to you?",
               title:
-                "Dating coaching is only for people who can’t date on their own.",
+                "Blank spaces in the diary feel overwhelming and intimidating.",
               scoring: {
                 target_metric: Impact.MentalHealth,
               },
@@ -705,9 +705,9 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["mental_toldtojuststop"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Which of these myths do you relate to?",
+              preamble_text: "Which of these frustrations feel familiar to you?",
               title:
-                "Strategy won’t really make a difference — dating is just luck.",
+                "Diary layouts don’t match my personal needs or styles.",
               scoring: {
                 target_metric: Impact.MentalHealth,
               },
@@ -715,32 +715,13 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["relationship_misunderstood"]: {
               type: "scale",
               preset: "agreement",
-              preamble_text: "Which of these myths feels most true to you?",
-              title: "There is no science or data behind online dating.",
+              preamble_text: "Which of these frustrations feel familiar to you?",
+              title: "Diaries lack personalization, making it feel less motivating or engaging.",
               scoring: {
                 target_metric: Impact.Relationship,
               },
             },
-            r5: {
-              type: "story",
-              panes: [
-                {
-                  title: "Dating’s a skill.",
-                  body: "Like lifting or leading, you can train it. With the right mindset and strategy, you’ll improve fast.",
-                  graphic_id: "r5_1",
-                },
-                {
-                  title: "Command expert guidance.",
-                  body: "Coaching isn’t just for those who struggle; it’s for anyone who wants better results.",
-                  graphic_id: "r5_2",
-                },
-                {
-                  title: "Winmate at your fingertips.",
-                  body: "We help you master online dating through exclusive insights and proven data.",
-                  graphic_id: "r5_3",
-                },
-              ],
-            },
+  
           },
           step_order: [
             "mental_bodyimage",
@@ -754,14 +735,13 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             "comorbidities",
             "mental_othersnotserious",
             "mental_toldtojuststop",
-            "relationship_misunderstood",
-            "r5",
+            "relationship_misunderstood"
           ],
         },
       ],
     },
     {
-      title: "Online Dating Potentials",
+      title: "Final Customization",
       subsections: [
         {
           step_definitions: {
@@ -816,42 +796,6 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            ["binge_frequency"]: {
-              type: "integer",
-              title:
-                "On a scale from 0 to 10, how satisfied are you with your online dating experience so far?",
-              help_text:
-                "No need to be exact — just share how it feels.",
-              min: 0,
-              max: 10,
-              placeholder: "0 (Not satisfied) - 10 (Fully satisfied)",
-            },
-            ["binge_frequency_goal"]: {
-              type: "integer",
-              title:
-                "How do you want online dating to feel?",
-              help_text:
-                "You reported your current satisfaction level is {{current_frequency}} out of 10.",
-              min: 0,
-              max: 10,
-              expressions: {
-                current_frequency: "response_value('binge_frequency')",
-              },
-              placeholder: "0 (Not satisfied) - 10 (Fully satisfied)",
-            },
-            c7: {
-              type: "info",
-              contents: [
-                {
-                  type: "title",
-                  text: "With Winmate, you’ll transform dating from trial-and-error into a focused system for success.",
-                },
-                {
-                  type: "image",
-                  graphic_id: "harvard",
-                },
-              ],
-            },
            ["selfimprovement_time"]: {
               type: "single_select",
               preamble_text:
@@ -884,60 +828,13 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-            ["motivationlevel"]: {
-              type: "scale",
-              preset: "intensity",
-              title: "How ready are you for personalized coaching?",
-              min_label: "Not at all",
-              max_label: "Very Motivated",
-              feedbacks: {
-                1: { id: "not_motivated" },
-                2: { id: "not_motivated" },
-                3: { id: "not_motivated" },
-                4: { id: "motivated" },
-                5: { id: "motivated" },
-              },
-              feedback_definitions: {
-                motivated: {
-                  type: "full",
-                  contents: [
-                    { type: "emoji", emoji: "🚀" },
-                    {
-                      type: "title",
-                      text: "That excitement is powerful!",
-                    },
-                    {
-                      type: "text",
-                      text: "Your motivation fuels mastery — let’s turn it into results.",
-                    },
-                  ],
-                },
-                not_motivated: {
-                  type: "full",
-                  contents: [
-                    { type: "emoji", emoji: "👭" },
-                    {
-                      type: "title",
-                      text: "No gimmicks. No out-dated pickup lines. ",
-                    },
-                    {
-                      type: "text",
-                      text: "Just personalized coaching grounded in data, science and what actually works in today’s online dating world.🌟",
-                    },
-                  ],
-                },
-              },
-            },
+           
           },
           step_order: [
             "binge_goal",
             "current_need",
-            "binge_frequency",
-            "binge_frequency_goal",
-            "c7",
             "selfimprovement_time",
-            "c9",
-            "motivationlevel",
+            "c9"
           ],
         },
       ],
@@ -950,7 +847,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             email: {
               type: "free_text",
               title: "What’s the best email address for you?",
-              help_text: "You’ll use this to get access to your coaching later.",
+              help_text: "You’ll use this to get access to your order details.",
               format: "email",
               placeholder: "Please enter your email.",
             },
@@ -963,8 +860,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   landing_quiz_step: {
     id: "age",
     type: "single_select",
-    title: "Tap your age to unlock tailored dating tips.",
-    help_text: "⌛ 3 min quiz",
+    title: "Tap your age to start crafting your 2026 diary",
+    help_text: "⌛ 4 min",
     options: [
       { value: "18_23", text: "18-23" },
       { value: "23_29", text: "24-29" },
@@ -976,7 +873,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     id: "popup_quiz",
     type: "yes_no",
     title:
-      "Ready to achieve results starting now?",
+      "Ready to get a personalized diary for you?",
   },
   reaction_step_id: "reaction",
   email_step_id: "email",
