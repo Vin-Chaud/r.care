@@ -639,7 +639,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                       },
                       {
                         type: "image",
-                        graphic_id: "c6",
+                        graphic_id: "c9",
                       },
                     ],
                   },
@@ -661,7 +661,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                       },
                       {
                         type: "image",
-                        graphic_id: "c6",
+                        graphic_id: "c10",
                       },
                     ],
                   },
@@ -683,7 +683,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                       },
                       {
                         type: "image",
-                        graphic_id: "c6",
+                        graphic_id: "c11",
                       },
                     ],
                   },
