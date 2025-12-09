@@ -47,7 +47,7 @@ export const SectionLayout = styled.section`
 `;
 
 const Header = styled.h1`
-  ${Fonts.Inter}
+  ${Fonts.SFPro}
   font-weight: 600;
   font-size: 22px;
   text-align: center;
