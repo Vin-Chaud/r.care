@@ -31,7 +31,7 @@ export function ReactionPanel({
         <ForwardNavButton type="submit" />
         <Disclaimer>
           {
-            "This is not a formal diagnosis. Consult a healthcare professional for a fulll BED assessment."
+            ""
           }
         </Disclaimer>
       </form>
@@ -108,6 +108,7 @@ const ReactionGrid = styled.ul`
   grid-template-columns: repeat(3, 2fr);
   gap: 20px;
   margin-block: 80px;
+ 
   padding: 0px;
 `;
 
