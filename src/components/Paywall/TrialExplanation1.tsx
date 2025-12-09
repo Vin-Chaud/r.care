@@ -16,22 +16,22 @@ export function TrialExplanation1({ onNext }: { onNext: () => void }) {
       <AppHeader>{{ branding: true }}</AppHeader>
       <TrialContents>
         <header>
-          <Emoji>{"💡"}</Emoji>
-          <H2>{"See results or 100% money back."}</H2>
+          <Emoji>{"✨"}</Emoji>
+          <H2>{"Love your diary — or get 100% of your money back."}</H2>
         </header>
         <Highlight>
           {
-            "See how thousands have optimized their dating lives — and started getting real results."
+            "It might be hard to imagine how a custom diary could feel different — until you try one designed just for you."
           }
         </Highlight>
         <List>
           <ListItem>
             {
-              "If you go through the Winmate coaching for 30 days and don't see results, we offer 100% money back. "
+              "Use your Aster & Ink diary for 30 days, and if it doesn’t bring more clarity, calm, or gentle growth, we’ll happily give you a full refund."
             }
           </ListItem>
           <ListItem>
-            {"Your success is our success and we're confident you will see the difference."}
+            {"We’re confident you’ll notice the difference."}
           </ListItem>
         </List>
       </TrialContents>
