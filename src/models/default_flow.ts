@@ -881,7 +881,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   target_episode_count_id: "binge_frequency_goal",
   target_knowledge_score: 94,
   interview: {
-    title: "It works. 💖",
+    title: "Wonderful 💖",
     subtitle: "Alex says:",
     graphic_id: "persona",
     questions: [
