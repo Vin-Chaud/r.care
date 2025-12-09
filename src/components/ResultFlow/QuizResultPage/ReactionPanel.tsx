@@ -41,13 +41,13 @@ export const SectionLayout = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100dvh;
+  height: 60dvh;
   width: 100%;
   padding: 0 20px;
 `;
 
 const Header = styled.h1`
-  ${Fonts.Montserrat}
+  ${Fonts.Bitter}
   font-weight: 600;
   font-size: 22px;
   text-align: center;
