@@ -34,9 +34,6 @@ export function QuizResultPage({
       <ScrollablePageLayoutContainer>
         <ScrollablePageContentFrame background={Greys.White}>
           <AppHeader>{{ branding: true }}</AppHeader>
-          <OverallScore
-            totalPercentageScore={computeTotalScore(percentageScores)}
-          />
           <SymptomScoreBreakdown percentageScores={percentageScores} />
           <ImpactBreakdown percentageScores={percentageScores} />
           <SymptomExplanations percentageScores={percentageScores} />
