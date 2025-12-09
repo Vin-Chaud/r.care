@@ -4,12 +4,14 @@ import { Disclaimer } from "@/design_components/typography";
 import styled from "styled-components";
 
 export function ReactionPanel({
-@@ -10,137 +8,22 @@ export function ReactionPanel({
+  onDidRespond,
+}: {
+  onDidRespond: (value: string | null) => void;
 }) {
   return (
     <SectionLayout>
       <header>
-        <Header>{"How do you feel about the results?"}</Header>
+        <Header>{"How do these results make you feel?"}</Header>
       </header>
       <form
         onSubmit={(ev) => {
@@ -19,7 +21,6 @@ export function ReactionPanel({
           onDidRespond(
             checkedItem instanceof HTMLInputElement ? checkedItem.value : null
           );
-          onDidRespond(null);
         }}
       >
         <ReactionGrid>
@@ -98,15 +99,16 @@ const Header = styled.header`
   ${Fonts.Montserrat}
 
   font-weight: 600;
-  font-size: 21px;
+  font-size: 22px;
   text-align: center;
 `;
 
 const ReactionGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 2fr);
-  gap: 15px;
-  margin-block: 60px;
+  gap: 20px;
+  margin-block: 80px;
+ 
   padding: 0px;
 `;
 
