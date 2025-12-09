@@ -1,4 +1,4 @@
-import { AppHeader } from "@/components/AppHeader";
+  import { AppHeader } from "@/components/AppHeader";
 import {
   ScrollablePageContentFrame,
   ScrollablePageLayoutContainer,
@@ -32,7 +32,7 @@ export function QuizResultPage({
   return (
     <Fragment>
       <ScrollablePageLayoutContainer>
-        <ScrollablePageContentFrame background={Greys.White}>
+        <ScrollablePageContentFrame background="#fff">
           <AppHeader>{{ branding: true }}</AppHeader>
           <SymptomScoreBreakdown percentageScores={percentageScores} />
           <SymptomExplanations percentageScores={percentageScores} />
