@@ -21,8 +21,8 @@ export function CommunityTestimonials() {
     <ScrollablePageContentFrame background={Purples.PurpleF9}>
       <Layout>
         <header>
-          <HeaderB>{"What people are saying about Winmate"}</HeaderB>
-          <p className="subtitle">{"Hear from 5,000+ Users"}</p>
+          <HeaderB>{"What people are saying about Aster & Ink"}</HeaderB>
+          <p className="subtitle">{"Heartfelt stories from those who are finding clarity, peace, and joy through their journaling journey."}</p>
         </header>
         <TestimonialCarousel testimonials={testimonials} />
         {disclaimer && <Disclaimer>{disclaimer}</Disclaimer>}
