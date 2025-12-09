@@ -1003,11 +1003,25 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         "Thanks to this diary, I'm learning myself more and more everyday. Each entry is guided in a way that’s personal, meaningful, and perfectly timed. Aster & Ink turns reflection into insight effortlessly.",
     },
     {
+      avatar_graphic_id: "Diego",
+      screen_name: "Diego",
+      screen_subtitle: "22, Boston (USA)",
+      content:
+        "This diary has transformed the way I approach my days. Every morning, I set clear intentions and map out my priorities, which keeps me focused and productive. My days are both inspiring and efficient.",
+    },
+    {
       avatar_graphic_id: "Maya",
       screen_name: "Maya",
       screen_subtitle: "44, Mexico City (Mexico)",
       content:
         "It is my best friend. Every time I write, I feel held and seen. The combination of beautiful pages and tailored guidance makes journaling feel emotionally nourishing.",
+    },
+     {
+      avatar_graphic_id: "Jason",
+      screen_name: "Jason",
+      screen_subtitle: "32, LA (USA)",
+      content:
+        "The customized layout is perfect for doodling, jotting down ideas, and reflecting on my day. Every page inspires my creativity while keeping me organized.",
     },
     {
       avatar_graphic_id: "Aria",
