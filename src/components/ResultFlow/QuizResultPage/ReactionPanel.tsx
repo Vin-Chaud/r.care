@@ -1,6 +1,5 @@
 import { ForwardNavButton } from "@/components/ForwardNavButton";
-import { Fonts, Greys } from "@/design_components/design_system";
-import { Disclaimer } from "@/design_components/typography";
+import { Fonts } from "@/design_components/design_system";
 import styled from "styled-components";
 
 export function ReactionPanel({
@@ -10,138 +9,38 @@ export function ReactionPanel({
 }) {
   return (
     <SectionLayout>
-      <header>
-        <Header>{"How do these results make you feel?"}</Header>
-      </header>
+      <Header>{"How do these results make you feel?"}</Header>
+
       <form
         onSubmit={(ev) => {
           ev.preventDefault();
-
-          const checkedItem = ev.currentTarget.querySelector("input:checked");
-          onDidRespond(
-            checkedItem instanceof HTMLInputElement ? checkedItem.value : null
-          );
+          onDidRespond(null);
         }}
       >
-        <ReactionGrid>
-          {reactions.map((reaction) => (
-            <ReactionInput {...reaction} key={reaction.value} />
-          ))}
-        </ReactionGrid>
-        <ForwardNavButton type="submit" />
-        <Disclaimer>
-          {
-            ""
-          }
-        </Disclaimer>
+        <FullWidthButton type="submit" />
       </form>
     </SectionLayout>
   );
 }
 
-function ReactionInput({
-  value,
-  emoji,
-  text,
-}: {
-  value: string;
-  emoji: string;
-  text: string;
-}) {
-  const id = `reaction-${value}`;
-  return (
-    <ReactionLabel htmlFor={id} key={value}>
-      <ReactionEmoji>{emoji}</ReactionEmoji>
-      <ReactionText>{text}</ReactionText>
-      <ReactionRadioInput
-        type="radio"
-        name="reaction"
-        id={id}
-        value={value}
-        onChange={(ev) =>
-          (ev.target as HTMLInputElement).form?.dispatchEvent(
-            new SubmitEvent("submit", {
-              cancelable: true,
-              bubbles: true,
-            })
-          )
-        }
-      />
-    </ReactionLabel>
-  );
-}
-
-const reactions: readonly Reaction[] = [
-  { text: "Curious", value: "CURIOUS", emoji: "🤔" },
-  { text: "Concerned", value: "CONCERNED", emoji: "🫣" },
-  { text: "Relieved", value: "RELIEVED", emoji: "😮‍💨" },
-  { text: "Surprised", value: "SURPRISED", emoji: "🫨" },
-  { text: "Validated", value: "VALIDATED", emoji: "🙂" },
-  { text: "Unsurprised", value: "UNSURPRISED", emoji: "🙄" },
-];
-
-interface Reaction {
-  text: string;
-  value: string;
-  emoji: string;
-}
+const FullWidthButton = styled(ForwardNavButton)`
+  width: 100%;
+`;
 
 export const SectionLayout = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${Greys.GreyDF};
   height: 100dvh;
+  width: 100%;
+  padding: 0 20px; /* Optional: gives breathing room on mobile */
 `;
 
-const Header = styled.header`
+const Header = styled.h1`
   ${Fonts.Montserrat}
-
   font-weight: 600;
   font-size: 22px;
   text-align: center;
-`;
-
-const ReactionGrid = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(3, 2fr);
-  gap: 20px;
-  margin-block: 80px;
- 
-  padding: 0px;
-`;
-
-const ReactionLabel = styled.label`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const ReactionEmoji = styled.div`
-  ${Fonts.SFPro}
-
-  font-weight: 500;
-  font-size: 40px;
-  text-align: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: ${Greys.White};
-  cursor: pointer;
-`;
-
-const ReactionText = styled.div`
-  ${Fonts.Montserrat}
-
-  font-size: 11px;
-  font-weight: 600;
-  color: ${Greys.Black};
-  padding-top: 10px;
-  cursor: pointer;
-`;
-
-const ReactionRadioInput = styled.input`
-  opacity: 0;
+  margin-bottom: 40px;
 `;
