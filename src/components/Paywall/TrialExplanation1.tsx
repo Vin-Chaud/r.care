@@ -17,11 +17,11 @@ export function TrialExplanation1({ onNext }: { onNext: () => void }) {
       <TrialContents>
         <header>
           <Emoji>{"✨"}</Emoji>
-          <H2>{"Love your diary — or get 100% of your money back."}</H2>
+          <H2>{"Adore your diary — or receive a full refund."}</H2>
         </header>
         <Highlight>
           {
-            "It might be hard to imagine how a custom diary could feel different — until you try one designed just for you."
+            "It may be hard to envision how a bespoke diary can transform your day — until you hold one."
           }
         </Highlight>
         <List>
