@@ -38,7 +38,14 @@ export function QuizResultPage({
           <ImpactBreakdown percentageScores={percentageScores} />
           <SymptomExplanations percentageScores={percentageScores} />
         </ScrollablePageContentFrame>
-      
+        <ScrollablePageContentFrame background={Greys.GreyDF}>
+          <ReactionPanel
+            onDidRespond={(answer) => {
+              onNext(answer);
+            }}
+          />
+        </ScrollablePageContentFrame>
+      </ScrollablePageLayoutContainer>
     </Fragment>
   );
 }
