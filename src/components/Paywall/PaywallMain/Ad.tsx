@@ -8,26 +8,26 @@ export function Ad({}: {}) {
     <ScrollablePageContentFrame background={Greys.White}>
       <Layout>
         <header>
-          <HeaderA>{"90 Days to Results"}</HeaderA>
-          <Subheader>{"Winmate includes:"}</Subheader>
+          <HeaderA>{"More Mindful, Radiant You"}</HeaderA>
+          <Subheader>{"Aster & Ink includes:"}</Subheader>
         </header>
         <OfferList>
           <Offer
-            count={110}
+            count={365}
             description={
-              "Bite-sized self-study courses that teach you online dating strategies and the science behind attraction."
+              "Gentle guided prompts to help you explore your thoughts, capture your feelings, and reconnect with your inner world."
             }
           />
           <Offer
-            count={24}
+            count={53}
             description={
-              "Real-life exercises and practices to communicate better and improve your online dating skills."
+              "Weekly words of encouragement to help you set meaningful intentions and guide your personal growth."
             }
           />
           <Offer
-            count={9}
+            count={1}
             description={
-              "In-app tools that include a profile makeover tool, conversation starter tools and more."
+              "The one and only layout, designed just for you."
             }
           />
         </OfferList>
