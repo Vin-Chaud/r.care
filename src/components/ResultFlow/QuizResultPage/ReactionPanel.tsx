@@ -9,7 +9,9 @@ export function ReactionPanel({
 }) {
   return (
     <SectionLayout>
-      <Header>{"Are you ready to welcome 2026 with a personalized diary that reflects your inner world?"}</Header>
+      <Header>
+        {"Are you ready to welcome 2026 with a personalized diary that reflects your inner world?"}
+      </Header>
 
       <Form
         onSubmit={(ev) => {
@@ -17,8 +19,8 @@ export function ReactionPanel({
           onDidRespond(null);
         }}
       >
-        <FullWidthButton type="submit" />
-         Yes, I’m ready
+        <FullWidthButton type="submit">
+          Yes, I’m ready
         </FullWidthButton>
       </Form>
     </SectionLayout>
@@ -31,7 +33,7 @@ const Form = styled.form`
 
 const FullWidthButton = styled(ForwardNavButton)`
   width: 100%;
-  display: block; /* ensures full width even if component defaults to inline or inline-flex */
+  display: block;
 `;
 
 export const SectionLayout = styled.section`
@@ -41,7 +43,7 @@ export const SectionLayout = styled.section`
   justify-content: center;
   height: 100dvh;
   width: 100%;
-  padding: 0 20px; /* optional spacing */
+  padding: 0 20px;
 `;
 
 const Header = styled.h1`
