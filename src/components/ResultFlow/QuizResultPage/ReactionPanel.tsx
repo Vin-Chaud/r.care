@@ -11,20 +11,25 @@ export function ReactionPanel({
     <SectionLayout>
       <Header>{"How do these results make you feel?"}</Header>
 
-      <form
+      <Form
         onSubmit={(ev) => {
           ev.preventDefault();
           onDidRespond(null);
         }}
       >
         <FullWidthButton type="submit" />
-      </form>
+      </Form>
     </SectionLayout>
   );
 }
 
+const Form = styled.form`
+  width: 100%;
+`;
+
 const FullWidthButton = styled(ForwardNavButton)`
   width: 100%;
+  display: block; /* ensures full width even if component defaults to inline or inline-flex */
 `;
 
 export const SectionLayout = styled.section`
@@ -34,7 +39,7 @@ export const SectionLayout = styled.section`
   justify-content: center;
   height: 100dvh;
   width: 100%;
-  padding: 0 20px; /* Optional: gives breathing room on mobile */
+  padding: 0 20px; /* optional spacing */
 `;
 
 const Header = styled.h1`
