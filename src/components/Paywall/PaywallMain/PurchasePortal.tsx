@@ -39,7 +39,7 @@ export function PurchasePortal({
           id={`purchase-${portalId}-yearly`}
           checked={value === SubscriptionType.Yearly}
           name={`purchase-${portalId}`}
-          title={"Hardcover diary"}
+          title={"Hardcover"}
           description={"25% Special offer"}
           promo={"💖 Popular: Enjoy luxurious hardcover!"}
           pricePeriodInDays={365}
@@ -182,7 +182,7 @@ const ProductChooserLayout = styled.label`
   .main {
     background-color: ${Greys.White};
     display: flex;
-    padding: 25px 15px 25px 50px;
+    padding: 50px 15px 25px 50px;
     align-items: center;
     height: 125px;
     box-sizing: border-box;
