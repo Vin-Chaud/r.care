@@ -39,7 +39,7 @@ export function QuizResultPage({
            <ImpactBreakdown percentageScores={percentageScores} />
          
         </ScrollablePageContentFrame>
-        <ScrollablePageContentFrame>
+        <ScrollablePageContentFrame background="#fff">
           <ReactionPanel
             onDidRespond={(answer) => {
               onNext(answer);
