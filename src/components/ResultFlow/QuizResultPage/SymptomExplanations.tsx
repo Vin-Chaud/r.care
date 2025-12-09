@@ -23,48 +23,45 @@ export function SymptomExplanations({
   percentageScores: Readonly<Record<Symptom, number>>;
 }) {
   return (
-    <SectionLayout>
-      <header>
-        <SectionSubHeader>
-          {
-            "Now let’s take a deeper look at your online dating success potenteial."
-          }
-        </SectionSubHeader>
-      </header>
+    <SectionLayout style={{ width: "100%" }}>
       <ExplainerList>
-        {SymptomOrdering.map((metric) => {
-          return (
-            <ExplainerListItem key={metric}>
-              <QuestionAnswerBox
-                title={symptomEmojis[metric] + " " + symptomCopy[metric]}
-                question={SymptomExplanationQuestion[metric]}
-              >
-                {SymptomExplanationAnswer[metric]}
-              </QuestionAnswerBox>
-              <SymptomScoreLabel
-                style={{
-                  backgroundColor: computeScoreColor(percentageScores[metric]),
-                }}
-              >
-                <strong>{percentageScores[metric].toFixed(0)}%</strong>
-                {"High"}
-              </SymptomScoreLabel>
-            </ExplainerListItem>
-          );
-        })}
+        {SymptomOrdering.map((metric) => (
+          <ExplainerListItem key={metric}>
+            <QuestionAnswerBox
+              style={{ width: "100%" }}
+              title={symptomEmojis[metric] + " " + symptomCopy[metric]}
+              question={SymptomExplanationQuestion[metric]}
+            >
+              {SymptomExplanationAnswer[metric]}
+            </QuestionAnswerBox>
+
+            <SymptomScoreLabel
+              style={{
+                backgroundColor: computeScoreColor(
+                  percentageScores[metric]
+                ),
+              }}
+            >
+              <strong>{percentageScores[metric].toFixed(0)}%</strong>
+              {"High"}
+            </SymptomScoreLabel>
+          </ExplainerListItem>
+        ))}
       </ExplainerList>
     </SectionLayout>
   );
 }
 
 const ExplainerList = styled.ul`
-  padding: 0px;
+  padding: 0;
   list-style: none;
+  width: 100%;
 `;
 
 const ExplainerListItem = styled.li`
   position: relative;
   margin-bottom: 45px;
+  width: 100%;
 `;
 
 const SymptomScoreLabel = styled.label`
