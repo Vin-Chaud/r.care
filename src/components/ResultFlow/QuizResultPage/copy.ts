@@ -21,9 +21,9 @@ export const symptomEmojis: Readonly<Record<Symptom, string>> = {
 };
 
 export const impactCopy: Readonly<Record<Impact, string>> = {
-  MENTAL_HEALTH: "Love & Happiness",
-  RELATIONSHIP: "Health & Libido",
-  PRODUCTIVITY: "Growth & Confidence",
+  MENTAL_HEALTH: "Self-love",
+  RELATIONSHIP: "Mental wellness",
+  PRODUCTIVITY: "Growth & Productivity",
 };
 
 export const impactEmojis: Readonly<Record<Impact, string>> = {
