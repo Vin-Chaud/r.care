@@ -19,13 +19,13 @@ export function ImpactBreakdown({
     <SectionLayout>
       <header>
         <SectionHeader>
-          {"How can successful online dating improve your life?"}
+          {"How can Aster & Ink’s personal diary enrich my life?"}
         </SectionHeader>
       </header>
       <ImpactChart percentageScores={percentageScores} />
       <FeedbackBox>
         {
-          "Building meaningful connections can boost your overall well-being. We can help you improve your online dating experience and create a happier, more fulfilling life."
+          "A diary created just for you becomes a tender space to slow down, breathe, and reconnect with your inner world. Your journaling practice gently guides you toward clarity, healing, and self-understanding — helping you feel more grounded, empowered, and beautifully aligned with the life you’re creating."
         }
       </FeedbackBox>
     </SectionLayout>
