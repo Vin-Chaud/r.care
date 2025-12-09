@@ -8,31 +8,24 @@ export function CallToAction() {
   return (
     <ScrollablePageContentFrame background={Greys.White}>
       <Layout>
-        <HeaderA>{"Date Smarter. Match Better."}</HeaderA>
+        <HeaderA>{"Reflect, Heal, and Grow 🌸"}</HeaderA>
         <TrialOfferLayout>
-          <TrialOfferHeader>{"No more guess work — our features include:"}</TrialOfferHeader>
+          <TrialOfferHeader>{"Your personalized diary gently guides you:"}</TrialOfferHeader>
           <CheckList fontSize={14}>
             <CheckItem>
               {
-                "**Profile Studio** : 💎 Transform your profile with expert feedback to showcase your most attractive self."
+                "**Personalized Layout : 💎 A design tailored just for you."
               }
             </CheckItem>
             <CheckItem>
               {
-                "**Conversation Assistant** : 💬 Get customized conversation starters that catch attention, spark interest and create chemistry."
+                "**Guided Prompts** : 💬 Spark insight and reconnect with yourself."
               }
             </CheckItem>
             <CheckItem>
-              {"**Mindset Coaching** : 🌟 Overcome dating blocks, boost your confidence, and discover the joy in meeting new people."}</CheckItem>
+              {"**Loving Affirmations** : 🌟 Nurture confidence and embrace meaningful growth."}</CheckItem>
           </CheckList>
-          <TrialDivider />
-          <TrialTotalBox>
-            <span className="total_yearly">
-              <span className="total">{"We’ll refund every cent"}</span>
-              <span className="yearly">{"if it’s not for you."}</span>
-            </span>
-            <span className="amount">{""}</span>
-          </TrialTotalBox>
+         
         </TrialOfferLayout>
       </Layout>
     </ScrollablePageContentFrame>
