@@ -27,19 +27,18 @@ export function SymptomExplanations({
       <ExplainerList>
         {SymptomOrdering.map((metric) => (
           <ExplainerListItem key={metric}>
-            <QuestionAnswerBox
-              style={{ width: "100%" }}
-              title={symptomEmojis[metric] + " " + symptomCopy[metric]}
-              question={SymptomExplanationQuestion[metric]}
-            >
-              {SymptomExplanationAnswer[metric]}
-            </QuestionAnswerBox>
+            <FullWidthWrapper>
+              <QuestionAnswerBox
+                title={symptomEmojis[metric] + " " + symptomCopy[metric]}
+                question={SymptomExplanationQuestion[metric]}
+              >
+                {SymptomExplanationAnswer[metric]}
+              </QuestionAnswerBox>
+            </FullWidthWrapper>
 
             <SymptomScoreLabel
               style={{
-                backgroundColor: computeScoreColor(
-                  percentageScores[metric]
-                ),
+                backgroundColor: computeScoreColor(percentageScores[metric]),
               }}
             >
               <strong>{percentageScores[metric].toFixed(0)}%</strong>
@@ -61,6 +60,10 @@ const ExplainerList = styled.ul`
 const ExplainerListItem = styled.li`
   position: relative;
   margin-bottom: 45px;
+  width: 100%;
+`;
+
+const FullWidthWrapper = styled.div`
   width: 100%;
 `;
 
