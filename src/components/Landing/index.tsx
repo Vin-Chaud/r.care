@@ -107,8 +107,8 @@ function LoaderOverlay() {
 const landingStyle = `
   linear-gradient(
     169.29deg,
-    ${Purples.PurpleF3_Undocumented} 0%,
-    ${Purples.PurpleFB_Undocumented} 0%,
+    ${Purples.PurpleF3_Undocumented} 10%,
+    ${Purples.PurpleFB_Undocumented} 40%,
     ${Greys.GreyF0} 99%
   )
 `;
