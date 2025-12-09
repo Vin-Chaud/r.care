@@ -26,4 +26,5 @@ export const SectionLayout = styled.section`
   align-items: center;
   justify-content: center;
   height: 100dvh;
+  width: 100dvw;
 `;
