@@ -3,25 +3,11 @@ import { dispatchGoogleTagEvent } from "@/components/Tracking/GoogleTag";
 import { dispatchStandardMetaEvent } from "@/components/Tracking/MetaPixel";
 import { useOnboardingFlow } from "@/context/OnboardingFlowContext";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { KnowledgeIntroPane } from "./KnowledgeIntroPane";
-import { KnowledgePlan } from "./KnowledgePlan";
-import { KnowledgeScorePage } from "./KnowledgeScore";
-import { PostQuizPane } from "./PostQuizPane";
-import { ProgramPage } from "./ProgramPage";
 import { QuizResultPage } from "./QuizResultPage";
-import { Testimonial } from "./Testimonial";
 import {
   dispatchHotJarEvent,
   identifyHotJarUser,
 } from "@/components/Tracking/Hotjar";
-
-enum Page {
-  QuizResult = 1,
-  PostQuiz = 2,
-  Program = 3,
-  Testimonial = 4,
-}
 
 export function ResultFlow({
   responses,
@@ -29,60 +15,34 @@ export function ResultFlow({
   responses: Readonly<Record<string, unknown>>;
 }) {
   const router = useRouter();
-  const [page, setPage] = useState(Page.QuizResult);
   const flow = useOnboardingFlow();
-  const email = responses[flow.email_step_id];
+  const email = responses[flow.email_step_id]; // ⬅️ you asked to keep this
 
-  switch (page) {
-    case Page.QuizResult: {
-      return (
-        <QuizResultPage
-          responses={responses}
-          flow={flow}
-          onNext={(reaction) => {
-            saveQuizData({ [flow.reaction_step_id]: reaction }, null);
-            setPage(Page.PostQuiz);
-          }}
-        />
-      );
-    }
+  return (
+    <QuizResultPage
+      responses={responses}
+      flow={flow}
+      onNext={(reaction) => {
+        // save the answer like before
+        saveQuizData({ [flow.reaction_step_id]: reaction }, null);
 
-    case Page.PostQuiz: {
-      return <PostQuizPane onNext={() => setPage(Page.Program)} />;
-    }
+        // run tracking events like the old final step
+        dispatchGoogleTagEvent("begin_checkout", {
+          currency: "USD",
+          value: 0,
+        });
 
-    case Page.Program: {
-      return (
-        <ProgramPage
-          responses={responses}
-          flow={flow}
-          onNext={() => setPage(Page.Testimonial)}
-        />
-      );
-    }
+        dispatchStandardMetaEvent("InitiateCheckout");
 
+        if (typeof email === "string") {
+          identifyHotJarUser(email, {});
+        }
 
-    case Page.Testimonial: {
-      return (
-        <Testimonial
-          onNext={() => {
-            dispatchGoogleTagEvent("begin_checkout", {
-              currency: "USD",
-              value: 0,
-            });
-            dispatchStandardMetaEvent("InitiateCheckout");
-            if (typeof email === "string") {
-              identifyHotJarUser(email, {});
-            }
-            dispatchHotJarEvent("InitiateCheckout");
-            router.push("/paywall");
-          }}
-        />
-      );
-    }
+        dispatchHotJarEvent("InitiateCheckout");
 
-    default: {
-      return <div>{page}</div>;
-    }
-  }
+        // go straight to paywall
+        router.push("/paywall");
+      }}
+    />
+  );
 }
