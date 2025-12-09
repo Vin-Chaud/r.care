@@ -12,7 +12,7 @@ import { HeaderB } from "@/components/Paywall/PaywallMain/common";
 const prices = {
   yearlyFull: 119.99,
   yearlyDiscounted: 89.99,
-  quarterlyFull: 9.99,
+  quarterlyFull: 69.99,
 };
 
 export function PurchasePortal({
@@ -32,35 +32,28 @@ export function PurchasePortal({
           window.location.href = "/api/checkout?type=" + value;
         }}
       >
-        <header>
-          <HeaderB>   {"How much would you invest"} <br /> {"in your love life?"}</HeaderB>
-        </header>
-
+      
         <ProductChooser
           fullAmount={prices.yearlyFull}
           discountedAmount={prices.yearlyDiscounted}
           id={`purchase-${portalId}-yearly`}
           checked={value === SubscriptionType.Yearly}
           name={`purchase-${portalId}`}
-          title={"3-month"}
-          description={"Billed quarterly"}
-          promo={"🔥Most Popular: Find the One in 3 Months!"}
-          pricePeriodInDays={91}
+          title={"Hardcover diary"}
+          description={"25% Special offer"}
+          promo={"💖 Popular: Enjoy luxurious hardcover!"}
+          pricePeriodInDays={365}
           value={SubscriptionType.Yearly}
           onChange={onChange}
         />
-        <YearlyProTip>
-          {
-            "79% of Winmate users found their match in 3 months.💡 — join them!"
-          }
-        </YearlyProTip>
+       
         <ProductChooser
           fullAmount={prices.quarterlyFull}
           id={`purchase-${portalId}-quarterly`}
           checked={value === SubscriptionType.Quarterly}
-          pricePeriodInDays={7}
-          title={"1-week"}
-          description={"Billed every week"}
+          pricePeriodInDays={365}
+          title={"Paperback"}
+          description={""}
           name={`purchase-${portalId}`}
           value={SubscriptionType.Quarterly}
           onChange={onChange}
@@ -150,10 +143,10 @@ function MoneyBack() {
         <Seal />
       </div>
       <div>
-        <h4>{"Your Success, Guaranteed"}</h4>
+        <h4>{"High-quality, acid-free paper"}</h4>
         <p>
           {
-            "Try Winmate for 30 days — if it doesn’t work, you get 100% of your money back."
+            "Every detail — from the binding to the finishing — is designed to inspire your reflections."
           }
         </p>
       </div>
