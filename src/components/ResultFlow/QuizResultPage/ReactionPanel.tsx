@@ -9,7 +9,7 @@ export function ReactionPanel({
 }) {
   return (
     <SectionLayout>
-      <Header>{"How do these results make you feel?"}</Header>
+      <Header>{"Are you ready to welcome 2026 with a personalized diary that reflects your inner world?"}</Header>
 
       <Form
         onSubmit={(ev) => {
@@ -18,6 +18,8 @@ export function ReactionPanel({
         }}
       >
         <FullWidthButton type="submit" />
+         Yes, I’m ready
+        </FullWidthButton>
       </Form>
     </SectionLayout>
   );
