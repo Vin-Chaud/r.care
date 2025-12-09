@@ -15,8 +15,8 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
       <AppHeader>{{ branding: true }}</AppHeader>
       <TrialContents>
         <header>
-          <Emoji>{"🚀"}</Emoji>
-          <H2>{"How Winmate Works:"}</H2>
+          <Emoji>{"💫"}</Emoji>
+          <H2>{"Steps to your custom diary"}</H2>
         </header>
         <Timeline
           items={[
@@ -26,20 +26,20 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
               icon: "check",
             },
             {
-              header: "Today: Commit to Your Success",
+              header: "Receive Your Custom Diary ✨",
               content:
-                "Start your transformation journey with Winmate.",
+                "Allow up to 10 days for your fully customized diary to arrive.",
               icon: "lock",
             },
             {
-              header: "Discover and Transform",
+              header: "Reflect, Explore & Transform",
               content:
-                "Build powerful skills and take control.",
+                "Begin nurturing clarity, calm, and growth each day.",
               icon: "lock",
             },
             {
-              header: "No results? No worries",
-              content: "If you go through the Winmate program for 30 days and don't see results, we’ll refund 100%.",
+              header: "Love It or Your Money Back",
+              content: "If it doesn’t bring clarity, calm, or inspiration, we’ll refund you in full.",
               icon: "lock",
             },
           ]}
