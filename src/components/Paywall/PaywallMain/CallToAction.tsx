@@ -14,16 +14,16 @@ export function CallToAction() {
           <CheckList fontSize={14}>
             <CheckItem>
               {
-                "**Personalized Layout : 💎 A design tailored just for you."
+                "💎 Personalized Layout :  A design tailored just for you."
               }
             </CheckItem>
             <CheckItem>
               {
-                "**Guided Prompts** : 💬 Spark insight and reconnect with yourself."
+                "💬 Guided Prompts : Spark insight and reconnect with yourself."
               }
             </CheckItem>
             <CheckItem>
-              {"**Loving Affirmations** : 🌟 Nurture confidence and embrace meaningful growth."}</CheckItem>
+              {"🌟 Loving Affirmations : Nurture confidence and embrace meaningful growth."}</CheckItem>
           </CheckList>
          
         </TrialOfferLayout>
