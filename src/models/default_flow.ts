@@ -125,7 +125,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["selfcontrol_feel"]: {
               type: "scale",
               preset: "frequency",
-              title: "Do you like planning your days in advance?",
+              title: "Do you enjoy writing down your thoughts, feelings, or experiences openly?",
               scoring: {
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -134,7 +134,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you enjoy going with the flow without fixed plans?",
+                "Do you like to doodle, sketch, or creatively express yourself?",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -143,7 +143,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you feel comfortable expressing your thoughts from scratch?",
+                "Do you set personal goals and lovingly track your progress?",
               scoring: { 
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -161,7 +161,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you like setting goals and tracking progress?",
+                "Do you prefer capturing your thoughts in bullet points or single words instead of full sentences?",
               scoring: { 
                 target_metric: Symptom.SelfControlChallenge,
               },
@@ -222,7 +222,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Are you good at setting goals?",
+                "How often do you make your physical and emotional well-being a priority? 💆‍♀️",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
                 reverse: true,
@@ -232,7 +232,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                  "Do you find it difficult to be honest with yourself?",
+                  "“How often do you nurture your connections with family, friends, or loved ones? 👭",
               scoring: {
                 target_metric: Impact.Productivity,
                 reverse: true,
@@ -241,7 +241,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["internalsigdysfunc_grazeallday"]: {
               type: "scale",
               preset: "frequency",
-              title: "Do you have difficulties making personal decisions?",
+              title: "How often do you actively care for your dreams, passions, and personal ambitions? 🎯",
               scoring: {
                 target_metric: Impact.Productivity,
                 reverse: true,
@@ -251,7 +251,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you know how to express your fear and concerns?",
+                "How often do you dedicate time to your personal growth, learning, or self-discovery? 📖",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -261,7 +261,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               preset: "intensity",
               preamble_text: "Do you relate to the following statement?",
               title:
-                "I frequently feel lost in my thoughts or emotions.",
+                "My thoughts, worries, and emotions build up without an outlet.",
               min_label: "Not at all",
               max_label: "Totally",
               scoring: {
@@ -318,7 +318,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you often feel overwhelmed?",
+                "Do you find it difficult to keep track of your personal goals or progress?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             ["mental_harshestcritic"]: {
@@ -328,12 +328,12 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 no: {
                   type: "embedded",
                   title: "That’s totally understandable.",
-                  text: "That’s totally understandable. Aster and Ink can help you regain balance through thoughtful prompts and considerate supports in planning your days.",
+                  text: "That’s totally understandable. Aster & Ink can help you regain balance through thoughtful prompts and considerate supports in planning your days.",
                 },
                 yes: {
                   type: "embedded",
                   title: "That's beautiful!",
-                  text: "That's beautiful! Aster and Ink will be your best support so that you can stay in balance.",
+                  text: "That's beautiful! Aster & Ink will be your best support so that you can stay in balance.",
                 },
               },
               scoring: {
@@ -344,7 +344,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
             ["relationship_selfconsciouseating"]: {
               type: "yes_no",
-              title: "Do you feel like you are stuck in the similar issues or blockers?",
+              title: "Do you feel your creativity could use a little more room to flourish?",
               scoring: {
                 target_metric: Impact.Relationship,
                 mode: "1_5",
@@ -355,7 +355,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "Do you expect perfection instead of progress?",
+                "Do you wish you had a better way to understand your habits or patterns?",
               scoring: { target_metric: Symptom.EmotionalEating },
             },
             c1: {
@@ -478,7 +478,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "yes_no",
               title: "Have you heard of 'Cognitive Offloading'?",
               help_text:
-                "It’s a research-backed idea about why Aster and Ink can be so powerful.",
+                "It’s a research-backed idea about why Aster & Ink can be so powerful.",
               feedbacks: {
                 no: {
                   type: "embedded",
@@ -873,7 +873,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     id: "popup_quiz",
     type: "yes_no",
     title:
-      "Have you bought a gift for yourself this year?",
+      "Have you planned a gift that inspires your dreams for the year ahead?",
   },
   reaction_step_id: "reaction",
   email_step_id: "email",
