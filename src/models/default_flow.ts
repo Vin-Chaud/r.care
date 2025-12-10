@@ -232,7 +232,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                  "“How often do you nurture your connections with family, friends, or loved ones? 👭",
+                  "How often do you nurture your connections with family, friends, or loved ones? 👭",
               scoring: {
                 target_metric: Impact.Productivity,
                 reverse: true,
@@ -241,7 +241,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             ["internalsigdysfunc_grazeallday"]: {
               type: "scale",
               preset: "frequency",
-              title: "How often do you actively care for your dreams, passions, and personal ambitions? 🎯",
+              title: "How often do you care for your dreams, passions, and ambitions? 🎯",
               scoring: {
                 target_metric: Impact.Productivity,
                 reverse: true,
@@ -251,7 +251,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               type: "scale",
               preset: "frequency",
               title:
-                "How often do you dedicate time to your personal growth, learning, or self-discovery? 📖",
+                "How often do you dedicate time to your personal growth or self-discovery? 📖",
               scoring: {
                 target_metric: Symptom.InternalSignalDysfunction,
               },
@@ -821,7 +821,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               contents: [
                 {
                   type: "title",
-                  text: "Five minutes of focused effort can give you exponential values.",
+                  text: "🌸 Write for five minutes, bloom from within.",
                 },
                 {
                   type: "testimonial",
