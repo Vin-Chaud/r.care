@@ -10,7 +10,7 @@ export const scoreZoneCopy: Readonly<Record<ScoreZone, string>> = {
 
 export const symptomCopy: Readonly<Record<Symptom, string>> = {
   EMOTIONAL_EATING: "Mindful Memory Keeper",
-  SELF_CONTROL_CHALLENGE: "Mindful Memory Keeper",
+  SELF_CONTROL_CHALLENGE: "Spark-Seeking Creator",
   INTERNAL_SIGNAL_DYSFUNCTION: "Ambitious Visionary",
 };
 
