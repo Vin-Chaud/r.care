@@ -67,7 +67,7 @@ export function Welcome({
       <Header>{"Your payment hasn’t been processed!"}</Header>
       <Subtitle>
         {
-          "Winmate coaching is fully booked at the moment. We’ll notify you once a spot becomes available — don’t worry, no payment has been charged."
+          "Our custom-made diaries are currently in high demand. We’ll let you know as soon as we have availability — of course, no payment has been taken."
         }
       </Subtitle>
     </PageLayout>
