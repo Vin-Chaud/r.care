@@ -63,11 +63,11 @@ export function Welcome({
   return (
     <PageLayout>
       <AppHeader>{{ branding: true }}</AppHeader>
-      <Emoji>{"🙈"}</Emoji>
-      <Header>{"Your payment hasn’t been processed!"}</Header>
+      <Emoji>{"⚙️"}</Emoji>
+      <Header>{"Payments are temporarily unavailable"}</Header>
       <Subtitle>
         {
-          "Our custom-made diaries are currently in high demand. We’ll let you know as soon as we have availability — of course, no payment has been taken."
+          "We’re not able to process payments right now, and no charge has been made. Please check back soon — Daily Scripture Coach will be available shortly."
         }
       </Subtitle>
     </PageLayout>
