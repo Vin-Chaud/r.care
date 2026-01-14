@@ -32,7 +32,7 @@ export function AppHeader({
   );
 }
 const LogoImage = styled(Image)`
-  height: 24px;
+  height: 36px;
   width: auto;
   object-fit: contain;
 `;
