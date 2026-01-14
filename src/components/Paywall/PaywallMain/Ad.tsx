@@ -8,26 +8,26 @@ export function Ad({}: {}) {
     <ScrollablePageContentFrame background={Greys.White}>
       <Layout>
         <header>
-          <HeaderA>{"More Mindful, Radiant You"}</HeaderA>
-          <Subheader>{"Aster & Ink includes:"}</Subheader>
+          <HeaderA>{"Build a Daily Scripture Practice 📖"}</HeaderA>
+          <Subheader>{"Daily Scripture Coach includes:"}</Subheader>
         </header>
         <OfferList>
           <Offer
             count={365}
             description={
-              "Gentle guided prompts to help you explore your thoughts, capture your feelings, and reconnect with your inner world."
+              "Daily Scripture moments designed to help God’s Word come to mind in real-life situations throughout the year."
             }
           />
           <Offer
-            count={53}
+            count={52}
             description={
-              "Weekly words of encouragement to help you set meaningful intentions and guide your personal growth."
+              "Weekly themes that focus on living out Scripture through trust, patience, grace, and wisdom."
             }
           />
           <Offer
             count={1}
             description={
-              "The one and only layout, designed just for you."
+              "A personalized daily practice shaped around your life, priorities, and spiritual season."
             }
           />
         </OfferList>
