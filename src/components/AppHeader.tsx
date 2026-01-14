@@ -1,6 +1,6 @@
-import { RCareBrand } from "@/components/icons/RCareBrand";
 import { BackButton } from "@/components/OnboardingFlow/BackButton";
 import { Fonts, Greys } from "@/design_components/design_system";
+import Image from "next/image";
 import styled from "styled-components";
 
 export function AppHeader({
