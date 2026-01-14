@@ -93,6 +93,16 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         ["emotions_override"]: {
           type: "yes_no",
           title: "Do emotions sometimes override what you know to be true?",
+          feedbacks: {
+                no: {
+                  type: "embedded",
+                  text: "🌱 That’s a strong foundation. We’ll build on this by helping Scripture shape your responses even more naturally.",
+                },
+                yes: {
+                  type: "embedded",
+                  text: "🌿 You’re not alone. This happens to many people under pressure — we’ll help you practice bringing truth to mind when emotions rise.",
+                },
+              },
         },       
         ["post_failure_response"]: {
           type: "single_select",
@@ -449,7 +459,16 @@ export const defaultOnboardingFlow: OnboardingFlow = {
               text: "I’m exploring what this could look like",
             },
           ],
-        },    
+        },
+     
+            ["placeholder"]: {
+              type: "scale",
+              preset: "frequency",
+              title: "PLACEHOLDER",
+              scoring: {
+                target_metric: Symptom.SelfControlChallenge,
+              },
+            },
         ["email"]: {
           type: "free_text",
           title: "What’s the best email address for you?",
@@ -459,161 +478,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         },
       },
     },
-    {
-      title: "Profile",
-      subsections: [
-        {
-          step_definitions: {
-            ["gender"]: {
-              type: "single_select",
-              title: "Which gender do you identify with?",
-              options: [
-                {
-                  text: "Male",
-                  value: "MALE",
-                },
-                {
-                  text: "Female",
-                  value: "FEMALE",
-                },
-                {
-                  text: "Non-binary",
-                  value: "NON_BINARY",
-                },
-                {
-                  text: "Prefer not to answer",
-                  value: "UNDISCLOSED",
-                },
-              ],
-            },
-            ["bed_diagnosis"]: {
-              type: "single_select",
-              title:
-                "How do you usually organize your thoughts?",
-              help_text:
-                "In other words, what should be the main activity of your diary?",
-              options: [
-                {
-                  text: "By writing",
-                  value: "FORMAL_DIAGNOSIS",
-                },
-                {
-                  text: "Making a to-do list",
-                  value: "SELF_DIAGNOSIS",
-                },
-                {
-                  text: "Doodles and sketches",
-                  value: "SUSPICION",
-                },
-                {
-                  text: "Scrapbooking",
-                  value: "FORMAL_DIAGNOSIS_OTHER_ED",
-                },
-                {
-                  text: "I’m not sure",
-                  value: "OTHER",
-                },
-              ],
-            },
-            r1: {
-              type: "story",
-              panes: [
-                {
-                  title: "Welcome to Aster & Ink.",
-                  body: "We’ll understand your personality, intentions, and lifestyle to craft a diary that feels soft, personal, and perfectly you.",
-                  graphic_id: "",
-                },
-                {
-                  title: "Ready to begin?",
-                  body: "No more ready-print diary. Make it specially designed for you. Make every day in 2026 count.",
-                  graphic_id: "",
-                },
-              ],
-            },
-          },
-          step_order: ["gender", "bed_diagnosis", "r1"],
-        },
-      ],
-    },
-    {
-      title: "Understanding you",
-      subsections: [
-        {
-          step_definitions: {
-            ["selfcontrol_feel"]: {
-              type: "scale",
-              preset: "frequency",
-              title: "Do you enjoy writing down your thoughts, feelings, or experiences openly?",
-              scoring: {
-                target_metric: Symptom.SelfControlChallenge,
-              },
-            },
-            ["internalsigdysfunc_eatquick"]: {
-              type: "scale",
-              preset: "frequency",
-              title:
-                "Do you like to doodle, sketch, or creatively express yourself?",
-              scoring: {
-                target_metric: Symptom.InternalSignalDysfunction,
-              },
-            },
-            ["selfcontrol_bored"]: {
-              type: "scale",
-              preset: "frequency",
-              title:
-                "Do you set personal goals and lovingly track your progress?",
-              scoring: { 
-                target_metric: Symptom.SelfControlChallenge,
-              },
-            },
-            ["selfcontrol_desperate"]: {
-              type: "scale",
-              preset: "frequency",
-              title:
-                "Do you prefer having prompts or guides to bring out thoughts?",
-              scoring: { 
-                target_metric: Symptom.SelfControlChallenge,
-              },
-            },
-            ["selfcontrol_habit"]: {
-              type: "scale",
-              preset: "frequency",
-              title:
-                "Do you prefer capturing your thoughts in bullet points or single words instead of full sentences?",
-              scoring: { 
-                target_metric: Symptom.SelfControlChallenge,
-              },
-            },
-            r2: {
-              type: "story",
-              panes: [
-                {
-                  title: "Everyone blossoms differently.",
-                  body: "Some people thrive with perfectly planned days, while others grow best by going with the flow and reflecting later.",
-                  graphic_id: "r2_1",
-                },
-                {
-                  title: "Your style isn't wrong.",
-                  body: "You simply need a diary that understands how you naturally think, feel, and grow. Your rhythm matters.",
-                  graphic_id: "r2_2",
-                },
-                {
-                   title: "Let's break it down.",
-                  body: "This quiz helps us learn your personality so we can craft a personalized diary that supports you.",
-                  graphic_id: "r2_3",
-                },
-              ],
-            },
-          },
-          step_order: [
-            "selfcontrol_feel",
-            "internalsigdysfunc_eatquick",
-            "selfcontrol_bored",
-            "selfcontrol_desperate",
-            "selfcontrol_habit",
-            "r2",
-          ],
-        },
+    
+   
         {
           step_definitions: {
             ["selfcontrol_getbackontrack"]: {
