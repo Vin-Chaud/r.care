@@ -39,7 +39,7 @@ export function PurchasePortal({
           id={`purchase-${portalId}-yearly`}
           checked={value === SubscriptionType.Yearly}
           name={`purchase-${portalId}`}
-          title={"Hardcover"}
+          title={"1 Year"}
           description={"25% Special offer"}
           promo={"✨ Popular: Commit to a year of daily practice!"}
           pricePeriodInDays={365}
@@ -52,7 +52,7 @@ export function PurchasePortal({
           id={`purchase-${portalId}-quarterly`}
           checked={value === SubscriptionType.Quarterly}
           pricePeriodInDays={365}
-          title={"Paperback"}
+          title={"3 Months"}
           description={""}
           name={`purchase-${portalId}`}
           value={SubscriptionType.Quarterly}
