@@ -67,16 +67,11 @@ export async function isCheckoutSessionValid(
   offsetInSeconds = 0
 ) {
   const stripe = new Stripe(stripeConfig.apiSecret);
-   try {
- const session = await stripe.checkout.sessions.retrieve(sessionId
-           );
-   return (
-  session.status === "open" &&
-   session.expires_at - offsetInSeconds > Date.now() / 1000
-     );
- } catch (error) {
-    console.warn("Failed to retrieve checkout session", sessionId, error);
-return false;
+const session = await stripe.checkout.sessions.retrieve(sessionId);
+return (
+    session.status === "open" &&
+session.expires_at - offsetInSeconds > Date.now() / 1000
+);
  }
 
 }
