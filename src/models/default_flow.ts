@@ -533,16 +533,25 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 },
               ],
             },
-        ["email"]: {
-          type: "free_text",
-          title: "What’s the best email address for you?",
-          help_text: "You’ll use this to log back in later.",
-          format: "email",
-          placeholder: "Please enter your email.",
-        },
       },
     },
-   
+   {
+      title: { branding: true },
+      subsections: [
+        {
+          step_definitions: {
+            email: {
+              type: "free_text",
+              title: "What’s the best email address for you?",
+              help_text: "You’ll use this to log back in later.",
+              format: "email",
+              placeholder: "Please enter your email.",
+            },
+          },
+          step_order: ["email"],
+        },
+      ],
+    },
   
   ],
 
