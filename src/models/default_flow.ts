@@ -559,7 +559,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     id: "popup_quiz",
     type: "yes_no",
     title:
-      "Have you planned a gift that inspires your dreams for the year ahead?",
+      "Have you ever wished you could remember the right Bible verse right when you needed it?",
   },
   reaction_step_id: "reaction",
   email_step_id: "email",
