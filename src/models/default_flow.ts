@@ -677,35 +677,35 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       screen_name: "Lila",
       screen_subtitle: "25, Seattle (USA)",
       content:
-        "Thanks to this diary, I'm learning myself more and more everyday. Each entry is guided in a way that’s personal, meaningful, and perfectly timed. Aster & Ink turns reflection into insight effortlessly.",
+        "This practice has helped Scripture feel more present in my everyday life. Instead of just reading verses, I’m learning to recall them when I actually need them. It’s gentle, personal, and surprisingly impactful.",
     },
     {
       avatar_graphic_id: "Diego",
       screen_name: "Diego",
-      screen_subtitle: "22, Boston (USA)",
+      screen_subtitle: "31, Boston (USA)",
       content:
-        "This diary has transformed the way I approach my days. Every morning, I set clear intentions and map out my priorities, which keeps me focused and productive. My days are both inspiring and efficient.",
+        "I used to struggle with anxiety about the future. Spending a few minutes each day with Scripture has helped me slow down and respond with more trust and clarity. It’s changed how I approach my days.",
     },
     {
       avatar_graphic_id: "Maya",
       screen_name: "Maya",
       screen_subtitle: "44, Mexico City (Mexico)",
       content:
-        "It is my best friend. Every time I write, I feel held and seen. The combination of beautiful pages and tailored guidance makes journaling feel emotionally nourishing.",
+        "This has become a quiet anchor in my day. Scripture feels less distant and more alive, especially when I’m feeling overwhelmed. It reminds me of grace when I’m hardest on myself.",
     },
      {
       avatar_graphic_id: "Jason",
       screen_name: "Jason",
       screen_subtitle: "32, LA (USA)",
       content:
-        "The customized layout is perfect for doodling, jotting down ideas, and reflecting on my day. Every page inspires my creativity while keeping me organized.",
+        "What I appreciate most is how practical this feels. The verses show up in ways that connect directly to real situations — work stress, relationships, daily decisions. It helps me pause before reacting.",
     },
     {
       avatar_graphic_id: "Aria",
       screen_name: "Aria",
       screen_subtitle: "22, Toronto (Canada)",
       content:
-"I have many goals in my life but I often forget or lose motivation. Aster & Ink gently reminds me with thoughtful prompts and tracks my progress in a way that feels supportive, not pushy. It makes reaching my goals feel natural, encouraging, and joyful."    },
+"I want my faith to shape my life more, not just my Sundays. This daily practice helps Scripture come to mind throughout the day, especially when I feel discouraged or unmotivated. It feels supportive, not overwhelming."    },
     
   ],
   activate_graphic_id: "activate",
