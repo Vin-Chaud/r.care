@@ -15,31 +15,31 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
       <AppHeader>{{ branding: true }}</AppHeader>
       <TrialContents>
         <header>
-          <Emoji>{"💫"}</Emoji>
-          <H2>{"Steps to your custom diary"}</H2>
+          <Emoji>{"🕊️"}</Emoji>
+          <H2>{"How your daily practice comes together"}</H2>
         </header>
         <Timeline
           items={[
             {
-              header: "Complete the Quiz",
-              content: "You've successfully taken the first step.",
+              header: "Share a Few Reflections",
+              content: "You’ve taken the first step toward making Scripture more present in daily life.",
               icon: "check",
             },
             {
-              header: "Receive Your Custom Diary ✨",
+              header: "Your Practice Is Prepared",
               content:
-                "Allow up to 10 days for your fully customized diary to arrive.",
+                "We’ll shape your daily Scripture practice around what you shared.",
               icon: "lock",
             },
             {
-              header: "Reflect, Explore & Transform",
+              header: "Begin Living God’s Word Daily",
               content:
-                "Begin nurturing clarity, calm, and growth each day.",
+                "Spend a few minutes each day recalling Scripture and letting it guide your responses.",
               icon: "lock",
             },
             {
-              header: "Love It or Your Money Back",
-              content: "If it doesn’t bring clarity, calm, or inspiration, we’ll refund you in full.",
+              header: "Continue with Confidence",
+              content: "Try it for 30 days. If it doesn’t feel helpful or meaningful, you can request a full refund.",
               icon: "lock",
             },
           ]}
