@@ -33,7 +33,7 @@ export default async function AnalysisServer() {
   }
 
   if (data.quiz_data?.[flow.popup_quiz_step.id] != null) {
-    redirect("/result");
+    redirect("/paywall");
   }
 
   const imageUrls = await getGraphicImageUrls(flow, GraphicSection.Analysis);
