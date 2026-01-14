@@ -52,7 +52,21 @@ export function TextInputForm<A extends AnswerValue>({
   }, []);
 
   const scrollLockRef = useRef<number | null>(null);
+ useEffect(() => {
+   if (hasAnswered && scrollLockRef.current !== null) {
+     window.scrollTo(0, scrollLockRef.current);
+      scrollLockRef.current = null;
+    }
+  }, [hasAnswered]);
 
+ useEffect(() => {
+  return () => {
+   if (scrollLockRef.current !== null) {
+        window.scrollTo(0, scrollLockRef.current);
+      scrollLockRef.current = null;
+   }
+    };
+ }, []);
   return (
     <Form
       onSubmit={(ev) => {
