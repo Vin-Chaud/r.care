@@ -469,6 +469,70 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 target_metric: Symptom.SelfControlChallenge,
               },
             },
+           ["binge_goal"]: {
+              type: "multi_select",
+              title:
+                "When I think of why I want to keep a diary...",
+              help_text: "Choose as many as you like",
+              options: [
+                {
+                  text: "Express my thoughts and emotions freely without judgment or pressure.",
+                  value: "CONFIDENCE",
+                },
+                {
+                  text: "Understand myself better.",
+                  value: "EMOTIONAL_RESILIENCE",
+                },
+                {
+                  text: "Preserve my memories and life experiences",
+                  value: "HEALTHY_RELATIONSHIP_FOOD",
+                },
+                {
+                  text: "Reduce stress and calm my mind ",
+                  value: "MINDFULNESS",
+                },
+                {
+                  text: "Set my goal, plan my next step and track my daily progress",
+                  value: "BETTER_RELATIONSHIPS",
+                },
+              ],
+            },
+            ["current_need"]: {
+              type: "single_select",
+              title: "What excites you most about customized diary?",
+              help_text: "Choose the option that resonates the most.",
+              options: [
+                {
+                  text: "🌐 General look and feel that makes the diary as MY diary",
+                  value: "MANAGE_WEIGHT",
+                },
+                {
+                  text: "📱 Personalized prompts based on habits and values instead of blank space",
+                  value: "STOP_BINGE_EATING",
+                },
+                {
+                  text: "🕊️ Affirmation and guidance that makes me feel most comfortable and safe",
+                  value: "BREAK_CYCLE",
+                },
+                {
+                  text: "⚡ Structure and layout that match my needs and style",
+                  value: "IMPROVE_WELLNESS",
+                },
+              ],
+            },
+           
+            c9: {
+              type: "info",
+              contents: [
+                {
+                  type: "title",
+                  text: "🌸 Write for five minutes, bloom from within.",
+                },
+                {
+                  type: "testimonial",
+                },
+              ],
+            },
         ["email"]: {
           type: "free_text",
           title: "What’s the best email address for you?",
@@ -477,237 +541,6 @@ export const defaultOnboardingFlow: OnboardingFlow = {
           placeholder: "Please enter your email.",
         },
       },
-    },
-    
-   
-        {
-          step_definitions: {
-            ["selfcontrol_getbackontrack"]: {
-              type: "yes_no",
-              title:
-                "Do you struggle to commit to the goal you set at the beginning of the year?",
-              feedbacks: {
-                no: {
-                  type: "embedded",
-                  text: "🍃 That’s fantastic! We’ll focus on enriching your process to realize your commitment.",
-                },
-                yes: {
-                  type: "embedded",
-                  text: "🌟 No worries — you're not alone. We’ll help you continue with your commitment, and make a true difference.",
-                },
-              },
-              scoring: {
-                target_metric: Symptom.SelfControlChallenge,
-                mode: "1_5",
-                yes_high: true,
-              },
-            },
-            ["internalsigdysfunc_fulluntilsick"]: {
-              type: "scale",
-              preset: "frequency",
-              title:
-                "How often do you make your physical and emotional well-being a priority? 💆‍♀️",
-              scoring: {
-                target_metric: Symptom.InternalSignalDysfunction,
-                reverse: true,
-              },
-            },
-            ["internalsigdysfunc_feastfamine"]: {
-              type: "scale",
-              preset: "frequency",
-              title:
-                  "How often do you nurture your connections with family, friends, or loved ones? 👭",
-              scoring: {
-                target_metric: Impact.Productivity,
-                reverse: true,
-              },
-            },
-            ["internalsigdysfunc_grazeallday"]: {
-              type: "scale",
-              preset: "frequency",
-              title: "How often do you care for your dreams, passions, and ambitions? 🎯",
-              scoring: {
-                target_metric: Impact.Productivity,
-                reverse: true,
-              },
-            },
-            ["internalsigdysfunc_regulareat"]: {
-              type: "scale",
-              preset: "frequency",
-              title:
-                "How often do you dedicate time to your personal growth or self-discovery? 📖",
-              scoring: {
-                target_metric: Symptom.InternalSignalDysfunction,
-              },
-            },
-            ["selfcontrol_candistract"]: {
-              type: "scale",
-              preset: "intensity",
-              preamble_text: "Do you relate to the following statement?",
-              title:
-                "My thoughts, worries, and emotions build up without an outlet.",
-              min_label: "Not at all",
-              max_label: "Totally",
-              scoring: {
-                target_metric: Symptom.SelfControlChallenge,
-              },
-            },
-            ["internalsigdysfunc_eatpastcomfortablyfull"]: {
-              type: "scale",
-              preset: "intensity",
-              preamble_text: "Do you relate to the following statement?",
-              title:
-                "I go on with my life but often forget the daily joy and the gratitude.",
-              min_label: "Not at all",
-              max_label: "Totally",
-              scoring: {
-                target_metric: Symptom.InternalSignalDysfunction,
-              },
-            },
-            r3: {
-              type: "story",
-              panes: [
-                {
-                  title: "Think of Aster & Ink as a soft little companion.",
-                  body: "It’s here to help you organize your days with ease and reflect on your moments with love.",
-                  graphic_id: "r3_1",
-                },
-                {
-                  title: "Beautiful inside out.",
-                  body: "Your diary isn’t just pretty — it’s thoughtfully shaped by behavioral science and real data on habits, reflection, and emotional growth.",
-                  graphic_id: "r3_2",
-                },
-                {
-                  title: "From your first page to your fullest you.",
-                  body: "With thoughtful prompts and guided moments, this diary helps you make every single day count.",
-                  graphic_id: "r3_3",
-                },
-              ],
-            },
-          },
-          step_order: [
-            "selfcontrol_getbackontrack",
-            "internalsigdysfunc_fulluntilsick",
-            "internalsigdysfunc_feastfamine",
-            "internalsigdysfunc_grazeallday",
-            "internalsigdysfunc_regulareat",
-            "selfcontrol_candistract",
-            "internalsigdysfunc_eatpastcomfortablyfull",
-            "r3",
-          ],
-        },
-        {
-          step_definitions: {
-            ["emo_guilt"]: {
-              type: "scale",
-              preset: "frequency",
-              title:
-                "Do you find it difficult to keep track of your personal goals or progress?",
-              scoring: { target_metric: Symptom.EmotionalEating },
-            },
-            ["mental_harshestcritic"]: {
-              type: "yes_no",
-              title: "Does your work vs. private life feel balanced?",
-              feedbacks: {
-                no: {
-                  type: "embedded",
-                  title: "That’s totally understandable.",
-                  text: "That’s totally understandable. Aster & Ink can help you regain balance through thoughtful prompts and considerate supports in planning your days.",
-                },
-                yes: {
-                  type: "embedded",
-                  title: "That's beautiful!",
-                  text: "That's beautiful! Aster & Ink will be your best support so that you can stay in balance.",
-                },
-              },
-              scoring: {
-                target_metric: Impact.MentalHealth,
-                mode: "1_5",
-                yes_high: true,
-              },
-            },
-            ["relationship_selfconsciouseating"]: {
-              type: "yes_no",
-              title: "Do you feel your creativity could use a little more room to flourish?",
-              scoring: {
-                target_metric: Impact.Relationship,
-                mode: "1_5",
-                yes_high: true,
-              },
-            },
-            ["emo_eat2cope"]: {
-              type: "scale",
-              preset: "frequency",
-              title:
-                "Do you wish you had a better way to understand your habits or patterns?",
-              scoring: { target_metric: Symptom.EmotionalEating },
-            },
-            c1: {
-              type: "info",
-              contents: [
-                {
-                  type: "title",
-                  text: "Experience a diary tailored for you and turn 2026 into a year of soft, steady growth — without burnout or pressure.",
-                },
-                {
-                  type: "image",
-                  graphic_id: "c1",
-                },
-                {
-                  type: "text",
-                  text: "Turn everyday moments into tiny joys — one cozy entry at a time.",
-                },
-              ],
-            },
-            ["relationship_bodyconscious"]: {
-              type: "scale",
-              preset: "frequency",
-              title:
-                "Are you happy with your current habits and routines?",
-              scoring: {
-                target_metric: Impact.Relationship,
-              },
-            },
-            ["emo_specific_food"]: {
-              type: "scale",
-              preset: "frequency",
-              title:
-                "Would you like to live more intentionally?",
-              scoring: { target_metric: Symptom.EmotionalEating },
-            },
-            r4: {
-              type: "story",
-              panes: [
-                {
-                  title: "Don't be mistaken.",
-                  body: "Journaling isn't just writing — it’s a proven system for growing, healing, and understanding yourself.",
-                  graphic_id: "r4_1",
-                },
-                {
-                  title: "Understand the magic behind it.",
-                  body: "When you build a rhythm that’s customized for you, your days become clearer, calmer, and more meaningful.",
-                  graphic_id: "r4_2",
-                },
-                {
-                  title: "Make the most of your customized diary.",
-                  body: "We’ll create pages that guide you softly — helping you stay connected to your heart.",
-                  graphic_id: "r4_3",
-                },
-              ],
-            },
-          },
-          step_order: [
-            "emo_guilt",
-            "mental_harshestcritic",
-            "relationship_selfconsciouseating",
-            "emo_eat2cope",
-            "c1",
-            "relationship_bodyconscious",
-            "emo_specific_food",
-            "r4",
-          ],
-        },
-      ],
     },
     {
       title: "Examining your needs",
@@ -1029,89 +862,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       subsections: [
         {
           step_definitions: {
-                ["binge_goal"]: {
-              type: "multi_select",
-              title:
-                "When I think of why I want to keep a diary...",
-              help_text: "Choose as many as you like",
-              options: [
-                {
-                  text: "Express my thoughts and emotions freely without judgment or pressure.",
-                  value: "CONFIDENCE",
-                },
-                {
-                  text: "Understand myself better.",
-                  value: "EMOTIONAL_RESILIENCE",
-                },
-                {
-                  text: "Preserve my memories and life experiences",
-                  value: "HEALTHY_RELATIONSHIP_FOOD",
-                },
-                {
-                  text: "Reduce stress and calm my mind ",
-                  value: "MINDFULNESS",
-                },
-                {
-                  text: "Set my goal, plan my next step and track my daily progress",
-                  value: "BETTER_RELATIONSHIPS",
-                },
-              ],
-            },
-            ["current_need"]: {
-              type: "single_select",
-              title: "What excites you most about customized diary?",
-              help_text: "Choose the option that resonates the most.",
-              options: [
-                {
-                  text: "🌐 General look and feel that makes the diary as MY diary",
-                  value: "MANAGE_WEIGHT",
-                },
-                {
-                  text: "📱 Personalized prompts based on habits and values instead of blank space",
-                  value: "STOP_BINGE_EATING",
-                },
-                {
-                  text: "🕊️ Affirmation and guidance that makes me feel most comfortable and safe",
-                  value: "BREAK_CYCLE",
-                },
-                {
-                  text: "⚡ Structure and layout that match my needs and style",
-                  value: "IMPROVE_WELLNESS",
-                },
-              ],
-            },
-           ["selfimprovement_time"]: {
-              type: "single_select",
-              preamble_text:
-                "Let's see.",
-              title: "How much time per day can you spend on keeping the diary?",
-              options: [
-                {
-                  text: "5 mins",
-                  value: "5_MINUTES",
-                },
-                {
-                  text: "10 mins",
-                  value: "10_MINUTES",
-                },
-                {
-                  text: "15 mins+",
-                  value: "15_MINUTES_OR_MORE",
-                },
-              ],
-            },
-            c9: {
-              type: "info",
-              contents: [
-                {
-                  type: "title",
-                  text: "🌸 Write for five minutes, bloom from within.",
-                },
-                {
-                  type: "testimonial",
-                },
-              ],
-            },
+             
            
           },
           step_order: [
@@ -1120,23 +871,6 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             "selfimprovement_time",
             "c9"
           ],
-        },
-      ],
-    },
-    {
-      title: { branding: true },
-      subsections: [
-        {
-          step_definitions: {
-            email: {
-              type: "free_text",
-              title: "How can we contact you?",
-              help_text: "You’ll use this to get keep track of your account.",
-              format: "email",
-              placeholder: "Please enter your email.",
-            },
-          },
-          step_order: ["email"],
         },
       ],
     },
