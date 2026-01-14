@@ -16,22 +16,22 @@ export function TrialExplanation1({ onNext }: { onNext: () => void }) {
       <AppHeader>{{ branding: true }}</AppHeader>
       <TrialContents>
         <header>
-          <Emoji>{"✨"}</Emoji>
-          <H2>{"Adore your diary — or receive a full refund."}</H2>
+          <Emoji>{"🌿"}</Emoji>
+          <H2>{"Try this daily practice with peace of mind."}</H2>
         </header>
         <Highlight>
           {
-            "It may be hard to envision how a bespoke diary can transform your day — until you hold one."
+            "It’s hard to know what a small daily Scripture practice can change — until you experience it in real life."
           }
         </Highlight>
         <List>
           <ListItem>
             {
-              "Use your Aster & Ink diary for 30 days, and if it doesn’t bring more clarity, calm, or gentle growth, we’ll happily give you a full refund."
+              "Use your personalized daily practice for 30 days. If it doesn’t help God’s Word feel more present in your thoughts, responses, or daily life, we’ll happily offer a full refund."
             }
           </ListItem>
           <ListItem>
-            {"We’re confident you’ll notice the difference."}
+            {"We trust that even a few minutes a day can begin to shape something meaningful."}
           </ListItem>
         </List>
       </TrialContents>
