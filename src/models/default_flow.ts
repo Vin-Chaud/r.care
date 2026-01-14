@@ -5,41 +5,505 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   step_definitions: {},
   sections: [
     {
-      title: "intro",
+      title: "Preparing Your Path",
       subsections: [
         {
-          step_definitions: {
-            intro: {
-              type: "info",
-              contents: [
-                {
-                  type: "title",
-                  text: ["Let's start customizing a diary that feels truly yours."],
-                },
-                {
-                  type: "text",
-                  text: [
-                    "Step inside —",
-                    "discover what helps you grow deeper, softer, stronger.",
-                  ],
-                  variant: "subtle",
-                },
-                {
-                  type: "image",
-                  graphic_id: "intro",
-                  max_height: 260,
-                },
-                {
-                  type: "text",
-                  text: "",
-                  variant: "subtle",
-                },
-              ],
-            },
-          },
-          step_order: ["intro"],
+          step_order: [
+            "when_need_god",
+            "recall_freq",
+            "emotions_override",
+            "post_failure_response",
+            "options_tried",
+            "faith_practice",
+            "time_devote",
+            "desire_for_change",
+            "spiritual_intention",
+            "final_align",
+            
+          ],
         },
       ],
+      step_definitions: {
+    
+        ["when_need_god"]: {
+          type: "single_select",
+          title: "In everyday life, when do you most wish God’s Word guided your response?",
+            help_text: "This helps us focus on moments that matter most to you.",
+          options: [
+            {
+              value: "ANXIETY",
+              text: "When I feel anxious or overwhelmed",
+            },
+            {
+              value: "CONFLICT",
+              text: "During conflict or disagreement",
+            },
+            {
+              value: "MISTAKE",
+              text: "After I make mistakes or fall short",
+            },
+            {
+              value: "DECISION",
+              text: "When making important decisions",
+            },
+            {
+              value: "TEMPTATION",
+              text: "In moments of temptation or pressure",
+            },
+          ],
+        },
+          ["recall_freq"]: {
+          type: "single_select",
+          title: "In stressful moments, how often does Scripture come to mind before you react?",
+          options: [
+            {
+              value: "RARELY",
+              text: "Rarely",
+              feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "Wanting to live God’s Word is already a good sign.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "Many Christians know Scripture — but remembering it in emotional moments is hard. This isn’t about faithfulness. It’s about forming habits.",
+              ],
+            }
+                  ],
+              },
+            },
+            {
+              value: "SOMETIMES",
+              text: "Sometimes",
+            },
+            {
+              value: "OFTEN",
+              text: "Often",
+            },
+            {
+              value: "ALWAYS",
+              text: "Almost always",
+            },
+          ],
+        },
+        ["emotions_override"]: {
+          type: "yes_no",
+          title: "Do emotions sometimes override what you know to be true?",
+        },       
+        ["post_failure_response"]: {
+          type: "single_select",
+          title: "After you fall short, what do you usually experience first?",
+          options: [
+            {
+              value: "SHAME",
+              text: "Self-criticism or shame",
+              feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "God’s Word works best when it becomes instinct.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+            {
+              value: "DISTANCE",
+              text: "Distance from God",
+               feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "God’s Word works best when it becomes instinct.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+            {
+              value: "NEXTTIME",
+              text: "A desire to do better next time",
+               feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "God’s Word works best when it becomes instinct.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+            {
+              value: "GRACE",
+              text: "Grace and reassurance",
+               feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "God’s Word works best when it becomes instinct.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+          ],
+        },
+         ["options_tried"]: {
+          type: "multi_select",
+          title: "Where do you feel God is inviting you to give more spiritual attention right now?",
+           help_text: "We’ll use this to select relevant Bible verses.",
+          options: [
+            {
+              value: "RELATIONSHIP",
+              text: "Marriage or romantic relationships",
+            },
+             {
+              value: "FAMILY",
+              text: "Family or parenting",
+            },
+             {
+              value: "WORK",
+              text: "Career or work decisions",
+            },
+             {
+              value: "NUTRITIONIST",
+              text: "Friendships or community",
+            },
+             {
+              value: "MEDITATION",
+              text: "Personal growth and character",
+            },
+              {
+              value: "MEDITATION",
+              text: "Faith and spiritual discipline",
+            },
+             {
+              value: "OTHER",
+              text: "Other",
+            },
+      
+          ],
+        },
+         ["faith_practice"]: {
+          type: "single_select",
+          title: "Which best describes your current rhythm with Scripture?",
+          options: [
+            {
+              value: "REGULAR",
+              text: "I read or engage regularly",
+              feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "This isn’t about reading more verses.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+            {
+              value: "WANTCONSISTENT",
+              text: "I want to be more consistent",
+              feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "This isn’t about reading more verses.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+            {
+              value: "LISTENSCRIPTURE",
+              text: "I mostly hear Scripture through sermons or content",
+             feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "This isn’t about reading more verses.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+            {
+              value: "FIGURINGOUT",
+              text: "I’m still figuring out a rhythm",
+              feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "This isn’t about reading more verses.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+          ],
+        },
+        ["time_devote"]: {
+          type: "single_select",
+          title: "How much time could you realistically give to a daily Scripture practice?",
+          options: [
+            {
+              value: "TWO_THREE",
+              text: "2–3 minutes",
+            },
+            {
+              value: "FIVE",
+              text: "5 minutes",
+            },
+            {
+              value: "TEN",
+              text: "10 minutes",
+            },
+            {
+              value: "MORETHAN10",
+              text: "More than 10 minutes",
+            },
+          ],
+        },
+        ["desire_for_change"]: {
+          type: "yes_no",
+          title: "Would you like God’s Word to shape your reactions more naturally in daily life?",
+        },       
+        ["spiritual_intention"]: {
+          type: "single_select",
+          title: "What do you most hope this practice helps you grow in?",
+          options: [
+            {
+              value: "PEACE",
+              text: "Trust and peace",
+              feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "God’s Word works best when it becomes instinct.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+            {
+              value: "SELFCONTROL",
+              text: "Patience and self-control",
+               feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "God’s Word works best when it becomes instinct.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+            {
+              value: "CONFIDENCE",
+              text: "Confidence in God’s grace",
+               feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "God’s Word works best when it becomes instinct.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+            {
+              value: "WISDOM",
+              text: "Wisdom and discernment",
+               feedback: {
+                type: "full",
+                contents: [
+                   {
+                    type: "title",
+                    text: "God’s Word works best when it becomes instinct.",
+        
+                  },
+                   {
+              type: "text",
+              text: [
+                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
+              ],
+            },
+               {
+              type: "image",
+              graphic_id: "eat_out_of_control_testimonial",
+              max_height: "23vh",
+            }]
+           
+            },
+            },
+          ],
+        },
+        ["final_align"]: {
+          type: "single_select",
+          title: "Which statement feels closest to where you are right now?",
+          options: [
+            {
+              value: "DAILYGUIDE",
+              text: "I want God’s Word to guide my daily life more",
+            },
+            {
+              value: "LIVEDFAITH",
+              text: "I want faith to feel more practical and lived out",
+            },
+            {
+              value: "SPIRITUALHABIT",
+              text: "I want help forming better spiritual habits",
+            },
+            {
+              value: "CURIOUS",
+              text: "I’m exploring what this could look like",
+            },
+          ],
+        },    
+        ["email"]: {
+          type: "free_text",
+          title: "What’s the best email address for you?",
+          help_text: "You’ll use this to log back in later.",
+          format: "email",
+          placeholder: "Please enter your email.",
+        },
+      },
     },
     {
       title: "Profile",
@@ -847,7 +1311,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             email: {
               type: "free_text",
               title: "How can we contact you?",
-              help_text: "You’ll use this to get keep track of your order.",
+              help_text: "You’ll use this to get keep track of your account.",
               format: "email",
               placeholder: "Please enter your email.",
             },
@@ -857,18 +1321,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       ],
     },
   ],
-  landing_quiz_step: {
-    id: "age",
-    type: "single_select",
-    title: "Tap your age to craft your 2026 diary.",
-    help_text: "⌛ 4 min",
-    options: [
-      { value: "18_23", text: "18-23" },
-      { value: "23_29", text: "24-29" },
-      { value: "30_39", text: "30-39" },
-      { value: "40_OR_OLDER", text: "40+" },
-    ],
-  },
+
   popup_quiz_step: {
     id: "popup_quiz",
     type: "yes_no",
