@@ -21,8 +21,8 @@ export function CommunityTestimonials() {
     <ScrollablePageContentFrame background={Purples.PurpleF9}>
       <Layout>
         <header>
-          <HeaderB>{"Aster & Ink stories"}</HeaderB>
-          <p className="subtitle">{"Heartfelt stories from those who are finding clarity, peace, and joy through their journaling journey."}</p>
+          <HeaderB>{"Daily Scripture Coach stories"}</HeaderB>
+          <p className="subtitle">{"Heartfelt stories from people finding peace, wisdom, and direction through their daily Bible practice."}</p>
         </header>
         <TestimonialCarousel testimonials={testimonials} />
         {disclaimer && <Disclaimer>{disclaimer}</Disclaimer>}
