@@ -72,7 +72,7 @@ return (
     session.status === "open" &&
 session.expires_at - offsetInSeconds > Date.now() / 1000
 );
- }
+ 
 
 }
 
