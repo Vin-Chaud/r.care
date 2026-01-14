@@ -8,22 +8,22 @@ export function CallToAction() {
   return (
     <ScrollablePageContentFrame background={Greys.White}>
       <Layout>
-        <HeaderA>{"Reflect, Heal, and Grow 🌸"}</HeaderA>
+        <HeaderA>{"Live in  God’s Word, One Day at a Time 🤍"}</HeaderA>
         <TrialOfferLayout>
-          <TrialOfferHeader>{"Your personalized diary gently guides you:"}</TrialOfferHeader>
+          <TrialOfferHeader>{"This daily practice is designed to help you:"}</TrialOfferHeader>
           <CheckList fontSize={14}>
             <CheckItem>
               {
-                "💎 Personalized Layout :  A design tailored just for you."
+                "📖 Stay rooted in Scripture: Verses chosen to meet you in your current season."
               }
             </CheckItem>
             <CheckItem>
               {
-                "💬 Guided Prompts : Spark insight and reconnect with yourself."
+                "🕊 Recall truth under pressure: Gently practice bringing God’s Word to mind in everyday moments."
               }
             </CheckItem>
             <CheckItem>
-              {"🌟 Loving Affirmations : Nurture confidence and embrace meaningful growth."}</CheckItem>
+              {"🌱 Grow in Christ-like responses: Let Scripture quietly shape how you think, speak, and act."}</CheckItem>
           </CheckList>
          
         </TrialOfferLayout>
