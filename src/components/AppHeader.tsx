@@ -3,10 +3,7 @@ import { Fonts, Greys } from "@/design_components/design_system";
 import Image from "next/image";
 import styled from "styled-components";
 
-const LogoImage = styled(Image)`
- height: 100%;
- width: auto;
-;
+
 
 export function AppHeader({
   children,
@@ -34,7 +31,11 @@ export function AppHeader({
     </AppHeaderLayout>
   );
 }
-
+const LogoImage = styled(Image)`
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+`;
 const AppHeaderLayout = styled.div`
   display: flex;
   width: 100%;
