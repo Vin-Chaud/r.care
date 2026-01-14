@@ -18,10 +18,10 @@ import { createPortal } from "react-dom";
 import styled from "styled-components";
 
 const analysisTransitionTexts: readonly string[] = [
-  "Analyzing your preferences...",
-  "Analyzing your journaling patterns...",
-  "Analyzing your options...",
-  "Creating your personalized profile...",
+  "Reflecting on what you shared...",
+  "Considering where faith meets your daily life...",
+  "Shaping Scripture around your current season...",
+  "Preparing your personalized daily practice...",
 ];
 
 export function AnalysisTransition({
@@ -57,7 +57,7 @@ export function AnalysisTransition({
   return (
     <PageLayout background={Greys.White}>
       <AppHeader>{{ branding: true }}</AppHeader>
-      <Header>{"Analyzing your results..."}</Header>
+      <Header>{"Preparing Your Daily Practice..."}</Header>
       <ProgressList>
         {analysisTransitionTexts.map((itemText, itemIndex, itemArray) => (
           <AnalysisTransitionItem
