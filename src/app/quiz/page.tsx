@@ -3,7 +3,7 @@ import { getGraphicImageUrls } from "@/app/utils";
 import { config } from "@/config";
 import { defaultOnboardingFlow } from "@/models/default_flow";
 import { GraphicSection } from "@/models/OnboardingFlow/getGraphics";
-import { Cursor, resolveStep } from "@/models/OnboardingFlow/methods"
+import { Cursor } from "@/models/OnboardingFlow/methods";
 import { db } from "@/services/firebase";
 import { ReadonlySession } from "@/services/session";
 import { cookies } from "next/headers";
@@ -38,21 +38,13 @@ export default async function QuizServer() {
 
   const initialResponses: Readonly<Record<string, unknown>> =
     data?.quiz_data || {};
-   let initialCursor: Cursor = data?.quiz_cursor || {
+   const initialCursor: Cursor = data?.quiz_cursor || {
     currentSectionIndex: 0,
     currentSubsectionIndex: 0,
     currentStepIndex: 0,
   };
 
-   try {
-  resolveStep(flow, initialCursor);
- } catch {
- initialCursor = {
-   currentSectionIndex: 0,
-     currentSubsectionIndex: 0,
- currentStepIndex: 0,
- };
-  }
+ 
   const imageUrls = await getGraphicImageUrls(flow, GraphicSection.MainQuiz);
   return (
     <QuizClient
