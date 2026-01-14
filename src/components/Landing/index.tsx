@@ -43,7 +43,6 @@ export function Landing({ flow }: { flow: OnboardingFlow }) {
             dispatchGoogleTagEvent("quiz_started", { age: answer });
             dispatchCustomMetaEvent("QuizStarted", { age: answer });
             setIsLoading(true);
-            await saveQuizData({ [flow.landing_quiz_step.id]: answer }, null);
             router.push("/quiz");
           }}
         />
