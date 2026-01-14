@@ -115,11 +115,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+              ]
            
             },
             },
@@ -140,11 +136,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+             ]
            
             },
             },
@@ -165,11 +157,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+               ]
            
             },
             },
@@ -190,11 +178,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+             ]
            
             },
             },
@@ -257,11 +241,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+              ]
            
             },
             },
@@ -282,11 +262,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+               ]
            
             },
             },
@@ -307,11 +283,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+              ]
            
             },
             },
@@ -332,11 +304,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+              ]
            
             },
             },
@@ -389,11 +357,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+              
+                  ]
            
             },
             },
@@ -414,11 +379,8 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+               
+                ]
            
             },
             },
@@ -439,11 +401,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+               ]
            
             },
             },
@@ -464,11 +422,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
                 "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
               ],
             },
-               {
-              type: "image",
-              graphic_id: "eat_out_of_control_testimonial",
-              max_height: "23vh",
-            }]
+               ]
            
             },
             },
