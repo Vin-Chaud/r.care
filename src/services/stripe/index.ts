@@ -68,7 +68,11 @@ export async function isCheckoutSessionValid(
 ) {
   const stripe = new Stripe(stripeConfig.apiSecret);
   const session = await stripe.checkout.sessions.retrieve(sessionId);
-  return session.expires_at - offsetInSeconds > Date.now() / 1000;
+ return (
+  session.status === "open" &&
+  session.expires_at - offsetInSeconds > Date.now() / 1000
+ );
+
 }
 
 export async function invalidateSession(sessionId: string) {
