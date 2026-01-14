@@ -41,7 +41,7 @@ export function PurchasePortal({
           name={`purchase-${portalId}`}
           title={"Hardcover"}
           description={"25% Special offer"}
-          promo={"💖 Popular: Enjoy luxurious hardcover!"}
+          promo={"✨ Popular: Commit to a year of daily Scripture practice!"}
           pricePeriodInDays={365}
           value={SubscriptionType.Yearly}
           onChange={onChange}
@@ -143,10 +143,10 @@ function MoneyBack() {
         <Seal />
       </div>
       <div>
-        <h4>{"High-quality, acid-free paper"}</h4>
+        <h4>{"Thoughtfully designed daily practice"}</h4>
         <p>
           {
-            "Every detail — from the binding to the finishing — is designed to inspire your reflections."
+            "Every detail is intentionally crafted to help Scripture feel clear, accessible, and present in your everyday life."
           }
         </p>
       </div>
