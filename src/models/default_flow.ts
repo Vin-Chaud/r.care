@@ -641,20 +641,20 @@ export const defaultOnboardingFlow: OnboardingFlow = {
   ],
   faqs: [
     {
-      question: "What’s Aster & Ink all about?",
+      question: "What is Daily Scripture Coach all about?",
       answer:
-        "Aster & Ink is your beautifully crafted, fully personalized diary — a gentle space to reflect, dream, and express yourself. With the help of AI, every page feels like it was made just for you.",
+        "Daily Scripture Coach is a personalized daily practice designed to help God’s Word come to mind in real-life moments. Instead of simply reading verses, it helps you practice recalling Scripture and letting it guide your thoughts, responses, and decisions throughout the day.",
     },
     {
       question:
-        "How is Aster & Ink different from a traditional diary?",
+        "How is Daily Scripture Coach different from other Bible apps?",
       answer:
-        "Unlike ordinary diaries with the same generic pages for everyone, Aster & Ink is fully personalized just for you. Ready-made diaries can feel impersonal or even overwhelming, leaving you unsure of what to write. Aster & Ink is different — it adapts to you, offering guidance that matches your rhythm, mood, and aspirations, turning journaling into a joyful, meaningful ritual rather than a chore.",
+        "Many Bible apps focus on reading plans, devotionals, or inspirational content. Daily Scripture Coach focuses on something different: helping Scripture surface when you actually need it. It adapts to your life, priorities, and current season, training Scripture to become more instinctive and practical in everyday situations.",
     },
     {
-      question: "Will it help me actually stick with journaling?",
+      question: "Will this help me stay consistent?",
       answer: 
-        "Yes! The prompts and encouragements as well as tailored layouts make it effortless and delightful to write regularly.",
+        "Yes. The practice is intentionally simple and short, making it easier to return each day. By focusing on real-life moments rather than volume or pressure, Daily Scripture Coach helps consistency feel natural rather than forced.",
        
     },
   ],
