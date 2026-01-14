@@ -536,7 +536,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       },
     },
    {
-      title: { branding: true },
+      title: "Final Steps",
       subsections: [
         {
           step_definitions: {
