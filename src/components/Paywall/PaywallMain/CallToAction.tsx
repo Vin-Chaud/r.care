@@ -8,7 +8,7 @@ export function CallToAction() {
   return (
     <ScrollablePageContentFrame background={Greys.White}>
       <Layout>
-        <HeaderA>{"Live in  God’s Word, One Day at a Time 🤍"}</HeaderA>
+        <HeaderA>{"God’s Word, Everyday🤍"}</HeaderA>
         <TrialOfferLayout>
           <TrialOfferHeader>{"This daily practice is designed to help you:"}</TrialOfferHeader>
           <CheckList fontSize={14}>
