@@ -540,7 +540,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       subsections: [
         {
           step_definitions: {
-            email: {
+            ["email"]: {
               type: "free_text",
               title: "What’s the best email address for you?",
               help_text: "You’ll use this to log back in later.",
