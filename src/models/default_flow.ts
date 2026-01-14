@@ -19,7 +19,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             "desire_for_change",
             "spiritual_intention",
             "final_align",
-            
+            "email", 
           ],
         },
       ],
