@@ -13,12 +13,18 @@ export function AppHeader({
   onClickBack?: () => void;
 }) {
   return (
-    <AppHeaderLayout>
+  <AppHeaderLayout>
       {withBackButton && <BackButton onClick={() => onClickBack?.()} />}
       {typeof children === "string" ? (
         <Title>{children}</Title>
       ) : (
-        <RCareBrand height={14} />
+        <LogoImage
+          src="/daily_scripture_coach.png"
+          alt="coach"
+          width={3261}
+          height={945}
+          priority
+        />
       )}
     </AppHeaderLayout>
   );
