@@ -48,7 +48,6 @@ const InfoLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 100%;
 `;
 
@@ -64,6 +63,7 @@ const InfoContent = styled.div`
   justify-content: center;
   flex-grow: 1;
   width: 100%;
+  flex-shrink: 0;
 `;
 
 const InfoFooter = styled.footer`
