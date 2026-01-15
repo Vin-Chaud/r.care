@@ -21,7 +21,7 @@ export function InfoStep({ stepDefinition }: { stepDefinition: InfoScreen }) {
   "#1E1E1E" : "#E5DEFA")}>
         <InfoLayout style={style}>
           <InfoHeader>
-            {stepDefinition.variant == "dark" ? <RCareBrandLight height={14} /
+            {stepDefinition.variant == "dark" ? <RCareBrand height={14} /
   > : <RCareBrand height={14} />}
           </InfoHeader>
           <InfoContent style={content_style}>
