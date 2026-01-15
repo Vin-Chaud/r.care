@@ -10,6 +10,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         {
           step_order: [
             "when_need_god",
+            "i3",
             "recall_freq",
             "emotions_override",
             "post_failure_response",
@@ -24,6 +25,25 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         },
       ],
       step_definitions: {
+         ["i3"]: {
+          type: "info",
+          contents: [
+            {
+              type: "image",
+              graphic_id: "alreadygood",
+            },
+          ],
+          style: {
+            marginInline: "-26px",
+            backgroundColor: "#BEF63E"
+          },
+          footer_style: {
+            width: "unset",
+            alignSelf: "stretch",
+            paddingInline: "26px",
+            backgroundColor: "#90E320"
+          }
+        },
     
         ["when_need_god"]: {
           type: "single_select",
