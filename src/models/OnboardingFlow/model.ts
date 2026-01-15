@@ -187,7 +187,9 @@ export interface Content_Text {
 export interface Content_Image {
   type: "image";
   graphic_id: string;
-  max_height?: number;
+  max_height?: string;
+  full_screen?: boolean;
+  style?: any;
 }
 
 export interface Content_Title {
