@@ -128,10 +128,16 @@ export interface StoryPane {
   graphic_id: string;
 }
 
-export interface InfoScreen {
-  type: "info";
-  contents: readonly Content[];
-}
+ export interface InfoScreen {
+    type: "info";
+    variant?: "light" | "dark";
+    background?: string;
+    center?: boolean;
+    contents: readonly Content[];
+    style?: any;
+    content_style?: any;
+    footer_style?: any;
+  }
 
 export interface ResponseEcho {
   step_id: string;
