@@ -3,7 +3,9 @@ import {
   useOnboardingFlowImageUrls,
 } from "@/context/OnboardingFlowContext";
 import { Fonts, Greys } from "@/design_components/design_system";
-import { Content as ContentModel } from "@/models/OnboardingFlow/model";
+import { Content_Image,
+        Content as ContentModel, 
+       } from "@/models/OnboardingFlow/model";
 import styled from "styled-components";
 import { createRichText } from "./RichText";
 import { Fragment } from "react";
