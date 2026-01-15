@@ -62,10 +62,6 @@ hasFullSpaceImage,
         : Title;
       return <TitleComponent>{normalizeText(content.text)}</TitleComponent>;
     }
-    default: {
-      return null;
-    }
-  
     case "testimonial": {
       return (
         <Fragment>
