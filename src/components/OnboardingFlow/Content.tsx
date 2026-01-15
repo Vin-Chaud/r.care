@@ -65,7 +65,7 @@ hasFullSpaceImage,
     default: {
       return null;
     }
-  }
+  
     case "testimonial": {
       return (
         <Fragment>
