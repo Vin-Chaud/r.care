@@ -2,7 +2,7 @@ import {
   useOnboardingFlow,
   useOnboardingFlowImageUrls,
 } from "@/context/OnboardingFlowContext";
-import { Fonts, Greys } from "@/design_components/design_system";
+import { Fonts, Greys, Purples } from "@/design_components/design_system";
 import { Content_Image,
         Content as ContentModel, 
        } from "@/models/OnboardingFlow/model";
