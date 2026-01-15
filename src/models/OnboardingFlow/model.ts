@@ -181,7 +181,7 @@ export interface Content_Emoji {
 export interface Content_Text {
   type: "text";
   text: string | readonly string[];
-  variant?: "normal" | "subtle";
+  variant?: "normal" | "subtle" | "highlight";
 }
 
 export interface Content_Image {
