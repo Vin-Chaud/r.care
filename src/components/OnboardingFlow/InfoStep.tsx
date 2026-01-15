@@ -10,25 +10,37 @@ import { PageLayout } from "@/design_components/PageLayout";
 import { fadeIn } from "@/utils/style_partials";
 
 export function InfoStep({ stepDefinition }: { stepDefinition: InfoScreen }) {
-  const { next } = useContext(onboardingFlowContext);
-  return (
-    <PageLayout background={Purples.PurpleF5_Undocumented}>
-      <InfoLayout>
-        <InfoHeader>
-          <RCareBrand height={14} />
-        </InfoHeader>
-        <InfoContent>
-          {stepDefinition.contents.map((content, index) => (
-            <Content key={index} content={content} />
-          ))}
-        </InfoContent>
-        <InfoFooter>
-          <ForwardNavButton onClick={next} />
-        </InfoFooter>
-      </InfoLayout>
-    </PageLayout>
-  );
-}
+    const { next } = useContext(onboardingFlowContext);
+    const { background, style, content_style, footer_style } = stepDefinition;
+    const hasFullScreenImage = stepDefinition.contents.some(
+      (content) => content.type === "image" && content.full_screen
+    );
+
+    return (
+      <PageLayout background={background || (stepDefinition.variant == "dark" ?
+  "#1E1E1E" : "#E5DEFA")}>
+        <InfoLayout style={style}>
+          <InfoHeader>
+            {stepDefinition.variant == "dark" ? <RCareBrandLight height={14} /
+  > : <RCareBrand height={14} />}
+          </InfoHeader>
+          <InfoContent style={content_style}>
+            {stepDefinition.contents.map((content, index) => (
+              <Content
+                key={index}
+                content={content}
+                dark={stepDefinition.variant == "dark"}
+                hasFullSpaceImage={hasFullScreenImage}
+              />
+            ))}
+          </InfoContent>
+          <InfoFooter style={footer_style}>
+            <ForwardNavButton onClick={next} />
+          </InfoFooter>
+        </InfoLayout>
+      </PageLayout>
+    );
+  }
 
 const InfoLayout = styled.div`
   ${fadeIn}
