@@ -9,7 +9,15 @@ import { createRichText } from "./RichText";
 import { Fragment } from "react";
 import { Testimonial } from "@/components/Testimonial";
 
-export function Content({ content }: { content: ContentModel }) {
+export function Content({ 
+  content,
+dark,
+hasFullSpaceImage,
+}: { 
+  content: ContentModel;
+  dark?: boolean;
+  hasFullSpaceImage?: boolean;
+}) {
   const model = useOnboardingFlow();
 
   const testimonial = model.highlighted_testimonial;
@@ -20,22 +28,44 @@ export function Content({ content }: { content: ContentModel }) {
       return <Emoji>{content.emoji}</Emoji>;
     }
     case "image": {
-      return (
-        <img
-          src={imageUrls[content.graphic_id]}
-          style={{ maxHeight: content.max_height ?? 200, maxWidth: "100%" }}
-        />
-      );
+      return <Image {...content} />;
     }
     case "text": {
-      if (content.variant === "subtle") {
-        return <TextSubtle>{normalizeText(content.text)}</TextSubtle>;
+      if (content.variant === "highlight") {
+        const HighlightComponent = dark
+          ? hasFullSpaceImage
+            ? TextHighlightInFullScreenBackgroundContentDark
+            : TextHighlightDark
+          : hasFullSpaceImage
+          ? TextHighlightInFullScreenBackgroundContent
+          : TextHighlight;
+        return (
+          <HighlightComponent>{normalizeText(content.text)}</HighlightComponent>
+        );
       }
-      return <TextNormal>{normalizeText(content.text)}</TextNormal>;
+      const TextComponent = dark
+        ? hasFullSpaceImage
+          ? TextNormalInFullScreenBackgroundContentDark
+          : TextNormalDark
+        : hasFullSpaceImage
+        ? TextNormalInFullScreenBackgroundContent
+        : TextNormal;
+      return <TextComponent>{normalizeText(content.text)}</TextComponent>;
     }
     case "title": {
-      return <Title>{normalizeText(content.text)}</Title>;
+      const TitleComponent = dark
+        ? hasFullSpaceImage
+          ? TitleInFullScreenBackgroundContentDark
+          : TitleDark
+        : hasFullSpaceImage
+        ? TitleInFullScreenBackgroundContent
+        : Title;
+      return <TitleComponent>{normalizeText(content.text)}</TitleComponent>;
     }
+    default: {
+      return null;
+    }
+  }
     case "testimonial": {
       return (
         <Fragment>
