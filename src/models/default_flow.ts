@@ -32,23 +32,16 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       ],
       step_definitions: {
          ["i3"]: {
-          type: "info",
+           type: "info",
           contents: [
-            {
+        
+               {
               type: "image",
               graphic_id: "alreadygood",
+              max_height: "100vh",
             },
           ],
-          style: {
-            marginInline: "-26px",
-            backgroundColor: "#BEF63E"
-          },
-          footer_style: {
-            width: "unset",
-            alignSelf: "stretch",
-            paddingInline: "26px",
-            backgroundColor: "#90E320"
-          }
+         
         },
     
         ["when_need_god"]: {
