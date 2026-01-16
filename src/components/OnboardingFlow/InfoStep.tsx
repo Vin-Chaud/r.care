@@ -57,15 +57,13 @@ const InfoContent = styled.div`
   justify-content: center;
   flex-grow: 1;
   width: 100%;
+     padding-bottom: 120px;
+ z-index: 0;
 `;
 
 const InfoFooter = styled.footer`
   width: 100%;
   display: flex;
-   padding-bottom: 120px;
- z-index: 0;
-   `;
-
   justify-content: center;
 position: absolute;
   bottom: 30px;
