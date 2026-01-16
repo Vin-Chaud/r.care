@@ -1,6 +1,5 @@
 import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { RCareBrand } from "@/components/icons/RCareBrand";
-import { RCareBrand as RCareBrandLight } from "@/components/icons/RCareBrandLight";
 import { PageLayout } from "@/design_components/PageLayout";
 import { InfoScreen } from "@/models/OnboardingFlow/model";
 import { fadeIn } from "@/utils/style_partials";
