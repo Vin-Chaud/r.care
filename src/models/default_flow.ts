@@ -10,28 +10,30 @@ export const defaultOnboardingFlow: OnboardingFlow = {
         {
           step_order: [
             "when_need_god",
-            "i3",
+            "i1",
             "recall_freq",
             "emotions_override",
-            "i3",
-            "i3",
-            "i3",
-            "i3",
-            "i3",
-            "i3",
+            "i2",
             "post_failure_response",
             "options_tried",
             "faith_practice",
-            "time_devote",
+            "i3_1",
+            "i3_2",
+              "time_devote",
             "desire_for_change",
+            "i4",
             "spiritual_intention",
             "final_align",
+            "i5",
+            "email"
+          
+            
           
           ],
         },
       ],
       step_definitions: {
-         ["i3"]: {
+         ["i1"]: {
              type: "info",
           variant: "dark",
           background: "#212121",
@@ -46,7 +48,82 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             marginInline: "-26px",
           },
         },
-    
+        ["i2"]: {
+             type: "info",
+          variant: "dark",
+          background: "#212121",
+          contents: [
+            {
+              type: "image",
+              graphic_id: "godswords_instinct",
+            },
+          ],
+          content_style: {
+            width: "unset",
+            marginInline: "-26px",
+          },
+        },
+     ["i3_1"]: {
+             type: "info",
+          variant: "dark",
+          background: "#212121",
+          contents: [
+            {
+              type: "image",
+              graphic_id: "notjustreading",
+            },
+          ],
+          content_style: {
+            width: "unset",
+            marginInline: "-26px",
+          },
+        },
+
+       ["i3_2"]: {
+             type: "info",
+          variant: "dark",
+          background: "#212121",
+          contents: [
+            {
+              type: "image",
+              graphic_id: "trainwithcards",
+            },
+          ],
+          content_style: {
+            width: "unset",
+            marginInline: "-26px",
+          },
+        },
+         ["i4"]: {
+             type: "info",
+          variant: "dark",
+          background: "#212121",
+          contents: [
+            {
+              type: "image",
+              graphic_id: "livegodswords",
+            },
+          ],
+          content_style: {
+            width: "unset",
+            marginInline: "-26px",
+          },
+        },
+             ["i5"]: {
+             type: "info",
+          variant: "dark",
+          background: "#212121",
+          contents: [
+            {
+              type: "image",
+              graphic_id: "fivemintraining",
+            },
+          ],
+          content_style: {
+            width: "unset",
+            marginInline: "-26px",
+          },
+        },
         ["when_need_god"]: {
           type: "single_select",
           title: "In everyday life, when do you most wish God’s Word guided your response?",
@@ -81,22 +158,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             {
               value: "RARELY",
               text: "Rarely",
-              feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "Wanting to live God’s Word is already a good sign.",
         
-                  },
-                   {
-              type: "text",
-              text: [
-                "Many Christians know Scripture — but remembering it in emotional moments is hard. This isn’t about faithfulness. It’s about forming habits.",
-              ],
-            }
-                  ],
-              },
             },
             {
               value: "SOMETIMES",
@@ -259,86 +321,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             {
               value: "REGULAR",
               text: "I read or engage regularly",
-              feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "This isn’t about reading more verses.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
-              ],
-            },
-              ]
-           
-            },
+      
             },
             {
               value: "WANTCONSISTENT",
               text: "I want to be more consistent",
-              feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "This isn’t about reading more verses.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
-              ],
-            },
-               ]
-           
-            },
+              
             },
             {
               value: "LISTENSCRIPTURE",
               text: "I mostly hear Scripture through sermons or content",
-             feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "This isn’t about reading more verses.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
-              ],
-            },
-              ]
-           
-            },
+             
             },
             {
               value: "FIGURINGOUT",
               text: "I’m still figuring out a rhythm",
-              feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "This isn’t about reading more verses.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "It’s about remembering the right verse at the right moment — when real life puts pressure on your faith.",
-              ],
-            },
-              ]
-           
-            },
+              
             },
           ],
         },
@@ -482,97 +480,15 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             },
           ],
         },
-     
-            ["placeholder"]: {
-              type: "scale",
-              preset: "frequency",
-              title: "PLACEHOLDER",
-              scoring: {
-                target_metric: Symptom.SelfControlChallenge,
-              },
-            },
-           ["binge_goal"]: {
-              type: "multi_select",
-              title:
-                "When I think of why I want to keep a diary...",
-              help_text: "Choose as many as you like",
-              options: [
-                {
-                  text: "Express my thoughts and emotions freely without judgment or pressure.",
-                  value: "CONFIDENCE",
-                },
-                {
-                  text: "Understand myself better.",
-                  value: "EMOTIONAL_RESILIENCE",
-                },
-                {
-                  text: "Preserve my memories and life experiences",
-                  value: "HEALTHY_RELATIONSHIP_FOOD",
-                },
-                {
-                  text: "Reduce stress and calm my mind ",
-                  value: "MINDFULNESS",
-                },
-                {
-                  text: "Set my goal, plan my next step and track my daily progress",
-                  value: "BETTER_RELATIONSHIPS",
-                },
-              ],
-            },
-            ["current_need"]: {
-              type: "single_select",
-              title: "What excites you most about customized diary?",
-              help_text: "Choose the option that resonates the most.",
-              options: [
-                {
-                  text: "🌐 General look and feel that makes the diary as MY diary",
-                  value: "MANAGE_WEIGHT",
-                },
-                {
-                  text: "📱 Personalized prompts based on habits and values instead of blank space",
-                  value: "STOP_BINGE_EATING",
-                },
-                {
-                  text: "🕊️ Affirmation and guidance that makes me feel most comfortable and safe",
-                  value: "BREAK_CYCLE",
-                },
-                {
-                  text: "⚡ Structure and layout that match my needs and style",
-                  value: "IMPROVE_WELLNESS",
-                },
-              ],
-            },
-           
-            c9: {
-              type: "info",
-              contents: [
-                {
-                  type: "title",
-                  text: "🌸 Write for five minutes, bloom from within.",
-                },
-                {
-                  type: "testimonial",
-                },
-              ],
-            },
-      },
-    },
-   {
-      title: "Final Steps",
-      subsections: [
-        {
-          step_definitions: {
-            ["email"]: {
+        ["email"]: {
               type: "free_text",
               title: "What’s the best email address for you?",
               help_text: "You’ll use this to log back in later.",
               format: "email",
               placeholder: "Please enter your email.",
-            },
-          },
-          step_order: ["email"],
         },
-      ],
+          
+      },
     },
   
   ],
