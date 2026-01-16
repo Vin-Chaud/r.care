@@ -5,37 +5,64 @@ import styled, { css } from "styled-components";
 export function PageLayout({
   children,
   background,
+  fullScreenBackground,
+  fullScreenBreakpoint,
   scrollable,
 }: {
   children: ReactNode;
   background?: string;
+  fullScreenBackground?: string;
+  fullScreenBreakpoint?: number;
   scrollable?: boolean;
 }) {
   const Frame = scrollable ? ScrollablePageContentFrame : PageContentFrame;
   return (
-    <PageLayoutContainer background={background}>
+    <PageLayoutContainer
+      background={background}
+      fullScreenBackground={fullScreenBackground}
+      fullScreenBreakpoint={fullScreenBreakpoint}
+    >
       <Frame>{children}</Frame>
     </PageLayoutContainer>
   );
 }
 
 export const PageLayoutContainer = styled.div.withConfig({
-  shouldForwardProp: (prop) => prop !== "background",
-})<{ background?: string }>`
+  shouldForwardProp: (prop) =>
+    prop !== "background" &&
+    prop !== "fullScreenBackground" &&
+    prop !== "fullScreenBreakpoint",
+})<{
+  background?: string;
+  fullScreenBackground?: string;
+  fullScreenBreakpoint?: number;
+}>`
   height: 100%;
   background: ${(props) => props.background ?? Purples.PurpleF5_Undocumented};
+  background-size: cover;
+  background-position: center;
+
+  ${(props) =>
+    props.fullScreenBackground &&
+    props.fullScreenBreakpoint &&
+    css`
+      @media (min-width: ${props.fullScreenBreakpoint}px) {
+        background: ${props.fullScreenBackground};
+      }
+    `}
   padding-inline: 26px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
 `;
 
 export const pageWidthStyles = css`
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 480px;
   box-sizing: border-box;
 `;
 
