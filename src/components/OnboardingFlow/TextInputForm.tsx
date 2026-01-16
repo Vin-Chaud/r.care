@@ -2,7 +2,7 @@ import { ForwardNavButton } from "@/components/ForwardNavButton";
 import { Fonts, Greys, Reds } from "@/design_components/design_system";
 import { Failure, Result, Success } from "@/utils/Result";
 import { fadeIn } from "@/utils/style_partials";
-import { ComponentProps, useEffect, useRef, useState } from "react";
+import { ComponentProps, useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { SubmitAnswerAction } from "./createQuestionContainer";
 import { AnswerValue } from "./types";
@@ -49,24 +49,35 @@ export function TextInputForm<A extends AnswerValue>({
 
   useEffect(() => {
     inputRef.current?.focus();
+     const scrollLockRef = useRef<number | null>(null);
+     const lockScrollPosition = useCallback(() => {
+           if (scrollLockRef.current == null) {
+                  scrollLockRef.current = window.scrollY;
+           }
   }, []);
 
-  const scrollLockRef = useRef<number | null>(null);
- useEffect(() => {
-   if (hasAnswered && scrollLockRef.current !== null) {
-     window.scrollTo(0, scrollLockRef.current);
+const restoreScrollPosition = useCallback(() => {
+  if (scrollLockRef.current != null) {
+    window.scrollTo(0, scrollLockRef.current);
       scrollLockRef.current = null;
     }
-  }, [hasAnswered]);
+}, []);
+useEffect(() => {
+ lockScrollPosition();
+  inputRef.current?.focus();
+ }, [lockScrollPosition]);
 
  useEffect(() => {
-  return () => {
-   if (scrollLockRef.current !== null) {
-        window.scrollTo(0, scrollLockRef.current);
-      scrollLockRef.current = null;
+  if (hasAnswered) {
+    restoreScrollPosition();
    }
+  }, [hasAnswered, restoreScrollPosition]);
+ useEffect(() => {
+  return () => {
+   restoreScrollPosition();
+ 
     };
- }, []);
+   }, [restoreScrollPosition]);
   return (
     <Form
       onSubmit={(ev) => {
@@ -87,16 +98,10 @@ export function TextInputForm<A extends AnswerValue>({
           onChange={(ev) => {
             setInputValue(ev.target.value);
           }}
-          onFocus={() => {
-            scrollLockRef.current = window.scrollY;
-          }}
-          onBlur={() => {
-            // Safari LOVES making decisions for you
-            if (scrollLockRef.current !== null) {
-              window.scrollTo(0, scrollLockRef.current);
-              scrollLockRef.current = null;
-            }
-          }}
+          onPointerDown={lockScrollPosition}
+      onTouchStart={lockScrollPosition}
+      onFocus={lockScrollPosition}
+     onBlur={restoreScrollPosition}
           disabled={hasAnswered}
           ref={inputRef}
         />
