@@ -55,7 +55,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
           contents: [
             {
               type: "image",
-              graphic_id: "godswords_instinct",
+              graphic_id: "godswords_instinct2",
             },
           ],
           content_style: {
@@ -86,7 +86,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
           contents: [
             {
               type: "image",
-              graphic_id: "trainwithcards",
+              graphic_id: "trainwithcards2",
             },
           ],
           content_style: {
@@ -116,7 +116,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
           contents: [
             {
               type: "image",
-              graphic_id: "fivemintraining",
+              graphic_id: "fivemintraining2",
             },
           ],
           content_style: {
@@ -367,7 +367,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
     id: "popup_quiz",
     type: "yes_no",
     title:
-      "Have you ever wished you could remember the right Bible verse right when you needed it?",
+      "Would you like God’s Word to guide you more in daily life?",
   },
   reaction_step_id: "reaction",
   email_step_id: "email",
