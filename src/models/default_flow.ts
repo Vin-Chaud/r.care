@@ -32,16 +32,19 @@ export const defaultOnboardingFlow: OnboardingFlow = {
       ],
       step_definitions: {
          ["i3"]: {
-           type: "info",
+             type: "info",
+          variant: "dark",
+          background: "#212121",
           contents: [
-        
-               {
+            {
               type: "image",
               graphic_id: "alreadygood",
-              max_height: "100vh",
             },
           ],
-         
+          content_style: {
+            width: "unset",
+            marginInline: "-26px",
+          },
         },
     
         ["when_need_god"]: {
