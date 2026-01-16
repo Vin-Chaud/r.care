@@ -37,11 +37,12 @@ export function InfoStep({ stepDefinition }: { stepDefinition: InfoScreen }) {
 
 const InfoLayout = styled.div`
   ${fadeIn}
-
+ position: relative;
+ min-height: 100%;
+ width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  height: 100%;
+
 `;
 
 const InfoHeader = styled.header`
@@ -61,5 +62,14 @@ const InfoContent = styled.div`
 const InfoFooter = styled.footer`
   width: 100%;
   display: flex;
+   padding-bottom: 120px;
+ z-index: 0;
+   `;
+
   justify-content: center;
+position: absolute;
+  bottom: 30px;
+left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 `;
