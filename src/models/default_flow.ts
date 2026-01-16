@@ -195,86 +195,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             {
               value: "SHAME",
               text: "Self-criticism or shame",
-              feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "God’s Word works best when it becomes instinct.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
-              ],
-            },
-              ]
-           
-            },
+              
             },
             {
               value: "DISTANCE",
               text: "Distance from God",
-               feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "God’s Word works best when it becomes instinct.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
-              ],
-            },
-             ]
-           
-            },
+               
             },
             {
               value: "NEXTTIME",
               text: "A desire to do better next time",
-               feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "God’s Word works best when it becomes instinct.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
-              ],
-            },
-               ]
-           
-            },
+              
             },
             {
               value: "GRACE",
               text: "Grace and reassurance",
-               feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "God’s Word works best when it becomes instinct.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
-              ],
-            },
-             ]
-           
-            },
+              
             },
           ],
         },
@@ -373,88 +309,22 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             {
               value: "PEACE",
               text: "Trust and peace",
-              feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "God’s Word works best when it becomes instinct.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
-              ],
-            },
-              
-                  ]
            
-            },
             },
             {
               value: "SELFCONTROL",
               text: "Patience and self-control",
-               feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "God’s Word works best when it becomes instinct.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
-              ],
-            },
-               
-                ]
-           
-            },
+              
             },
             {
               value: "CONFIDENCE",
               text: "Confidence in God’s grace",
-               feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "God’s Word works best when it becomes instinct.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
-              ],
-            },
-               ]
-           
-            },
+               
             },
             {
               value: "WISDOM",
               text: "Wisdom and discernment",
-               feedback: {
-                type: "full",
-                contents: [
-                   {
-                    type: "title",
-                    text: "God’s Word works best when it becomes instinct.",
-        
-                  },
-                   {
-              type: "text",
-              text: [
-                "Just like language or habits, Scripture can be practiced until it flows naturally into your thoughts, words, and actions.",
-              ],
-            },
-               ]
-           
-            },
+               
             },
           ],
         },
