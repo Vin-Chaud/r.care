@@ -1,35 +1,37 @@
 import { ForwardNavButton } from "@/components/ForwardNavButton";
+import { RCareBrand } from "@/components/icons/RCareBrand";
+import { RCareBrand as RCareBrandLight } from "@/components/icons/RCareBrandLight";
+import { PageLayout } from "@/design_components/PageLayout";
 import { InfoScreen } from "@/models/OnboardingFlow/model";
+import { fadeIn } from "@/utils/style_partials";
 import { useContext } from "react";
+import styled from "styled-components";
 import { Content } from "./Content";
 import { onboardingFlowContext } from "./onboardingFlowContext";
-import styled from "styled-components";
-import { Purples } from "@/design_components/design_system";
-import { RCareBrand } from "@/components/icons/RCareBrand";
-import { PageLayout } from "@/design_components/PageLayout";
-import { fadeIn } from "@/utils/style_partials";
 
 export function InfoStep({ stepDefinition }: { stepDefinition: InfoScreen }) {
- const { next } = useContext(onboardingFlowContext);
+  const { next } = useContext(onboardingFlowContext);
+  const { background, style, content_style, footer_style } = stepDefinition;
   const hasFullScreenImage = stepDefinition.contents.some(
     (content) => content.type === "image" && content.full_screen
   );
   return (
-    <PageLayout background={"#E5DEFA"}>
-      <InfoLayout>
+    <PageLayout background={background || (stepDefinition.variant == "dark" ? "#1E1E1E" : "#E5DEFA")}>
+      <InfoLayout style={style}>
         <InfoHeader>
-          <RCareBrand height={14} />
+          {stepDefinition.variant == "dark" ? <RCareBrandLight height={14} /> : <RCareBrand height={14} />}
         </InfoHeader>
-        <InfoContent>
+        <InfoContent style={content_style}>
           {stepDefinition.contents.map((content, index) => (
             <Content
               key={index}
               content={content}
+              dark={stepDefinition.variant == "dark"}
               hasFullSpaceImage={hasFullScreenImage}
             />
           ))}
         </InfoContent>
-        <InfoFooter>
+        <InfoFooter style={footer_style}>
           <ForwardNavButton onClick={next} />
         </InfoFooter>
       </InfoLayout>
@@ -37,18 +39,13 @@ export function InfoStep({ stepDefinition }: { stepDefinition: InfoScreen }) {
   );
 }
 
-
-
 const InfoLayout = styled.div`
   ${fadeIn}
 
-   min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-    padding-block: 32px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 `;
 
 const InfoHeader = styled.header`
@@ -61,16 +58,12 @@ const InfoContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1 1 auto;
-    width: 100%;
-    text-align: center;
-    gap: 12px;
+  flex-grow: 1;
+  width: 100%;
 `;
 
 const InfoFooter = styled.footer`
   width: 100%;
   display: flex;
   justify-content: center;
-   flex-shrink: 0;
-    margin-top: 24px;
 `;
