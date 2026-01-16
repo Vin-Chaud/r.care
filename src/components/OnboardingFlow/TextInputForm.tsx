@@ -51,12 +51,18 @@ export function TextInputForm<A extends AnswerValue>({
     inputRef.current?.focus();
      const scrollLockRef = useRef<number | null>(null);
      const lockScrollPosition = useCallback(() => {
+        if (typeof window === "undefined") {
+    return;
+   }
            if (scrollLockRef.current == null) {
                   scrollLockRef.current = window.scrollY;
            }
   }, []);
 
 const restoreScrollPosition = useCallback(() => {
+   if (typeof window === "undefined") {
+     return;
+  }
   if (scrollLockRef.current != null) {
     window.scrollTo(0, scrollLockRef.current);
       scrollLockRef.current = null;
