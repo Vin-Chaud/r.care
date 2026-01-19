@@ -116,7 +116,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
           contents: [
             {
               type: "image",
-              graphic_id: "fivemintraining2",
+              graphic_id: "fivemintraining3",
             },
           ],
           content_style: {
