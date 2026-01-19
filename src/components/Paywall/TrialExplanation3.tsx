@@ -16,13 +16,13 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
       <TrialContents>
         <header>
           <Emoji>{"🕊️"}</Emoji>
-          <H2>{"How your daily practice comes together"}</H2>
+          <H2>{"How it comes together:"}</H2>
         </header>
         <Timeline
           items={[
             {
               header: "Share a Few Reflections",
-              content: "You’ve taken the first step toward making Scripture more present in daily life.",
+              content: "You’ve taken the first step - great job!",
               icon: "check",
             },
             {
@@ -39,7 +39,7 @@ export function TrialExplanation3({ onNext }: { onNext: () => void }) {
             },
             {
               header: "Continue with Confidence",
-              content: "Try it for 30 days. If it doesn’t feel helpful or meaningful, you can request a full refund.",
+              content: "Try for 30 days. Full refund if not helpful.",
               icon: "lock",
             },
           ]}
