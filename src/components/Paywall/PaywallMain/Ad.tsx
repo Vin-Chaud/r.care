@@ -8,7 +8,7 @@ export function Ad({}: {}) {
     <ScrollablePageContentFrame background={Greys.White}>
       <Layout>
         <header>
-          <HeaderA>{"Build a Daily Scripture Practice 📖"}</HeaderA>
+          <HeaderA>{"Your Daily Practice 📖"}</HeaderA>
           <Subheader>{"Daily Scripture Coach includes:"}</Subheader>
         </header>
         <OfferList>
