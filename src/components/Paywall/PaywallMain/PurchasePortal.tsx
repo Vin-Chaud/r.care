@@ -25,7 +25,7 @@ export function PurchasePortal({
   onChange(value: SubscriptionType): void;
 }) {
    const ctaLabel =
- value === SubscriptionType.Yearly ? "Start my free trial" : "Start";
+ value === SubscriptionType.Yearly ? "Start my $1 trial" : "Start";
   return (
     <ScrollablePageContentFrame background={"#FFF5EB"}>
       <Layout
@@ -43,7 +43,7 @@ export function PurchasePortal({
           name={`purchase-${portalId}`}
           title={"1 Year"}
           description={"25% Special offer"}
-          promo={"✨ Start with a 7-day Free trial!"}
+          promo={"✨ Start with a 7-day trial for just $1!"}
           pricePeriodInDays={365}
           value={SubscriptionType.Yearly}
           onChange={onChange}
