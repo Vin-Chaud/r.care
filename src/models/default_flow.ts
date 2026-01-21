@@ -130,7 +130,7 @@ export const defaultOnboardingFlow: OnboardingFlow = {
             help_text: "This helps us focus on moments that matter most to you.",
           options: [
             {
-              value: "ANXIETY",
+              value: "ANXIETY2",
               text: "When I feel anxious or overwhelmed",
             },
             {
