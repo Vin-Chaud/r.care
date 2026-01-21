@@ -41,7 +41,7 @@ export function PurchasePortal({
           name={`purchase-${portalId}`}
           title={"1 Year"}
           description={"25% Special offer"}
-          promo={"✨ Popular: Commit to a year of daily practice!"}
+          promo={"✨ Start with a 7-day Free trial!"}
           pricePeriodInDays={365}
           value={SubscriptionType.Yearly}
           onChange={onChange}
