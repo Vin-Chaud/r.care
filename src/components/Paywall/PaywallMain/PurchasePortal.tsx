@@ -24,6 +24,8 @@ export function PurchasePortal({
   value: SubscriptionType;
   onChange(value: SubscriptionType): void;
 }) {
+   const ctaLabel =
+ value === SubscriptionType.Yearly ? "Start my free trial" : "Start";
   return (
     <ScrollablePageContentFrame background={"#FFF5EB"}>
       <Layout
@@ -58,7 +60,7 @@ export function PurchasePortal({
           value={SubscriptionType.Quarterly}
           onChange={onChange}
         />
-        <ForwardNavButton type="submit">{"Start"}</ForwardNavButton>
+        <ForwardNavButton type="submit">{ctaLabel}</ForwardNavButton>
         <MoneyBack />
       </Layout>
     </ScrollablePageContentFrame>
